@@ -28,6 +28,7 @@ Route::group(
         */
 
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'frontend.home.index']);
+        Route::get('/contact', ['uses' => 'HomeController@contact', 'as' => 'frontend.home.contact']);
         Route::get('test',function(){
             return View::make('test');
         });

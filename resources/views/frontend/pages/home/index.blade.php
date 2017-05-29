@@ -195,6 +195,7 @@
             </div>
         </div>
     </header>
+
     <div class="site wrapper-content">
         <div class="home-content" role="main">
             <div class="top_site_main">
@@ -1162,7 +1163,6 @@
 </div>
 
 <script type='text/javascript' src=' {{ URL::asset('assets/js/jquery-3.2.1.min.js') }}'></script>
-
 <script type='text/javascript' src=' {{ URL::asset('assets/js/bootstrap.min.js') }}'></script>
 <script type='text/javascript' src=' {{ URL::asset('assets/js/vendors.js') }}'></script>
 <script type='text/javascript' src=' {{ URL::asset('assets/js/owl.carousel.min.js') }}'></script>
