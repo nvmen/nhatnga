@@ -131,14 +131,14 @@
                     </li>
                     <li><a href="destinations.html">{{__('nhatnga_menu.about')}}</a></li>
                     <li class="menu-item-has-children">
-                        <a href="tours.html">Tours</a>
+                        <a href="#">Tours</a>
                         <ul class="sub-menu">
-                            <li><a href="single-tour.html">{{__('nhatnga_menu.international_tour')}}</a></li>
-                            <li><a href="single-tour.html">{{__('nhatnga_menu.domestic_tour')}}</a>
+                            <li><a href="{{route('frontend.tour.international')}}">{{__('nhatnga_menu.international_tour')}}</a></li>
+                            <li><a href="{{route('frontend.tour.domestic')}}">{{__('nhatnga_menu.domestic_tour')}}</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">{{__('nhatnga_menu.long_travel')}}</a></li>
-                                    <li><a href="#">{{__('nhatnga_menu.short_travel')}}</a></li>
-                                    <li><a href="#">{{__('nhatnga_menu.food_travel')}}</a></li>
+                                    <li><a href="{{route('frontend.tour.domestic.longtour')}}">{{__('nhatnga_menu.long_travel')}}</a></li>
+                                    <li><a href="{{route('frontend.tour.domestic.shorttour')}}">{{__('nhatnga_menu.short_travel')}}</a></li>
+                                    <li><a href="{{route('frontend.tour.domestic.foodtour')}}">{{__('nhatnga_menu.food_travel')}}</a></li>
 
                                 </ul>
                             </li>

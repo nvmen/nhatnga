@@ -39,4 +39,12 @@ class HomeController extends Controller
         }
         return view('frontend.pages.home.services');
     }
+    public function about(Request $request)
+    {
+        if (App::getLocale() == 'en')
+        {
+            //   echo "It's English!";
+        }
+        return view('frontend.pages.home.services');
+    }
 }
