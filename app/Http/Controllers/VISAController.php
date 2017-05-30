@@ -43,4 +43,13 @@ class VISAController extends Controller
     {
         return view('frontend.pages.visa.australia');
     }
+    public function vietnam(Request $request)
+    {
+        return view('frontend.pages.visa.vietnam');
+    }
+    public function detail($visa_url)
+    {
+        return view('frontend.pages.visa.detail');
+    }
+    
 }

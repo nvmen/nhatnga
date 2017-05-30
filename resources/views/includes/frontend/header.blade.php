@@ -18,28 +18,30 @@
                     <aside id="text-7" class="widget widget_text">
                         <div class="textwidget">
                             <ul class="top_bar_info clearfix">
-                                <li><i class="fa fa-phone"></i>  +84 650 6544 999</li>
+                                <li><i class="fa fa-phone"></i> +84 650 6544 999</li>
                                 <li class="hidden-info">
                                     <i class="fa fa-map-marker"></i> {{__('nhatnga.address')}}
                                 </li>
                             </ul>
                         </div>
                     </aside>
-					<aside id="text-7" class="widget widget_text">
+                    <aside id="text-7" class="widget widget_text">
                         <div class="textwidget">
                             <ul class="top_bar_info clearfix">
-                                <li> <a> <img src="{{ URL::asset('images/flag/vi.png') }}" alt="Logo" width="18" height="12"
-                         class="logo_transparent_static"> Tieng Viet  </a></li>
+                                <li><a> <img src="{{ URL::asset('images/flag/vi.png') }}" alt="Logo" width="18"
+                                             height="12"
+                                             class="logo_transparent_static"> Tiếng việt </a></li>
                                 <li class="hidden-info">
-								<a>
-                                    <img src="{{ URL::asset('images/flag/en.png') }}" alt="Logo" width="18" height="12"
-                         class="logo_transparent_static"> English
-						 </a>
+                                    <a>
+                                        <img src="{{ URL::asset('images/flag/en.png') }}" alt="Logo" width="18"
+                                             height="12"
+                                             class="logo_transparent_static"> English
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </aside>
-					<!--
+                    <!--
                     <aside id="travel_login_register_from-2" class="widget widget_login_form">
                         <span class="show_from login"><i class="fa fa-user"></i>Login</span>
 
@@ -104,7 +106,7 @@
                         </div>
                         <div class="background-overlay"></div>
                     </aside>
-					-->
+                    -->
                 </div>
             </div>
         </div>
@@ -117,7 +119,7 @@
                 <span class="icon-bar"></span>
             </div>
             <div class="width-logo sm-logo">
-                <a href="index.htm" title="Travel" rel="home">
+                <a href="{{route('frontend.home.index')}}" title="Travel" rel="home">
                     <img src="{{ URL::asset('images/logo_sticky.png') }}" alt="Logo" width="474" height="130"
                          class="logo_transparent_static">
                     <img src="{{ URL::asset('images/logo_sticky.png') }}" alt="Sticky logo" width="474" height="130"
@@ -127,18 +129,26 @@
             <nav class="width-navigation">
                 <ul class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
                     <li class="current-menu-ancestor current-menu-parent">
-                        <a href="index.html">{{@__('nhatnga_menu.home')}}</a>
+                        <a href="{{route('frontend.home.index')}}">{{@__('nhatnga_menu.home')}}</a>
                     </li>
-                    <li><a href="destinations.html">{{__('nhatnga_menu.about')}}</a></li>
+                    <li><a href="{{route('frontend.home.about')}}">{{__('nhatnga_menu.about')}}</a></li>
                     <li class="menu-item-has-children">
-                        <a href="#">Tours</a>
+                        <a href="javascript:void(0)">Tours</a>
                         <ul class="sub-menu">
-                            <li><a href="{{route('frontend.tour.international')}}">{{__('nhatnga_menu.international_tour')}}</a></li>
+                            <li>
+                                <a href="{{route('frontend.tour.international')}}">{{__('nhatnga_menu.international_tour')}}</a>
+                            </li>
                             <li><a href="{{route('frontend.tour.domestic')}}">{{__('nhatnga_menu.domestic_tour')}}</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{route('frontend.tour.domestic.longtour')}}">{{__('nhatnga_menu.long_travel')}}</a></li>
-                                    <li><a href="{{route('frontend.tour.domestic.shorttour')}}">{{__('nhatnga_menu.short_travel')}}</a></li>
-                                    <li><a href="{{route('frontend.tour.domestic.foodtour')}}">{{__('nhatnga_menu.food_travel')}}</a></li>
+                                    <li>
+                                        <a href="{{route('frontend.tour.domestic.longtour')}}">{{__('nhatnga_menu.long_travel')}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('frontend.tour.domestic.shorttour')}}">{{__('nhatnga_menu.short_travel')}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('frontend.tour.domestic.foodtour')}}">{{__('nhatnga_menu.food_travel')}}</a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -147,23 +157,33 @@
                     </li>
 
                     <li class="menu-item-has-children">
-                        <a href="index.htm#">{{__('nhatnga_menu.services')}}</a>
+                        <a href="javascript:void(0)">{{__('nhatnga_menu.services')}}</a>
                         <ul class="sub-menu">
-                            <li><a href="#">VISA</a>
+                            <li><a href="javascript:void(0)">VISA</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">VISA Chau A</a></li>
-                                    <li><a href="#">VISA Chau Au</a></li>
-                                    <li><a href="#">VISA Chau My</a></li>
-                                    <li><a href="#">VISA Chau Uc</a></li>
-                                    <li><a href="#">VISA Chau Phi</a></li>
+                                    <li><a href="{{route('frontend.visa.asia')}}">{{__('nhatnga_menu.visa_asia')}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('frontend.visa.europe')}}">{{__('nhatnga_menu.visa_europe')}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('frontend.visa.america')}}">{{__('nhatnga_menu.visa_america')}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('frontend.visa.australia')}}">{{__('nhatnga_menu.visa_australia')}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('frontend.visa.africa')}}">{{__('nhatnga_menu.visa_africa')}}</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a href="#">VISA Viet Nam</a></li>
-                            <li><a href="#">Dich Thuat</a></li>
-                            <li><a href="#">Thẻ doanh nhân APEC (ABTC)</a></li>
-                            <li><a href="#">Giấy phép lao động, thẻ tạm trú</a></li>
-                            <li><a href="#">Vé máy bay</a></li>
-                            <li><a href="#">Các dịch vụ khác</a></li>
+                            <li><a href="{{route('frontend.visa.vietnam')}}">{{__('nhatnga_menu.visa_vietnam')}}</a></li>
+                            <li><a href="{{route('frontend.services.translation')}}">{{__('nhatnga_menu.services_translation')}}</a></li>
+                            <li><a href="{{route('frontend.services.apeccard')}}">{{__('nhatnga_menu.services_apeccard')}}</a></li>
+                            <li><a href="{{route('frontend.services.workpermit')}}">{{__('nhatnga_menu.services_workpermit')}}</a>
+                            </li>
+                            <li><a href="{{route('frontend.services.airlineticket')}}">{{__('nhatnga_menu.services_airlineticket')}}</a></li>
+                            <li><a href="{{route('frontend.services.others')}}">{{__('nhatnga_menu.services_others')}}</a></li>
                         </ul>
                     </li>
                     <li><a href="#">{{@__('nhatnga_menu.contact')}}</a></li>

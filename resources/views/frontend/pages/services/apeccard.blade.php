@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: tma
- * Date: 5/30/2017
- * Time: 1:32 PM
- */
+@extends('layouts.frontend')
+@section('pageTitle', 'Services')
+@section('content')
+    <p>Code here</p>
+@stop
