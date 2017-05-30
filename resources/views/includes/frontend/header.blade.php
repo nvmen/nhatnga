@@ -20,11 +20,26 @@
                             <ul class="top_bar_info clearfix">
                                 <li><i class="fa fa-phone"></i>  +84 650 6544 999</li>
                                 <li class="hidden-info">
-                                    <i class="fa fa-map-marker"></i> 1010 Moon ave, New York, NY US
+                                    <i class="fa fa-map-marker"></i> {{__('nhatnga.address')}}
                                 </li>
                             </ul>
                         </div>
                     </aside>
+					<aside id="text-7" class="widget widget_text">
+                        <div class="textwidget">
+                            <ul class="top_bar_info clearfix">
+                                <li> <a> <img src="{{ URL::asset('images/flag/vi.png') }}" alt="Logo" width="18" height="12"
+                         class="logo_transparent_static"> Tieng Viet  </a></li>
+                                <li class="hidden-info">
+								<a>
+                                    <img src="{{ URL::asset('images/flag/en.png') }}" alt="Logo" width="18" height="12"
+                         class="logo_transparent_static"> English
+						 </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+					<!--
                     <aside id="travel_login_register_from-2" class="widget widget_login_form">
                         <span class="show_from login"><i class="fa fa-user"></i>Login</span>
 
@@ -89,6 +104,7 @@
                         </div>
                         <div class="background-overlay"></div>
                     </aside>
+					-->
                 </div>
             </div>
         </div>

@@ -2,16 +2,16 @@
     <div class="main-top-footer">
         <div class="container">
             <div class="row">
-                <aside class="col-sm-3 widget_text"><h3 class="widget-title">CONTACT</h3>
+                <aside class="col-sm-3 widget_text">
                     <div class="textwidget">
                         <div class="footer-info">
-                            <p>Lorem ipsum dolor sit amet, cons ectetueradipiscing elit, sed diam nonu my nibh euis motincidunt ut laoreetd
-                            </p>
+						 <img src="{{ URL::asset('images/logo_nhatnga.png') }}" class="img-responsive" alt="foot-logo" title="foot-logo">
+                            <p></p>
                             <ul class="contact-info">
-                                <li><i class="fa fa-map-marker fa-fw"></i> 1945 Washington, San Francisco</li>
-                                <li><i class="fa fa-phone fa-fw"></i> +1 234 456 7890</li>
+                                <li><i class="fa fa-map-marker fa-fw"></i> {{__('nhatnga.address')}}</li>
+                                <li><i class="fa fa-phone fa-fw"></i> +84 8 62793318 - +84 8 66817653</li>
                                 <li>
-                                    <i class="fa fa-envelope fa-fw"></i><a href="mailto:hello@siteinfo.com"> hello@siteinfo.com</a>
+                                    <i class="fa fa-envelope fa-fw"></i><a href="mailto: info@nhatnga.com.vn">  info@nhatnga.com.vn</a>
                                 </li>
                             </ul>
                         </div>
