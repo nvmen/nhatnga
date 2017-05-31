@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <title>SB Admin - Bootstrap Admin Template</title>
 
 <!-- Bootstrap Core CSS -->
@@ -17,7 +17,7 @@
 
 <!-- Custom Fonts -->
 <link href="{{ URL::asset('admin/font-awesome/css/font-awesome.min.css') }} " rel="stylesheet" type="text/css">
-
+<script src=" {{URL::asset('plugins/ckeditor/ckeditor.js')}}"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

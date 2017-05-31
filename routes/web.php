@@ -54,6 +54,13 @@ Route::group(
             Route::get('/', ['uses' => 'AdminController@index', 'as' => 'backend.home.index']);
 
         });
+
+
+
+            // list all lfm routes here...
+            Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
+            Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
+
         Route::get('test', function () {
             return View::make('test');
         });
