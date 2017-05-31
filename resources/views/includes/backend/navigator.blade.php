@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">SB Admin</a>
+        <a class="navbar-brand" href="index.html">Nhat Nga</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -114,16 +114,36 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li class="active">
-                <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="{{route('backend.banner.index')}}"><i class="fa fa-fw fa-dashboard"></i> Banner</a>
             </li>
             <li>
-                <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+
+                <a href="javascript:;" data-toggle="collapse" data-target="#menu_services"><i class="fa fa-fw fa-arrows-v"></i> Services <i class="fa fa-fw fa-caret-down"></i></a>
+
+                <ul id ="menu_services" class="collapse">
+                    <li> <a href="{{route('backend.services.index')}}"> Translation</a></li>
+                    <li> <a href="{{route('backend.services.index')}}"> APEC Card</a></li>
+                    <li> <a href="{{route('backend.services.index')}}"> Work Permit</a></li>
+                    <li> <a href="{{route('backend.services.index')}}"> Airline ticket</a></li>
+                    <li> <a href="{{route('backend.services.index')}}"> VISA Vietname</a></li>
+                    <li> <a href="{{route('backend.services.index')}}"> Others</a></li>
+                </ul>
             </li>
             <li>
-                <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                <a href="{{route('backend.visa.index')}}"><i class="fa fa-fw fa-table"></i> VISA</a>
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                <a href="{{route('backend.tours.index')}}"><i class="fa fa-fw fa-table"></i> Tours</a>
+            </li>
+            <li>
+                <a href="{{route('backend.news.index')}}"><i class="fa fa-fw fa-table"></i> News</a>
+            </li>
+            <li>
+                <a href="{{route('backend.booking.index')}}"><i class="fa fa-fw fa-table"></i> Booking</a>
+            </li>
+
+            <li>
+                <a href="forms.html"><i class="fa fa-fw fa-edit"></i>aaaa </a>
             </li>
             <li>
                 <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>

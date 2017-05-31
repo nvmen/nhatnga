@@ -4,7 +4,12 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-<title>SB Admin - Bootstrap Admin Template</title>
+<title>Nhat Nga - Management</title>
+<!-- jQuery -->
+<script src="{{ URL::asset('admin/js/jquery.js') }} "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ URL::asset('admin/js/bootstrap.min.js') }}"></script>
 
 <!-- Bootstrap Core CSS -->
 <link href="{{ URL::asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">

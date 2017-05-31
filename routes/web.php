@@ -51,7 +51,34 @@ Route::group(
         });
 
         Route::group(['prefix' => 'admin'], function () {
+
             Route::get('/', ['uses' => 'AdminController@index', 'as' => 'backend.home.index']);
+
+            Route::group(['prefix' => 'banner'], function () {
+                Route::get('/', ['uses' => 'AdminBannerController@index', 'as' => 'backend.banner.index']);
+            });
+
+            Route::group(['prefix' => 'services'], function () {
+                Route::get('/', ['uses' => 'AdminServicesController@index', 'as' => 'backend.services.index']);
+            });
+
+            Route::group(['prefix' => 'visa'], function () {
+                Route::get('/', ['uses' => 'AdminVisaController@index', 'as' => 'backend.visa.index']);
+            });
+
+            Route::group(['prefix' => 'tours'], function () {
+                Route::get('/', ['uses' => 'AdminTourController@index', 'as' => 'backend.tours.index']);
+            });
+
+            Route::group(['prefix' => 'news'], function () {
+                Route::get('/', ['uses' => 'AdminNewsController@index', 'as' => 'backend.news.index']);
+            });
+            Route::group(['prefix' => 'booking'], function () {
+                Route::get('/', ['uses' => 'AdminBookingController@index', 'as' => 'backend.booking.index']);
+            });
+
+
+
 
         });
 
