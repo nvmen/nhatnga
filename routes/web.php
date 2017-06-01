@@ -54,6 +54,9 @@ Route::group(
 
             Route::get('/', ['uses' => 'AdminController@index', 'as' => 'backend.home.index']);
 
+            Route::group(['prefix' => 'media'], function () {
+                Route::post('/upload', ['uses' => 'FileController@upload', 'as' => 'backend.media.upload']);
+            });
             Route::group(['prefix' => 'banner'], function () {
                 Route::get('/', ['uses' => 'AdminBannerController@index', 'as' => 'backend.banner.index']);
             });
