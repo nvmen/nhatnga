@@ -6,11 +6,13 @@
 
     <script>
 
+         var url1 = '{{route('backend.show.media')}}';
+         var url2 = '{{route('backend.upload.media')}}';
         var options = {
-            filebrowserImageBrowseUrl: '/en/laravel-filemanager?type=Images',
-            filebrowserImageUploadUrl: '/en/laravel-filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/en/laravel-filemanager?type=Files',
-            filebrowserUploadUrl: '/en/laravel-filemanager/upload?type=Files&_token={{ csrf_token() }}'
+            filebrowserImageBrowseUrl: url1+'?type=Images',
+            filebrowserImageUploadUrl: url1+'/upload?type=Images&_token=',
+            filebrowserBrowseUrl: url1+'?type=Files',
+            filebrowserUploadUrl: url1+'/upload?type=Files&_token={{ csrf_token() }}'
         };
         CKEDITOR.replace('my-editor', options);
     </script>

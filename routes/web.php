@@ -85,8 +85,8 @@ Route::group(
 
 
             // list all lfm routes here...
-            Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
-            Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
+            Route::get('/laravel-filemanager', ['uses' =>'\Unisharp\Laravelfilemanager\controllers\LfmController@show', 'as' => 'backend.show.media']);
+            Route::post('/laravel-filemanager/upload',  ['uses' =>'\Unisharp\Laravelfilemanager\controllers\UploadController@upload', 'as' => 'backend.upload.media']);
 
         Route::get('test', function () {
             return View::make('test');
