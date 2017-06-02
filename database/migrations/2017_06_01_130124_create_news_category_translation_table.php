@@ -16,9 +16,10 @@ class CreateNewsCategoryTranslationTable extends Migration
         Schema::create('news_category_translation', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->timestamps();
             $table->unsignedInteger('cate_id');
+            $table->string('lang_code');
             $table->foreign('cate_id')->references('id')->on('news_category')->onDelete('cascade');
         });
     }

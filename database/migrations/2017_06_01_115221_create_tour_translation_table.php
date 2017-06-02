@@ -23,6 +23,7 @@ class CreateTourTranslationTable extends Migration
             $table->string('currency_unit')->nullable();
             $table->decimal('children_price')->nullable();
             $table->decimal('adult_price')->nullable();
+            $table->string('lang_code');
             $table->timestamps();
             
             $table->foreign('tour_id')->references('id')->on('tour')->onDelete('cascade');

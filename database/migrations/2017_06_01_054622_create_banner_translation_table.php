@@ -17,10 +17,11 @@ class CreateBannerTranslationTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('banner_id');
-            $table->string('title');
-            $table->string('sub_title');
-            $table->string('link');
-            $table->string('link_text');
+            $table->string('title')->nullable();
+            $table->string('lang_code');
+            $table->string('sub_title')->nullable();
+            $table->string('link')->nullable();;
+            $table->string('link_text')->nullable();;
             $table->timestamps();
             
             $table->foreign('banner_id')->references('id')->on('banner')->onDelete('cascade');

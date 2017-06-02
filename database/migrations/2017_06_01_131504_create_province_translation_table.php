@@ -20,6 +20,7 @@ class CreateProvinceTranslationTable extends Migration
             $table->string('short_description')->nullable();          
             $table->unsignedInteger('province_id');
             $table->timestamps();
+            $table->string('lang_code');
             $table->foreign('province_id')->references('id')->on('province')->onDelete('cascade');
         });
     }

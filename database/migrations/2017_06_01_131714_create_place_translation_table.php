@@ -20,6 +20,7 @@ class CreatePlaceTranslationTable extends Migration
             $table->text('content')->nullable();
             $table->unsignedInteger('place_id');
             $table->timestamps();
+            $table->string('lang_code');
             $table->foreign('place_id')->references('id')->on('place')->onDelete('cascade');
         });
     }

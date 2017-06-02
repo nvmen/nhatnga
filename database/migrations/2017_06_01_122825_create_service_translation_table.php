@@ -17,9 +17,10 @@ class CreateServiceTranslationTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('service_id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
+            $table->string('lang_code');
             $table->foreign('service_id')->references('id')->on('service')->onDelete('cascade');
         });
     }

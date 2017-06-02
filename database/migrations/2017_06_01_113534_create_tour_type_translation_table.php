@@ -17,7 +17,8 @@ class CreateTourTypeTranslationTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('tour_type_id');
-            $table->string('name');
+            $table->string('name')->nullable();
+            $table->string('lang_code');
             $table->timestamps();
             $table->foreign('tour_type_id')->references('id')->on('tour_type')->onDelete('cascade');
 

@@ -20,7 +20,9 @@ class CreateNewsTranslationTable extends Migration
             $table->string('short_description')->nullable();
             $table->text('content')->nullable();
             $table->unsignedInteger('new_id');
+            $table->string('lang_code');
             $table->timestamps();
+            $table->foreign('new_id')->references('id')->on('news')->onDelete('cascade');
         });
     }
 
