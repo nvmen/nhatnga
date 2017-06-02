@@ -21,10 +21,12 @@
                     <div class="panel-body">
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab1default">
-                                <div id="dragandrophandler">Drag & Drop Files Here or
-                                    <input type="file" name="files[]" id="file" class="box__file" multiple="true">
-                                </div>
-                                <div id="status1"></div>
+                              <form action="{{route('backend.media.upload')}}" class="dropzone">
+								  <div class="fallback">
+									<input name="file" type="file" multiple />
+									<input name="hidden" type="_token" value ='{{ csrf_token() }}' />
+								  </div>
+								</form>
                             </div>
                             <div class="tab-pane fade" id="tab2default">Media Library</div>
                         </div>

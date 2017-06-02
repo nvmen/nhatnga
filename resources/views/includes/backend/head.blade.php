@@ -7,6 +7,7 @@
 <title>Nhat Nga - Management</title>
 <!-- jQuery -->
 <script src="{{ URL::asset('admin/js/jquery.js') }} "></script>
+<script src="{{ URL::asset('plugins/upload/dropzone.js') }} "></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ URL::asset('admin/js/bootstrap.min.js') }}"></script>
@@ -19,7 +20,7 @@
 
 <!-- Morris Charts CSS -->
 <link href="{{ URL::asset('admin/css/plugins/morris.css') }} " rel="stylesheet">
-
+<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
 <!-- Custom Fonts -->
 <link href="{{ URL::asset('admin/font-awesome/css/font-awesome.min.css') }} " rel="stylesheet" type="text/css">
 <script src=" {{URL::asset('plugins/ckeditor/ckeditor.js')}}"></script>
