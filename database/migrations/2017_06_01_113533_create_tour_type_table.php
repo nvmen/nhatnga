@@ -16,7 +16,7 @@ class CreateTourTypeTable extends Migration
         Schema::create('tour_type', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('friendly_url');
+            $table->string('slug_url');
             $table->timestamps();
         });
     }

@@ -16,8 +16,8 @@ class CreateTourTranslationTable extends Migration
         Schema::create('tour_translation', function (Blueprint $table) {
             $table->increments('id'); 
             $table->unsignedInteger('tour_id');            
-            $table->string('name');
-            $table->string('short_description')->nullable();
+            $table->longText('name');
+            $table->longText('short_description')->nullable();
             $table->text('itinerary')->nullable();
             $table->text('description')->nullable();
             $table->string('currency_unit')->nullable();

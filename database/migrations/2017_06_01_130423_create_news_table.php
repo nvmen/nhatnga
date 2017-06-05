@@ -16,8 +16,8 @@ class CreateNewsTable extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('friendly_url');
-            $table->string('media_ids')->nullable();
+            $table->longText('slug_url');
+            $table->longText('media_ids')->nullable();
             $table->unsignedInteger('new_cate_id');
             $table->timestamps();
         });

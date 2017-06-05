@@ -16,7 +16,8 @@ class CreateVisaTranslationTable extends Migration
         Schema::create('visa_translation', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name')->nullable();
+            $table->longText('name')->nullable();
+            $table->longText('short_description')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
             $table->unsignedInteger('visa_id');

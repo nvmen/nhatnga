@@ -16,7 +16,7 @@ class CreateNewsCategoryTable extends Migration
         Schema::create('news_category', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('friendly_url');           
+            $table->longText('slug_url');
             $table->timestamps();
         });
     }

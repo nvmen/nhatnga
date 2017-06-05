@@ -16,8 +16,8 @@ class CreateVisaTable extends Migration
         Schema::create('visa', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('friendly_url');
-            $table->string('media_ids')->nullable();
+            $table->longText('slug_url');
+            $table->longText('media_ids')->nullable();
             $table->timestamps();
             $table->unsignedInteger('visa_cate_id');
             $table->foreign('visa_cate_id')->references('id')->on('visa_category')->onDelete('cascade');

@@ -59,6 +59,8 @@ Route::group(
             });
             Route::group(['prefix' => 'banner'], function () {
                 Route::get('/', ['uses' => 'AdminBannerController@index', 'as' => 'backend.banner.index']);
+                Route::post('/add', ['uses' => 'AdminBannerController@add', 'as' => 'backend.banner.add']);
+                Route::post('/delete', ['uses' => 'AdminBannerController@delete', 'as' => 'backend.banner.delete']);
             });
 
             Route::group(['prefix' => 'services'], function () {
@@ -91,6 +93,7 @@ Route::group(
             Route::get('/laravel-filemanager', ['uses' =>'\Unisharp\Laravelfilemanager\controllers\LfmController@show', 'as' => 'backend.show.media']);
             Route::post('/laravel-filemanager/upload',  ['uses' =>'\Unisharp\Laravelfilemanager\controllers\UploadController@upload', 'as' => 'backend.upload.media']);
 
+        Route::get('/get-media/{id}', ['uses' =>'MediaController@get_media', 'as' => 'media.get']);
         Route::get('test', function () {
             return View::make('test');
         });

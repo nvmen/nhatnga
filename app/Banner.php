@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App;
 class Banner extends Model
 {
-    //protected $table = 'influencers';
+    protected $table = 'banner';
     protected $fillable = [
-        'id', 'friendly_url'
+        'id', 'slug_url','media_ids'
 
     ];
 
@@ -17,6 +17,12 @@ class Banner extends Model
         if ($language == null) {
             $language = App::getLocale();
         }
-        return $this->hasMany('App\BannerTranslations')->where('language', '=', $language);
+        return $this->hasMany('App\BannerTranslations')->where('lang_code', '=', $language);
     }
+    public function medias($media_ids){
+        $ids = explode(",", $media_ids);
+        return Media::whereIn('id', $ids)
+            ->get();
+    }
+
 }

@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class BannerTranslations extends Model
 {
+    protected $table = 'banner_translation';
     protected $fillable = [
         'id',
         'banner_id',
-        'language',
+        'lang_code',
         'title',
-        'subtitle',
+        'sub_title',
         'link',
         'text_link'
 

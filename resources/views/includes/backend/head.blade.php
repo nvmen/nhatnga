@@ -24,6 +24,14 @@
 <!-- Custom Fonts -->
 <link href="{{ URL::asset('admin/font-awesome/css/font-awesome.min.css') }} " rel="stylesheet" type="text/css">
 <script src=" {{URL::asset('plugins/ckeditor/ckeditor.js')}}"></script>
+
+
+<link href="{{ URL::asset('js/libs/style/loader.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('js/libs/style/style.css') }}" rel="stylesheet">
+<script src=" {{URL::asset('js/libs/notify.min.js')}}"></script>
+<script src=" {{URL::asset('js/libs/jquery.nimble.loader.js')}}"></script>
+<script src=" {{URL::asset('js/libs/bootbox.min.js')}}"></script>
+<script src=" {{URL::asset('js/common.js')}}"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

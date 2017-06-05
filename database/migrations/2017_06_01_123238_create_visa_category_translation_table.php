@@ -16,7 +16,7 @@ class CreateVisaCategoryTranslationTable extends Migration
         Schema::create('visa_category_translation', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name')->nullable();
+            $table->longText('name')->nullable();
             $table->timestamps();
             $table->unsignedInteger('visa_category_id');
             $table->string('lang_code');

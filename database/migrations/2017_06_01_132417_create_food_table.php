@@ -16,8 +16,8 @@ class CreateFoodTable extends Migration
         Schema::create('food', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('friendly_url');
-            $table->string('media_ids')->nullable();
+            $table->longText('slug_url');
+            $table->longText('media_ids')->nullable();
             $table->timestamps();
 
         });

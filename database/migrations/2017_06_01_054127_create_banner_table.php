@@ -17,7 +17,7 @@ class CreateBannerTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('media_ids')->nullable();
-            $table->string('friendly_url');
+            $table->string('slug_url')->nullable();
             $table->timestamps();
         });
     }

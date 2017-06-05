@@ -7,7 +7,8 @@
  */
 
 namespace App\Http\Controllers;
-
+use DateTime;
+use App\Helper;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,12 @@ class AdminController extends Controller
 
     public function index()
     {
+        $text ='Phát biểu tại        Nhật sáng nay, người đứng đầu Chính phủ Việt Nam khẳng định tiếp tục thúc đẩy các hiệp định thương mại tự do, trong đó có TPP.';
+
+       // $result =Str::slug($text);
+       // $result = Helper::slug($text);
+        dd($result);
+        
         return view('backend.pages.home.test');
     }
 }

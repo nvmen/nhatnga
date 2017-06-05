@@ -16,8 +16,8 @@ class CreatePlaceTable extends Migration
         Schema::create('place', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('friendly_url');
-            $table->string('media_ids')->nullable();
+            $table->longText('slug_url');
+            $table->longText('media_ids')->nullable();
             $table->timestamps();
             $table->unsignedInteger('province_id');
             $table->foreign('province_id')->references('id')->on('province')->onDelete('cascade');

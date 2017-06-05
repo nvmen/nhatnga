@@ -1,0 +1,65 @@
+
+.nimble-loader{
+  width:300px;
+  height:250px;
+  border:1px solid #e6e6e6;
+  margin-bottom:10px;
+  overflow:auto;
+}
+
+.nimble-loader-inline{
+  width: 10px;
+  height: 10px;
+}
+
+.container-loader{
+  width:300px;
+  float:left;
+}
+
+.container-loader button{
+  float:left;
+  margin-right: 10px;
+}
+
+#counter-span{
+  display:block;
+  width:100%;
+  color:#34383e;
+  font-weight:bolder;
+  font-size:100px;
+  text-align:center;
+}
+
+.inline-example{
+  height: 40px;
+  margin-top: 100px;
+  float: right;
+  padding-left:20px;
+}
+
+#loader2{
+  margin: 0 31px
+}
+
+#loader2 #wiki-search{
+  width:60px;
+}
+
+#loader2 button, #loader3 button{
+  float: right;
+  margin-right: 0;
+}
+
+#loader5 .perform-loading{
+  display: none;
+}
+.trash { color:rgb(209, 91, 71); }
+.flag { color:rgb(248, 148, 6); }
+.panel-body { padding:0px; }
+.panel-footer .pagination { margin: 0; }
+.panel .glyphicon,.list-group-item .glyphicon { margin-right:5px; }
+.panel-body .radio, .checkbox { display:inline-block;margin:0px; }
+.panel-body input[type=checkbox]:checked + label { text-decoration: line-through;color: rgb(128, 144, 160); }
+.list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: rgb(245, 245, 245);}
+.list-group { margin-bottom:0px; }

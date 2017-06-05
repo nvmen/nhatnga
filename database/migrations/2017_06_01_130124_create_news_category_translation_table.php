@@ -16,7 +16,7 @@ class CreateNewsCategoryTranslationTable extends Migration
         Schema::create('news_category_translation', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name')->nullable();
+            $table->longText('name')->nullable();
             $table->timestamps();
             $table->unsignedInteger('cate_id');
             $table->string('lang_code');

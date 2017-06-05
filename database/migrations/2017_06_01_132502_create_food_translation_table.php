@@ -16,11 +16,11 @@ class CreateFoodTranslationTable extends Migration
         Schema::create('food_translation', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name');
+            $table->longText('name');
             $table->text('content')->nullable();
             $table->unsignedInteger('food_id');
             $table->timestamps();
-            $table->string('lang_code');
+            $table->longText('lang_code');
             $table->foreign('food_id')->references('id')->on('place')->onDelete('cascade');
         });
     }

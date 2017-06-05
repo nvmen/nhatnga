@@ -18,7 +18,7 @@ class CreateMediaTable extends Migration
             $table->string('name');
             $table->string('uuid_name');
             $table->string('thumbnail')->nullable();
-            $table->integer('album_id');
+            $table->string('album');
             $table->timestamps();
         });
     }

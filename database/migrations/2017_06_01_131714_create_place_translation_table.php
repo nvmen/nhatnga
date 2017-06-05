@@ -16,7 +16,7 @@ class CreatePlaceTranslationTable extends Migration
         Schema::create('place_translation', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name');
+            $table->longText('name');
             $table->text('content')->nullable();
             $table->unsignedInteger('place_id');
             $table->timestamps();
