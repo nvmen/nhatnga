@@ -61,6 +61,8 @@ Route::group(
                 Route::get('/', ['uses' => 'AdminBannerController@index', 'as' => 'backend.banner.index']);
                 Route::post('/add', ['uses' => 'AdminBannerController@add', 'as' => 'backend.banner.add']);
                 Route::post('/delete', ['uses' => 'AdminBannerController@delete', 'as' => 'backend.banner.delete']);
+                Route::get('/edit/{id}', ['uses' => 'AdminBannerController@edit_banner', 'as' => 'backend.banner.edit']);
+                Route::post('/save-edit', ['uses' => 'AdminBannerController@save_edit', 'as' => 'backend.banner.save.edit']);
             });
 
             Route::group(['prefix' => 'services'], function () {
@@ -93,7 +95,8 @@ Route::group(
             Route::get('/laravel-filemanager', ['uses' =>'\Unisharp\Laravelfilemanager\controllers\LfmController@show', 'as' => 'backend.show.media']);
             Route::post('/laravel-filemanager/upload',  ['uses' =>'\Unisharp\Laravelfilemanager\controllers\UploadController@upload', 'as' => 'backend.upload.media']);
 
-        Route::get('/get-media/{id}', ['uses' =>'MediaController@get_media', 'as' => 'media.get']);
+        Route::get('/get-media/{id}/{resize?}', ['uses' =>'MediaController@get_media', 'as' => 'media.get']);
+        Route::get('/media-info/{id}', ['uses' =>'MediaController@get_media_info', 'as' => 'media.get.info']);
         Route::get('test', function () {
             return View::make('test');
         });

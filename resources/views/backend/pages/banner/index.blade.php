@@ -52,7 +52,7 @@
                         <td>
 
 
-                               <a href="javascript:void(0)"><span class="glyphicon glyphicon-pencil"></span>Edit</a>
+                                <a href="{!! route('backend.banner.edit', ['id'=>$banner->id])  !!}" ><span class="glyphicon glyphicon-pencil" ></span>Edit</a>
                                 <a href="javascript:void(0)" onclick="delete_banner('{{$banner->id}}')"><span class="glyphicon glyphicon-trash"></span>Delete</a>
 
 
@@ -147,6 +147,10 @@
         var global_files = [];
         var global_media =[];
 
+        function edit(banner){
+           var bannerEdit = banner;
+            console.log(bannerEdit);
+        }
         function delete_banner(id){
             bootbox.confirm("Are you sure you want to delete this banner?", function(result){
 

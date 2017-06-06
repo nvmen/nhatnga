@@ -14,7 +14,7 @@ class Media  extends Model
 {
     protected $table = 'media';
     protected $fillable = [
-        'id', '	name','uuid_name','thumbnail','album'
+        'id', '	name','uuid_name','thumbnail','album','size'
 
     ];
 

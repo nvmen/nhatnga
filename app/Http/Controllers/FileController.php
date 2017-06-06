@@ -7,13 +7,16 @@
  */
 
 namespace App\Http\Controllers;
+
 use App\Media;
 use Illuminate\Http\Request;
 use App\Helper;
 use Illuminate\Support\Facades\Validator;
-class FileController  extends Controller
+
+class FileController extends Controller
 {
-    public function upload(Request $request){
+    public function upload(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
@@ -25,17 +28,18 @@ class FileController  extends Controller
             $album = Helper::album_media();
             $uuid_name = $server_file_name;
             $media = new Media();
-            $media->name =$request->file->getClientOriginalName();
+            $media->name = $request->file->getClientOriginalName();
             $media->album = $album;
             $media->uuid_name = $uuid_name;
+            $media->size = $request->file->getClientSize();
             $media->save();
             $request->file->move(public_path('uploads/media'), $input['hashname']);
-            return response()->json(['success'=>true,'message' => 'Upload media ok','data'=>$media], 200);
-        }else{
-            return response()->json(['success'=>false,'message' => 'Data not match required'], 200);
+            return response()->json(['success' => true, 'message' => 'Upload media ok', 'data' => $media], 200);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Data not match required'], 200);
         }
 
     }
-  
+
 
 }
