@@ -21,6 +21,7 @@ class ServiceController extends Controller
 
     public function translation(Request $request)
     {
+       
         // $this->middleware('auth');
         return view('frontend.pages.services.translation');
     }

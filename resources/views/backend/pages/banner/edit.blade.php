@@ -130,7 +130,7 @@
                                     , 500);
 
                         } else {
-
+                            $.notify("Can't edit this banner", "error");
                             hide_spinner();
                         }
                     })

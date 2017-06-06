@@ -107,10 +107,7 @@ class AdminBannerController extends Controller
                 $banner_en = BannerTranslations::where('lang_code', 'en')->where('banner_id', $id)->first();
                 $media = $banner->medias($banner->media_ids);
             } else {
-                $banner = null;
-                $banner_vi = null;
-                $banner_en = null;
-                $media = null;
+               return view('error.404');
             }
             //  dd($media[0]->uuid_name);
             if ($media) {
@@ -121,7 +118,7 @@ class AdminBannerController extends Controller
                 ];
             } else {
                 $info = [
-                    'name' => $media[0]->uuid_name,
+                    'name' => '',
                     'link' => 'www.google.com',
                     'size' => '0',
                 ];
