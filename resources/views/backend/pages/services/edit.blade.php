@@ -24,49 +24,31 @@
                                 </form>
                             </div>
                             <div class="form-group">
+                                <label for="title_vi">Name Vi</label>
                                 <input type="text" class="form-control" id="title_vi" name="title_vi"
                                        placeholder="Title Vi"
-                                       value="{{$banner->translation('vi')->first()->title}}"
+                                       value="{{$service_vi->name}}"
                                 >
                             </div>
                             <div class="form-group">
+                                <label for="title_vi">Name En</label>
                                 <input type="text" class="form-control" id="title_en" name="title_en"
-                                       value="{{$banner->translation('en')->first()->title}}"
+                                       value="{{$service_en->name}}"
                                        placeholder="Title En">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="sub_title_vi" name="sub_title_vi"
-                                       value="{{$banner->translation('vi')->first()->sub_title}}"
-                                       placeholder="Sub Title Vi">
+                                <label for="content_vi">Content Vi</label>
+                               <textarea id="content_vi" name="content_vi" class="form-control">
+                                   {{$service_vi->content}}
+                                </textarea>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="sub_title_en" name="sub_title_en"
-                                       value="{{$banner->translation('en')->first()->sub_title}}"
-                                       placeholder="Sub Title EN">
+                                <label for="content_vi">Content En</label>
+                               <textarea id="content_vi" name="content_en" class="form-control">
+                                    {{$service_en->content}}
+                                </textarea>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="link_vi" name="link_vi"
-                                       value="{{$banner->translation('vi')->first()->link}}"
-                                       placeholder="Link Vi  Example(http://google.com)">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="link_en" name="link_en"
-                                       value="{{$banner->translation('en')->first()->link}}"
-                                       placeholder="Link En  Example(http://google.com)">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="link_text_vi" name="link_text_vi"
-                                       value="{{$banner->translation('vi')->first()->link_text}}"
-                                       placeholder="Link Text Vi Example(Xem)">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="link_text_en" name="link_text_en"
-                                       value="{{$banner->translation('en')->first()->link_text}}"
-                                       placeholder="Link Text En Example(View Tour)">
-                                <input type="hidden" id='id' name="id" value="{{$banner->id}}">
-                            </div>
-
-
+                            <input type="hidden" name="id" id="id" value="{{$service->id}}"/>
                         </div>
                     </div>
                 </div>
@@ -80,5 +62,98 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+
+        var url1 = '{{route('backend.show.media')}}';
+        var url2 = '{{route('backend.upload.media')}}';
+        var options = {
+            filebrowserImageBrowseUrl: url1 + '?type=Images',
+            filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
+            filebrowserBrowseUrl: url1 + '?type=Files',
+            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
+        };
+        CKEDITOR.replace('content_vi', options);
+        CKEDITOR.replace('content_en', options);
+
+
+        var global_files = [];
+        var global_media = [{{$service->media_ids}}];
+        $(function () {
+            Dropzone.options.myAwesomeDropzone = {
+                maxFilesize: 5,
+                maxFiles: 1,
+                uploadMultiple: false,
+                addRemoveLinks: true,
+                dictResponseError: 'Server not Configured',
+                acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+                init: function () {
+                    var self = this;
+                    //// Create the mock file:
+                    var mockFile = {
+                        name: '{{$media_info['name']}}',
+                        size: '{{$media_info['size']}}'
+                    };
+                    // Call the default addedfile event handler
+                    self.emit("addedfile", mockFile);
+                    // And optionally show the thumbnail of the file:
+                    self.emit("thumbnail", mockFile, '{{$media_info['link']}}');
+
+                    // config
+                    self.options.addRemoveLinks = true;
+                    self.options.dictRemoveFile = "Delete";
+                    //New file added
+                    self.on("addedfile", function (file) {
+                        if (global_files.length == 1) {
+                            return;
+                        }
+                        console.log('new file added ', file);
+                    });
+                    // Send file starts
+                    self.on("sending", function (file) {
+                        console.log('upload started', file);
+                        $('.meter').show();
+                    });
+
+                    // File upload Progress
+                    self.on("totaluploadprogress", function (progress) {
+                        console.log("progress ", progress);
+                        $('.roller').width(progress + '%');
+                    });
+
+                    self.on("queuecomplete", function (progress) {
+                        $('.meter').delay(999).slideUp(999);
+                    });
+
+                    // On removing file
+                    self.on("removedfile", function (file) {
+                        global_files = [];
+                        global_media = [];
+                        /*
+                         for (var i = 0; i < global_files.length; i++) {
+                         if (global_files[i] == file) {
+                         global_files =[];
+                         }
+                         }
+                         for (var i = 0; i < global_media.length; i++) {
+                         if (global_media[i] == file) {
+                         alert('trung');
+                         }
+                         }
+                         */
+
+                        //  console.log(file);
+                    });
+                    self.on("success", function (file, response) {
+
+                        global_files.push(file);
+                        global_media.push(response.data);
+
+                    });
+                }
+            };
+        })
+    </script>
 @stop
 

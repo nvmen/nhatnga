@@ -97,7 +97,7 @@
 
             var link_text_vi = $('#link_text_vi').val();
             var link_text_en = $('#link_text_en').val();
-        debugger;
+
             if (global_media.length == 0) return false;
             var media_id = global_media[0].id;
             var old_media_id ='{{$banner->media_ids}}';

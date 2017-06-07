@@ -23,7 +23,7 @@ class AdminController extends Controller
 
        // $result =Str::slug($text);
        // $result = Helper::slug($text);
-        dd($result);
+       // dd($result);
         
         return view('backend.pages.home.test');
     }

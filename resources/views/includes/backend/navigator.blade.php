@@ -121,12 +121,12 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#menu_services"><i class="fa fa-fw fa-arrows-v"></i> Services <i class="fa fa-fw fa-caret-down"></i></a>
 
                 <ul id ="menu_services" class="collapse">
-                    <li> <a href="{{route('backend.services.translation')}}"> Translation</a></li>
-                    <li> <a href="{{route('backend.services.apeccard')}}"> APEC Card</a></li>
-                    <li> <a href="{{route('backend.services.workpermit')}}"> Work Permit</a></li>
-                    <li> <a href="{{route('backend.services.airlineticket')}}"> Airline ticket</a></li>
-                    <li> <a href="{{route('backend.services.index')}}"> VISA Vietnam</a></li>
-                    <li> <a href="{{route('backend.services.index')}}"> Others</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>1])}}"> Translation</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>2])}}"> APEC Card</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>3])}}"> Work Permit</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>4])}}"> Airline ticket</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>5])}}"> VISA Vietnam</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>6])}}"> Others</a></li>
                 </ul>
             </li>
             <li>
