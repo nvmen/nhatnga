@@ -43,8 +43,8 @@
                                 </textarea>
                             </div>
                             <div class="form-group">
-                                <label for="content_vi">Content En</label>
-                               <textarea id="content_vi" name="content_en" class="form-control">
+                                <label for="content_en">Content En</label>
+                               <textarea id="content_en" name="content_en" class="form-control">
                                     {{$service_en->content}}
                                 </textarea>
                             </div>
@@ -65,7 +65,6 @@
 
 
     <script>
-
         var url1 = '{{route('backend.show.media')}}';
         var url2 = '{{route('backend.upload.media')}}';
         var options = {
@@ -76,6 +75,55 @@
         };
         CKEDITOR.replace('content_vi', options);
         CKEDITOR.replace('content_en', options);
+
+
+        function save_edit() {
+
+            var token = '{{ csrf_token() }}';
+            var title_vi = $('#title_vi').val();
+            var title_en = $('#title_en').val();
+            var id = $('#id').val();
+
+            var content_vi = CKEDITOR.instances['content_vi'].getData();
+            var content_en = CKEDITOR.instances['content_en'].getData();
+
+            if (global_media.length == 0) return false;
+            var media_id = global_media[0].id;
+            var old_media_id ='{{$service->media_ids}}';
+            if(media_id== undefined){
+                media_id = old_media_id;
+            }
+            var obj = {
+                _token: token,
+                name_vi: title_vi,
+                id: id,
+                name_en: title_en,
+                content_vi: content_vi,
+                content_en: content_en,
+                media_ids: media_id
+            }
+            //  console.log('===========>',obj)
+            show_spinner();
+            $.post('{{route('backend.services.save')}}', obj)
+                    .done(function (data) {
+                        hide_spinner();
+                        if (data.success == true) {
+                            $.notify("Add successful", "success");
+                            setTimeout(function () {
+                                        location.reload();
+                                    }
+                                    , 500);
+
+                        } else {
+                            $.notify("Can't edit this banner", "error");
+                            hide_spinner();
+                        }
+                    })
+                    .fail(function() {
+                        hide_spinner();
+                    });
+
+        }
 
 
         var global_files = [];

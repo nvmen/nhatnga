@@ -14,6 +14,7 @@ return [
     'link'=>'CÁC LIÊN KẾT',
     'popular_service'=>'Các dịch vụ khách hàng thường xuyên sử dụng',
     'take_look_tour' => 'Take a Look at Our',
-    'view_more'=>'View More'
+    'view_more'=>'View More',
+    'serivce_translation'=>'Dịch Thuật'
 
 ];

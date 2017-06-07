@@ -46,7 +46,7 @@ Route::group(
             Route::get('/apeccard', ['uses' => 'ServiceController@apeccard', 'as' => 'frontend.services.apeccard']);
             Route::get('/workpermit', ['uses' => 'ServiceController@workpermit', 'as' => 'frontend.services.workpermit']);
             Route::get('/airlineticket', ['uses' => 'ServiceController@airlineticket', 'as' => 'frontend.services.airlineticket']);
-            Route::get('/airlineticket', ['uses' => 'ServiceController@airlineticket', 'as' => 'frontend.services.airlineticket']);
+            Route::get('/visa-viet-nam', ['uses' => 'ServiceController@visavietnam', 'as' => 'frontend.services.visavietnam']);
             Route::get('/others', ['uses' => 'ServiceController@other', 'as' => 'frontend.services.others']);
 
         });
@@ -69,6 +69,7 @@ Route::group(
             Route::group(['prefix' => 'services'], function () {
                 Route::get('/', ['uses' => 'AdminServicesController@index', 'as' => 'backend.services.index']);
                 Route::get('/{id}', ['uses' => 'AdminServicesController@get_service', 'as' => 'backend.services.get']);
+                Route::post('/save-edit', ['uses' => 'AdminServicesController@save_edit', 'as' => 'backend.services.save']);
             });
 
             Route::group(['prefix' => 'visa'], function () {

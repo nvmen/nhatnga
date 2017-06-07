@@ -177,7 +177,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="{{route('frontend.visa.vietnam')}}">{{__('nhatnga_menu.visa_vietnam')}}</a></li>
+                            <li><a href="{{route('frontend.services.visavietnam')}}">{{__('nhatnga_menu.visa_vietnam')}}</a></li>
                             <li><a href="{{route('frontend.services.translation')}}">{{__('nhatnga_menu.services_translation')}}</a></li>
                             <li><a href="{{route('frontend.services.apeccard')}}">{{__('nhatnga_menu.services_apeccard')}}</a></li>
                             <li><a href="{{route('frontend.services.workpermit')}}">{{__('nhatnga_menu.services_workpermit')}}</a>

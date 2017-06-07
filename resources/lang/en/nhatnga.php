@@ -14,7 +14,8 @@ return [
     'link' => 'LINKS',
     'popular_service' => 'POPULAR SERVICES',
     'take_look_tour' => 'Take a Look at Our',
-    'view_more'=>'View More'
+    'view_more'=>'View More',
+    'serivce_translation'=>'Translation'
 
 
 ];

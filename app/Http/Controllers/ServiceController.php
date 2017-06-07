@@ -10,7 +10,8 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App;
+
+use App\Service;
 
 class ServiceController extends Controller
 {
@@ -21,33 +22,45 @@ class ServiceController extends Controller
 
     public function translation(Request $request)
     {
-       
-        // $this->middleware('auth');
-        return view('frontend.pages.services.translation');
+
+        $service = Service::find(1);
+        return view('frontend.pages.services.translation', ['service' => $service]);
     }
 
     public function apeccard(Request $request)
     {
-        // $this->middleware('auth');
-        return view('frontend.pages.services.apeccard');
+
+        $service = Service::find(2);
+        return view('frontend.pages.services.apeccard', ['service' => $service]);
+
     }
 
     public function workpermit(Request $request)
     {
-        // $this->middleware('auth');
-        return view('frontend.pages.services.workpermit');
+
+        $service = Service::find(3);
+        return view('frontend.pages.services.workpermit', ['service' => $service]);
+
     }
 
     public function airlineticket(Request $request)
     {
-        // $this->middleware('auth');
-        return view('frontend.pages.services.airlineticket');
+        $service = Service::find(4);
+        return view('frontend.pages.services.airlineticket', ['service' => $service]);
+
     }
 
+    public function visavietnam(Request $request)
+    {
+        $service = Service::find(5);
+        return view('frontend.pages.services.visavietnam', ['service' => $service]);
+
+    }
     public function other(Request $request)
     {
-        // $this->middleware('auth');
-        return view('frontend.pages.services.other');
+        $service = Service::find(6);
+        return view('frontend.pages.services.other', ['service' => $service]);
+
     }
 
 }

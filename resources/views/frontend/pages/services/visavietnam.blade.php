@@ -9,10 +9,10 @@
                     <ul class="phys-breadcrumb">
                         <li><a href="#" class="home">Home</a></li>
                         <li>{{__('nhatnga_menu.services')}}</li>
-                        <li>{{__('nhatnga_menu.services_others')}}</li>
+                        <li>{{__('nhatnga_menu.visa_vietnam')}}</li>
                     </ul>
                 </div>
-                <h1 class="heading_primary">{{__('nhatnga_menu.services_others')}}</h1></div>
+                <h1 class="heading_primary">{{__('nhatnga_menu.visa_vietnam')}}</h1></div>
         </div>
         <section class="content-area">
             <div class="container">

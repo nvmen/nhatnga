@@ -11,7 +11,8 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use App\ServiceTranslations;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 class AdminServicesController extends Controller
 {
     public function __construct()
@@ -22,6 +23,41 @@ class AdminServicesController extends Controller
     public function index()
     {
         return view('backend.pages.banner.index');
+    }
+    public function save_edit(Request $request){
+
+
+        $rules = array(
+            'media_ids' => 'required',
+            'id' => 'required',
+
+        );
+        $data = $request->all();
+        $validator = Validator::make($data, $rules);
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'Service need id and media']);
+        } else {
+
+            $service = Service::find($request['id']);
+            if($service== null){
+                return response()->json(['success' => false, 'message' => 'Can not find this service']);
+            }
+            $service->media_ids = $request['media_ids'];
+            $service->save();
+            $service_vi = ServiceTranslations::where('lang_code','vi')->where('service_id',$service->id)->first();
+            $service_en = ServiceTranslations::where('lang_code','en')->where('service_id',$service->id)->first();
+            $service_vi->name = $request['name_vi'];
+            $service_vi->content = $request['content_vi'];
+            $service_vi->save();
+
+            $service_en->name = $request['name_en'];
+            $service_en->content = $request['content_en'];
+            $service_en->save();
+
+            return response()->json(['success' => true, 'message' => 'Edit successful']);
+        }
+
+
     }
     public  function get_service($id){
 

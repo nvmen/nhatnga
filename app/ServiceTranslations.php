@@ -8,16 +8,17 @@
 
 namespace App;
 use Illuminate\Database\Eloquent\Model;
-
+use App;
 class ServiceTranslations extends Model
 {
     protected $table = 'service_translation';
     protected $fillable = [
         'id',
-        'service_translation',
+        'service_id',
         'lang_code',
         'name',
         'content',
+
 
     ];
     public function service()
