@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 use DateTime;
 use App\Helper;
-
+use Illuminate\Support\Str;
 class AdminController extends Controller
 {
     public function __construct()
@@ -21,9 +21,9 @@ class AdminController extends Controller
     {
         $text ='Phát biểu tại        Nhật sáng nay, người đứng đầu Chính phủ Việt Nam khẳng định tiếp tục thúc đẩy các hiệp định thương mại tự do, trong đó có TPP.';
 
-       // $result =Str::slug($text);
+        $result =Str::slug($text);
        // $result = Helper::slug($text);
-       // dd($result);
+        dd($result);
         
         return view('backend.pages.home.test');
     }

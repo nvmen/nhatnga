@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder  extends Seeder
+class DatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +13,10 @@ class DatabaseSeeder  extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         Eloquent::unguard();
-       $this->call('UsersTableSeeder');
+        $this->call('UsersTableSeeder');
         $this->call('ServicesSeeder');
-       $this->call('ServiceTranslationSeeder');
+        $this->call('ServiceTranslationSeeder');
+        $this->call('VisaCategoryTableSeeder');
+        $this->call('VisaCategoryTranslationTableSeeder');
     }
 }

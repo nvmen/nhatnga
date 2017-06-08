@@ -38,7 +38,7 @@ Route::group(
             Route::get('/africa', ['uses' => 'VISAController@africa', 'as' => 'frontend.visa.africa']);
             Route::get('/australia', ['uses' => 'VISAController@australia', 'as' => 'frontend.visa.australia']);
             Route::get('/vietnam', ['uses' => 'VISAController@vietnam', 'as' => 'frontend.visa.vietnam']);
-            Route::get('/detail/{visa_url}', ['uses' => 'VISAController@detail', 'as' => 'frontend.visa.detail']);
+            Route::get('/detail/{slug}', ['uses' => 'VISAController@detail', 'as' => 'frontend.visa.detail']);
         });
 
         Route::group(['prefix' => 'services'], function () {
@@ -74,6 +74,9 @@ Route::group(
 
             Route::group(['prefix' => 'visa'], function () {
                 Route::get('/', ['uses' => 'AdminVisaController@index', 'as' => 'backend.visa.index']);
+                Route::post('/add', ['uses' => 'AdminVisaController@add', 'as' => 'backend.visa.add']);
+                Route::post('/delete', ['uses' => 'AdminVisaController@delete', 'as' => 'backend.visa.delete']);
+                Route::get('/{id}', ['uses' => 'AdminVisaController@get_edit', 'as' => 'backend.visa.get']);
             });
 
             Route::group(['prefix' => 'tours'], function () {
