@@ -6,7 +6,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Edit Service</h4>
+                <h4 class="modal-title">Edit Visa</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -24,31 +24,55 @@
                                 </form>
                             </div>
                             <div class="form-group">
-                                <label for="title_vi">Name Vi</label>
-                                <input type="text" class="form-control" id="title_vi" name="title_vi"
-                                       placeholder="Title Vi"
-                                       value="{{$service_vi->name}}"
+                                <label for="name_vi">Location</label>
+                                <select class="form-control" id="location">
+                                    @foreach($cates as  $cate)
+                                        <option value='{{$cate->id}}'>{{$cate->translation()->first()->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name_vi">Name Vi</label>
+                                <input type="text" class="form-control" id="name_vi" name="name_vi"
+                                       placeholder="Name Vi"
+                                       value="{{$visa_vi->name}}"
                                 >
                             </div>
                             <div class="form-group">
-                                <label for="title_vi">Name En</label>
-                                <input type="text" class="form-control" id="title_en" name="title_en"
-                                       value="{{$service_en->name}}"
-                                       placeholder="Title En">
+                                <label for="name_vi">Name En</label>
+                                <input type="text" class="form-control" id="name_en" name="name_en"
+                                       value="{{$visa_en->name}}"
+                                       placeholder="Name En">
                             </div>
+
+                            <div class="form-group">
+                                <label for="name_en">Short Description (Vi)</label>
+                                    <textarea class="form-control" id="short_des_vi" name="short_des_vi"
+                                              placeholder="Short Description (Vi)">{{$visa_vi->short_description}}
+                                    </textarea>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name_en">Short Description (En)</label>
+                                    <textarea class="form-control" id="short_des_en" name="short_des_en"
+                                              placeholder="Short Description (En)">{{$visa_en->short_description}}
+                                    </textarea>
+                            </div>
+
                             <div class="form-group">
                                 <label for="content_vi">Content Vi</label>
                                <textarea id="content_vi" name="content_vi" class="form-control">
-                                   {{$service_vi->content}}
+                                   {{$visa_vi->content}}
                                 </textarea>
                             </div>
                             <div class="form-group">
                                 <label for="content_en">Content En</label>
                                <textarea id="content_en" name="content_en" class="form-control">
-                                    {{$service_en->content}}
+                                    {{$visa_en->content}}
                                 </textarea>
                             </div>
-                            <input type="hidden" name="id" id="id" value="{{$service->id}}"/>
+                            <input type="hidden" name="id" id="id" value="{{$visa->id}}"/>
                         </div>
                     </div>
                 </div>
@@ -66,7 +90,7 @@
 
     <script>
         var global_files = [];
-        var global_media = [{{$service->media_ids}}];
+        var global_media = [{{$visa->media_ids}}];
         var url1 = '{{route('backend.show.media')}}';
         var url2 = '{{route('backend.upload.media')}}';
         var options = {
@@ -81,54 +105,64 @@
 
         function save_edit() {
 
-            var token = '{{ csrf_token() }}';
-            var title_vi = $('#title_vi').val();
-            var title_en = $('#title_en').val();
-            var id = $('#id').val();
 
+            var token = '{{ csrf_token() }}';
+            var id = $('#id').val();
+            var name_vi = $('#name_vi').val();
+            var name_en = $('#name_en').val();
+
+            var short_des_vi = $('#short_des_vi').val();
+            var short_des_en = $('#short_des_en').val();
+
+            var location = $('#location').val();
             var content_vi = CKEDITOR.instances['content_vi'].getData();
             var content_en = CKEDITOR.instances['content_en'].getData();
 
             if (global_media.length == 0) return false;
             var media_id = global_media[0].id;
-            var old_media_id ='{{$service->media_ids}}';
+            var old_media_id ='{{$visa->media_ids}}';
             if(media_id== undefined){
                 media_id = old_media_id;
             }
             var obj = {
                 _token: token,
-                name_vi: title_vi,
                 id: id,
-                name_en: title_en,
+                name_vi: name_vi,
+                name_en: name_en,
+                short_des_vi: short_des_vi,
+                short_des_en: short_des_en,
+                location: location,
                 content_vi: content_vi,
                 content_en: content_en,
                 media_ids: media_id
             }
             //  console.log('===========>',obj)
             show_spinner();
-            $.post('{{route('backend.services.save')}}', obj)
+            $.post('{{route('backend.visa.save')}}', obj)
                     .done(function (data) {
                         hide_spinner();
                         if (data.success == true) {
-                            $.notify("Add successful", "success");
+                            //  $.notify("Delete successful", "success");
+                            $.notify("Edit successful", "success");
                             setTimeout(function () {
-                                        location.reload();
+                                       // location.reload();
                                     }
                                     , 500);
 
                         } else {
-                            $.notify("Can't edit this banner", "error");
+                            $.notify(data.message, "error");
                             hide_spinner();
                         }
                     })
-                    .fail(function() {
+                    .fail(function () {
                         hide_spinner();
                     });
 
         }
 
 
-
+        var global_files = [];
+        var global_media = [{{$visa->media_ids}}];
         $(function () {
             Dropzone.options.myAwesomeDropzone = {
                 maxFilesize: 5,

@@ -26,7 +26,9 @@ class VISAController extends Controller
 
     public function asia(Request $request)
     {
-        return view('frontend.pages.visa.asia');
+        $cate_visa_id = 3;
+        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
+        return view('frontend.pages.visa.asia', ['visa_list' => $visa_asia]);
     }
 
     public function america(Request $request)
@@ -43,13 +45,16 @@ class VISAController extends Controller
     {
         return view('frontend.pages.visa.australia');
     }
+
     public function vietnam(Request $request)
     {
         return view('frontend.pages.visa.vietnam');
     }
+
     public function detail($visa_url)
     {
-        return view('frontend.pages.visa.detail');
+        $visa =App\Visa::where('slug_url',$visa_url)->first();
+        return view('frontend.pages.visa.detail',['visa'=>$visa]);
     }
-    
+
 }

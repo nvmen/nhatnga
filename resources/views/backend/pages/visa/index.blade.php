@@ -111,8 +111,6 @@
                                         @foreach($cates as  $cate)
                                             <option value='{{$cate->id}}'>{{$cate->translation()->first()->name}}</option>
                                         @endforeach
-
-
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -178,10 +176,7 @@
         };
         CKEDITOR.replace('content_vi', options);
         CKEDITOR.replace('content_en', options);
-        function edit(banner) {
-            var bannerEdit = banner;
-            console.log(bannerEdit);
-        }
+
         function delete_banner(id) {
             bootbox.confirm("Are you sure you want to delete this banner?", function (result) {
 

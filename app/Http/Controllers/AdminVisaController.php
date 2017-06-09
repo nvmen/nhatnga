@@ -19,6 +19,7 @@ use DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
+
 class AdminVisaController extends Controller
 {
     public function __construct()
@@ -39,7 +40,7 @@ class AdminVisaController extends Controller
 
             $search = $request['search'];
 
-           $list_visa_id = VisaTranslations::where(function ($query)use($search) {
+            $list_visa_id = VisaTranslations::where(function ($query) use ($search) {
                 $query->where('name', 'LIKE', '%' . $search . '%')
                     ->orWhere('short_description', 'LIKE', '%' . $search . '%')
                     ->orWhere('content', 'LIKE', '%' . $search . '%');
@@ -55,8 +56,7 @@ class AdminVisaController extends Controller
         $paginatedSearchResults->setPath(route('backend.visa.index'));
 
 
-
-        return view('backend.pages.visa.index', ['cates' => $visa_cate, 'visas' => $paginatedSearchResults,'search'=>$search]);
+        return view('backend.pages.visa.index', ['cates' => $visa_cate, 'visas' => $paginatedSearchResults, 'search' => $search]);
     }
 
     public function add(Request $request)
@@ -109,7 +109,8 @@ class AdminVisaController extends Controller
 
     }
 
-    public  function delete(Request $request){
+    public function delete(Request $request)
+    {
         $rules = array(
             'id' => 'required',
 
@@ -126,7 +127,82 @@ class AdminVisaController extends Controller
             return response()->json(['success' => true, 'message' => 'Visa is deleted']);
         }
     }
-    public function get_edit($id){
 
+    public function get_edit($id)
+    {
+        $visa_cate = VisaCategory::all();
+        $visa = Visa::find($id);
+        $visa_vi = $visa->translation('vi')->first();
+        $visa_en = $visa->translation('en')->first();
+        $media = $visa->medias($visa->media_ids);
+        if ($media) {
+            $info = [
+                'name' => $media[0]->uuid_name,
+                'link' => route('media.get', ['id' => $media[0]->id, 'resize' => '120x120']),
+                'size' => $media[0]->size,
+            ];
+        } else {
+            $info = [
+                'name' => '',
+                'link' => 'www.google.com',
+                'size' => '0',
+            ];
+        }
+        return view('backend.pages.visa.edit', ['visa' => $visa,
+            'media_info' => $info,
+            'visa_vi' => $visa_vi,
+            'visa_en' => $visa_en,
+            'cates' => $visa_cate,
+        ]);
     }
+    public function save_edit(Request $request){
+
+        $rules = array(
+            'media_ids' => 'required',
+            'name_en' => 'required',
+            'name_vi' => 'required',
+            'id'=>'required'
+        );
+        $data = $request->all();
+
+        $validator = Validator::make($data, $rules);
+
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'Visa need a image and name not empty']);
+        } else {
+            $slug = Str::slug($request['name_en']);
+            $count = DB::table('visa')->where('slug_url', $slug)->count();
+
+            if ($count >= 1) {
+                $count = $count;
+                $slug = $slug . '-' . $count;
+            }
+            $id = $request['id'];
+            $obj = Visa::find($id);
+            $obj->media_ids = $request['media_ids'];
+            $obj->slug_url = $slug;
+            $obj->visa_cate_id = $request['location'];
+            $obj->save();
+
+            $obj_vi = VisaTranslations::where('lang_code', 'vi')
+                ->where('visa_id', $id)->first();
+
+            $obj_vi->name = $request['name_vi'];
+            $obj_vi->short_description = $request['short_des_vi'];
+            $obj_vi->content = $request['content_vi'];
+            $obj_vi->save();
+
+
+            $obj_en = VisaTranslations::where('lang_code', 'en')
+                ->where('visa_id', $id)->first();
+            $obj_en->name = $request['name_en'];
+            $obj_en->short_description = $request['short_des_en'];
+            $obj_en->content = $request['content_en'];
+            $obj_en->save();
+
+
+            return response()->json(['success' => true, 'message' => 'Add sucessfull']);
+        }
+    }
+
 }

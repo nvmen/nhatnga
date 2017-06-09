@@ -77,6 +77,7 @@ Route::group(
                 Route::post('/add', ['uses' => 'AdminVisaController@add', 'as' => 'backend.visa.add']);
                 Route::post('/delete', ['uses' => 'AdminVisaController@delete', 'as' => 'backend.visa.delete']);
                 Route::get('/{id}', ['uses' => 'AdminVisaController@get_edit', 'as' => 'backend.visa.get']);
+                Route::post('/save', ['uses' => 'AdminVisaController@save_edit', 'as' => 'backend.visa.save']);
             });
 
             Route::group(['prefix' => 'tours'], function () {
