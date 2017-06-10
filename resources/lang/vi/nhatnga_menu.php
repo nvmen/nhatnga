@@ -28,5 +28,8 @@ return [
     'services_workpermit' => 'Giấy phép lao động, thẻ tạm trú',
     'services_airlineticket' => 'Vé máy bay',
     'services_others' => 'Các dịch vụ khác',
+    'monthly_deals' => 'Nhận những khuyến mãi hàng tháng',
+    'join_newsletter' => 'THĂM GIA NGAY',
+    'sign_up_now' => 'Đăng Ký',
 
 ];

@@ -28,11 +28,12 @@
                     <aside id="text-7" class="widget widget_text">
                         <div class="textwidget">
                             <ul class="top_bar_info clearfix">
-                                <li><a> <img src="{{ URL::asset('images/flag/vi.png') }}" alt="Logo" width="18"
+                                <li><a  onclick="change_lang('vi')" class="@if(Config::get('app.locale')=='vi') active-lang  @endif">
+                                        <img src="{{ URL::asset('images/flag/vi.png') }}" alt="Logo" width="18"
                                              height="12"
                                              class="logo_transparent_static"> Tiếng việt </a></li>
                                 <li class="hidden-info">
-                                    <a>
+                                    <a  onclick="change_lang('en')" class="@if(Config::get('app.locale')=='en') active-lang  @endif">
                                         <img src="{{ URL::asset('images/flag/en.png') }}" alt="Logo" width="18"
                                              height="12"
                                              class="logo_transparent_static"> English
@@ -186,7 +187,7 @@
                             <li><a href="{{route('frontend.services.others')}}">{{__('nhatnga_menu.services_others')}}</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">{{@__('nhatnga_menu.contact')}}</a></li>
+                    <li><a href="{{route('frontend.home.contact')}}">{{@__('nhatnga_menu.contact')}}</a></li>
                     <li class="menu-right">
                         <ul>
                             <li id="travel_social_widget-2" class="widget travel_search">

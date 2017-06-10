@@ -28,5 +28,8 @@ return [
     'services_workpermit' => 'Work permit',
     'services_airlineticket' => 'Airline ticket',
     'services_others' => 'Others',
+    'monthly_deals' => 'To receive our best monthly deals',
+    'join_newsletter' => 'JOIN THE NEWSLETTER',
+    'sign_up_now' => 'Sign Up Now',
 
 ];

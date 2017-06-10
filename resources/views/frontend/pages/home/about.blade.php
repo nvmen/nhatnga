@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="site-main col-sm-12" id="main-content">
 
-                    <section class="section-80 section-md-120 center">
+                    <section class="section-40 section-md-40 center">
                         <div class="shell shell-wide text-lg-left">
                             <div class="range">
                                 <div class="cell-lg-preffix-1 cell-lg-6 cell-lg-push-1">

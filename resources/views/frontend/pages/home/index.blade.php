@@ -690,29 +690,7 @@
             </div>
         </div>
 
-        <div class="bg__shadow padding-top-6x padding-bottom-6x section-background"
-             style="background-image:url(images/home/bg-pallarax.jpg)">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8">
-                        <div class="discounts-tour">
-                            <h3 style="color:#ffffff" class="discounts-title"> Special Tour in April, Discover
-                                Australia for 100 customers with
-                                <span> discount 50%</span></h3>
-                            <span class="line" style="color:#ffffff"></span>
-                            <p style="color:#ffffff">It’s limited seating! Hurry up</p>
-                            <div class="row centered text-center" id="myCounter"></div>
-                            <div class="col-sm-12 text-center padding-top-2x">
-                                <a href="index.htm#" class="icon-btn"><i class="flaticon-airplane-4"></i> Get tour
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-2"></div>
-                </div>
-            </div>
-        </div>
+
 
         <div class="section-white padding-top-6x padding-bottom-6x">
             <div class="container">
