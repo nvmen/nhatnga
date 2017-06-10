@@ -45,6 +45,6 @@ class HomeController extends Controller
         {
             //   echo "It's English!";
         }
-        return view('frontend.pages.home.services');
+        return view('frontend.pages.home.about');
     }
 }

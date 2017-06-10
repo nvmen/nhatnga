@@ -64,14 +64,6 @@
                 <aside id="text-5" class="widget_text">
                     <div class="textwidget">
                         <ul class="footer_menu">
-                            <li><a href="index.htm#">Terms of Use</a></li>
-                            <li>|</li>
-                            <li><a href="index.htm#">Privacy Policy</a></li>
-                            <li>|</li>
-                            <li><a href="javascript:if(confirm('https://twitter.com/physcode\n\nThis file was not retrieved because it was filtered out by your project settings.\n\nWould you like to open it from the server?'))window.location='https://twitter.com/physcode'"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="javascript:if(confirm('https://www.facebook.com/physcode/\n\nThis file was not retrieved because it was filtered out by your project settings.\n\nWould you like to open it from the server?'))window.location='https://www.facebook.com/physcode/'"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="javascript:if(confirm('https://www.instagram.com/physcode/\n\nThis file was not retrieved because it was filtered out by your project settings.\n\nWould you like to open it from the server?'))window.location='https://www.instagram.com/physcode/'"><i class="fa fa-instagram"></i></a>
-                            </li>
                         </ul>
                     </div>
                 </aside>
