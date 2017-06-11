@@ -32,6 +32,7 @@ return [
     'prestige_guatrantee_text' => 'In order to provide the best services, simultaneously get customers’ trusts, “Prestige” and “Quality” are always our priority perspect.',
     'company_short_des'=>'To be proud as a one of reputable enterprises nationwide in providing the services such as visa, translation, work permit, APEC card, temporary residence card, international driving license, flight tickets, and other licenses for Vietnamese people and foreigners.',
     'company_commit'=>'NHAT NGA company commits that the services provided to customers are best. We consider that this our responsibility, honor, and brand of the company. We wish to accompany with you in the period of development and integration',
-
+    'prestige_guatrantee'=>'PRESTIGE GUATRANTEE',
+    'prestige_guatrantee_text'=>'In order to provide the best services, simultaneously get customers’ trusts, “Prestige” and “Quality” are always our priority perspect.',
 
 ];

@@ -196,12 +196,11 @@
                                     </div>
                                     <div class="col-md-8  solution right">
                                         <div class="solution-content">
-                                            <h2>TƯ VẤN NHIỆT TÌNH</h2>
+                                            <h2>{{__('nhatnga.prestige_guatrantee')}}</h2>
                                             <div class="hr line"></div>
-                                            <p>Với đội ngũ nhân viên nhiệt tình, thân thiện, công ty chúng tôi luôn sẵn
-                                                sàng
-                                                tư vấn, giải đáp thắc mắc 24/24 cho quý khách hàng, đặc biệt trong những
-                                                trường hợp khó.</p>
+                                            <p>
+                                                {{__('nhatnga.prestige_guatrantee_text')}}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

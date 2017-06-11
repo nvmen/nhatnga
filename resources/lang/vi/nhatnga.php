@@ -29,7 +29,7 @@ return [
     'information_confidentiality' => 'BẢO MẬT THÔNG TIN',
     'information_confidentiality_text' => 'Hiểu biết được tầm quan trọng của các hồ sơ, chứng từ, chúng tôi cam kết bảo mật tuyệt đối thông tin để quý khách hàng luôn luôn an tâm khi làm việc.',
     'prestige_guatrantee' => 'ĐẢM BẢO UY TÍN',
-    'prestige_guatrantee_text' => 'Để cung cấp những dịch vụ tốt nhất, đồng thời có được sự tín nhiệm của khách hàng, “Uy tín” và “Chất lượng “luôn luôn là phương châm làm việc của chúng tôi.',
+    'prestige_guatrantee_text' => 'Để cung cấp những dịch vụ tốt nhất, đồng thời có được sự tín nhiệm của khách hàng, “Uy tín” và “Chất lượng “ luôn luôn là phương châm làm việc của chúng tôi.',
     'company_short_des'=>'Tự hào là một trong những doanh nghiệp có uy tín trên toàn quốc trong việc thực hiện các dịch vụ: Visa, Dịch thuật, Giấy phép lao động, Thẻ APEC, Thẻ tạm trú, Giấy phép lái xe Quốc tế, Đại lý vé máy bay, các loại giấy phép dành cho người Việt Nam và nước ngoài.',
     'company_commit'=>'Công ty NHẤT NGA cam kết chất lượng dịch vụ cung cấp đến khách hàng là tốt nhất, chúng tôi xem đó là trách nhiệm, là danh dự và thương hiệu của Công ty. Chúng tôi mong muốn được đồng hành cùng quý khách hàng trên hành trình phát triển và hội nhập.',
 

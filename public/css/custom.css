@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+#map_canvas {
+    width:100%;
+    min-height:500px;
+}
 .top_bar_info li a:hover{
     cursor: pointer;
 }

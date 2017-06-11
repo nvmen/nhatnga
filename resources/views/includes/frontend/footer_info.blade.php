@@ -20,22 +20,22 @@
                 <aside class="col-sm-3 widget_text"><h3 class="widget-title">INFORMATION</h3>
                     <div class="textwidget">
                         <ul class="menu list-arrow">
-                            <li><a href="index.htm#">Press Centre</a></li>
-                            <li><a href="index.htm#">Travel News</a></li>
-                            <li><a href="index.htm#">About Us</a></li>
-                            <li><a href="index.htm#">Privacy Policy</a></li>
-                            <li><a href="index.htm#">Contact Us</a></li>
+                            <li><a href="index.htm#">{{__('nhatnga_menu.domestic_tour')}}</a></li>
+                            <li><a href="index.htm#">{{__('nhatnga_menu.international_tour')}}</a></li>
+                            <li><a href="index.htm#">{{__('nhatnga_menu.long_travel')}}</a></li>
+                            <li><a href="index.htm#">{{__('nhatnga_menu.short_travel')}}</a></li>
+                            <li><a href="index.htm#">{{__('nhatnga_menu.food_travel')}}</a></li>
                         </ul>
                     </div>
                 </aside>
-                <aside class="col-sm-3 widget_text"><h3 class="widget-title">Our Menu</h3>
+                <aside class="col-sm-3 widget_text"><h3 class="widget-title">{{__('nhatnga_menu.our_menu')}}</h3>
                     <div class="textwidget">
                         <ul class="menu list-arrow">
-                            <li><a href="index.htm#">About us</a></li>
-                            <li><a href="index.htm#">Career</a></li>
-                            <li><a href="index.htm#">Terms</a></li>
-                            <li><a href="index.htm#">Privacy Policy</a></li>
-                            <li><a href="index.htm#">Contact</a></li>
+                            <li><a href="{{route('frontend.home.index')}}">{{__('nhatnga_menu.home')}}</a></li>
+                            <li><a href="{{route('frontend.services.apeccard')}}">{{__('nhatnga_menu.services_apeccard')}}</a></li>
+                            <li><a href="{{route('frontend.services.workpermit')}}">{{__('nhatnga_menu.services_workpermit')}}</a></li>
+                            <li><a href="{{route('frontend.services.translation')}}">{{__('nhatnga_menu.services_translation')}}</a></li>
+                            <li><a href="{{route('frontend.home.contact')}}">{{__('nhatnga_menu.contact')}}</a></li>
                         </ul>
                     </div>
                 </aside>

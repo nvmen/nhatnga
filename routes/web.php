@@ -23,6 +23,7 @@ Route::group(
 
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'frontend.home.index']);
         Route::get('/contact', ['uses' => 'HomeController@contact', 'as' => 'frontend.home.contact']);
+        Route::post('/submit_contact', ['uses' => 'HomeController@submit_contact', 'as' => 'frontend.home.contact.submit_contact']);
         Route::get('/about', ['uses' => 'HomeController@about', 'as' => 'frontend.home.about']);
         Route::get('/tour/international', ['uses' => 'TourController@international', 'as' => 'frontend.tour.international']);
         Route::get('/tour/domestic', ['uses' => 'TourController@domestic', 'as' => 'frontend.tour.domestic']);

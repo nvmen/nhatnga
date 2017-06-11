@@ -31,5 +31,6 @@ return [
     'monthly_deals' => 'To receive our best monthly deals',
     'join_newsletter' => 'JOIN THE NEWSLETTER',
     'sign_up_now' => 'Sign Up Now',
+    'our_menu' => 'OUR MENU',
 
 ];

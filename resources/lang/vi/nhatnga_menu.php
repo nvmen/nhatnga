@@ -31,5 +31,6 @@ return [
     'monthly_deals' => 'Nhận những khuyến mãi hàng tháng',
     'join_newsletter' => 'THĂM GIA NGAY',
     'sign_up_now' => 'Đăng Ký',
+    'our_menu' => 'Danh mục',
 
 ];

@@ -1,113 +1,212 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-@include('includes.frontend.head')
-</head>
-<body>
-<div class="wrapper-container">
-   @include('includes.frontend.header')
-    <div class="site wrapper-content">
-        <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">
-            <div class="banner-wrapper container article_heading">
-                <div class="breadcrumbs-wrapper">
-                    <ul class="phys-breadcrumb">
-                        <li><a href="index.html" class="home">Home</a></li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-                <h1 class="heading_primary">Contact</h1></div>
-        </div>
-        <section class="content-area">
-            <div class="container">
-                <div class="row">
-                    <div class="site-main col-sm-9 alignleft">
-                        <div class="video-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6304.829986131271!2d-122.4746968033092!3d37.80374752160443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586e6302615a1%3A0x86bd130251757c00!2sStorey+Ave%2C+San+Francisco%2C+CA+94129!5e0!3m2!1sen!2sus!4v1435826432051"></iframe>
+@extends('layouts.frontend')
+@section('pageTitle',__('nhatnga_menu.contact'))
+@section('content')
+    <link rel="stylesheet" href="{{ URL::asset('assets/sweetalert/sweetalert.css') }}" type="text/css" media="all">
+    <script type='text/javascript' src=' {{ URL::asset('assets/sweetalert/sweetalert.min.js') }}'></script>
+    <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">
+        <div class="banner-wrapper container article_heading">
+            <div class="breadcrumbs-wrapper">
+                <ul class="phys-breadcrumb">
+                    <li><a href="{{route('frontend.home.index')}}" class="home">Home</a></li>
+                    <li>{{__('nhatnga_menu.contact')}}</li>
+                </ul>
+            </div>
+            <h1 class="heading_primary">{{__('nhatnga_menu.contact')}}</h1></div>
+    </div>
+    <section class="content-area">
+        <div class="container">
+            <div class="row">
+                <div class="site-main col-sm-9 alignleft">
+                    <div class="video-container">
+                        <div id="map_canvas"></div>
+                    </div>
+                    <div class="pages_content padding-top-4x">
+                        <h4>{{__('nhatnga.company_name')}}</h4>
+                        <div class="contact_infor">
+                            <ul>
+                                <li><label><i class="fa fa-map-marker"></i>{{__('contact.address')}}</label>
+                                    <div class="des">{{__('nhatnga.address')}}</div>
+                                </li>
+                                <li><label><i class="fa fa-phone"></i>{{__('contact.tel_no')}}</label>
+                                    <div class="des">+84 8 62648240</div>
+                                </li>
+                                <li><label><i class="fa fa-print"></i>{{__('contact.hot_line')}}</label>
+                                    <div class="des">0919.345.788</div>
+                                </li>
+                                <li><label><i class="fa fa-envelope"></i>{{__('contact.email')}}</label>
+                                    <div class="des">info@nhatnga.com.vn</div>
+                                </li>
+                                <li>
+                                    <label><i class="fa fa-clock-o"></i>{{__('contact.working_hour')}}</label>
+                                    <div class="des">{{__('contact.monday')}} – {{__('contact.friday')}} 8:00 am – 5:30
+                                        pm, {{__('contact.saturday')}} 8:00 am – 1:00 pm
+                                        <br>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="pages_content padding-top-4x">
-                            <h4>CONTACT INFORMATION</h4>
-                            <div class="contact_infor">
-                                <ul>
-                                    <li><label><i class="fa fa-map-marker"></i>ADDRESS</label>
-                                        <div class="des">Taman Pertama, Cheras, 56100 Kuala Lumpur, Malaysia</div>
-                                    </li>
-                                    <li><label><i class="fa fa-phone"></i>TEL NO</label>
-                                        <div class="des">+012345678 (tour) | +0123456789 (ticketing)</div>
-                                    </li>
-                                    <li><label><i class="fa fa-print"></i>FAX NO</label>
-                                        <div class="des">+012345678 (tour) | +123456789 (ticketing)</div>
-                                    </li>
-                                    <li><label><i class="fa fa-envelope"></i>EMAIL</label>
-                                        <div class="des">tours@physcode.com (tour) | tickets@physcode.com (ticketing)</div>
-                                    </li>
-                                    <li>
-                                        <label><i class="fa fa-clock-o"></i>WORKING HOURS</label>
-                                        <div class="des">Mon – Fri 9:00 am – 5:30 pm, Sat 9:00 am – 1:00 pm
-                                            <br>
-                                            We are closed on 1st &amp; 3rd Sat of every month, Sundays &amp; public holidays
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <label><i class="fa fa-map-marker"></i>GPS COORDINATE</label>
-                                        <div class="des">Latitude : 3.1117181000, Longitude : 101.7301577000</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="wpb_wrapper pages_content">
-                            <h4>Have a question?</h4>
-                            <div role="form" class="wpcf7">
-                                <div class="screen-reader-response"></div>
-                                <form action="index.htm#" method="post" class="wpcf7-form" novalidate="novalidate">
-                                    <div class="form-contact">
-                                        <div class="row-1x">
-                                            <div class="col-sm-6">
+                    </div>
+                    <div class="wpb_wrapper pages_content">
+                        <h4>Have a question?</h4>
+                        <div role="form" class="wpcf7">
+                            <div class="screen-reader-response"></div>
+                            <form action="{{route('frontend.home.contact.submit_contact')}}"  id="contact-form" method="post"
+                                  class="wpcf7-form" novalidate="novalidate">
+                                <div class="form-contact">
+                                    <div class="row-1x">
+                                        <div class="col-sm-6">
 													<span class="wpcf7-form-control-wrap your-name">
-														<input type="text" name="your-name" value="" size="40" class="wpcf7-form-control" placeholder="Your name*">
+														<input type="text" name="name" id="name" value=""
+                                                               size="40" class="wpcf7-form-control"
+                                                               placeholder="{{__('contact.your_name')}}*">
 													</span>
-                                            </div>
-                                            <div class="col-sm-6">
+                                        </div>
+                                        <div class="col-sm-6">
 													<span class="wpcf7-form-control-wrap your-email">
-														<input type="email" name="your-email" value="" size="40" class="wpcf7-form-control" placeholder="Email*">
+														<input type="email" name="email" id="email" value="" size="40"
+                                                               class="wpcf7-form-control" placeholder="Email*">
 													</span>
-                                            </div>
-                                        </div>
-                                        <div class="form-contact-fields">
-												<span class="wpcf7-form-control-wrap your-subject">
-													<input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control" placeholder="Subject">
-												</span>
-                                        </div>
-                                        <div class="form-contact-fields">
-											<span class="wpcf7-form-control-wrap your-message">
-												<textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message"></textarea>
-												 </span><br>
-                                            <input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit">
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="form-contact-fields">
+												<span class="wpcf7-form-control-wrap your-subject">
+													<input type="text" name="subject" id="subject" value="" size="40"
+                                                           class="wpcf7-form-control"
+                                                           placeholder="{{__('contact.subject')}}">
+												</span>
+                                    </div>
+                                    <div class="form-contact-fields">
+											<span class="wpcf7-form-control-wrap your-message">
+												<textarea name="message" id="message" cols="40" rows="10"
+                                                          class="wpcf7-form-control wpcf7-textarea"
+                                                          placeholder="{{__('contact.message')}}"></textarea>
+												 </span><br>
+                                        <p style="color: red;font-weight: 600" id="show-error"></p>
+                                        <br>
+
+                                    </div>
+                                    <div class="form-contact-fields">
+                                        <input type="button" onclick="send_message()" value="{{__('contact.submit')}}"
+                                               class="wpcf7-form-control wpcf7-submit">
+
+
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="widget-area col-sm-3 align-left">
-                        <aside class="widget widget_text">
-                            <img src="{{ URL::asset('images/images-sidebar/sidebanner-ticketing.jpg') }}" alt="">
-                        </aside>
-                        <aside class="widget widget_text">
-                            <img src="{{ URL::asset('images/images-sidebar/sidebanner-tour.png') }}" alt="">
-                        </aside>
-                        <aside class="widget widget_text">
-                            <img src="{{ URL::asset('images/images-sidebar/hertz-sidebanner.jpg') }}" alt="">
-                        </aside>
-                    </div>
+                </div>
+                <div class="widget-area col-sm-3 align-left">
+                    <aside class="widget widget_text">
+                        <img src="{{ URL::asset('images/images-sidebar/sidebanner-ticketing.jpg') }}" alt="">
+                    </aside>
+                    <aside class="widget widget_text">
+                        <img src="{{ URL::asset('images/images-sidebar/sidebanner-tour.png') }}" alt="">
+                    </aside>
+                    <aside class="widget widget_text">
+                        <img src="{{ URL::asset('images/images-sidebar/hertz-sidebanner.jpg') }}" alt="">
+                    </aside>
                 </div>
             </div>
-        </section>
-    </div>
-  @include('includes.frontend.footer')
+        </div>
+    </section>
 
-</div>
+    <script>
 
-@include('includes.frontend.foot')
 
-</body>
-</html>
+        function send_message() {
+            var token = '{{ csrf_token() }}';
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var subject = $('#subject').val();
+            var message = $('#message').val();
+
+            var obj = {_token: token, name: name, email: email, subject: subject, message: message};
+            if (validateEmail(email) && name.trim().length > 0) {
+                show_spinner();
+                $('#show-error').html('');
+                $.post('{{route('frontend.home.contact.submit_contact')}}', obj)
+                        .done(function (data) {
+                            hide_spinner();
+                            $('#contact-form')[0].reset();
+                            if (data.success == true) {
+                                setTimeout(function(){
+                                    swal({
+                                        title: "",
+                                        text: data.message,
+                                        timer: 4000,
+                                        type: "success",
+                                        showConfirmButton: false
+                                    });
+                                }, 1000);
+
+
+                            } else {
+                                swal({
+                                    title: "",
+                                    text: data.message,
+                                    timer: 3000,
+                                    showConfirmButton: false,
+                                    type: "error",
+
+                                });
+                                hide_spinner();
+                            }
+                        })
+                        .fail(function () {
+                            hide_spinner();
+                        });
+
+            } else {
+                $('#show-error').html('{{__('contact.error_contact')}}')
+            }
+
+        }
+        var url = '{{route('frontend.home.contact.submit_contact')}}';
+
+        var maplication = '10.7809113, 106.6110463';
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map_canvas'), {
+                zoom: 18,
+                center: {lat: 10.753188, lng: 106.666549}
+            });
+
+            setMarkers(map);
+        }
+        var beaches = [
+            ['Bondi Beach', 10.753188, 106.666549, 1],
+        ];
+
+        function setMarkers(map) {
+            var image = {
+                url: 'http://nhatnga.com.vn/wp-content/uploads/2016/05/nhatnga@1x.png',
+                // This marker is 20 pixels wide by 32 pixels high.
+                size: new google.maps.Size(195, 60),
+                // The origin for this image is (0, 0).
+                origin: new google.maps.Point(0, 0),
+                // The anchor for this image is the base of the flagpole at (0, 32).
+                anchor: new google.maps.Point(0, 32)
+            };
+
+            var shape = {
+                coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                type: 'poly'
+            };
+            for (var i = 0; i < beaches.length; i++) {
+                var beach = beaches[i];
+                var marker = new google.maps.Marker({
+                    position: {lat: beach[1], lng: beach[2]},
+                    map: map,
+                    icon: image,
+                    shape: shape,
+                    title: beach[0],
+                    zIndex: beach[3]
+                });
+            }
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuxOD_zlHu2D4aaa3fNycKgVUf-S1eAGQ&callback=initMap">
+    </script>
+
+@stop
