@@ -16,7 +16,7 @@ class CreateProvinceTranslationTable extends Migration
         Schema::create('province_translation', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->longText('name');
+            $table->string('name');
             $table->longText('short_description')->nullable();          
             $table->unsignedInteger('province_id');
             $table->timestamps();

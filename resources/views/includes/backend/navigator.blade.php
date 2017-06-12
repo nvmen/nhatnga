@@ -127,6 +127,7 @@
                     <li> <a href="{{route('backend.services.get',['id'=>4])}}"> Airline ticket</a></li>
                     <li> <a href="{{route('backend.services.get',['id'=>5])}}"> VISA Vietnam</a></li>
                     <li> <a href="{{route('backend.services.get',['id'=>6])}}"> Others</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>7])}}"> VISA</a></li>
                 </ul>
             </li>
             <li>
@@ -143,7 +144,7 @@
             </li>
 
             <li>
-                <a href="forms.html"><i class="fa fa-fw fa-edit"></i>aaaa </a>
+                <a href="{{route('backend.location.index')}}"><i class="fa fa-fw fa-edit"></i>Locations </a>
             </li>
             <li>
                 <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>

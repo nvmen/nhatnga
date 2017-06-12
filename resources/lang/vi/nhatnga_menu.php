@@ -32,5 +32,9 @@ return [
     'join_newsletter' => 'THĂM GIA NGAY',
     'sign_up_now' => 'Đăng Ký',
     'our_menu' => 'Danh mục',
+    'footer_service'=>'CÁC DỊCH VỤ',
+    'social_network'=>'SOCIAL NETWORK',
+    'services_visa'=>'VISA',
+    'services_CONTACT'=>'LIÊN HỆ',
 
 ];

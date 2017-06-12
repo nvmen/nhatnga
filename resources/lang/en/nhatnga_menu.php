@@ -32,5 +32,9 @@ return [
     'join_newsletter' => 'JOIN THE NEWSLETTER',
     'sign_up_now' => 'Sign Up Now',
     'our_menu' => 'OUR MENU',
+    'footer_service'=>'SERVICES',
+    'social_network'=>'SOCIAL NETWORK',
+    'services_visa'=>'VISA',
+    'services_CONTACT'=>'CONTACT',
 
 ];

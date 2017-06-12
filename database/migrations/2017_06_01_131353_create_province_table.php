@@ -16,8 +16,9 @@ class CreateProvinceTable extends Migration
         Schema::create('province', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->longText('slug_url');
-            $table->longText('media_ids')->nullable();
+            $table->string('slug_url');
+            $table->string('media_ids')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }

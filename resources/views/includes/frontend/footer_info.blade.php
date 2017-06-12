@@ -5,53 +5,92 @@
                 <aside class="col-sm-3 widget_text">
                     <div class="textwidget">
                         <div class="footer-info">
-						 <img src="{{ URL::asset('images/logo_nhatnga.png') }}" class="img-responsive" alt="foot-logo" title="foot-logo">
+                            <img src="{{ URL::asset('images/logo_nhatnga.png') }}" class="img-responsive"
+                                 alt="foot-logo" title="foot-logo">
                             <p></p>
                             <ul class="contact-info">
                                 <li><i class="fa fa-map-marker fa-fw"></i> {{__('nhatnga.address')}}</li>
+                                <li><i class="fa fa-map-marker fa-fw"></i> {{__('nhatnga.address_branch')}}</li>
                                 <li><i class="fa fa-phone fa-fw"></i> +84 8 62793318 - +84 8 66817653</li>
                                 <li>
-                                    <i class="fa fa-envelope fa-fw"></i><a href="mailto: info@nhatnga.com.vn">  info@nhatnga.com.vn</a>
+                                    <i class="fa fa-envelope fa-fw"></i><a href="mailto: info@nhatnga.com.vn">
+                                        info@nhatnga.com.vn</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </aside>
-                <aside class="col-sm-3 widget_text"><h3 class="widget-title">INFORMATION</h3>
+                <aside class="col-sm-3 widget_text"><h3
+                            class="widget-title">{{__('nhatnga_menu.services_CONTACT')}}</h3>
+                    <div class="textwidget">
+                        <ul class="menu">
+                            <li><a href="javascript:void(0)">
+                                    <img  class="icon-app" src="{{URL::asset('images/avata/zalo-logo.png')}}"/>
+                                    0919.345.788</a>
+                            </li>
+                            <li><a href="javascript:void(0)">
+                                    <img class="icon-app" src="{{URL::asset('images/avata/viber-logo.png')}}"/>
+                                    0919.345.788
+                                </a>
+                            </li>
+                            <li><a href="javascript:void(0)">
+                                    <img  class="icon-app" src="{{URL::asset('images/avata/whatsapp.png')}}"/>
+                                    0919.345.788</a>
+                            </li>
+                            <li><a href="skype:nhatnga_company?chat">
+                                    <img  class="icon-app" src="{{URL::asset('images/avata/skype-logo.png')}}"/>
+                                    nhatnga_company
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </aside>
+                <aside class="col-sm-3 widget_text"><h3 class="widget-title">{{__('nhatnga_menu.footer_service')}}</h3>
                     <div class="textwidget">
                         <ul class="menu list-arrow">
-                            <li><a href="index.htm#">{{__('nhatnga_menu.domestic_tour')}}</a></li>
-                            <li><a href="index.htm#">{{__('nhatnga_menu.international_tour')}}</a></li>
-                            <li><a href="index.htm#">{{__('nhatnga_menu.long_travel')}}</a></li>
-                            <li><a href="index.htm#">{{__('nhatnga_menu.short_travel')}}</a></li>
-                            <li><a href="index.htm#">{{__('nhatnga_menu.food_travel')}}</a></li>
+                            <li><a href="{{route('frontend.services.visa')}}">{{__('nhatnga_menu.services_visa')}}</a>
+                            </li>
+                            <li>
+                                <a href="{{route('frontend.services.apeccard')}}">{{__('nhatnga_menu.services_apeccard')}}</a>
+                            </li>
+                            <li>
+                                <a href="{{route('frontend.services.workpermit')}}">{{__('nhatnga_menu.services_workpermit')}}</a>
+                            </li>
+                            <li>
+                                <a href="{{route('frontend.services.translation')}}">{{__('nhatnga_menu.services_translation')}}</a>
+                            </li>
+                            <li>
+                                <a href="{{route('frontend.services.airlineticket')}}">{{__('nhatnga_menu.services_airlineticket')}}</a>
+                            </li>
                         </ul>
                     </div>
                 </aside>
-                <aside class="col-sm-3 widget_text"><h3 class="widget-title">{{__('nhatnga_menu.our_menu')}}</h3>
+
+                <aside class="col-sm-3 widget_text"><h3 class="widget-title">{{__('nhatnga_menu.social_network')}}</h3>
                     <div class="textwidget">
-                        <ul class="menu list-arrow">
-                            <li><a href="{{route('frontend.home.index')}}">{{__('nhatnga_menu.home')}}</a></li>
-                            <li><a href="{{route('frontend.services.apeccard')}}">{{__('nhatnga_menu.services_apeccard')}}</a></li>
-                            <li><a href="{{route('frontend.services.workpermit')}}">{{__('nhatnga_menu.services_workpermit')}}</a></li>
-                            <li><a href="{{route('frontend.services.translation')}}">{{__('nhatnga_menu.services_translation')}}</a></li>
-                            <li><a href="{{route('frontend.home.contact')}}">{{__('nhatnga_menu.contact')}}</a></li>
+                        <ul class="social-network social-circle">
+
+
+                            <li><a href="#" title="Facebook">
+                                    <span class="icoFacebook"><i class="fa fa-facebook"></i></span> Facebook
+                                </a></li>
+                            <li>
+                                <a href="#" title="Youtube">
+                                    <span class="icoYoutube"><i class="fa fa-youtube"></i></span> Youtube
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Twitter">
+                                    <span class="icoTwitter"><i class="fa fa-twitter"></i></span> Twitter
+                                </a>
+                            </li>
+
+
                         </ul>
                     </div>
                 </aside>
-                <aside class="col-sm-3 custom-instagram widget_text">
-                    <h3 class="widget-title">Instagram</h3>
-                    <div class="textwidget">
-                        <ul>
-                            <li><img src="{{ URL::asset('images/instagram/1.jpg') }}" alt="instagram"></li>
-                            <li><img src="{{ URL::asset('images/instagram/2.jpg') }}" alt="instagram"></li>
-                            <li><img src="{{ URL::asset('images/instagram/3.jpg') }}" alt="instagram"></li>
-                            <li><img src="{{ URL::asset('images/instagram/4.jpg') }}" alt="instagram"></li>
-                            <li><img src="{{ URL::asset('images/instagram/5.jpg') }}" alt="instagram"></li>
-                            <li><img src="{{ URL::asset('images/instagram/6.jpg') }}" alt="instagram"></li>
-                        </ul>
-                    </div>
-                </aside>
+
             </div>
         </div>
     </div>

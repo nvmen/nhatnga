@@ -45,6 +45,7 @@ return [
     'air_tickets_every_year'=>'AIR TICKETS EVERY YEAR',
     'complete_ABTC_CARD'=>'COMPLETE ABTC CARD',
     'complete_WORK_PERMITS'=>'COMPLETE WORK PERMITS AND TEMPORARY RESIDENT CARDS',
+   
 
 
 

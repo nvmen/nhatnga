@@ -49,6 +49,7 @@ Route::group(
             Route::get('/airlineticket', ['uses' => 'ServiceController@airlineticket', 'as' => 'frontend.services.airlineticket']);
             Route::get('/visa-viet-nam', ['uses' => 'ServiceController@visavietnam', 'as' => 'frontend.services.visavietnam']);
             Route::get('/others', ['uses' => 'ServiceController@other', 'as' => 'frontend.services.others']);
+            Route::get('/visa', ['uses' => 'ServiceController@visa', 'as' => 'frontend.services.visa']);
 
         });
 
@@ -90,7 +91,12 @@ Route::group(
             });
             Route::group(['prefix' => 'booking'], function () {
                 Route::get('/', ['uses' => 'AdminBookingController@index', 'as' => 'backend.booking.index']);
+            }); 
+            Route::group(['prefix' => 'location'], function () {
+                Route::get('/', ['uses' => 'AdminLocationController@index', 'as' => 'backend.location.index']);
             });
+            
+            
 
 
 

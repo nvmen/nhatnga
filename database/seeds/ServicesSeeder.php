@@ -44,6 +44,11 @@ class ServicesSeeder extends Seeder
             'slug_url' => 'others',
             'media_ids' => '1',
         ]);
+        DB::table('service')->insert([
+            'id' => 7,
+            'slug_url' => 'visa',
+            'media_ids' => '1',
+        ]);
 
     }
 

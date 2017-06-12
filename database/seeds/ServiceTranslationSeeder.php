@@ -99,5 +99,20 @@ class ServiceTranslationSeeder extends Seeder
             'lang_code' => 'vi',
         ]);
 
+        DB::table('service_translation')->insert([
+            'service_id' =>7,
+            'name' => 'visa',
+            'content' => 'content',
+            'lang_code' => 'en',
+        ]);
+        DB::table('service_translation')->insert([
+
+            'service_id' => 7,
+            'name' => 'visa',
+            'content' => 'content',
+            'lang_code' => 'vi',
+        ]);
+
+
     }
 }
