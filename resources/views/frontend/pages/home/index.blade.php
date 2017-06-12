@@ -43,17 +43,17 @@
             <div class="row">
                 <div class="col-sm-12 mg-btn-6x">
                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                        <h3 class="title_primary"> POPULAR SERVICES</h3><span class="line_after_title"></span>
+                        <h3 class="title_primary"> {{__('nhatnga.popular_services')}}</h3><span class="line_after_title"></span>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="wpb_column col-sm-3">
+            <div class="row padding-menu">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon circle"
                              style="font-size:30px;width:80px; height:80px;line-height:80px">
                                 <span class="inner-icon"><i
-                                            class="vc_icon_element-icon flaticon-transport-6"></i></span>
+                                            class="fa fa-plane"></i></span>
                         </div>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
@@ -64,10 +64,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-3">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
-                            <span class="inner-icon"><i class="vc_icon_element-icon flaticon-sand"></i></span>
+                            <span class="inner-icon"><i class="fa fa-id-card-o"></i></span>
                         </div>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-3">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
                             <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travel-2"></i></span>
@@ -92,7 +92,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-3">
+
+            </div>
+            <div class="row padding-menu">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon circle"
                              style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -107,9 +110,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="wpb_column col-sm-3">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon circle"
                              style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -125,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-3">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
                             <span class="inner-icon"><i class="vc_icon_element-icon flaticon-sand"></i></span>
@@ -139,7 +140,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-3">
+
+            </div>
+            <div class="row">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
                             <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travel-2"></i></span>
@@ -153,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-3">
+                <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="boxes-icon circle"
                              style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -168,6 +172,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="wpb_column col-sm-4">
+                    <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                        <div class="boxes-icon circle"
+                             style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i
+                                            class="vc_icon_element-icon flaticon-transport-6"></i></span>
+                        </div>
+                        <div class="content-inner">
+                            <div class="sc-heading article_heading">
+                                <h4 class="heading__primary">Thẻ doanh nhân APEC</h4></div>
+                            <div class="desc-icon-box">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -175,8 +196,8 @@
              style="background-image:url(images/home/bg-popular.jpg)">
             <div class="container">
                 <div class="shortcode_title text-white title-center title-decoration-bottom-center">
-                    <div class="title_subtitle">Take a Look at Our</div>
-                    <h3 class="title_primary">MOST POPULAR TOURS</h3>
+                    <div class="title_subtitle">{{__('nhatnga.take_a_look_at_our')}}</div>
+                    <h3 class="title_primary">{{__('nhatnga.most_popular_tours')}}</h3>
                     <span class="line_after_title" style="color:#ffffff"></span>
                 </div>
                 <div class="row wrapper-tours-slider">
@@ -482,43 +503,54 @@
                     <h3 class="title_primary">CENTER ACHIEVEMENTS</h3>
                     <span class="line_after_title" style="color:#ffffff"></span>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3">
+                <div class="row  nhatnga-achievement">
+
+                    <div class="col-md-15 col-sm-3">
                         <div class="stats_counter text-center text-white">
                             <div class="wrapper-icon">
-                                <i class="flaticon-translation"></i>
+                                <i class="fa fa-language"></i>
                             </div>
                             <div class="stats_counter_number">900</div>
-                            <div class="stats_counter_title">Hồ sơ dịch thuật hàng tháng</div>
+                            <div class="stats_counter_title">{{__('nhatnga.translated_documents_every_month')}}</div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-md-15 col-sm-3 ">
                         <div class="stats_counter text-center text-white">
                             <div class="wrapper-icon">
-                                <i class="flaticon-globe"></i>
+                                <i class="fa fa-id-card"></i>
                             </div>
                             <div class="stats_counter_number">3150</div>
-                            <div class="stats_counter_title">VISA đã được cấp</div>
+                            <div class="stats_counter_title">{{__('nhatnga.complete_visas')}}</div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-md-15 col-sm-3 ">
                         <div class="stats_counter text-center text-white">
                             <div class="wrapper-icon">
                                 <i class="flaticon-airplane"></i>
                             </div>
                             <div class="stats_counter_number">1000</div>
-                            <div class="stats_counter_title">Vé máy bay bán ra mỗi năm</div>
+                            <div class="stats_counter_title">{{__('nhatnga.air_tickets_every_year')}}</div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-md-15 col-sm-3 ">
+                        <div class="stats_counter text-center text-white">
+                            <div class="wrapper-icon">
+                                <i class="fa fa-address-card"></i>
+                            </div>
+                            <div class="stats_counter_number">200</div>
+                            <div class="stats_counter_title">{{__('nhatnga.complete_ABTC_CARD')}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-15 col-sm-3 ">
                         <div class="stats_counter text-center text-white">
                             <div class="wrapper-icon">
                                 <i class="flaticon-people"></i>
                             </div>
-                            <div class="stats_counter_number">200</div>
-                            <div class="stats_counter_title">Thẻ APEC đã được phát hành</div>
+                            <div class="stats_counter_number">400</div>
+                            <div class="stats_counter_title">{{__('nhatnga.complete_WORK_PERMITS')}}</div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -526,7 +558,7 @@
         <div class="section-white padding-top-6x padding-bottom-6x">
             <div class="container">
                 <div class="shortcode_title title-center title-decoration-bottom-center">
-                    <h3 class="title_primary">DEALS AND DISCOUNTS</h3><span class="line_after_title"></span>
+                    <h3 class="title_primary">{{__('nhatnga.deals_and_discounts')}}</h3><span class="line_after_title"></span>
                 </div>
                 <div class="row wrapper-tours-slider">
                     <div class="tours-type-slider list_content" data-dots="true" data-nav="true"
@@ -697,17 +729,18 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="shortcode_title title-center title-decoration-bottom-center">
-                            <h2 class="title_primary">Tours Reviews</h2>
+                            <h2 class="title_primary">{{__('customer.customer_reivew')}}</h2>
                             <span class="line_after_title"></span>
                         </div>
                         <div class="shortcode-tour-reviews wrapper-tours-slider">
                             <div class="tours-type-slider" data-autoplay="true" data-dots="true" data-nav="false"
                                  data-responsive='{"0":{"items":1}, "480":{"items":1}, "768":{"items":1}, "992":{"items":1}, "1200":{"items":1}}'>
+
                                 <div class="tour-reviews-item">
                                     <div class="reviews-item-info">
-                                        <img alt="" src="images/avata.jpeg" class="avatar avatar-95 photo"
+                                        <img alt="" src="images/avata/avartar2.png" class="avatar avatar-95 photo"
                                              height="90" width="90">
-                                        <div class="reviews-item-info-name">Jessica</div>
+                                        <div class="reviews-item-info-name">{{__('customer.cus_tuan_title')}}</div>
                                         <div class="reviews-item-rating">
                                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                                     class="fa fa-star"></i><i class="fa fa-star"></i><i
@@ -716,19 +749,20 @@
                                     </div>
                                     <div class="reviews-item-content">
                                         <h3 class="reviews-item-title">
-                                            <a href="index.htm#">Canadian Rockies</a>
+                                            <a href="#">{{__('customer.cus_tuan_name')}}</a>
                                         </h3>
-                                        <div class="reviews-item-description">The sightseeing and activities were
-                                            better than we even thought! I still can’t believe we did so much in
-                                            such a short time
+                                        <div class="reviews-item-description">
+                                            {{__('customer.cus_tuan_note')}}
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <div class="tour-reviews-item">
                                     <div class="reviews-item-info">
-                                        <img alt="" src="images/avata.jpeg" class="avatar avatar-95 photo"
+                                        <img alt="" src="images/avata/avartar3.png" class="avatar avatar-95 photo"
                                              height="90" width="90">
-                                        <div class="reviews-item-info-name">Jessica</div>
+                                        <div class="reviews-item-info-name">{{__('customer.cus_dao_title')}}</div>
                                         <div class="reviews-item-rating">
                                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                                     class="fa fa-star"></i><i class="fa fa-star"></i><i
@@ -737,19 +771,21 @@
                                     </div>
                                     <div class="reviews-item-content">
                                         <h3 class="reviews-item-title">
-                                            <a href="index.htm#">Canadian Rockies</a>
+                                            <a href="#">{{__('customer.cus_dao_name')}}</a>
                                         </h3>
-                                        <div class="reviews-item-description">The sightseeing and activities were
-                                            better than we even thought! I still can’t believe we did so much in
-                                            such a short time
+                                        <div class="reviews-item-description">
+                                            {{__('customer.cus_dao_note')}}
                                         </div>
                                     </div>
                                 </div>
+
+
+
                                 <div class="tour-reviews-item">
                                     <div class="reviews-item-info">
-                                        <img alt="" src="images/avata.jpeg" class="avatar avatar-95 photo"
+                                        <img alt="" src="images/avata/avartar4.png" class="avatar avatar-95 photo"
                                              height="90" width="90">
-                                        <div class="reviews-item-info-name">Jessica</div>
+                                        <div class="reviews-item-info-name">{{__('customer.cus_hai_title')}}</div>
                                         <div class="reviews-item-rating">
                                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                                     class="fa fa-star"></i><i class="fa fa-star"></i><i
@@ -758,11 +794,10 @@
                                     </div>
                                     <div class="reviews-item-content">
                                         <h3 class="reviews-item-title">
-                                            <a href="index.htm#">Canadian Rockies</a>
+                                            <a href="index.htm#">{{__('customer.cus_hai_name')}}</a>
                                         </h3>
-                                        <div class="reviews-item-description">The sightseeing and activities were
-                                            better than we even thought! I still can’t believe we did so much in
-                                            such a short time.
+                                        <div class="reviews-item-description">
+                                            {{__('customer.cus_hai_note')}}
                                         </div>
                                     </div>
                                 </div>

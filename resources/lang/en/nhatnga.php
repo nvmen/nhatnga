@@ -34,5 +34,18 @@ return [
     'company_commit'=>'NHAT NGA company commits that the services provided to customers are best. We consider that this our responsibility, honor, and brand of the company. We wish to accompany with you in the period of development and integration',
     'prestige_guatrantee'=>'PRESTIGE GUATRANTEE',
     'prestige_guatrantee_text'=>'In order to provide the best services, simultaneously get customers’ trusts, “Prestige” and “Quality” are always our priority perspect.',
+    'popular_services'=>'POPULAR SERVICES',
+    'take_a_look_at_our'=>'Take a Look at Our',
+    'most_popular_tours'=>'MOST POPULAR TOURS',
+    'deals_and_discounts'=>'DEALS AND DISCOUNTS',
+    'monthly_translation'=>' MONTHLY TRANSLATION',
+    
+    'translated_documents_every_month'=>'TRANSLATED DOCUMENTS EVERY MONTH',
+    'complete_visas'=>'COMPLETE VISAS',
+    'air_tickets_every_year'=>'AIR TICKETS EVERY YEAR',
+    'complete_ABTC_CARD'=>'COMPLETE ABTC CARD',
+    'complete_WORK_PERMITS'=>'COMPLETE WORK PERMITS AND TEMPORARY RESIDENT CARDS',
+
+
 
 ];

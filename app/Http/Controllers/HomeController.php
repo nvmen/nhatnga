@@ -40,16 +40,18 @@ class HomeController extends Controller
     public function submit_contact(Request $request)
     {
         $message ='Cám ơn bạn đã gửi tin nhắn cho chúng tôi. Chúng tôi sẽ liên hệ bạn sau.';
+        $message_err ='Đã xãy ra lỗi rồi, vui lòng thử lại';
         if (App::getLocale() == 'en')
         {
             $message ='Thank you very much for sending us this message and we will answer it as soon as possible.';
+            $message_err ='An error was happened. Please try again.';
         }
         try{
-            $email = $request['email'];
+            $email = $request->get('email');
             $email_to ='men.nguyen.sg@gmail.com';
-            $name = $request['name'];
-            $subject = $request['subject'];
-            $message_text = $request['message'];
+            $name = $request->get('name');
+            $subject = $request->get('subject');
+            $message_text = $request->get('message');
             /*
              *  $data = array('full_name' => $full_name, 'link' => $link);
 
@@ -60,7 +62,7 @@ class HomeController extends Controller
             });
              **/
 
-            $data = array('email' => $email_to, 'name' => 'aaaa','subject'=>'subject','message'=>'test');
+            $data = array('email' => $email_to, 'name' => $name,'subject'=>$subject,'message_text'=>$message_text);
             Mail::send(['html' => 'email.contact'], $data, function ($message) use($email_to) {
                 $message->to($email_to,'NhatNga Support')->subject('User Contact');
                
@@ -68,7 +70,7 @@ class HomeController extends Controller
             });
 
         }catch (\Exception $e){
-            dd($e);
+            return response()->json(['success' => false, 'message' => $message_err]);
         }
         return response()->json(['success' => true, 'message' => $message]);
       
