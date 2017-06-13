@@ -29,6 +29,7 @@ class AdminLocationController extends Controller
 
     public function index(Request $request)
     {
+        return view('backend.pages.location.index');
 
     }
 }

@@ -24,6 +24,8 @@ class CreateTourTable extends Migration
             $table->double('discount_percent')->default(0);
             $table->double('rating')->default(4);
             $table->longText('media_ids')->nullable();
+            $table->longText('locations_ids')->nullable();
+            $table->longText('places_ids')->nullable();
             $table->timestamps();
             $table->foreign('tour_type')->references('id')->on('tour_type')->onDelete('cascade');
 

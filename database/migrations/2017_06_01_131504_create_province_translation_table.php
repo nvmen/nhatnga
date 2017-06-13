@@ -18,6 +18,7 @@ class CreateProvinceTranslationTable extends Migration
             $table->increments('id');
             $table->longText('name');
             $table->longText('short_description')->nullable();          
+            $table->text('content')->nullable();
             $table->unsignedInteger('province_id');
             $table->timestamps();
             $table->string('lang_code');

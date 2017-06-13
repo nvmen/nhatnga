@@ -62,11 +62,14 @@ class AdminServicesController extends Controller
     public  function get_service($id){
 
         $service = Service::find($id);
+
         if($service== null) return view('error.404');
         $media = $service->medias($service->media_ids);
+
         $service_vi = ServiceTranslations::where('lang_code', 'vi')->where('service_id', $id)->first();
         $service_en = ServiceTranslations::where('lang_code', 'en')->where('service_id', $id)->first();
         if ($media) {
+           
             $info = [
                 'name' => $media[0]->uuid_name,
                 'link' => route('media.get', ['id' => $media[0]->id, 'resize' => '120x120']),

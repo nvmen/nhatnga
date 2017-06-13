@@ -19,6 +19,7 @@ class CreateProvinceTable extends Migration
             $table->longText('slug_url');
             $table->string('media_ids')->nullable();
             $table->string('country')->nullable();
+            $table->boolean('is_domestic')->default(true);
             $table->timestamps();
         });
     }
