@@ -160,7 +160,7 @@
                     <li class="menu-item-has-children">
                         <a href="javascript:void(0)">{{__('nhatnga_menu.services')}}</a>
                         <ul class="sub-menu">
-                            <li><a href="javascript:void(0)">VISA</a>
+                            <li><a href="{{route('frontend.services.visa')}}">VISA</a>
                                 <ul class="sub-menu">
                                     <li><a href="{{route('frontend.visa.asia')}}">{{__('nhatnga_menu.visa_asia')}}</a>
                                     </li>

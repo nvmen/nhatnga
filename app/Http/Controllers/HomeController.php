@@ -48,7 +48,7 @@ class HomeController extends Controller
         }
         try{
             $email = $request->get('email');
-            $email_to ='men.nguyen.sg@gmail.com';
+            $email_to ='nga.ngo@nhatnga.vn';
             $name = $request->get('name');
             $subject = $request->get('subject');
             $message_text = $request->get('message');
@@ -62,7 +62,7 @@ class HomeController extends Controller
             });
              **/
 
-            $data = array('email' => $email_to, 'name' => $name,'subject'=>$subject,'message_text'=>$message_text);
+            $data = array('email' => $email_to, 'name' => $name,'subject'=>$subject,'email'=>$email,'message_text'=>$message_text);
             Mail::send(['html' => 'email.contact'], $data, function ($message) use($email_to) {
                 $message->to($email_to,'NhatNga Support')->subject('User Contact');
                

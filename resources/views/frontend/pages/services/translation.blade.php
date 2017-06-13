@@ -19,9 +19,7 @@
                 <div class="row">
                     <div class="site-main col-sm-9 alignleft" id ="main-content">
                         {!! $service->translation()->first()->content !!}
-                        <div>
-                            <img width="1200" height="800" src="http://travelwp.physcode.com/wp-content/uploads/2016/09/86H.jpg"  alt="">
-                        </div>
+
                     </div>
                     <div class="widget-area col-sm-3 align-left">
                         @include('frontend.common.leftbar')

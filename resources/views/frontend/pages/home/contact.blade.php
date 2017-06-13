@@ -179,9 +179,9 @@
 
         function setMarkers(map) {
             var image = {
-                url: 'http://nhatnga.com.vn/wp-content/uploads/2016/05/nhatnga@1x.png',
+                url: '{{URL::asset('images/pin.png')}}',
                 // This marker is 20 pixels wide by 32 pixels high.
-                size: new google.maps.Size(195, 60),
+                size: new google.maps.Size(195, 100),
                 // The origin for this image is (0, 0).
                 origin: new google.maps.Point(0, 0),
                 // The anchor for this image is the base of the flagpole at (0, 32).

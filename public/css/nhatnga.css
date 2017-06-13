@@ -1,0 +1,14 @@
+.continent .sc-gallery .gallery_item-wrap .gallery-item {
+    background: none;/* rgba(255, 179, 0, 0.9);*/
+}
+.continent .sc-gallery .gallery_item-wrap .gallery-item{
+    opacity: 1;
+}
+.continent .sc-gallery .gallery_item-wrap .gallery-item .title {
+    color: #000;
+    font-weight: 700;
+}
+
+.continent .sc-gallery .gallery_item-wrap .gallery-item .title:hover{
+    color: #ffb300;
+}

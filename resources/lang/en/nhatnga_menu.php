@@ -36,5 +36,6 @@ return [
     'social_network'=>'SOCIAL NETWORK',
     'services_visa'=>'VISA',
     'services_CONTACT'=>'CONTACT',
+    'continent_visa'=>'Select a continent for making VISA',
 
 ];

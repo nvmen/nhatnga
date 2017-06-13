@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProvinceTable extends Migration
+class CreateTemplateTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateProvinceTable extends Migration
      */
     public function up()
     {
-        Schema::create('province', function (Blueprint $table) {
+        Schema::create('template', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->longText('slug_url');
-            $table->string('media_ids')->nullable();
-            $table->string('country')->nullable();
+            $table->longText('name')->nullable();
+            $table->text('data')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateProvinceTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('template');
     }
 }

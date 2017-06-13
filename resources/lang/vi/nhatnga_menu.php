@@ -33,8 +33,8 @@ return [
     'sign_up_now' => 'Đăng Ký',
     'our_menu' => 'Danh mục',
     'footer_service'=>'CÁC DỊCH VỤ',
-    'social_network'=>'SOCIAL NETWORK',
+    'social_network'=>'MẠNG XÃ HỘI',
     'services_visa'=>'VISA',
-    'services_CONTACT'=>'LIÊN HỆ',
+    'continent_visa'=>'Xin vui lòng chọn châu lục muốn làm VISA',
 
 ];
