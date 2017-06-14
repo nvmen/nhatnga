@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Helper;
 use App\Visa;
 use App\VisaCategory;
 use App\VisaTranslations;
@@ -21,7 +22,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use App\LocationTranslations;
 use App\Location;
-
+use App\Media;
 class AdminLocationController extends Controller
 {
     public function __construct()
@@ -79,16 +80,52 @@ class AdminLocationController extends Controller
     }
     public function edit(Request $request)
     {
-        return response()->json(['success' => true, 'message' => 'Location is added']);
+        $rules = array(
+            'id' => 'required',
+            'media_ids'=> 'required',
+            'name_vi' => 'required',
+            'name_en' => 'required',
+        );
+        $data = $request->all();
+        $validator = Validator::make($data, $rules);
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'Please select media and name']);
+        } else {
+            $location = Location::find($request['id']);
+            $slug = Str::slug($request['name_en']);
+            $count = DB::table('province')->where('slug_url', $slug)->count();
+            if ($count >= 1) {
+                $count = $count;
+                $slug = $slug . '-' . $count;
+            }
+            $location->media_ids = $request['media_ids'];
+            $location->country = $request['country'];
+            $location->is_domestic = $request['is_domestic'];
+            $location->save();
 
+            $vi = LocationTranslations::where('lang_code', 'vi')
+                 ->where('province_id', $location->id)->first();
+            $vi->name = $request['name_vi'];
+            $vi->short_description = $request['short_des_vi'];
+            $vi->save();
+
+            $en = LocationTranslations::where('lang_code', 'en')
+                ->where('province_id', $location->id)->first();
+            $en->name = $request['name_en'];
+            $en->short_description = $request['short_des_en'];
+            $en->save();
+
+            return response()->json(['success' => true, 'message' => 'Locations is updated']);
+        }
     }
 
 
     public function get($id){
 
         $location = Location::find($id);
-
-        return view('backend.pages.location.edit',['location'=>$location]);
+      //  dd($location->media_ids);
+        $media_info = Helper::get_media_info($location->media_ids);
+        return view('backend.pages.location.edit',['location'=>$location,'media_info'=>$media_info]);
     }
     public function add(Request $request)
     {

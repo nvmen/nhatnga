@@ -63,13 +63,153 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" id ="id" name="id" value="{{$location->id}}">
             <div class="modal-footer">
                 <button type="button" id="submit" name="submit" class="btn btn-primary pull-right"
-                        onclick="add_new()">Save
+                        onclick="edit_location()">Save
                 </button>
 
             </div>
         </div>
+        <script>
 
+            var global_files = [];
+            var global_media = [{{$location->media_ids}}];
+            var url1 = '{{route('backend.show.media')}}';
+            var url2 = '{{route('backend.upload.media')}}';
+            var options = {
+                filebrowserImageBrowseUrl: url1 + '?type=Images',
+                filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
+                filebrowserBrowseUrl: url1 + '?type=Files',
+                filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
+            };
+            function edit_location() {
+                var token = '{{ csrf_token() }}';
+                var name_vi = $('#name_vi').val();
+                var id = $('#id').val();
+                var name_en = $('#name_en').val();
+                var short_des_vi = $('#short_des_vi').val();
+                var short_des_en = $('#short_des_en').val();
+                var country = $('#country').val();
+                var ckb = $("#is_domestic").is(':checked')
+                if (global_media.length == 0) {
+                    alert('Media not empty')
+                    return false;
+                }
+                var media_id = global_media[0].id;
+                var old_media_id ='{{$location->media_ids}}';
+                if(media_id== undefined){
+                    media_id = old_media_id;
+                }
+                var obj = {
+                    id:id,
+                    _token: token,
+                    name_vi: name_vi,
+                    name_en: name_en,
+                    short_des_vi: short_des_vi,
+                    short_des_en: short_des_en,
+                    media_ids: media_id,
+                    is_domestic:ckb==true?1:0,
+                    country:country
+                }
+                show_spinner();
+                $.post('{{route('backend.location.edit')}}', obj)
+                        .done(function (data) {
+                            hide_spinner();
+                            if (data.success == true) {
+                                //  $.notify("Delete successful", "success");
+                                $.notify("Add successful", "success");
+                                setTimeout(function () {
+                                            //   location.reload();
+                                        }
+                                        , 500);
+
+                            } else {
+                                $.notify(data.message, "error")
+                                hide_spinner();
+                            }
+                        })
+                        .fail(function () {
+                            hide_spinner();
+                        });
+
+
+            }
+            $(function () {
+                Dropzone.options.myAwesomeDropzone = {
+                    maxFilesize: 5,
+                    maxFiles: 1,
+                    uploadMultiple: false,
+                    addRemoveLinks: true,
+                    dictResponseError: 'Server not Configured',
+                    acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+                    init: function () {
+                        var self = this;
+                        //// Create the mock file:
+                        var mockFile = {
+                            name: '{{$media_info['name']}}',
+                            size: '{{$media_info['size']}}'
+                        };
+                        // Call the default addedfile event handler
+                        self.emit("addedfile", mockFile);
+                        // And optionally show the thumbnail of the file:
+                        self.emit("thumbnail", mockFile, '{{$media_info['link']}}');
+
+                        // config
+                        self.options.addRemoveLinks = true;
+                        self.options.dictRemoveFile = "Delete";
+                        //New file added
+                        self.on("addedfile", function (file) {
+                            if (global_files.length == 1) {
+                                return;
+                            }
+                            console.log('new file added ', file);
+                        });
+                        // Send file starts
+                        self.on("sending", function (file) {
+                            console.log('upload started', file);
+                            $('.meter').show();
+                        });
+
+                        // File upload Progress
+                        self.on("totaluploadprogress", function (progress) {
+                            console.log("progress ", progress);
+                            $('.roller').width(progress + '%');
+                        });
+
+                        self.on("queuecomplete", function (progress) {
+                            $('.meter').delay(999).slideUp(999);
+                        });
+
+                        // On removing file
+                        self.on("removedfile", function (file) {
+                            global_files = [];
+                            global_media = [];
+                            /*
+                             for (var i = 0; i < global_files.length; i++) {
+                             if (global_files[i] == file) {
+                             global_files =[];
+                             }
+                             }
+                             for (var i = 0; i < global_media.length; i++) {
+                             if (global_media[i] == file) {
+                             alert('trung');
+                             }
+                             }
+                             */
+
+                            //  console.log(file);
+                        });
+                        self.on("success", function (file, response) {
+
+                            global_files.push(file);
+                            global_media.push(response.data);
+
+                        });
+                    }
+                };
+            })
+
+        </script>
     </div>
 @stop

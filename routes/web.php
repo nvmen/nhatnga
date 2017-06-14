@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\App;
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/', ['uses' => 'Auth\LoginController@getLoginView', 'as' => 'user.login']);
     Route::post('/login', ['uses' => 'Auth\LoginController@doLogin', 'as' => 'user.login.post']);
+    Route::get('/logout', ['uses' => 'Auth\LoginController@logout', 'as' => 'user.logout']);
 });
 
 Route::group(
@@ -101,8 +102,9 @@ Route::group(
             Route::group(['prefix' => 'location'], function () {
                 Route::get('/', ['uses' => 'AdminLocationController@index', 'as' => 'backend.location.index']);
                 Route::post('/add', ['uses' => 'AdminLocationController@add', 'as' => 'backend.location.add']);
-                Route::post('/', ['uses' => 'AdminLocationController@delete', 'as' => 'backend.location.delete']);
+                Route::post('/delete', ['uses' => 'AdminLocationController@delete', 'as' => 'backend.location.delete']);
                 Route::get('/{id}', ['uses' => 'AdminLocationController@get', 'as' => 'backend.location.get']);
+                Route::post('/edit', ['uses' => 'AdminLocationController@edit', 'as' => 'backend.location.edit']);
             });
 
 

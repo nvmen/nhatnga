@@ -19,6 +19,6 @@ class AdminBookingController extends Controller
 
     public function index()
     {
-        return view('backend.pages.banner.index');
+        return view('backend.pages.booking.index');
     }
 }
