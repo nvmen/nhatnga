@@ -8,6 +8,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
+
 
 class LocationTranslations extends Model
 {
@@ -21,5 +23,9 @@ class LocationTranslations extends Model
     public function service()
     {
         return $this->belongsTo('App\Location');
+    }
+    public function banner()
+    {
+        return $this->belongsTo('App\Location','province_id');
     }
 }

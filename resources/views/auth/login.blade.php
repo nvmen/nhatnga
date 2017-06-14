@@ -104,17 +104,30 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+        .alert-danger{
+            color:red;
+        }
     </style>
 </head>
 <body>
 <div class="login-page">
     <div class="form">
         
-        <form class="login-form">
+        <form class="login-form" action="{{route('user.login.post')}}" method="post">
+            <a href="{{route('frontend.home.index')}}">
             <img src="{{URL::asset('images/logo_nhatnga.png')}}">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
-            <button>login</button>     
+            </a>
+            <input type="text" id="email" name="email" placeholder="Email"/>
+            <input type="password" id="password" name="password" placeholder="Password"/>
+            <input type="hidden" id ='_token' name ='_token' value="{{csrf_token()}}">
+            <button>login</button>
+            @if(Session::has('error'))
+                <div class="item-style">
+                    <div class="ipt-style">
+                        <p class="note-erro alert alert-danger">{{Session::get('error')}}</p>
+                    </div>
+                </div>
+            @endif
         </form>
     </div>
 </div>

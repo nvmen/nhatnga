@@ -6,9 +6,11 @@
  * Time: 9:33 PM
  */
 
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App;
+
+
 
 class Location extends Model
 {
@@ -23,7 +25,7 @@ class Location extends Model
         if ($language == null) {
             $language = App::getLocale();
         }
-        return $this->hasMany('App\BannerTranslations')->where('lang_code', '=', $language);
+        return $this->hasMany('App\LocationTranslations','province_id')->where('lang_code', '=', $language);
     }
     public function medias($media_ids){
         $ids = explode(",", $media_ids);

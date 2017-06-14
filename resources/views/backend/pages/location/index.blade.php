@@ -7,7 +7,7 @@
                 Location Management
             </h1>
             <div class="row" style="padding-bottom: 17px;">
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addBanner">New
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#add">New
                 </button>
             </div>
 
@@ -18,17 +18,38 @@
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Location</th>
-                    <th>Title</th>
-                    <th>Sub Title</th>
-                    <th>Link</th>
-                    <th>Link Text</th>
+                    <th>Description</th>
+                    <th>Country</th>
+                    <th>Domestic</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-
-
+                @foreach($locations as $location)
+                    <tr>
+                        <td>
+                            <img src=" {!! route('media.get', ['id'=>$location->media_ids])  !!}" alt=Banner" height="42" width="42">
+                        </td>
+                        <td>
+                            {{$location->translation('vi')->first()->name}}(Vi)<br/>
+                            {{$location->translation('en')->first()->name}}(En)
+                        </td>
+                        <td>
+                            {{$location->translation('vi')->first()->short_description}}(Vi)<br/>
+                            {{$location->translation('en')->first()->short_description}}(En)
+                        </td>
+                        <td> {{$location->country}}</td>
+                        <td> {{$location->is_domestic==1?'True':'False'}}</td>
+                        <td>
+                            <a href="{!! route('backend.location.get', ['id'=>$location->id])  !!}"><span
+                                        class="glyphicon glyphicon-pencil"></span>Edit</a>
+                            <a href="javascript:void(0)" onclick="delete_location('{{$location->id}}')"><span
+                                        class="glyphicon glyphicon-trash"></span>Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
 
                 </tbody>
             </table>
@@ -37,7 +58,7 @@
 
 
 
-    <div id="addBanner" class="modal fade" role="dialog">
+    <div id="add" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -62,10 +83,19 @@
                                     </form>
                                 </div>
                                 <div class="form-group">
-                                    <label> Nam Vi</label>
+                                    <label> Country</label>
+                                    <input type="text" class="form-control" id="country" name="country"
+                                           placeholder="Country">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="is_domestic" name="is_domestic" checked >  Domestic<br>
+                                </div>
+                                <div class="form-group">
+                                    <label> Name Vi</label>
                                     <input type="text" class="form-control" id="name_vi" name="name_vi"
                                            placeholder="Name Vi">
                                 </div>
+
                                 <div class="form-group">
                                     <label> Name En</label>
                                     <input type="text" class="form-control" id="name_en" name="name_en"
@@ -73,12 +103,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label> Description Vi</label>
-                                    <input type="text" class="form-control" id="short_des_vi" name="short_des_vi"
-                                           placeholder="short description Vi">
+                                      <textarea rows="4" cols="50" class="form-control" id="short_des_vi"
+                                                name="short_des_vi"
+                                                placeholder="short description Vi"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="short_des_en" name="short_des_en"
-                                           placeholder="short description EN">
+                                    <label> Description En</label>
+                                    <textarea rows="4" cols="50" class="form-control" id="short_des_en"
+                                              name="short_des_en"
+                                              placeholder="short description EN"></textarea>
+
                                 </div>
 
                             </div>
@@ -97,154 +131,146 @@
         </div>
     </div>
 
-<script>
-    var global_files = [];
-    var global_media =[];
+    <script>
+        var global_files = [];
+        var global_media = [];
 
-    function edit(banner){
-        var bannerEdit = banner;
-        console.log(bannerEdit);
-    }
-    function delete_location(id){
-        bootbox.confirm("Are you sure you want to delete?", function(result){
-
-            /* your callback code */
-            if(result){
-                show_spinner();
-                var token = '{{ csrf_token() }}';
-                var obj ={_token:token,id:id};
-                $.post('{{route('backend.banner.delete')}}', obj)
-                        .done(function (data) {
-                            hide_spinner();
-                            if (data.success == true) {
-                                //  $.notify("Delete successful", "success");
-
-                                $.notify("Delete successful", "success");
-                                setTimeout(function () {
-                                            location.reload();
-                                        }
-                                        , 500);
-                            } else {
-                                // $.notify(data.message, "error")
-
-                                hide_spinner();
-                            }
-                        })
-                        .fail(function() {
-                            hide_spinner();
-                        });
-            }else{
-
-            }
-        })
-    }
-    function add_new() {
-
-        var token = '{{ csrf_token() }}';
-        var title_vi = $('#title_vi').val();
-        var title_en = $('#title_en').val();
-
-        var sub_title_vi = $('#sub_title_vi').val();
-        var sub_title_en = $('#sub_title_en').val();
-
-        var link_vi = $('#link_vi').val();
-        var link_en = $('#link_en').val();
-
-        var link_text_vi = $('#link_text_vi').val();
-        var link_text_en = $('#link_text_en').val();
-
-        if (global_media.length == 0) return false;
-        var media_id = global_media[0].id;
-
-        var obj = {
-            _token: token,
-            title_vi: title_vi,
-            title_en: title_en,
-            sub_title_vi: sub_title_vi,
-            sub_title_en: sub_title_en,
-            link_vi: link_vi,
-            link_en: link_en,
-            link_text_vi: link_text_vi,
-            link_text_en: link_text_en,
-            media_ids: media_id
+        function edit(banner) {
+            var bannerEdit = banner;
+            console.log(bannerEdit);
         }
-        //  console.log('===========>',obj)
-        show_spinner();
-        $.post('{{route('backend.banner.add')}}', obj)
-                .done(function (data) {
-                    hide_spinner();
-                    if (data.success == true) {
-                        //  $.notify("Delete successful", "success");
-                        $('#addBanner').modal('hide');
-                        $.notify("Add successful", "success");
+        function delete_location(id) {
+            bootbox.confirm("Are you sure you want to delete?", function (result) {
 
-                        setTimeout(function () {
-                                    location.reload();
+                /* your callback code */
+                if (result) {
+                    show_spinner();
+                    var token = '{{ csrf_token() }}';
+                    var obj = {_token: token, id: id};
+                    $.post('{{route('backend.location.delete')}}', obj)
+                            .done(function (data) {
+                                hide_spinner();
+                                if (data.success == true) {
+                                    //  $.notify("Delete successful", "success");
+
+                                    $.notify("Delete successful", "success");
+                                    setTimeout(function () {
+                                                      location.reload();
+                                            }
+                                            , 500);
+                                } else {
+                                    // $.notify(data.message, "error")
+
+                                    hide_spinner();
                                 }
-                                , 500);
+                            })
+                            .fail(function () {
+                                hide_spinner();
+                            });
+                } else {
 
-                    } else {
-                        // $.notify(data.message, "error")
+                }
+            })
+        }
+        function add_new() {
 
-                        hide_spinner();
-                    }
-                })
-                .fail(function() {
-                    hide_spinner();
-                });
-
-    }
-    $(function () {
-        Dropzone.options.myAwesomeDropzone = {
-            maxFilesize: 5,
-            maxFiles: 1,
-            uploadMultiple: false,
-            addRemoveLinks: true,
-            dictResponseError: 'Server not Configured',
-            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
-            init: function () {
-                var self = this;
-                // config
-                self.options.addRemoveLinks = true;
-                self.options.dictRemoveFile = "Delete";
-                //New file added
-                self.on("addedfile", function (file) {
-                    if (global_files.length == 1) {
-                        return;
-                    }
-                    console.log('new file added ', file);
-                });
-                // Send file starts
-                self.on("sending", function (file) {
-                    console.log('upload started', file);
-                    $('.meter').show();
-                });
-
-                // File upload Progress
-                self.on("totaluploadprogress", function (progress) {
-                    console.log("progress ", progress);
-                    $('.roller').width(progress + '%');
-                });
-
-                self.on("queuecomplete", function (progress) {
-                    $('.meter').delay(999).slideUp(999);
-                });
-
-                // On removing file
-                self.on("removedfile", function (file) {
-                    global_files =[];
-                    global_media =[];
-                });
-                self.on("success", function (file, response) {
-
-                    global_files.push(file);
-                    global_media.push(response.data);
-                    console.log('=========>data', response);
-                });
+            var token = '{{ csrf_token() }}';
+            var name_vi = $('#name_vi').val();
+            var name_en = $('#name_en').val();
+            var short_des_vi = $('#short_des_vi').val();
+            var short_des_en = $('#short_des_en').val();
+            var country = $('#country').val();
+            var ckb = $("#is_domestic").is(':checked')
+            if (global_media.length == 0) {
+                alert('Media not empty')
+                return false;
             }
-        };
-    })
-</script>
+            var media_id = global_media[0].id;
+
+            var obj = {
+                _token: token,
+                name_vi: name_vi,
+                name_en: name_en,
+                short_des_vi: short_des_vi,
+                short_des_en: short_des_en,
+                media_ids: media_id,
+                is_domestic:ckb==true?1:0,
+                country:country
+            }
+            show_spinner();
+            $.post('{{route('backend.location.add')}}', obj)
+                    .done(function (data) {
+                        hide_spinner();
+                        if (data.success == true) {
+                            //  $.notify("Delete successful", "success");
+                            $('#add').modal('hide');
+                            $.notify("Add successful", "success");
+                            setTimeout(function () {
+                                        //   location.reload();
+                                    }
+                                    , 500);
+
+                        } else {
+                            $.notify(data.message, "error")
+                            hide_spinner();
+                        }
+                    })
+                    .fail(function () {
+                        hide_spinner();
+                    });
+
+        }
+        $(function () {
+            Dropzone.options.myAwesomeDropzone = {
+                maxFilesize: 5,
+                maxFiles: 1,
+                uploadMultiple: false,
+                addRemoveLinks: true,
+                dictResponseError: 'Server not Configured',
+                acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+                init: function () {
+                    var self = this;
+                    // config
+                    self.options.addRemoveLinks = true;
+                    self.options.dictRemoveFile = "Delete";
+                    //New file added
+                    self.on("addedfile", function (file) {
+                        if (global_files.length == 1) {
+                            return;
+                        }
+                        console.log('new file added ', file);
+                    });
+                    // Send file starts
+                    self.on("sending", function (file) {
+                        console.log('upload started', file);
+                        $('.meter').show();
+                    });
+
+                    // File upload Progress
+                    self.on("totaluploadprogress", function (progress) {
+                        console.log("progress ", progress);
+                        $('.roller').width(progress + '%');
+                    });
+
+                    self.on("queuecomplete", function (progress) {
+                        $('.meter').delay(999).slideUp(999);
+                    });
+
+                    // On removing file
+                    self.on("removedfile", function (file) {
+                        global_files = [];
+                        global_media = [];
+                    });
+                    self.on("success", function (file, response) {
+
+                        global_files.push(file);
+                        global_media.push(response.data);
+                        console.log('=========>data', response);
+                    });
+                }
+            };
+        })
+    </script>
 
 
 @stop

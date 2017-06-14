@@ -52,8 +52,8 @@ class LoginController extends Controller
     public function doLogin(Request $request)
     {
 
+
         $data = $request->all();
-        $remember = $request->get('remember');
         $remember = false;
         $rules = array(
             'email' => 'required|email',
@@ -63,7 +63,7 @@ class LoginController extends Controller
 
         if ($validator->fails()) {
             // If validation falis redirect back to login.
-            return Redirect::to('/auth/login')->with('error', 'User name or password is not correct!');
+            return Redirect::to('/auth')->with('error', 'User name or password is not correct!');
         } else {
             $userdata = array(
                 'email' => $request->get('email'),
@@ -72,28 +72,24 @@ class LoginController extends Controller
             // doing login.
             // check user is active or not
             $user_check = User::where('email', $request->get('email'))->first();
-            if ($user_check ==null || $user_check->status == 0) {
+            if ($user_check == null || $user_check->is_active == 0) {
                 Session::flash('error', 'Something went wrong');
-                return Redirect::to('/auth/login')->with('error', 'Your account is blocked. Please contact Monita support for details.');
+                return Redirect::to('/auth')->with('error', 'Your account is blocked. Please contact Nhat Nga support for details.');
             }
             if (Auth::validate($userdata)) {
                 // check user exist
                 if (Auth::attempt($userdata, $remember)) {
-                    $this->authUser = Auth::user();
-                    $user_log = $this->authUser;
-                    $history_login = new HistoryLogin();
-                    $history_login->name = $user_log->first_name . ' ' . $user_log->last_name;
-                    $history_login->user_id = $user_log->id;
-                    $history_login->email = $user_log->email;
-                    $history_login->save();
-                    $redirect_to = route('monita.monitor');
-
+                    if(Auth::user()->user_type =='admin'){
+                        $redirect_to = url('/') . '/en/admin';
+                    }else{
+                        $redirect_to = url('/') . '/en/user';
+                    }
                     return Redirect::intended($redirect_to);
                 }
             } else {
                 // if any error send back with message.
                 Session::flash('error', 'Something went wrong');
-                return Redirect::to('/auth/login')->with('error', 'User name or password is incorrect.');
+                return Redirect::to('/auth')->with('error', 'User name or password is incorrect.');
             }
         }
 
