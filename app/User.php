@@ -14,16 +14,16 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $fillable = [
+        'full_name', 'email', 'password','phone','address','username',
+        'is_active','user_type','image'
+    ];
+
+    public function is_admin(){
+        return ($this->user_type == 'admin');
+    }
 }

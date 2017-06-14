@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\App;
 |
 */
 
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('/login', ['uses' => 'Auth\LoginController@getLoginView', 'as' => 'user.login']);
+    Route::post('/login', ['uses' => 'Auth\LoginController@doLogin', 'as' => 'user.login.post']);
+});
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
@@ -95,8 +101,6 @@ Route::group(
             Route::group(['prefix' => 'location'], function () {
                 Route::get('/', ['uses' => 'AdminLocationController@index', 'as' => 'backend.location.index']);
             });
-            
-            
 
 
 
@@ -116,3 +120,7 @@ Route::group(
         });
     });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
