@@ -1,5 +1,27 @@
 @charset "UTF-8";
 
+
+@media (min-width: 480px) {
+    .big {
+        font-size: 20px;
+        line-height: 28px; }
+    h1 .big,
+    .h1 .big {
+        font-size: 400%;
+        line-height: 1.2; } }
+
+h2 .big,
+.h2 .big {
+    line-height: 1.2; }
+@media (min-width: 480px) {
+    h2 .big,
+    .h2 .big {
+        font-size: 120%; } }
+@media (min-width: 992px) {
+    h2 .big,
+    .h2 .big {
+        font-size: 166.66%; } }
+
 .icon-app{
     width:30px;
     height: 30px;

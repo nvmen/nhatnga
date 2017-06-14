@@ -7,5 +7,8 @@
  */
 
 return [
-    'welcome' => 'Chao mung den voi app'
+    'welcome' => 'Chao mung den voi app',
+    'sorry_message' => 'Rất tiếc, Trang hiện tại không tìm thấy',
+    'sorry_detail' => 'Có thể bạn đã nhập sai địa chỉ hoặc trang có thể đã xóa.',
+    'sorry_back_home' => 'Trở về trang chủ',
 ];
