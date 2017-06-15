@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\Request;
+
 class AdminTourController extends Controller
 {
     public function __construct()
@@ -18,6 +20,11 @@ class AdminTourController extends Controller
 
     public function index()
     {
+        return view('backend.pages.tours.index');
+    }
+    public function add(Request $request)
+    {
+        
         return view('backend.pages.tours.index');
     }
 }

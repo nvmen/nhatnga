@@ -32,6 +32,10 @@
 <script src=" {{URL::asset('js/libs/jquery.nimble.loader.js')}}"></script>
 <script src=" {{URL::asset('js/libs/bootbox.min.js')}}"></script>
 <script src=" {{URL::asset('js/common.js')}}"></script>
+<link href="{{ URL::asset('assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }} " rel="stylesheet" type="text/css">
+<script src=" {{URL::asset('assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<link href="{{ URL::asset('assets/selectize/css/selectize.css') }} " rel="stylesheet" type="text/css">
+<script src=" {{URL::asset('assets/selectize/js/standalone/selectize.min.js')}}"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
