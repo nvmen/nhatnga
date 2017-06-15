@@ -121,10 +121,10 @@
             </div>
             <div class="width-logo sm-logo">
                 <a href="{{route('frontend.home.index')}}" title="Travel" rel="home">
-                    <img src="{{ URL::asset('images/logo_sticky.png') }}" alt="Logo" width="474" height="130"
-                         class="logo_transparent_static">
-                    <img src="{{ URL::asset('images/logo_sticky.png') }}" alt="Sticky logo" width="474" height="130"
-                         class="logo_sticky">
+                    <img src="{{ URL::asset('images/logo-nhatnga_header.png') }}" alt="Logo"  width="474" height="94"
+                         class="logo_transparent_static logo">
+                    <img src="{{ URL::asset('images/logo-nhatnga_header.png') }}" alt="Sticky logo"  width="474" height="91"
+                         class="logo_sticky logo">
                 </a>
             </div>
             <nav class="width-navigation">

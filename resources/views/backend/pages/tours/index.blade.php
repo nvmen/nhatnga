@@ -80,60 +80,124 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="form-group">
-                                    <label>Tour Code</label>
-                                    <input type="text" class="form-control" id="country" name="country"
-                                           placeholder="Tour Code">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Tour Code</label>
+                                            <input type="text" class="form-control" id="country" name="country"
+                                                   placeholder="Tour Code">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="row" >
+                                            <div class="col-md-5" >
+                                                <div class="row">
+                                                    <label>Outbound?</label>
+                                                </div>
+                                                <input type="checkbox" id="is_outbound" name="is_outbound"><br/>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="row">
+                                                    <label>Publish?</label>
+                                                </div>
+
+                                                <input type="checkbox" id="is_publish" name="is_publish" checked><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Tour Type</label>
+                                        <select id="tour_type" name="tour_type" class="form-control"
+                                                style="width: 80%">
+                                            <option value="long_tour">Long tour</option>
+                                            <option value="short_tour">Short tour</option>
+                                            <option value="food_tour">Food tour</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Food Location</label>
+                                        <select id="tour_type" name="tour_type" class="form-control"
+                                                style="width: 80%">
+                                            <option value="north">North Vietnam</option>
+                                            <option value="middle">Middle Vietnam</option>
+                                            <option value="south">South Vietnam</option>
+                                            <option value="all" selected >All</option>
+
+                                        </select>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-2">
-                                            <label>Outbound?</label>
-                                            <input type="checkbox" id="is_outbound" name="is_outbound"><br/>
+
+                                        <div class="col-md-3">
+                                            <label>Food Type</label>
+                                            <select id="food_type" name="tour_type" class="form-control"
+                                                    style="width: 80%">
+                                                <option value="eatmeat">Eat meat</option>
+                                                <option value="vegetarian">Vegetarian meals </option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label>Publish?</label>
-                                            <input type="checkbox" id="is_publish" name="is_publish" checked><br/>
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <label style="padding-top: 5px;">Discount(%)</label>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="row">
+                                                            <label style="padding-top: 5px;">Discount(%)</label>
+                                                        </div>
+                                                        <div class="row">
+                                                            <input type="number" class="form-control" id="discount_percent"
+                                                                   style="width: 80px"
+                                                                   name="discount_percent" value="0"/>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control" id="discount_percent" style="width: 80px"
-                                                           name="discount_percent" value="0"/>
+                                                    <div class="row">
+                                                        <div class="row"><label style="padding-top: 5px;">Rating</label>
+                                                        </div>
+                                                        <div class="row">
+                                                            <select id="is_outbound" name="is_outbound" class="form-control"
+                                                                    style="width: 100px">
+                                                                <option value="1">1 star</option>
+                                                                <option value="2">2 stars</option>
+                                                                <option value="3">3 stars</option>
+                                                                <option value="4">4 stars</option>
+                                                                <option value="5">5 stars</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
 
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="row">
-                                                <div class="col-md-4"><label style="padding-top: 5px;">Rating</label></div>
-                                                <div class="col-md-8">
-                                                    <select id="is_outbound" name="is_outbound" class="form-control" style="width: 100px">
-                                                        <option value="1">1 star</option>
-                                                        <option value="2">2 stars</option>
-                                                        <option value="3">3 stars</option>
-                                                        <option value="4">4 stars</option>
-                                                        <option value="5">5 stars</option>
-                                                    </select>
-                                                </div>
+
+                                        <div class="col-md-6">
+                                            <div class="col-md-6">
+                                                <label>Adults Price (VI)</label>
+                                                <input type="number" class="form-control" id="price_vi" name="price_vi"
+                                                       value="0"/>
                                             </div>
-
-
+                                            <div class="col-md-6">
+                                                <label>Adults Price (EN)</label>
+                                                <input type="number" class="form-control" id="price_en" name="price_en"
+                                                       value="0"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>Price (VI)</label>
+                                        <label>Children Price (VI)</label>
                                         <input type="number" class="form-control" id="price_vi" name="price_vi"
                                                value="0"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Price (EN)</label>
+                                        <label>Children Price (EN)</label>
                                         <input type="number" class="form-control" id="price_en" name="price_en"
                                                value="0"/>
                                     </div>
@@ -151,8 +215,8 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Start From</label>
+                                    <div class="col-md-4">
+                                        <label>Departure from</label>
                                         <select id="start_from" name="start_from">
                                             <option value="1">1 star</option>
                                             <option value="2">2 stars</option>
@@ -161,9 +225,9 @@
                                             <option value="5">5 stars</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label>Destination</label>
-                                        <select id="destination" name="destination" >
+                                        <select id="destination" name="destination">
                                             <option value="1">1 star</option>
                                             <option value="2">2 stars</option>
                                             <option value="3">3 stars</option>
@@ -171,18 +235,76 @@
                                             <option value="5">5 stars</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="row"><label>Duration</label></div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <select id="destination" name="day" class="form-control">
+                                                    <option value="0">---</option>
+                                                    <option value="1">1 Day</option>
+                                                    <option value="2">2 Days</option>
+                                                    <option value="3">3 Days</option>
+                                                    <option value="4">4 Days</option>
+                                                    <option value="5">5 Days</option>
+                                                    <option value="6">6 Days</option>
+                                                    <option value="7">7 Days</option>
+                                                    <option value="8">8 Days</option>
+                                                    <option value="9">9 Days</option>
+                                                    option value="10">10 Day</option>
+                                                    option value="11">11 Day</option>
+                                                    <option value="12">12 Days</option>
+                                                    <option value="13">13 Days</option>
+                                                    <option value="14">14 Days</option>
+                                                    <option value="15">15 Days</option>
+                                                    <option value="16">16 Days</option>
+                                                    <option value="17">17 Days</option>
+                                                    <option value="18">18 Days</option>
+                                                    <option value="19">19 Days</option>
+
+
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select id="destination" name="day" class="form-control">
+                                                    <option value="0" selected> ----</option>
+                                                    <option value="1">1 Night</option>
+                                                    <option value="2">2 Nights</option>
+                                                    <option value="3">3 Nights</option>
+                                                    <option value="4">4 Nights</option>
+                                                    <option value="5">5 Nights</option>
+                                                    <option value="6">6 Nights</option>
+                                                    <option value="7">7 Nights</option>
+                                                    <option value="8">8 Nights</option>
+                                                    <option value="9">9 Nights</option>
+                                                    option value="10">10 Nights</option>
+                                                    option value="11">11 Nights</option>
+                                                    <option value="12">12 Nights</option>
+                                                    <option value="13">13 Nights</option>
+                                                    <option value="14">14 Nights</option>
+                                                    <option value="15">15 Nights</option>
+                                                    <option value="16">16 Nights</option>
+                                                    <option value="17">17 Nights</option>
+                                                    <option value="18">18 Nights</option>
+                                                    <option value="19">19 Nights</option>
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Tour Name Vi</label>
                                     <input type="text" class="form-control" id="name_vi" name="name_vi"
-                                           placeholder="Name Vi">
+                                           placeholder="Tour Name Vi">
                                 </div>
 
                                 <div class="form-group">
                                     <label> Tour Name En</label>
                                     <input type="text" class="form-control" id="name_en" name="name_en"
-                                           placeholder="Name En">
+                                           placeholder="Tour Name En">
                                 </div>
                                 <div class="form-group">
                                     <label> Description Vi</label>

@@ -4244,14 +4244,14 @@ input[type=radio]:checked:before {
 }
 
 .navigation-menu {
-	padding-top:        16px;
+	/*padding-top:        16px;*/
 	background:         #fff;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition:    all 0.3s ease-in-out;
 	-ms-transition:     all 0.3s ease-in-out;
 	-o-transition:      all 0.3s ease-in-out;
 	transition:         all 0.3s ease-in-out;
-	padding-bottom:     15px;
+	/*padding-bottom:     15px; */
 }
 
 .dropdown-menu {
@@ -7341,7 +7341,7 @@ input[type=radio]:checked:before {
 
 	.navigation-menu {
 		position: relative;
-		padding:  15px 0;
+		padding:  5px 0; /*15px 0*/
 	}
 
 	.navigation-menu .tm-table {
