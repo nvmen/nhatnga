@@ -150,8 +150,12 @@ var custom_js = {
 		});
 	},
 	generateCarousel: function () {
+		/*
 		if (jQuery().owlCarousel) {
+
 			jQuery(".wrapper-tours-slider").each(function () {
+
+
 				var $this = jQuery(this),
 					owl = $this.find('.tours-type-slider');
 				var config = owl.data();
@@ -160,8 +164,11 @@ var custom_js = {
 				config.loop = true;
 				config.navText = ['<i class="lnr lnr-chevron-left"></i>', '<i class="lnr lnr-chevron-right"></i>'];
 				owl.owlCarousel(config);
+
+
 			})
 		}
+		*/
 	},
 	singleSlider    : function () {
 		if (jQuery().flexslider) {

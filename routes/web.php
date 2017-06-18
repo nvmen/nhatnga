@@ -38,6 +38,7 @@ Route::group(
         Route::get('/tour/domestic/longtour', ['uses' => 'TourController@longtour', 'as' => 'frontend.tour.domestic.longtour']);
         Route::get('/tour/domestic/shorttour', ['uses' => 'TourController@shorttour', 'as' => 'frontend.tour.domestic.shorttour']);
         Route::get('/tour/foodtour', ['uses' => 'TourController@foodtour', 'as' => 'frontend.tour.domestic.foodtour']);
+        Route::get('/tour/detail/{slug}', ['uses' => 'TourController@detail', 'as' => 'frontend.tour.detail']);
         // visa
 
         Route::group(['prefix' => 'visa'], function () {
@@ -92,6 +93,7 @@ Route::group(
 
             Route::group(['prefix' => 'tours'], function () {
                 Route::get('/', ['uses' => 'AdminTourController@index', 'as' => 'backend.tours.index']);
+                Route::post('/', ['uses' => 'AdminTourController@add', 'as' => 'backend.tours.add']);
             });
 
             Route::group(['prefix' => 'news'], function () {

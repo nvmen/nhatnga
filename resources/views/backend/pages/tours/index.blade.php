@@ -31,25 +31,50 @@
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>Image</th>
+                    <th>Code</th>
                     <th>Tour name <i class="fa fa-fw fa-sort"></i></th>
                     <th>Destination</th>
                     <th>Price</th>
-                    <th>Tour Type</th>
-                    <th>Status</th>
+                    <th>Discount</th>
+                    <th>Url</th>
+                    <th>Published</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Image</td>
-                    <td>Location</td>
-                    <td>Description</td>
-                    <td>Country</td>
-                    <td>Domestic</td>
-                    <td>Domestic</td>
-                    <td>Action</td>
-                </tr>
+                @foreach($list_tours as $tour)
+
+                    <tr>
+                        <td>{{$tour->code}}</td>
+                        <td>{{$tour->translation('en')->first()->name}}</td>
+                        <td>
+                            @if($tour->get_destination())
+                                {{$tour->get_destination()->translation('en')->first()->name}}
+                            @endif
+                        </td>
+                        <td>
+                            ${{$tour->translation('en')->first()->children_price}}(children)   ${{$tour->translation('en')->first()->adult_price}}(adults)<br/>
+                            {{$tour->translation('vi')->first()->children_price}} đ(children)   {{$tour->translation('vi')->first()->adult_price}} đ(adults)<br/>
+                        </td>
+                        <td>{{$tour->discount_percent}}%</td>
+                        <td>{{url('/').'/en/'.$tour->slug_url}}<br/>
+                            {{url('/').'/en/'.$tour->slug_url}}
+                        </td>
+                        <td>
+                            @if($tour->is_publish)
+                                Yes
+                                @else
+                                No
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{!! route('backend.visa.get', ['id'=>1])  !!}"><span
+                                        class="glyphicon glyphicon-pencil"></span>Edit</a>
+                            <a href="javascript:void(0)" onclick="delete_visa('{{$tour->id}}')"><span
+                                        class="glyphicon glyphicon-trash"></span>Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -84,13 +109,13 @@
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label>Tour Code</label>
-                                            <input type="text" class="form-control" id="country" name="country"
+                                            <input type="text" class="form-control" id="tour_code" name="tour_code"
                                                    placeholder="Tour Code">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="row" >
-                                            <div class="col-md-5" >
+                                        <div class="row">
+                                            <div class="col-md-5">
                                                 <div class="row">
                                                     <label>Outbound?</label>
                                                 </div>
@@ -105,23 +130,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-1">
+                                        <div class="row">
+                                            <label>Popular?</label>
+                                        </div>
+                                        <input type="checkbox" id="is_popular" name="is_popular" checked><br/>
+                                    </div>
+                                    <div class="col-md-3">
                                         <label>Tour Type</label>
                                         <select id="tour_type" name="tour_type" class="form-control"
                                                 style="width: 80%">
-                                            <option value="long_tour">Long tour</option>
-                                            <option value="short_tour">Short tour</option>
-                                            <option value="food_tour">Food tour</option>
+                                            <option value="1">Long tour</option>
+                                            <option value="2">Short tour</option>
+                                            <option value="3">Food tour</option>
                                         </select>
                                     </div>
                                     <div class="col-md-3">
                                         <label>Food Location</label>
-                                        <select id="tour_type" name="tour_type" class="form-control"
+                                        <select id="food_location" name="food_location" class="form-control"
                                                 style="width: 80%">
-                                            <option value="north">North Vietnam</option>
-                                            <option value="middle">Middle Vietnam</option>
-                                            <option value="south">South Vietnam</option>
-                                            <option value="all" selected >All</option>
+                                            <option value="1">North Vietnam</option>
+                                            <option value="2">Middle Vietnam</option>
+                                            <option value="3">South Vietnam</option>
+                                            <option value="4" selected>All</option>
 
                                         </select>
                                     </div>
@@ -130,12 +161,13 @@
                                 <div class="form-group">
                                     <div class="row">
 
+
                                         <div class="col-md-3">
                                             <label>Food Type</label>
                                             <select id="food_type" name="tour_type" class="form-control"
                                                     style="width: 80%">
-                                                <option value="eatmeat">Eat meat</option>
-                                                <option value="vegetarian">Vegetarian meals </option>
+                                                <option value="1">Eat meat</option>
+                                                <option value="2">Vegetarian meals</option>
                                             </select>
                                         </div>
                                         <div class="col-md-3">
@@ -146,7 +178,8 @@
                                                             <label style="padding-top: 5px;">Discount(%)</label>
                                                         </div>
                                                         <div class="row">
-                                                            <input type="number" class="form-control" id="discount_percent"
+                                                            <input type="number" class="form-control"
+                                                                   id="discount_percent"
                                                                    style="width: 80px"
                                                                    name="discount_percent" value="0"/>
                                                         </div>
@@ -158,7 +191,8 @@
                                                         <div class="row"><label style="padding-top: 5px;">Rating</label>
                                                         </div>
                                                         <div class="row">
-                                                            <select id="is_outbound" name="is_outbound" class="form-control"
+                                                            <select id="rating" name="rating"
+                                                                    class="form-control"
                                                                     style="width: 100px">
                                                                 <option value="1">1 star</option>
                                                                 <option value="2">2 stars</option>
@@ -175,15 +209,17 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <div class="col-md-6">
                                                 <label>Adults Price (VI)</label>
-                                                <input type="number" class="form-control" id="price_vi" name="price_vi"
+                                                <input type="number" class="form-control" id="adults_price_vi"
+                                                       name="adults_price_vi"
                                                        value="0"/>
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Adults Price (EN)</label>
-                                                <input type="number" class="form-control" id="price_en" name="price_en"
+                                                <input type="number" class="form-control" id="adults_price_en"
+                                                       name="adults_price_en"
                                                        value="0"/>
                                             </div>
                                         </div>
@@ -193,12 +229,14 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Children Price (VI)</label>
-                                        <input type="number" class="form-control" id="price_vi" name="price_vi"
+                                        <input type="number" class="form-control" id="children_price_vi"
+                                               name="children_price_vi"
                                                value="0"/>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Children Price (EN)</label>
-                                        <input type="number" class="form-control" id="price_en" name="price_en"
+                                        <input type="number" class="form-control" id="children_price_en"
+                                               name="children_price_en"
                                                value="0"/>
                                     </div>
                                     <div class="col-md-4">
@@ -217,29 +255,26 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Departure from</label>
-                                        <select id="start_from" name="start_from">
-                                            <option value="1">1 star</option>
-                                            <option value="2">2 stars</option>
-                                            <option value="3">3 stars</option>
-                                            <option value="4">4 stars</option>
-                                            <option value="5">5 stars</option>
+                                        <select id="departure_from" name="departure_from">
+                                            @foreach($locations as $location)
+                                                <option value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Destination</label>
                                         <select id="destination" name="destination">
-                                            <option value="1">1 star</option>
-                                            <option value="2">2 stars</option>
-                                            <option value="3">3 stars</option>
-                                            <option value="4">4 stars</option>
-                                            <option value="5">5 stars</option>
+                                            @foreach($locations as $location)
+                                                <option value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="row"><label>Duration</label></div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select id="destination" name="day" class="form-control">
+                                                <select id="duration_day" name="duration_day" class="form-control">
                                                     <option value="0">---</option>
                                                     <option value="1">1 Day</option>
                                                     <option value="2">2 Days</option>
@@ -265,7 +300,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
-                                                <select id="destination" name="day" class="form-control">
+                                                <select id="duration_night" name="duration_night" class="form-control">
                                                     <option value="0" selected> ----</option>
                                                     <option value="1">1 Night</option>
                                                     <option value="2">2 Nights</option>
@@ -337,11 +372,199 @@
     </div>
 
     <script>
+
+        var global_files = [];
+        var global_media = [];
+        $(function () {
+            Dropzone.options.myAwesomeDropzone = {
+                maxFilesize: 5,
+                maxFiles: 10,
+                uploadMultiple: false,
+                addRemoveLinks: true,
+                dictResponseError: 'Server not Configured',
+                acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+                init: function () {
+                    var self = this;
+                    // config
+                    self.options.addRemoveLinks = true;
+                    self.options.dictRemoveFile = "Delete";
+                    //New file added
+                    self.on("addedfile", function (file) {
+                        //   global_files.push(file);
+                        // console.log('new file added ', file);
+                    });
+                    // Send file starts
+                    self.on("sending", function (file) {
+                        console.log('upload started', file);
+                        $('.meter').show();
+                    });
+
+                    // File upload Progress
+                    self.on("totaluploadprogress", function (progress) {
+                        console.log("progress ", progress);
+                        $('.roller').width(progress + '%');
+                    });
+
+                    self.on("queuecomplete", function (progress) {
+                        $('.meter').delay(999).slideUp(999);
+                    });
+
+                    // On removing file
+                    self.on("removedfile", function (file) {
+                        //find index of
+                        let leng = global_files.length;
+                        let index = -1;
+                        for (var i = 0; i < leng; i++) {
+                            if (JSON.stringify(global_files[i]) === JSON.stringify(file)) {
+                                index = i;
+                                break;
+                            }
+                        }
+                        if (index > -1) {
+                            global_files.splice(index, 1);
+                            global_media.splice(index, 1);
+                        }
+                    });
+                    self.on("success", function (file, response) {
+
+                        global_files.push(file);
+                        global_media.push(response.data);
+                        console.log('=========>data', response);
+                    });
+                }
+            };
+        })
         $(document).ready(function () {
             $('.datepicker').datepicker();
-            $('#start_from').selectize();
+            $('#departure_from').selectize();
             $('#destination').selectize();
+            $('#food_type').prop('disabled', true);
+            $('#food_location').prop('disabled', true);
+            $('#is_outbound').change(function () {
+                if ($(this).is(":checked")) {
+                    // tour international
+                    $('#tour_type').prop('disabled', true);
+                    $('#food_type').prop('disabled', true);
+                    $('#food_location').prop('disabled', true);
+                } else {
+
+                    $('#tour_type').prop('disabled', false);
+                    if ($('#tour_type').val() == "3") {
+                        // tour international
+                        $('#food_type').prop('disabled', false);
+                        $('#food_location').prop('disabled', false);
+                    } else {
+                        $('#food_type').prop('disabled', true);
+                        $('#food_location').prop('disabled', true);
+                    }
+                }
+
+            });
+
+            $('#tour_type').change(function () {
+
+                if ($('#tour_type').val() == "3") {
+                    // tour international
+                    $('#food_type').prop('disabled', false);
+                    $('#food_location').prop('disabled', false);
+                } else {
+                    $('#food_type').prop('disabled', true);
+                    $('#food_location').prop('disabled', true);
+                }
+
+            });
         });
+
+        function add_new() {
+
+            var token = '{{ csrf_token() }}';
+            var tour_code = $('#tour_code').val();
+            var is_outbound = $('#is_outbound').is(":checked") ? 1 : 0;
+            var is_publish = $('#is_publish').is(":checked") ? 1 : 0;
+            var is_popular = $('#is_popular').is(":checked") ? 1 : 0;
+            var tour_type = $('#tour_type').val();
+            var food_location = $('#food_location').val();
+            var food_type = $('#food_type').val();
+            var discount_percent = $('#discount_percent').val();
+            var rating = $('#rating').val();
+            var adults_price_vi = $('#adults_price_vi').val();
+            var adults_price_en = $('#adults_price_en').val();
+            var children_price_vi = $('#children_price_vi').val();
+            var children_price_en = $('#children_price_en').val();
+            var departure_from = $('#departure_from').val();
+            var destination = $('#destination').val();
+            var duration_day = $('#duration_day').val();
+            var duration_night = $('#duration_night').val();
+            var name_vi = $('#name_vi').val();
+            var name_en = $('#name_en').val();
+            var des_vi = $('#des_vi').val();
+            var des_en = $('#des_en').val();
+            var start_date = $('#start_date').val();
+            var media_ids = '';
+            let i = 0;
+            let leng = global_media.length;
+            var arr = [];
+            for (i = 0; i < leng; i++) {
+                arr.push(global_media[i].id);
+            }
+            media_ids = arr.toString();
+
+            console.log('=========>media', media_ids);
+            if (global_media.length == 0) {
+                alert('Media not empty')
+                return false;
+            }
+
+
+            var obj = {
+                _token: token,
+                tour_code: tour_code,
+                is_outbound: is_outbound,
+                is_publish: is_publish,
+                is_popular: is_popular,
+                media_ids: media_ids,
+                food_location: food_location,
+                tour_type: tour_type,
+                food_type: food_type,
+                discount_percent: discount_percent,
+                rating: rating,
+                adults_price_vi: adults_price_vi,
+                adults_price_en: adults_price_en,
+                children_price_vi: children_price_vi,
+                children_price_en: children_price_en,
+                departure_from: departure_from,
+                destination: destination,
+                duration_day: duration_day,
+                duration_night: duration_night,
+                name_vi: name_vi,
+                name_en: name_en,
+                des_vi: des_vi,
+                des_en: des_en,
+                start_date: start_date,
+            }
+            show_spinner();
+            $.post('{{route('backend.tours.add')}}', obj)
+                    .done(function (data) {
+                        hide_spinner();
+                        if (data.success == true) {
+                            //  $.notify("Delete successful", "success");
+                            $('#add').modal('hide');
+                            $.notify("Add successful", "success");
+                            setTimeout(function () {
+                                        //  location.reload();
+                                    }
+                                    , 500);
+
+                        } else {
+                            $.notify(data.message, "error")
+                            hide_spinner();
+                        }
+                    })
+                    .fail(function () {
+                        hide_spinner();
+                    });
+
+        }
     </script>
 @stop
 

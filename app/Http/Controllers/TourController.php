@@ -37,12 +37,12 @@ class TourController extends Controller
 
     public function foodtour(Request $request)
     {
-        return view('frontend.pages.tour.index');
+        return view('frontend.pages.tour.detail');
     }
 
-    public function detail(Request $request)
+    public function detail($slug)
     {
-        return view('frontend.pages.tour.index');
+        return view('frontend.pages.tour.details');
     }
     public function longtour(Request $request)
     {

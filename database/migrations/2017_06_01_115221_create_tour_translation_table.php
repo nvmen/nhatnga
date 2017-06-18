@@ -16,14 +16,13 @@ class CreateTourTranslationTable extends Migration
         Schema::create('tour_translation', function (Blueprint $table) {
             $table->increments('id'); 
             $table->unsignedInteger('tour_id');            
-            $table->longText('name');
+            $table->string('name');
             $table->longText('short_description')->nullable();
             $table->text('itinerary')->nullable();
             $table->text('description')->nullable();
             $table->string('currency_unit')->nullable();
             $table->decimal('children_price')->nullable();
             $table->decimal('adult_price')->nullable();
-            $table->string('duration_time')->nullable();
             $table->string('lang_code');
             $table->timestamps();
             

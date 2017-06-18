@@ -3,7 +3,7 @@
 <head>
     @include('includes.frontend.head')
 </head>
-<body>
+<body >
 <div class="wrapper-container">
     @include('includes.frontend.header')
     <div class="site wrapper-content">

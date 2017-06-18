@@ -9,7 +9,19 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Support\Facades\Request;
+use App\Helper;
+use App\Location;
+use App\Template;
+use App\TourTranslations;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use DB;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Carbon\Carbon;
+use App\Tour;
 
 class AdminTourController extends Controller
 {
@@ -18,13 +30,126 @@ class AdminTourController extends Controller
         // $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('backend.pages.tours.index');
+        //  $arr = Helper::get_list_media_info('11,12,13');
+        //  dd($arr);
+
+        $search = $request['search'];
+        if (!isset($search)) {
+            $search = '';
+        }
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+        if (isset($request['search'])) {
+
+            $search = $request['search'];
+
+        }
+        //$location = Location::find(4);
+        //  dd($location);
+        //  $temp = Tour::find(7);
+        //  $check =$temp->get_destination();
+        //  dd($check);
+        $list = Tour::all();
+        $collection = new Collection($list);
+        $perPage = 20;
+        $temp = $collection->forPage($currentPage, $perPage);
+        $paginatedSearchResults = new LengthAwarePaginator($temp, count($collection), $perPage);
+        $paginatedSearchResults->appends(['search' => $request['search']]);
+        $locations = Location::all();
+
+
+        return view('backend.pages.tours.index', ['locations' => $locations, 'list_tours' => $paginatedSearchResults]);
     }
+
     public function add(Request $request)
     {
-        
-        return view('backend.pages.tours.index');
+        $rules = array(
+            'media_ids' => 'required',
+            'name_vi' => 'required',
+            'name_en' => 'required',
+
+        );
+        $data = $request->all();
+
+        //  dd($data);
+        $validator = Validator::make($data, $rules);
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'Tour need a image and name']);
+        } else {
+            $slug = Str::slug($request['name_en']);
+            $count = DB::table('tour')->where('slug_url', $slug)->count();
+            if ($count >= 1) {
+                $count = $count;
+                $slug = $slug . '-' . $count;
+            }
+            $template_des = 'content';
+            $template_itinerary = 'content';
+            $template_tour_description = Template::where('name', 'tour-description')->first();
+            $template_tour_itinerary = Template::where('name', 'tour-itinerary')->first();
+            if ($template_tour_itinerary) {
+                $template_itinerary = $template_tour_itinerary->data;
+            }
+            if ($template_tour_description) {
+                $template_des = $template_tour_description->data;
+            }
+            $start_time = Carbon::now();
+            $tour = new Tour();
+            $tour->code = $request['tour_code'];
+            $tour->slug_url = $slug;
+            $tour->media_ids = $request['media_ids'];
+
+
+            $tour->is_outbound = $request['is_outbound'];
+            $tour->is_publish = $request['is_publish'];
+            $tour->is_popular = $request['is_publish'];
+            $tour->discount_percent = $request['discount_percent'];
+            $tour->tour_type = $request['tour_type'];
+            $tour->rating = $request['rating'];
+            $discount = (float)$tour->discount_percent;
+            $tour->is_sale = $discount > 0 ? true : false;
+            if ($request['is_outbound'] == 0) {
+
+                $tour->food_type = $request['food_type'];
+                if ($tour->food_type == "3") {// food tour
+                    $tour->food_location = $request['food_location'];
+                    $tour->food_type = $request['food_type'];
+                }
+            }
+            //  $tour->start_time = $start_time;
+            $tour->departure_from = $request['departure_from'];
+            $tour->destination = $request['destination'];
+            $tour->duration_day = $request['duration_day'];
+            $tour->duration_night = $request['duration_night'];
+            $tour->save();
+
+            $vi = new TourTranslations();
+            $vi->tour_id = $tour->id;
+            $vi->lang_code = "vi";
+            $vi->name = $request['name_vi'];
+            $vi->short_description = $request['des_vi'];
+            $vi->itinerary = $template_itinerary;
+            $vi->description = $template_des;
+            $vi->currency_unit = 'đ';
+            $vi->children_price = $request['children_price_vi'];
+            $vi->adult_price = $request['adults_price_vi'];
+            $vi->save();
+
+            $en = new TourTranslations();
+            $en->tour_id = $tour->id;
+            $en->lang_code = "en";
+            $en->name = $request['name_en'];
+            $en->short_description = $request['des_en'];
+            $en->itinerary = $template_itinerary;
+            $en->description = $template_des;
+            $en->currency_unit = '$';
+            $en->children_price = $request['children_price_en'];
+            $en->adult_price = $request['adults_price_en'];
+            $en->save();
+
+
+        }
+        return response()->json(['success' => true, 'message' => 'Tour need a image and name']);
     }
 }

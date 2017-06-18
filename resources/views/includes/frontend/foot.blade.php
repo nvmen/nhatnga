@@ -1,4 +1,7 @@
+
 <script type='text/javascript' src=' {{ URL::asset('assets/js/bootstrap.min.js') }}'></script>
+<script type='text/javascript' src=' {{ URL::asset('assets/js/vendors.js') }}'></script>
+<script type='text/javascript' src='{{URL::asset('assets/js/jquery.swipebox.min.js')}}'></script>
 <script type='text/javascript' src=' {{ URL::asset('assets/js/vendors.js') }}'></script>
 <script type='text/javascript' src=' {{ URL::asset('assets/js/owl.carousel.min.js') }}'></script>
 <script type="text/javascript" src=" {{ URL::asset('assets/js/jquery.mb-comingsoon.min.js') }}"></script>

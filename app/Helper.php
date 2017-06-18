@@ -52,6 +52,33 @@ class Helper extends Model
         }
         return $info;
     }
+    public static function get_list_media_info($media_ids, $resize = null)
+    {
+        $ids = explode(",", $media_ids);
+        $arr_media = array();
+        foreach ($ids as $id){
+            $media = Media::find($id);
+            if ($resize == null) {
+                $resize = '120x120';
+            }
+            if ($media) {
+                $info = [
+                    'name' => $media->uuid_name,
+                    'link' => route('media.get', ['id' => $media->id, 'resize' => $resize]),
+                    'size' => $media->size,
+                ];
+            } else {
+                $info = [
+                    'name' => 'men nguyen',
+                    'link' => 'www.google.com',
+                    'size' => '0',
+                ];
+            }
+            array_push($arr_media, $info);
+        }
+
+        return $arr_media;
+    }
     public static function get_template_name($name){
         $template = Template::where('name',$name)->first();
         return $template->data;
