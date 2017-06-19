@@ -56,7 +56,9 @@ class AdminVisaController extends Controller
         $paginatedSearchResults->setPath(route('backend.visa.index'));
 
 
-        return view('backend.pages.visa.index', ['cates' => $visa_cate, 'visas' => $paginatedSearchResults, 'search' => $search]);
+        return view('backend.pages.visa.index', ['cates' => $visa_cate, 
+            'visas' => $paginatedSearchResults, 
+            'search' => $search]);
     }
 
     public function add(Request $request)

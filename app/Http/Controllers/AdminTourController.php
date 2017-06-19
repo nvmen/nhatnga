@@ -58,9 +58,23 @@ class AdminTourController extends Controller
         $paginatedSearchResults = new LengthAwarePaginator($temp, count($collection), $perPage);
         $paginatedSearchResults->appends(['search' => $request['search']]);
         $locations = Location::all();
+        $template_tour_des = Template::where('name', 'tour-description')->first();
+        $template_tour_des_data = '';
+        if ($template_tour_des) {
+            $template_tour_des_data = $template_tour_des->data;
+        }
+        $template_tour_itinerary = Template::where('name', 'tour-itinerary')->first();
+        $template_tour_itinerary_data = '';
+        if ($template_tour_itinerary) {
+            $template_tour_itinerary_data = $template_tour_itinerary->data;
+        }
 
 
-        return view('backend.pages.tours.index', ['locations' => $locations, 'list_tours' => $paginatedSearchResults]);
+        return view('backend.pages.tours.index', ['locations' => $locations,
+            'list_tours' => $paginatedSearchResults,
+            'tempate_tour_des' => $template_tour_des_data,
+            'tempate_tour_itinerary' => $template_tour_itinerary_data,
+        ]);
     }
 
     public function add(Request $request)
@@ -69,6 +83,7 @@ class AdminTourController extends Controller
             'media_ids' => 'required',
             'name_vi' => 'required',
             'name_en' => 'required',
+            'code' => 'required|unique:tour',
 
         );
         $data = $request->all();
@@ -124,6 +139,13 @@ class AdminTourController extends Controller
             $tour->duration_night = $request['duration_night'];
             $tour->save();
 
+            /*
+             *  tour_des_vi: tour_des_vi,
+                tour_des_en: tour_des_en,
+                tour_itinerary_vi: tour_itinerary_vi,
+                tour_itinerary_en: tour_itinerary_en,
+             */
+
             $vi = new TourTranslations();
             $vi->tour_id = $tour->id;
             $vi->lang_code = "vi";
@@ -134,6 +156,9 @@ class AdminTourController extends Controller
             $vi->currency_unit = 'đ';
             $vi->children_price = $request['children_price_vi'];
             $vi->adult_price = $request['adults_price_vi'];
+            $vi->itinerary = $request['tour_itinerary_vi'];
+            $vi->description = $request['tour_des_vi'];
+
             $vi->save();
 
             $en = new TourTranslations();
@@ -146,10 +171,45 @@ class AdminTourController extends Controller
             $en->currency_unit = '$';
             $en->children_price = $request['children_price_en'];
             $en->adult_price = $request['adults_price_en'];
+            $vi->itinerary = $request['tour_itinerary_en'];
+            $vi->description = $request['tour_des_en'];
             $en->save();
 
 
         }
         return response()->json(['success' => true, 'message' => 'Tour need a image and name']);
+    }
+
+    public function delete(Request $request)
+    {
+        $rules = array(
+            'id' => 'required',
+
+        );
+        $data = $request->all();
+        $validator = Validator::make($data, $rules);
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'Please select tour for delete']);
+        } else {
+            $tour = Tour::find($request['id']);
+            if ($tour) {
+                $tour->delete();
+            }
+            return response()->json(['success' => true, 'message' => 'Tour is deleted']);
+        }
+    }
+
+    public function get_edit($id)
+    {
+        $tour = Tour::find($id);
+        if (!$tour) {
+            return view('error.404');
+        }
+        $locations = Location::all();
+        $list_media_info = Helper::get_list_media_info($tour->media_ids);
+        return view('backend.pages.tours.edit', ['tour' => $tour,
+            'locations' => $locations,
+            'list_media_info' => $list_media_info]);
+
     }
 }

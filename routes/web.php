@@ -32,14 +32,19 @@ Route::group(
         Route::get('/contact', ['uses' => 'HomeController@contact', 'as' => 'frontend.home.contact']);
         Route::post('/submit_contact', ['uses' => 'HomeController@submit_contact', 'as' => 'frontend.home.contact.submit_contact']);
         Route::get('/about', ['uses' => 'HomeController@about', 'as' => 'frontend.home.about']);
-        Route::get('/tour', ['uses' => 'TourController@international', 'as' => 'frontend.tour.index']);
-        Route::get('/tour/international', ['uses' => 'TourController@international', 'as' => 'frontend.tour.international']);
-        Route::get('/tour/domestic', ['uses' => 'TourController@domestic', 'as' => 'frontend.tour.domestic']);
-        Route::get('/tour/domestic/longtour', ['uses' => 'TourController@longtour', 'as' => 'frontend.tour.domestic.longtour']);
-        Route::get('/tour/domestic/shorttour', ['uses' => 'TourController@shorttour', 'as' => 'frontend.tour.domestic.shorttour']);
-        Route::get('/tour/foodtour', ['uses' => 'TourController@foodtour', 'as' => 'frontend.tour.domestic.foodtour']);
-        Route::get('/tour/detail/{slug}', ['uses' => 'TourController@detail', 'as' => 'frontend.tour.detail']);
-        // visa
+
+        Route::group(['prefix' => 'tour'], function () {
+            Route::get('/', ['uses' => 'TourController@international', 'as' => 'frontend.tour.index']);
+            Route::get('/international', ['uses' => 'TourController@international', 'as' => 'frontend.tour.international']);
+            Route::get('/domestic', ['uses' => 'TourController@domestic', 'as' => 'frontend.tour.domestic']);
+            Route::get('/domestic/longtour', ['uses' => 'TourController@longtour', 'as' => 'frontend.tour.domestic.longtour']);
+            Route::get('/domestic/shorttour', ['uses' => 'TourController@shorttour', 'as' => 'frontend.tour.domestic.shorttour']);
+            Route::get('/foodtour', ['uses' => 'TourController@foodtour', 'as' => 'frontend.tour.domestic.foodtour']);
+            Route::get('/detail/{slug}', ['uses' => 'TourController@detail', 'as' => 'frontend.tour.detail']);
+
+        });
+
+           // visa
 
         Route::group(['prefix' => 'visa'], function () {
             Route::get('/europe', ['uses' => 'VISAController@europe', 'as' => 'frontend.visa.europe']);
@@ -94,6 +99,8 @@ Route::group(
             Route::group(['prefix' => 'tours'], function () {
                 Route::get('/', ['uses' => 'AdminTourController@index', 'as' => 'backend.tours.index']);
                 Route::post('/', ['uses' => 'AdminTourController@add', 'as' => 'backend.tours.add']);
+                Route::post('/delete', ['uses' => 'AdminTourController@delete', 'as' => 'backend.tours.delete']);
+                Route::get('/edit/{id}', ['uses' => 'AdminTourController@get_edit', 'as' => 'backend.tours.edit']);
             });
 
             Route::group(['prefix' => 'news'], function () {

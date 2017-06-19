@@ -53,24 +53,30 @@
                             @endif
                         </td>
                         <td>
-                            ${{$tour->translation('en')->first()->children_price}}(children)   ${{$tour->translation('en')->first()->adult_price}}(adults)<br/>
-                            {{$tour->translation('vi')->first()->children_price}} đ(children)   {{$tour->translation('vi')->first()->adult_price}} đ(adults)<br/>
+                            ${{$tour->translation('en')->first()->children_price}}(children)
+                            ${{$tour->translation('en')->first()->adult_price}}(adults)<br/>
+                            {{$tour->translation('vi')->first()->children_price}}
+                            đ(children) {{$tour->translation('vi')->first()->adult_price}} đ(adults)<br/>
                         </td>
                         <td>{{$tour->discount_percent}}%</td>
-                        <td>{{url('/').'/en/'.$tour->slug_url}}<br/>
-                            {{url('/').'/en/'.$tour->slug_url}}
+                        <td>
+                            <div   style="overflow-x: scroll;">
+                                {{'/en/tour/detail/'.$tour->slug_url}}<br/>
+                                {{'/en/tour/detail/'.$tour->slug_url}}
+                            </div>
+
                         </td>
                         <td>
                             @if($tour->is_publish)
                                 Yes
-                                @else
+                            @else
                                 No
                             @endif
                         </td>
                         <td>
-                            <a href="{!! route('backend.visa.get', ['id'=>1])  !!}"><span
+                            <a href="{!! route('backend.tours.edit', ['id'=>1])  !!}"><span
                                         class="glyphicon glyphicon-pencil"></span>Edit</a>
-                            <a href="javascript:void(0)" onclick="delete_visa('{{$tour->id}}')"><span
+                            <a href="javascript:void(0)" onclick="delete_tour('{{$tour->id}}')"><span
                                         class="glyphicon glyphicon-trash"></span>Delete</a>
                         </td>
                     </tr>
@@ -95,7 +101,7 @@
                         <div class="col-md-12">
                             <div class="form-area">
                                 <br style="clear:both">
-                                <h3>Select Images</h3>
+                                <h3>Select Images <span style ="color:red">*</span></h3>
                                 <div class="form-group">
                                     <form action="{{route('backend.media.upload')}}" class="dropzone"
                                           id="my-awesome-dropzone">
@@ -108,7 +114,7 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>Tour Code</label>
+                                            <label>Tour Code <span style ="color:red">*</span></label>
                                             <input type="text" class="form-control" id="tour_code" name="tour_code"
                                                    placeholder="Tour Code">
                                         </div>
@@ -196,7 +202,7 @@
                                                                     style="width: 100px">
                                                                 <option value="1">1 star</option>
                                                                 <option value="2">2 stars</option>
-                                                                <option value="3">3 stars</option>
+                                                                <option value="3" selected>3 stars</option>
                                                                 <option value="4">4 stars</option>
                                                                 <option value="5">5 stars</option>
                                                             </select>
@@ -239,7 +245,7 @@
                                                name="children_price_en"
                                                value="0"/>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4"  style="display: none">
                                         <label>Start Date</label>
 
                                         <div class="input-group date" data-provide="datepicker">
@@ -331,13 +337,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Tour Name Vi</label>
+                                    <label>Tour Name Vi <span style ="color:red">*</span></label>
                                     <input type="text" class="form-control" id="name_vi" name="name_vi"
                                            placeholder="Tour Name Vi">
                                 </div>
 
                                 <div class="form-group">
-                                    <label> Tour Name En</label>
+                                    <label> Tour Name En <span style ="color:red">*</span></label>
                                     <input type="text" class="form-control" id="name_en" name="name_en"
                                            placeholder="Tour Name En">
                                 </div>
@@ -353,6 +359,33 @@
                                               name="des_en"
                                               placeholder="short description EN"></textarea>
 
+                                </div>
+
+                                <div class="form-group">
+                                    <label> Tour Description Vi</label>
+                                      <textarea class="form-control" id="tour_des_vi"
+                                                name="tour_des_vi"
+                                                placeholder="short description Vi">{{$tempate_tour_des}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tour Description En</label>
+                                    <textarea class="form-control" id="tour_des_en"
+                                              name="tour_des_en"
+                                              placeholder="short description EN">{{$tempate_tour_des}}</textarea>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label> Tour Itinerary Vi</label>
+                                      <textarea class="form-control" id="tour_itinerary_vi"
+                                                name="tour_itinerary_vi"
+                                                placeholder="short description Vi">{{$tempate_tour_itinerary}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tour Itinerary En</label>
+                                    <textarea class="form-control" id="tour_itinerary_en"
+                                              name="tour_itinerary_en"
+                                              placeholder="short description EN">{{$tempate_tour_itinerary}}</textarea>
                                 </div>
 
                             </div>
@@ -372,6 +405,52 @@
     </div>
 
     <script>
+        function delete_tour(id) {
+            bootbox.confirm("Are you sure you want to delete this tour?", function (result) {
+
+                /* your callback code */
+                if (result) {
+                    show_spinner();
+                    var token = '{{ csrf_token() }}';
+                    var obj = {_token: token, id: id};
+                    $.post('{{route('backend.tours.delete')}}', obj)
+                            .done(function (data) {
+                                hide_spinner();
+                                if (data.success == true) {
+                                    //  $.notify("Delete successful", "success");
+
+                                    $.notify("Delete successful", "success");
+                                    setTimeout(function () {
+                                                location.reload();
+                                            }
+                                            , 500);
+                                } else {
+                                    // $.notify(data.message, "error")
+
+                                    hide_spinner();
+                                }
+                            })
+                            .fail(function () {
+                                hide_spinner();
+                            });
+                } else {
+
+                }
+            })
+
+        }
+        var url1 = '{{route('backend.show.media')}}';
+        var url2 = '{{route('backend.upload.media')}}';
+        var options = {
+            filebrowserImageBrowseUrl: url1 + '?type=Images',
+            filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
+            filebrowserBrowseUrl: url1 + '?type=Files',
+            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
+        };
+        CKEDITOR.replace('tour_des_vi', options);
+        CKEDITOR.replace('tour_des_en', options);
+        CKEDITOR.replace('tour_itinerary_vi', options);
+        CKEDITOR.replace('tour_itinerary_en', options);
 
         var global_files = [];
         var global_media = [];
@@ -476,7 +555,17 @@
         });
 
         function add_new() {
+            /*
+             CKEDITOR.replace('tour_des_vi', options);
+             CKEDITOR.replace('tour_des_en', options);
+             CKEDITOR.replace('tour_itinerary_vi', options);
+             CKEDITOR.replace('tour_itinerary_en', options);
+             */
+            var tour_des_vi = CKEDITOR.instances['tour_des_vi'].getData();
+            var tour_des_en = CKEDITOR.instances['tour_des_en'].getData();
 
+            var tour_itinerary_vi = CKEDITOR.instances['tour_itinerary_vi'].getData();
+            var tour_itinerary_en = CKEDITOR.instances['tour_itinerary_en'].getData();
             var token = '{{ csrf_token() }}';
             var tour_code = $('#tour_code').val();
             var is_outbound = $('#is_outbound').is(":checked") ? 1 : 0;
@@ -518,7 +607,7 @@
 
             var obj = {
                 _token: token,
-                tour_code: tour_code,
+                code: tour_code,
                 is_outbound: is_outbound,
                 is_publish: is_publish,
                 is_popular: is_popular,
@@ -541,6 +630,10 @@
                 des_vi: des_vi,
                 des_en: des_en,
                 start_date: start_date,
+                tour_des_vi: tour_des_vi,
+                tour_des_en: tour_des_en,
+                tour_itinerary_vi: tour_itinerary_vi,
+                tour_itinerary_en: tour_itinerary_en,
             }
             show_spinner();
             $.post('{{route('backend.tours.add')}}', obj)
