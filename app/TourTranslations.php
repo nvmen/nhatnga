@@ -8,7 +8,7 @@
 
 namespace App;
 use Illuminate\Database\Eloquent\Model;
-use App\Tour;
+
 class TourTranslations extends Model
 {
     protected $table = 'tour_translation';

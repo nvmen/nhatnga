@@ -862,5 +862,21 @@
             </div>
         </div>
     </div>
+    <script>
+        $( document ).ready(function() {
+            jQuery(".wrapper-tours-slider").each(function () {
 
+                var $this = jQuery(this),
+                        owl = $this.find('.tours-type-slider');
+                var config = owl.data();
+                config.slidespeed = 1000;
+                config.margin = 0;
+                config.loop = true;
+                config.navText = ['<i class="lnr lnr-chevron-left"></i>', '<i class="lnr lnr-chevron-right"></i>'];
+                owl.owlCarousel(config);
+
+
+            })
+        });
+    </script>
 @stop

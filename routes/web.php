@@ -28,6 +28,7 @@ Route::group(
     function () {
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
+        Route::get('/error', ['uses' => 'ErrorController@index', 'as' => 'frontend.error.index']);
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'frontend.home.index']);
         Route::get('/contact', ['uses' => 'HomeController@contact', 'as' => 'frontend.home.contact']);
         Route::post('/submit_contact', ['uses' => 'HomeController@submit_contact', 'as' => 'frontend.home.contact.submit_contact']);

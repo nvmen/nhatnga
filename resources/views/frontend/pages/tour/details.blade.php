@@ -7,11 +7,11 @@
                 <div class="breadcrumbs-wrapper">
                     <ul class="phys-breadcrumb">
                         <li><a href="index.html" class="home">Home</a></li>
-                        <li><a href="blog.html">Business</a></li>
-                        <li>Love advice from experts</li>
+                        <li><a href="blog.html">Tour</a></li>
+                        <li>{{$tour->translation()->first()->name}}</li>
                     </ul>
                 </div>
-                <h2 class="heading_primary">Business</h2></div>
+                <h2 class="heading_primary">{{$tour->translation()->first()->name}}</h2></div>
         </div>
         <section class="content-area single-woo-tour">
             <div class="container">
@@ -20,43 +20,45 @@
                         <div class="images images_single_left">
                             <div class="title-single">
                                 <div class="title">
-                                    <h1>Discover Brazil</h1>
+                                    <h1>{{$tour->translation()->first()->name}}l</h1>
                                 </div>
                                 <div class="tour_code">
-                                    <strong>Code: </strong>LMJUYH
+                                    <strong>Code: </strong>{{strtoupper ($tour->first()->code)}}
                                 </div>
                             </div>
                             <div class="tour_after_title">
                                 <div class="meta_date">
-                                    <span>5 DAYS 4 NIGHTS</span>
+                                    <span>{{$tour->duration_day}} {{__('tour.days')}}
+                                        @if($tour->duration_night>0)
+                                            {{$tour->duration_night}} {{__('tour.nights')}}
+                                        @endif
+                                    </span>
                                 </div>
+                                <!--
                                 <div class="meta_values">
+
                                     <span>Category:</span>
                                     <div class="value">
                                         <a href="tours.html" rel="tag">Escorted Tour</a>,
                                         <a href="tours.html" rel="tag">Rail Tour</a>
                                     </div>
+
                                 </div>
+
                                 <div class="tour-share">
                                     <ul class="share-social">
                                         <li>
-                                            <a target="_blank" class="facebook" href="index.htm#"><i
+                                            <a target="_blank" class="facebook" href="#"><i
                                                         class="fa fa-facebook"></i></a>
                                         </li>
+
                                         <li>
-                                            <a target="_blank" class="twitter" href="index.htm#"><i
-                                                        class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank" class="pinterest" href="index.htm#"><i
-                                                        class="fa fa-pinterest"></i></a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank" class="googleplus" href="index.htm#"><i
+                                            <a target="_blank" class="googleplus" href="#"><i
                                                         class="fa fa-google"></i></a>
                                         </li>
                                     </ul>
                                 </div>
+                                  -->
                             </div>
                             <div id="slider" class="flexslider">
                                 <ul class="slides">
@@ -159,143 +161,12 @@
                                     <div role="tabpanel"
                                          class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--description panel entry-content wc-tab active"
                                          id="tab-description">
-                                        <h2>Product Description</h2>
-                                        <p>Mattis interdum nunc massa. Velit. Nonummy penatibus luctus. Aliquam. Massa
-                                            aptent senectus elementum taciti.Id sodales morbi felis eu mus auctor
-                                            ullamcorper. Litora. In nostra tempus, habitant. Nam tristique.</p>
-                                        <p>Felis venenatis metus placerat taciti malesuada ultricies bibendum nunc
-                                            hymenaeos orci erat mollis pretium ligula ligulamus pellentesque urna.
-                                            Sagittis bibendum justo congue facilisi. Aliquam potenti sagittis etiam
-                                            facilisis vehicula. Id.</p>
-                                        <table class="tours-tabs_table">
-                                            <tbody>
-                                            <tr>
-                                                <td><strong>DEPARTURE/RETURN LOCATION</strong></td>
-                                                <td>San Francisco International Airport</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>DEPARTURE TIME</strong></td>
-                                                <td>Please arrive at least&nbsp;2 hours before the flight.</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>INCLUDED</strong></td>
-                                                <td>
-                                                    <table>
-                                                        <tbody>
-                                                        <tr>
-                                                            <td><i class="fa fa-check icon-tick icon-tick--on"></i>Airfare
-                                                            </td>
-                                                            <td><i class="fa fa-check icon-tick icon-tick--on"></i>Accommodations
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <i class="fa fa-check icon-tick icon-tick--on"></i>2
-                                                                days cruise
-                                                            </td>
-                                                            <td>
-                                                                <i class="fa fa-check icon-tick icon-tick--on"></i>Professional
-                                                                guide
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>NOT INCLUDED</b></td>
-                                                <td>
-                                                    <table>
-                                                        <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <i class="fa fa-times icon-tick icon-tick--off"></i>Entrance
-                                                                fees
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><i class="fa fa-times icon-tick icon-tick--off"></i>Guide&nbsp;gratuity
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <p>Ridiculus sociis dui eu vivamus tempor justo diam aliquam. Ipsum nunc purus,
-                                            pede sed placerat sit habitasse potenti eleifend magna mus sociosqu
-                                            hymenaeos cras metus mi donec tortor nisi leo dignissim turpis sit
-                                            torquent.</p>
-                                        <p>Potenti mattis ad mollis eleifend Phasellus adipiscing ullamcorper interdum
-                                            faucibus orci litora ornare aliquam. Ligula feugiat scelerisque. Molestie.
-                                            Facilisi hac.</p>
+                                        {!!$tour->translation()->first()->description  !!}
                                     </div>
                                     <div role="tabpanel"
                                          class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab"
                                          id="tab-itinerary_tab">
-                                        <div class="interary-item">
-                                            <p><span class="icon-left">1</span></p>
-                                            <div class="item_content">
-                                                <h2><strong>Day 1: Departure</strong></h2>
-                                                <p>Ornare proin neque tempus cubilia cubilia blandit netus.<br>
-                                                    Maecenas massa. Fermentum.</p>
-                                                <ul>
-                                                    <li>Pretium vitae tempus sem enim enim.</li>
-                                                    <li>Tempus, leo, taciti augue aliquam hendrerit.</li>
-                                                    <li>Accumsan pharetra eros justo augue posuere felis elit cras
-                                                        montes fames.
-                                                    </li>
-                                                    <li>Vulputate dictumst egestas etiam dictum varius.</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="interary-item">
-                                            <p><span class="icon-left">2</span></p>
-                                            <div class="item_content">
-                                                <h2><strong>Day 2</strong></h2>
-                                                <p>Tortor elementum egestas metus potenti habitasse tempus natoque
-                                                    senectus commodo rutrum quisque fermentum. Nisi velit primis dapibus
-                                                    odio consequat facilisi sollicitudin porta nulla tellus sagittis
-                                                    platea tempor sed parturient convallis consectetuer Vulputate curae;
-                                                    pharetra.</p>
-                                            </div>
-                                        </div>
-                                        <div class="interary-item">
-                                            <p><span class="icon-left">3</span></p>
-                                            <div class="item_content">
-                                                <h2><strong>Day 3</strong></h2>
-                                                <p>Fusce sagittis viverra lorem proin porttitor conubia risus vivamus.
-                                                    Mollis. Luctus curabitur porta nibh penatibus aliquet nec conubia
-                                                    magnis semper, sem feugiat scelerisque molestie. Nibh proin dapibus
-                                                    phasellus lacus. Facilisi.</p>
-                                            </div>
-                                        </div>
-                                        <div class="interary-item">
-                                            <p><span class="icon-left">4</span></p>
-                                            <div class="item_content">
-                                                <h2><strong>Day 4</strong></h2>
-                                                <p>Pretium consequat, facilisis sem in malesuada sodales et ipsum proin
-                                                    eleifend tincidunt, urna morbi metus quisque. Lacinia habitasse
-                                                    ridiculus sapien platea a cursus hendrerit tempor facilisi orci at
-                                                    tempor, senectus.</p>
-                                            </div>
-                                        </div>
-                                        <div class="interary-item">
-                                            <p><span class="icon-left">5</span></p>
-                                            <div class="item_content">
-                                                <h2><strong>Day 5</strong></h2>
-                                                <p>Egestas maecenas hac nullam integer at. Lacinia habitasse ridiculus
-                                                    sapien platea a cursus hendrerit tempor facilisi orci at tempor,
-                                                    senectus.</p>
-                                            </div>
-                                        </div>
-                                        <div class="interary-item">
-                                            <p><span class="icon-left">6</span></p>
-                                            <div class="item_content">
-                                                <h2><strong>Day 6: Return</strong></h2>
-                                            </div>
-                                        </div>
+                                        {!!$tour->translation()->first()->itinerary  !!}
                                     </div>
                                 </div>
                             </div>
@@ -438,37 +309,37 @@
                             <div class="affix-sidebar">
                                 <div class="entry-content-tour">
                                     <p class="price">
-                                        <span class="text">Price:</span><span class="travel_tour-Price-amount amount">$93.00</span>
+                                        <span class="text">{{__('tour.price')}}:</span><span class="travel_tour-Price-amount amount">$93.00</span>
                                     </p>
                                     <div class="clear"></div>
                                     <div class="booking">
                                         <div class="">
                                             <div class="form-block__title">
-                                                <h4>Book the tour</h4>
+                                                <h4>{{__('tour.book_the_tour')}}</h4>
                                             </div>
                                             <form id="tourBookingForm" method="POST" action="index.htm#">
                                                 <div class="">
-                                                    <input name="first_name" value="" placeholder="First name"
+                                                    <input name="first_name" value="" placeholder="{{__('tour.first_name')}}"
                                                            type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input name="last_name" value="" placeholder="Last name"
+                                                    <input name="last_name" value="" placeholder="{{__('tour.last_name')}}"
                                                            type="text">
                                                 </div>
                                                 <div class="">
                                                     <input name="email_tour" value="" placeholder="Email" type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input name="phone" value="" placeholder="Phone" type="text">
+                                                    <input name="phone" value="" placeholder="{{__('tour.phone')}}" type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input type="text" name="date_book" value="" placeholder="Date Book"
+                                                    <input type="text" name="date_book" value="" placeholder="{{__('tour.date_book')}}"
                                                            class="hasDatepicker">
                                                 </div>
                                                 <div class="from-group">
                                                     <div class="total_price_arrow">
                                                         <div class="st_adults_children">
-                                                            <span class="label">Adults</span>
+                                                            <span class="label">{{__('tour.adults')}}</span>
                                                             <div class="input-number-ticket">
                                                                 <input type="number" name="number_ticket" value="1"
                                                                        min="1" max="10"
@@ -480,7 +351,7 @@
                                                             <span class="total_price_adults">$93</span>
                                                         </div>
                                                         <div class="st_adults_children">
-                                                            <span class="label">Children</span>
+                                                            <span class="label">{{__('tour.children')}}</span>
                                                             <div class="input-number-ticket">
                                                                 <input type="number" name="number_children" value="0"
                                                                        min="0" max="10"
@@ -495,7 +366,7 @@
                                                             <span class="total_price_children">0</span>
                                                         </div>
                                                         <div>
-                                                            Total =
+                                                            {{__('tour.total')}} =
                                                             <span class="total_price_adults_children">$93</span>
                                                         </div>
                                                         <input type="hidden" name="price_children_percent" value="70">

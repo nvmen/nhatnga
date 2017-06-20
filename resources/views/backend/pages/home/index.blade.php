@@ -292,7 +292,10 @@
 </div>
 <!-- /#wrapper -->
 
+
  @include('includes.backend.footer')
+
+
 </body>
 
 </html>

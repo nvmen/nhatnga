@@ -10,7 +10,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App;
+use App\Tour;
 
 class TourController extends Controller
 {
@@ -42,7 +42,13 @@ class TourController extends Controller
 
     public function detail($slug)
     {
-        return view('frontend.pages.tour.details');
+        $tour =Tour::where('slug_url',$slug)->first();
+        //dd($tour->translation()->first()->name);
+       // dd($tour);
+        if($tour==null)
+            return redirect()->route('frontend.error.index');
+
+        return view('frontend.pages.tour.details',['tour'=>$tour]);
     }
     public function longtour(Request $request)
     {
