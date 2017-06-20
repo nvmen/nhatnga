@@ -13,7 +13,7 @@
                     <div class="col-md-12">
                         <div class="form-area">
                             <br style="clear:both">
-                            <h3>Select Images <span style ="color:red">*</span></h3>
+                            <h3>Select Images <span style="color:red">*</span></h3>
                             <div class="form-group">
                                 <form action="{{route('backend.media.upload')}}" class="dropzone"
                                       id="my-awesome-dropzone">
@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>Tour Code <span style ="color:red">*</span></label>
+                                        <label>Tour Code <span style="color:red">*</span></label>
                                         <input type="text" class="form-control" id="tour_code" name="tour_code"
                                                placeholder="Tour Code" value="{{$tour->code}}">
                                     </div>
@@ -37,14 +37,16 @@
                                             <div class="row">
                                                 <label>Outbound?</label>
                                             </div>
-                                            <input type="checkbox" id="is_outbound" name="is_outbound"><br/>
+                                            <input type="checkbox" id="is_outbound" name="is_outbound"
+                                                   @if($tour->is_outbound>0) checked @endif><br/>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="row">
                                                 <label>Publish?</label>
                                             </div>
 
-                                            <input type="checkbox" id="is_publish" name="is_publish" checked><br/>
+                                            <input type="checkbox" id="is_publish" name="is_publish"
+                                                   @if($tour->is_publish>0) checked @endif><br/>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +54,8 @@
                                     <div class="row">
                                         <label>Popular?</label>
                                     </div>
-                                    <input type="checkbox" id="is_popular" name="is_popular" checked><br/>
+                                    <input type="checkbox" id="is_popular" name="is_popular"
+                                           @if($tour->is_popular>0) checked @endif><br/>
                                 </div>
                                 <div class="col-md-3">
                                     <label>Tour Type</label>
@@ -99,7 +102,8 @@
                                                         <input type="number" class="form-control"
                                                                id="discount_percent"
                                                                style="width: 80px"
-                                                               name="discount_percent" value="0"/>
+                                                               name="discount_percent"
+                                                               value="{{$tour->discount_percent}}"/>
                                                     </div>
 
                                                 </div>
@@ -175,7 +179,8 @@
                                     <label>Departure from</label>
                                     <select id="departure_from" name="departure_from">
                                         @foreach($locations as $location)
-                                            <option value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
+                                            <option value="{{$location->translation('en')->first()->id}}" @if($location->id ==$tour->departure_from) selected @endif>
+                                                {{$location->translation('en')->first()->name}}</option>
                                         @endforeach
 
                                     </select>
@@ -184,7 +189,9 @@
                                     <label>Destination</label>
                                     <select id="destination" name="destination">
                                         @foreach($locations as $location)
-                                            <option value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
+                                            <option
+                                                    @if($location->id ==$tour->destination) selected @endif
+                                                    value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -203,8 +210,8 @@
                                                 <option value="7">7 Days</option>
                                                 <option value="8">8 Days</option>
                                                 <option value="9">9 Days</option>
-                                                option value="10">10 Day</option>
-                                                option value="11">11 Day</option>
+                                                <option value="10">10 Day</option>
+                                                <option value="11">11 Day</option>
                                                 <option value="12">12 Days</option>
                                                 <option value="13">13 Days</option>
                                                 <option value="14">14 Days</option>
@@ -229,8 +236,8 @@
                                                 <option value="7">7 Nights</option>
                                                 <option value="8">8 Nights</option>
                                                 <option value="9">9 Nights</option>
-                                                option value="10">10 Nights</option>
-                                                option value="11">11 Nights</option>
+                                                <option value="10">10 Nights</option>
+                                                <option value="11">11 Nights</option>
                                                 <option value="12">12 Nights</option>
                                                 <option value="13">13 Nights</option>
                                                 <option value="14">14 Nights</option>
@@ -249,27 +256,29 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Tour Name Vi <span style ="color:red">*</span></label>
+                                <label>Tour Name Vi <span style="color:red">*</span></label>
                                 <input type="text" class="form-control" id="name_vi" name="name_vi"
+                                       value="{{$tour->translation('vi')->first()->name}}"
                                        placeholder="Tour Name Vi">
                             </div>
 
                             <div class="form-group">
-                                <label> Tour Name En <span style ="color:red">*</span></label>
+                                <label> Tour Name En <span style="color:red">*</span></label>
                                 <input type="text" class="form-control" id="name_en" name="name_en"
+                                       value="{{$tour->translation('en')->first()->name}} "
                                        placeholder="Tour Name En">
                             </div>
                             <div class="form-group">
                                 <label> Description Vi</label>
                                       <textarea rows="4" cols="50" class="form-control" id="des_vi"
                                                 name="des_vi"
-                                                placeholder="short description Vi"></textarea>
+                                                placeholder="short description Vi">{{$tour->translation('vi')->first()->short_description}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Description En</label>
                                     <textarea rows="4" cols="50" class="form-control" id="des_en"
                                               name="des_en"
-                                              placeholder="short description EN"></textarea>
+                                              placeholder="short description EN">{{$tour->translation('en')->first()->short_description}}</textarea>
 
                             </div>
 
@@ -277,13 +286,13 @@
                                 <label> Tour Description Vi</label>
                                       <textarea class="form-control" id="tour_des_vi"
                                                 name="tour_des_vi"
-                                                placeholder="short description Vi"></textarea>
+                                                placeholder="short description Vi">{{$tour->translation('vi')->first()->description}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Tour Description En</label>
                                     <textarea class="form-control" id="tour_des_en"
                                               name="tour_des_en"
-                                              placeholder="short description EN"></textarea>
+                                              placeholder="short description EN">{{$tour->translation('en')->first()->description}}</textarea>
                             </div>
 
 
@@ -291,13 +300,13 @@
                                 <label> Tour Itinerary Vi</label>
                                       <textarea class="form-control" id="tour_itinerary_vi"
                                                 name="tour_itinerary_vi"
-                                                placeholder="short description Vi"></textarea>
+                                                placeholder="short description Vi">{{$tour->translation('vi')->first()->itinerary}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Tour Itinerary En</label>
                                     <textarea class="form-control" id="tour_itinerary_en"
                                               name="tour_itinerary_en"
-                                              placeholder="short description EN"></textarea>
+                                              placeholder="short description EN">{{$tour->translation('en')->first()->itinerary}}</textarea>
                             </div>
 
                         </div>
@@ -314,40 +323,8 @@
         </div>
     </div>
     <script>
-        function delete_tour(id) {
-            bootbox.confirm("Are you sure you want to delete this tour?", function (result) {
 
-                /* your callback code */
-                if (result) {
-                    show_spinner();
-                    var token = '{{ csrf_token() }}';
-                    var obj = {_token: token, id: id};
-                    $.post('{{route('backend.tours.delete')}}', obj)
-                            .done(function (data) {
-                                hide_spinner();
-                                if (data.success == true) {
-                                    //  $.notify("Delete successful", "success");
 
-                                    $.notify("Delete successful", "success");
-                                    setTimeout(function () {
-                                                location.reload();
-                                            }
-                                            , 500);
-                                } else {
-                                    // $.notify(data.message, "error")
-
-                                    hide_spinner();
-                                }
-                            })
-                            .fail(function () {
-                                hide_spinner();
-                            });
-                } else {
-
-                }
-            })
-
-        }
         var url1 = '{{route('backend.show.media')}}';
         var url2 = '{{route('backend.upload.media')}}';
         var options = {
@@ -362,7 +339,8 @@
         CKEDITOR.replace('tour_itinerary_en', options);
 
         var global_files = [];
-        var global_media = [];
+        var global_media = [{{$tour->media_ids}}];
+        var exist_list_media_info = jQuery.parseJSON(JSON.stringify({!!json_encode($list_media_info) !!}));
         $(function () {
             Dropzone.options.myAwesomeDropzone = {
                 maxFilesize: 5,
@@ -376,11 +354,23 @@
                     // config
                     self.options.addRemoveLinks = true;
                     self.options.dictRemoveFile = "Delete";
-                    //New file added
-                    self.on("addedfile", function (file) {
-                        //   global_files.push(file);
-                        // console.log('new file added ', file);
-                    });
+                    let leng = exist_list_media_info.length;
+                    for (let i = 0; i < leng; i++) {
+                        var media_info = exist_list_media_info[i];
+                        debugger;
+                        var mockFile = {
+                            name: media_info.name,
+                            size: media_info.size
+                        };
+                        // Call the default addedfile event handler
+                        self.emit("addedfile", mockFile);
+                        // And optionally show the thumbnail of the file:
+                        self.emit("thumbnail", mockFile, media_info.link);
+                        global_files.push(mockFile);
+
+                    }
+
+
                     // Send file starts
                     self.on("sending", function (file) {
                         console.log('upload started', file);
@@ -414,16 +404,31 @@
                         }
                     });
                     self.on("success", function (file, response) {
-
+                        debugger;
                         global_files.push(file);
-                        global_media.push(response.data);
+                        global_media.push(response.data.id);
                         console.log('=========>data', response);
                     });
                 }
             };
         })
         $(document).ready(function () {
-            $('.datepicker').datepicker();
+            var is_out ={{$tour->is_outbound}};
+            if(is_out==1){
+                $('#tour_type').prop('disabled', true);
+            }
+            $("#tour_type").val({{$tour->tour_type}});
+
+            $("#food_location").val({{$tour->food_location}});
+            $("#food_type").val({{$tour->food_type}});
+            $("#duration_day").val({{$tour->duration_day}});
+            $("#duration_night").val({{$tour->duration_night}});
+            $("#rating").val({{$tour->rating}});
+
+            $("#food_location").val({{$tour->food_location}});
+
+            //$('.datepicker').datepicker();
+          //  $('#departure_from').val({{$tour->departure_from}});
             $('#departure_from').selectize();
             $('#destination').selectize();
             $('#food_type').prop('disabled', true);
@@ -449,6 +454,13 @@
 
             });
 
+            if($('#tour_type').val()==3){
+                $('#food_type').prop('disabled', false);
+                $('#food_location').prop('disabled', false);
+            }else{
+                $('#food_type').prop('disabled', true);
+                $('#food_location').prop('disabled', true);
+            }
             $('#tour_type').change(function () {
 
                 if ($('#tour_type').val() == "3") {
@@ -498,12 +510,13 @@
             var des_vi = $('#des_vi').val();
             var des_en = $('#des_en').val();
             var start_date = $('#start_date').val();
+            debugger;
             var media_ids = '';
             let i = 0;
             let leng = global_media.length;
             var arr = [];
             for (i = 0; i < leng; i++) {
-                arr.push(global_media[i].id);
+                arr.push(global_media[i]);
             }
             media_ids = arr.toString();
 
@@ -513,9 +526,10 @@
                 return false;
             }
 
-
+            var id = '{{$tour->id}}';
             var obj = {
                 _token: token,
+                id :id,
                 code: tour_code,
                 is_outbound: is_outbound,
                 is_publish: is_publish,
@@ -545,7 +559,7 @@
                 tour_itinerary_en: tour_itinerary_en,
             }
             show_spinner();
-            $.post('{{route('backend.tours.add')}}', obj)
+            $.post('{{route('backend.tours.edit')}}', obj)
                     .done(function (data) {
                         hide_spinner();
                         if (data.success == true) {

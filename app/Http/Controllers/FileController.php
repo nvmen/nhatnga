@@ -12,7 +12,7 @@ use App\Media;
 use Illuminate\Http\Request;
 use App\Helper;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Str;
 class FileController extends Controller
 {
     public function upload(Request $request)
@@ -22,8 +22,8 @@ class FileController extends Controller
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
         if ($validator->passes()) {
-
-            $server_file_name = '65-nhat-nga' . '-' . time() . '.' . $request->file->getClientOriginalExtension();
+            $temp_name = Str::slug($request->file->getClientOriginalName());
+            $server_file_name = '65-nhat-nga' . '-'.$temp_name.'-'. time() .rand(). '.' . $request->file->getClientOriginalExtension();
             $input['hashname'] = $server_file_name;
             $album = Helper::album_media();
             $uuid_name = $server_file_name;

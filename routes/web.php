@@ -100,7 +100,8 @@ Route::group(
                 Route::get('/', ['uses' => 'AdminTourController@index', 'as' => 'backend.tours.index']);
                 Route::post('/', ['uses' => 'AdminTourController@add', 'as' => 'backend.tours.add']);
                 Route::post('/delete', ['uses' => 'AdminTourController@delete', 'as' => 'backend.tours.delete']);
-                Route::get('/edit/{id}', ['uses' => 'AdminTourController@get_edit', 'as' => 'backend.tours.edit']);
+                Route::get('/edit/{id}', ['uses' => 'AdminTourController@get_edit', 'as' => 'backend.tours.get']);
+                Route::post('/edit', ['uses' => 'AdminTourController@edit', 'as' => 'backend.tours.edit']);
             });
 
             Route::group(['prefix' => 'news'], function () {

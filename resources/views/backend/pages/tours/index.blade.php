@@ -60,9 +60,10 @@
                         </td>
                         <td>{{$tour->discount_percent}}%</td>
                         <td>
-                            <div   style="overflow-x: scroll;">
-                                {{'/en/tour/detail/'.$tour->slug_url}}<br/>
-                                {{'/en/tour/detail/'.$tour->slug_url}}
+                            <div >
+                                <a href=" {{url('/').'/vi/tour/detail/'.$tour->slug_url}}" target="_blank">Link Vi</a>
+                               <br/>
+                                <a href=" {{url('/').'/en/tour/detail/'.$tour->slug_url}}" target="_blank">Link En</a>
                             </div>
 
                         </td>
@@ -74,7 +75,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{!! route('backend.tours.edit', ['id'=>1])  !!}"><span
+                            <a href="{!! route('backend.tours.get', ['id'=>$tour->id])  !!}"><span
                                         class="glyphicon glyphicon-pencil"></span>Edit</a>
                             <a href="javascript:void(0)" onclick="delete_tour('{{$tour->id}}')"><span
                                         class="glyphicon glyphicon-trash"></span>Delete</a>
@@ -291,8 +292,8 @@
                                                     <option value="7">7 Days</option>
                                                     <option value="8">8 Days</option>
                                                     <option value="9">9 Days</option>
-                                                    option value="10">10 Day</option>
-                                                    option value="11">11 Day</option>
+                                                    <option value="10">10 Day</option>
+                                                    <option value="11">11 Day</option>
                                                     <option value="12">12 Days</option>
                                                     <option value="13">13 Days</option>
                                                     <option value="14">14 Days</option>
@@ -317,8 +318,8 @@
                                                     <option value="7">7 Nights</option>
                                                     <option value="8">8 Nights</option>
                                                     <option value="9">9 Nights</option>
-                                                    option value="10">10 Nights</option>
-                                                    option value="11">11 Nights</option>
+                                                    <option value="10">10 Nights</option>
+                                                    <option value="11">11 Nights</option>
                                                     <option value="12">12 Nights</option>
                                                     <option value="13">13 Nights</option>
                                                     <option value="14">14 Nights</option>
@@ -405,6 +406,8 @@
     </div>
 
     <script>
+
+
         function delete_tour(id) {
             bootbox.confirm("Are you sure you want to delete this tour?", function (result) {
 

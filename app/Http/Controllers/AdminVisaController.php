@@ -120,6 +120,7 @@ class AdminVisaController extends Controller
         $data = $request->all();
         $validator = Validator::make($data, $rules);
         if ($validator->fails()) {
+            dd($validator);
             return response()->json(['success' => false, 'message' => 'Please select visa for delete']);
         } else {
             $visa = Visa::find($request['id']);
