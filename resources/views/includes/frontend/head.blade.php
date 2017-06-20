@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{{ URL::asset('assets/animate/css/animations.css') }}" type="text/css" media="all">
 
 <link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}" type="text/css" media="all">
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="{{URL::asset('images/favicon.png')}}" type="image/x-icon">
 <link href="{{ URL::asset('js/libs/style/loader.css') }}" rel="stylesheet">
 <script type='text/javascript' src=' {{ URL::asset('assets/js/jquery-3.2.1.min.js') }}'></script>
 

@@ -24,5 +24,14 @@ return [
     'children'=>'Children',
     'total'=>'Total',
     'price'=>'Price',
+    'description'=>'Description',
+    'itinerary'=>'Itinerary',
+    'related_tours'=>'Related Tours',
+    'send_enquiry'=>'Send Enquiry',
+    'message'=>'Message',
+    'your_name'=>'Your name*',
+    'booking_now'=>'Booking Now',
+    'send_message_reason'=>'Fill up the form below to tell us what you\'re looking for',
+    'or'=>'Or'
 
 ];

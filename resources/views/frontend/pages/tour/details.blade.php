@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('pageTitle', 'Services')
+@section('pageTitle', $tour->translation()->first()->name)
 @section('content')
     <div class="single-product travel_tour-page travel_tour">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }});">
@@ -20,7 +20,7 @@
                         <div class="images images_single_left">
                             <div class="title-single">
                                 <div class="title">
-                                    <h1>{{$tour->translation()->first()->name}}l</h1>
+                                    <h1>{{$tour->translation()->first()->name}}</h1>
                                 </div>
                                 <div class="tour_code">
                                     <strong>Code: </strong>{{strtoupper ($tour->first()->code)}}
@@ -151,10 +151,10 @@
                             <div class="single-tour-tabs wc-tabs-wrapper">
                                 <ul class="tabs wc-tabs" role="tablist">
                                     <li class="description_tab active" role="presentation">
-                                        <a href="index.htm#tab-description" role="tab" data-toggle="tab">Description</a>
+                                        <a href="index.htm#tab-description" role="tab" data-toggle="tab">{{__('tour.description')}}</a>
                                     </li>
                                     <li class="itinerary_tab_tab" role="presentation">
-                                        <a href="index.htm#tab-itinerary_tab" role="tab" data-toggle="tab">Itinerary</a>
+                                        <a href="index.htm#tab-itinerary_tab" role="tab" data-toggle="tab">{{__('tour.itinerary')}}</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -171,7 +171,7 @@
                                 </div>
                             </div>
                             <div class="related tours">
-                                <h2>Related Tours</h2>
+                                <h2>{{__('tour.related_tours')}}</h2>
                                 <ul class="tours products wrapper-tours-slider">
                                     <li class="item-tour col-md-4 col-sm-6 product">
                                         <div class="item_border item-product">
@@ -357,8 +357,7 @@
                                                                        min="0" max="10"
                                                                        placeholder="Number ticket of Children">
                                                                 <input type="hidden" name="price_child" value="65.1">
-                                                                <input type="hidden" name="price_child_set_on_tour"
-                                                                       value="0">
+                                                                <input type="hidden" name="price_child_set_on_tour" value="0">
                                                             </div>
                                                             ×
                                                             $<span class="price_children">65.1</span>
@@ -379,7 +378,7 @@
                                                     <div class="rect4"></div>
                                                     <div class="rect5"></div>
                                                 </div>
-                                                <input class="btn-booking btn" value="Booking now" type="submit">
+                                                <input class="btn-booking btn" value="{{__('tour.booking_now')}}" type="submit">
                                             </form>
                                         </div>
                                     </div>
@@ -390,12 +389,12 @@
                                             <form action="index.htm#" method="post" class="wpcf7-form"
                                                   novalidate="novalidate">
 
-                                                <p>Fill up the form below to tell us what you're looking for</p>
+                                                <p>{{__('tour.send_message_reason')}}</p>
                                                 <p>
 													<span class="wpcf7-form-control-wrap your-name">
 														<input type="text" name="your-name" value="" size="40"
                                                                class="wpcf7-form-control" aria-invalid="false"
-                                                               placeholder="Your name*">
+                                                               placeholder="{{__('tour.your_name')}}">
 													</span>
                                                 </p>
                                                 <p>
@@ -409,11 +408,11 @@
 													<span class="wpcf7-form-control-wrap your-message">
 														<textarea name="your-message" cols="40" rows="10"
                                                                   class="wpcf7-form-control" aria-invalid="false"
-                                                                  placeholder="Message"></textarea>
+                                                                  placeholder="{{__('tour.message')}}"></textarea>
 													</span>
                                                 </p>
                                                 <p>
-                                                    <input type="submit" value="Send Enquiry"
+                                                    <input type="submit" value="{{__('tour.send_enquiry')}}"
                                                            class="wpcf7-form-control wpcf7-submit"><span
                                                             class="ajax-loader"></span>
                                                 </p>

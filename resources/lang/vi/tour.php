@@ -24,6 +24,15 @@ return [
     'children'=>'Trẻ em',
     'total'=>'Tổng cộng',
     'price'=>'Giá',
+    'description'=>'Mô tả',
+    'itinerary'=>'Hành trình',
+    'related_tours'=>'Tour liên quan',
+    'send_enquiry'=>'Gửi yêu cầu',
+    'message'=>'Tin nhắn',
+    'your_name'=>'Họ tên*',
+    'booking_now'=>'Đặt ngay',
+    'send_message_reason'=>'Gửi cho chúng tôi bạn muốn tìm kiếm tour gì',
+    'or'=>'Hơặc'
 
 
 ];
