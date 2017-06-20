@@ -29,11 +29,18 @@ Route::group(
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
         Route::get('/error', ['uses' => 'ErrorController@index', 'as' => 'frontend.error.index']);
+
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'frontend.home.index']);
         Route::get('/contact', ['uses' => 'HomeController@contact', 'as' => 'frontend.home.contact']);
         Route::post('/submit_contact', ['uses' => 'HomeController@submit_contact', 'as' => 'frontend.home.contact.submit_contact']);
         Route::get('/about', ['uses' => 'HomeController@about', 'as' => 'frontend.home.about']);
+        Route::post('/newsletter', ['uses' => 'HomeController@newsletter', 'as' => 'frontend.home.newsletter']);
 
+        Route::group(['prefix' => 'search'], function () {
+            Route::get('/', ['uses' => 'SearchController@index', 'as' => 'frontend.search.index']);
+
+
+        });
         Route::group(['prefix' => 'tour'], function () {
             Route::get('/', ['uses' => 'TourController@international', 'as' => 'frontend.tour.index']);
             Route::get('/international', ['uses' => 'TourController@international', 'as' => 'frontend.tour.international']);

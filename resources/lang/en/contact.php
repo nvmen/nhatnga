@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'address_branch'=>'Branch',
     'address' => 'Address',
     'tel_no' => 'TELEPHONE',
     'fax_no' => 'FAX',
@@ -28,5 +28,7 @@ return [
     'friday'=>'Fri',
     'saturday'=>'Sat',
     'error_contact'=>'Please input your name and email. The email must be valid.',
+    'error_email_incorrect'=>'Please add a correct email address.',
+    'thanks_newsletter'=>'Thank you for signing up to the newsletter.'
 
 ];

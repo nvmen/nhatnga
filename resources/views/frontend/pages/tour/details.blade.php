@@ -63,7 +63,7 @@
                             <div id="slider" class="flexslider">
                                 <ul class="slides">
                                     <li>
-                                        <a href="#" class="swipebox" title="">
+                                        <a href="{{ URL::asset('images/tour/tour-1.jpg') }}" class="swipebox" title="">
                                             <img width="950" height="700"
                                                  src=" {{ URL::asset('images/tour/tour-1.jpg') }}"
 

@@ -36,5 +36,6 @@ return [
     'social_network'=>'MẠNG XÃ HỘI',
     'services_visa'=>'VISA',
     'continent_visa'=>'Xin vui lòng chọn châu lục muốn làm VISA',
+    'please_wait'=>'Đang gửi...',
 
 ];

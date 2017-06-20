@@ -10,8 +10,9 @@
                             <p></p>
                             <ul class="contact-info">
                                 <li><i class="fa fa-map-marker fa-fw"></i> {{__('nhatnga.address')}}</li>
-                                <li><i class="fa fa-map-marker fa-fw"></i> {{__('nhatnga.address_branch')}}</li>
-                                <li><i class="fa fa-phone fa-fw"></i> +84 8 62793318 - +84 8 66817653</li>
+                                <li><i class="fa fa-phone fa-fw"></i> (+84) 28 6279 3318 - (+84) 28 66817653</li>
+                                <li><i class="fa fa-map-marker fa-fw"></i>{{__('nhatnga.address_branch')}}</li>
+                                <li><i class="fa fa-phone fa-fw"></i> +84 27 46544999</li>
                                 <li>
                                     <i class="fa fa-envelope fa-fw"></i><a href="mailto: info@nhatnga.com.vn">
                                         info@nhatnga.com.vn</a>

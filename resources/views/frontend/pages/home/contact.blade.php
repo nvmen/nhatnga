@@ -28,7 +28,13 @@
                                     <div class="des">{{__('nhatnga.address')}}</div>
                                 </li>
                                 <li><label><i class="fa fa-phone"></i>{{__('contact.tel_no')}}</label>
-                                    <div class="des">+84 8 62648240</div>
+                                    <div class="des">(+84) 28 6279 3318  -  (+84) 28 6681 7653</div>
+                                </li>
+                                <li><label><i class="fa fa-map-marker"></i>{{__('contact.address_branch')}}</label>
+                                    <div class="des"> {{__('nhatnga.address_branch')}}</div>
+                                </li>
+                                <li><label><i class="fa fa-phone"></i>{{__('contact.tel_no')}}</label>
+                                    <div class="des">+84 274 6544 999</div>
                                 </li>
                                 <li><label><i class="fa fa-print"></i>{{__('contact.hot_line')}}</label>
                                     <div class="des">0919.345.788</div>

@@ -18,7 +18,7 @@
                     <aside id="text-7" class="widget widget_text">
                         <div class="textwidget">
                             <ul class="top_bar_info clearfix">
-                                <li><i class="fa fa-phone"></i> +84 650 6544 999</li>
+                                <li><i class="fa fa-phone"></i> (+84) 28 6681 7653</li>
                                 <li class="hidden-info">
                                     <i class="fa fa-map-marker"></i> {{__('nhatnga.address')}}
                                 </li>
@@ -198,7 +198,7 @@
                                 </div>
                                 <div class="search-menu search-overlay search-hidden">
                                     <div class="closeicon"></div>
-                                    <form method="get" class="search-form" action="tours.html">
+                                    <form method="get" class="search-form" action="{{route('frontend.search.index')}}">
                                         <input type="search" class="search-field" placeholder="Search ..." value=""
                                                name="s" title="Search for:">
                                         <input type="submit" class="search-submit font-awesome" value="&#xf002;">

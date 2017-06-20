@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App;
 use Mail;
 class HomeController extends Controller
@@ -83,4 +84,22 @@ class HomeController extends Controller
         }
         return view('frontend.pages.home.about');
     }
+    public  function newsletter(Request $request)
+    {
+        $rules = array(
+            'email' => 'required|email',
+
+        );
+        $data = $request->all();
+        $validator = Validator::make($data, $rules);
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'Banner need a image']);
+        } else {
+            $newsletter = new App\Newsletter();
+            $newsletter->email = $request['email'];
+            $newsletter->save();
+            return response()->json(['success' => true, 'message' => 'Ok']);
+        }
+    }
+
 }

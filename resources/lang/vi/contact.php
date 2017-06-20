@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'address_branch'=>'Chi nhánh',
     'address' => 'Địa chỉ',
     'tel_no' => 'Điện thoại',
     'fax_no' => 'FAX',
@@ -28,5 +28,7 @@ return [
     'friday'=>'Thứ sáu',
     'saturday'=>'Thứ bảy',
     'error_contact'=>'Hãy điền tên và email. Email phải là email hợp lệ.',
+    'error_email_incorrect'=>'Vui lòng thêm địa chỉ email chính xác.',
+    'thanks_NEWSLETTER'=>'Cảm ơn bạn đã đăng ký bản tin.'
 
 ];
