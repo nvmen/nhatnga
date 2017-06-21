@@ -27,7 +27,7 @@ class AdminTourController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+         $this->middleware('auth');
     }
 
     public function index(Request $request)
@@ -112,6 +112,8 @@ class AdminTourController extends Controller
                 $template_des = $template_tour_description->data;
             }
             $start_time = Carbon::now();
+
+
 
             $tour = Tour::find($request['id']);
             if ($tour == null) return response()->json(['success' => false, 'message' => 'Tour not exist']);
@@ -206,86 +208,92 @@ class AdminTourController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Tour need a image and name']);
         } else {
-            $slug = Str::slug($request['name_en']);
-            $count = DB::table('tour')->where('slug_url', $slug)->count();
-            if ($count >= 1) {
-                $count = $count;
-                $slug = $slug . '-' . $count;
-            }
-            $template_des = 'content';
-            $template_itinerary = 'content';
-            $template_tour_description = Template::where('name', 'tour-description')->first();
-            $template_tour_itinerary = Template::where('name', 'tour-itinerary')->first();
-            if ($template_tour_itinerary) {
-                $template_itinerary = $template_tour_itinerary->data;
-            }
-            if ($template_tour_description) {
-                $template_des = $template_tour_description->data;
-            }
-            $start_time = Carbon::now();
-            $tour = new Tour();
-            $tour->code = $request['code'];
-            $tour->slug_url = $slug;
-            $tour->media_ids = $request['media_ids'];
 
-
-            $tour->is_outbound = $request['is_outbound'];
-            $tour->is_publish = $request['is_publish'];
-            $tour->is_popular = $request['is_publish'];
-            $tour->discount_percent = $request['discount_percent'];
-            $tour->tour_type = $request['tour_type'];
-            $tour->rating = $request['rating'];
-            $discount = (float)$tour->discount_percent;
-            $tour->is_sale = $discount > 0 ? true : false;
-            if ($request['is_outbound'] == 0) {
-                $tour->food_type = $request['food_type'];
-                if ($tour->food_type == 3) {// food tour
-                    $tour->food_location = $request['food_location'];
-                    $tour->food_type = $request['food_type'];
+            DB::transaction(function ()use($request) {
+                $slug = Str::slug($request['name_en']);
+                $count = DB::table('tour')->where('slug_url', $slug)->count();
+                if ($count >= 1) {
+                    $count = $count;
+                    $slug = $slug . '-' . $count;
                 }
-            }
-            //  $tour->start_time = $start_time;
-            $tour->departure_from = $request['departure_from'];
-            $tour->destination = $request['destination'];
-            $tour->duration_day = $request['duration_day'];
-            $tour->duration_night = $request['duration_night'];
-            $tour->save();
+                $template_des = 'content';
+                $template_itinerary = 'content';
+                $template_tour_description = Template::where('name', 'tour-description')->first();
+                $template_tour_itinerary = Template::where('name', 'tour-itinerary')->first();
+                if ($template_tour_itinerary) {
+                    $template_itinerary = $template_tour_itinerary->data;
+                }
+                if ($template_tour_description) {
+                    $template_des = $template_tour_description->data;
+                }
+                $start_time = Carbon::now();
+                $tour = new Tour();
+                $tour->code = $request['code'];
+                $tour->slug_url = $slug;
+                $tour->media_ids = $request['media_ids'];
 
-            /*
-             *  tour_des_vi: tour_des_vi,
-                tour_des_en: tour_des_en,
-                tour_itinerary_vi: tour_itinerary_vi,
-                tour_itinerary_en: tour_itinerary_en,
-             */
 
-            $vi = new TourTranslations();
-            $vi->tour_id = $tour->id;
-            $vi->lang_code = "vi";
-            $vi->name = $request['name_vi'];
-            $vi->short_description = $request['des_vi'];
-            $vi->itinerary = $template_itinerary;
-            $vi->description = $template_des;
-            $vi->currency_unit = 'đ';
-            $vi->children_price = $request['children_price_vi'];
-            $vi->adult_price = $request['adults_price_vi'];
-            $vi->itinerary = $request['tour_itinerary_vi'];
-            $vi->description = $request['tour_des_vi'];
+                $tour->is_outbound = $request['is_outbound'];
+                $tour->is_publish = $request['is_publish'];
+                $tour->is_popular = $request['is_publish'];
+                $tour->discount_percent = $request['discount_percent'];
+                $tour->tour_type = $request['tour_type'];
+                $tour->rating = $request['rating'];
+                $discount = (float)$tour->discount_percent;
+                $tour->is_sale = $discount > 0 ? true : false;
+                if ($request['is_outbound'] == 0) {
+                    $tour->food_type = $request['food_type'];
+                    if ($tour->food_type == 3) {// food tour
+                        $tour->food_location = $request['food_location'];
+                        $tour->food_type = $request['food_type'];
+                    }
+                }
+                //  $tour->start_time = $start_time;
+                $tour->departure_from = $request['departure_from'];
+                $tour->destination = $request['destination'];
+                $tour->duration_day = $request['duration_day'];
+                $tour->duration_night = $request['duration_night'];
+                $tour->save();
 
-            $vi->save();
+                /*
+                 *  tour_des_vi: tour_des_vi,
+                    tour_des_en: tour_des_en,
+                    tour_itinerary_vi: tour_itinerary_vi,
+                    tour_itinerary_en: tour_itinerary_en,
+                 */
 
-            $en = new TourTranslations();
-            $en->tour_id = $tour->id;
-            $en->lang_code = "en";
-            $en->name = $request['name_en'];
-            $en->short_description = $request['des_en'];
-            $en->itinerary = $template_itinerary;
-            $en->description = $template_des;
-            $en->currency_unit = '$';
-            $en->children_price = $request['children_price_en'];
-            $en->adult_price = $request['adults_price_en'];
-            $vi->itinerary = $request['tour_itinerary_en'];
-            $vi->description = $request['tour_des_en'];
-            $en->save();
+                $vi = new TourTranslations();
+                $vi->tour_id = $tour->id;
+                $vi->lang_code = "vi";
+                $vi->name = $request['name_vi'];
+                $vi->short_description = $request['des_vi'];
+                $vi->itinerary = $template_itinerary;
+                $vi->description = $template_des;
+                $vi->currency_unit = 'đ';
+                $vi->children_price = $request['children_price_vi'];
+                $vi->adult_price = $request['adults_price_vi'];
+                $vi->itinerary = $request['tour_itinerary_vi'];
+                $vi->description = $request['tour_des_vi'];
+
+                $vi->save();
+
+                $en = new TourTranslations();
+                $en->tour_id = $tour->id;
+                $en->lang_code = "en";
+                $en->name = $request['name_en'];
+                $en->short_description = $request['des_en'];
+                $en->itinerary = $template_itinerary;
+                $en->description = $template_des;
+                $en->currency_unit = '$';
+                $en->children_price = $request['children_price_en'];
+                $en->adult_price = $request['adults_price_en'];
+                $vi->itinerary = $request['tour_itinerary_en'];
+                $vi->description = $request['tour_des_en'];
+                $en->save();
+
+            });
+
+
 
 
         }

@@ -49,6 +49,10 @@ class Tour extends Model
         return Media::whereIn('id', $ids)
             ->get();
     }
+    public function get_first_media_id($media_ids){
+        $ids = explode(",", $media_ids);
+        return $ids[0];
+    }
     public function get_destination(){
 
         $location = Location::find($this->destination);

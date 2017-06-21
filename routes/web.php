@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\App;
 |
 */
 
-
+Route::get('/login', ['uses' => 'Auth\LoginController@doLogin', 'as' => 'user.login']);
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/', ['uses' => 'Auth\LoginController@getLoginView', 'as' => 'user.login']);
     Route::post('/login', ['uses' => 'Auth\LoginController@doLogin', 'as' => 'user.login.post']);
@@ -52,7 +52,12 @@ Route::group(
 
         });
 
-           // visa
+
+        Route::group(['prefix' => 'news'], function () {
+            Route::get('/', ['uses' => 'NewsController@index', 'as' => 'frontend.news.index']);
+            Route::get('/{slug}', ['uses' => 'NewsController@details', 'as' => 'frontend.news.detail']);
+        });
+        // visa
 
         Route::group(['prefix' => 'visa'], function () {
             Route::get('/europe', ['uses' => 'VISAController@europe', 'as' => 'frontend.visa.europe']);
@@ -114,10 +119,14 @@ Route::group(
 
             Route::group(['prefix' => 'news'], function () {
                 Route::get('/', ['uses' => 'AdminNewsController@index', 'as' => 'backend.news.index']);
+                Route::post('/add', ['uses' => 'AdminNewsController@add', 'as' => 'backend.news.add']);
+                Route::post('/delete', ['uses' => 'AdminNewsController@detete', 'as' => 'backend.news.delete']);
+                Route::get('/get/{id}', ['uses' => 'AdminNewsController@get', 'as' => 'backend.news.get']);
+                Route::post('/edit', ['uses' => 'AdminNewsController@edit', 'as' => 'backend.news.edit']);
             });
             Route::group(['prefix' => 'booking'], function () {
                 Route::get('/', ['uses' => 'AdminBookingController@index', 'as' => 'backend.booking.index']);
-            }); 
+            });
             Route::group(['prefix' => 'location'], function () {
                 Route::get('/', ['uses' => 'AdminLocationController@index', 'as' => 'backend.location.index']);
                 Route::post('/add', ['uses' => 'AdminLocationController@add', 'as' => 'backend.location.add']);
@@ -127,18 +136,15 @@ Route::group(
             });
 
 
-
-
         });
 
 
+        // list all lfm routes here...
+        Route::get('/laravel-filemanager', ['uses' => '\Unisharp\Laravelfilemanager\controllers\LfmController@show', 'as' => 'backend.show.media']);
+        Route::post('/laravel-filemanager/upload', ['uses' => '\Unisharp\Laravelfilemanager\controllers\UploadController@upload', 'as' => 'backend.upload.media']);
 
-            // list all lfm routes here...
-            Route::get('/laravel-filemanager', ['uses' =>'\Unisharp\Laravelfilemanager\controllers\LfmController@show', 'as' => 'backend.show.media']);
-            Route::post('/laravel-filemanager/upload',  ['uses' =>'\Unisharp\Laravelfilemanager\controllers\UploadController@upload', 'as' => 'backend.upload.media']);
-
-        Route::get('/get-media/{id}/{resize?}', ['uses' =>'MediaController@get_media', 'as' => 'media.get']);
-        Route::get('/media-info/{id}', ['uses' =>'MediaController@get_media_info', 'as' => 'media.get.info']);
+        Route::get('/get-media/{id}/{resize?}', ['uses' => 'MediaController@get_media', 'as' => 'media.get']);
+        Route::get('/media-info/{id}', ['uses' => 'MediaController@get_media_info', 'as' => 'media.get.info']);
         Route::get('test', function () {
             return View::make('test');
         });

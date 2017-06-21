@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use DateTime;
 use Illuminate\Support\Str;
 use App\Media;
-
+use App;
 class Helper extends Model
 {
 
@@ -52,11 +52,12 @@ class Helper extends Model
         }
         return $info;
     }
+
     public static function get_list_media_info($media_ids, $resize = null)
     {
         $ids = explode(",", $media_ids);
         $arr_media = array();
-        foreach ($ids as $id){
+        foreach ($ids as $id) {
             $media = Media::find($id);
             if ($resize == null) {
                 $resize = '120x120';
@@ -79,9 +80,44 @@ class Helper extends Model
 
         return $arr_media;
     }
-    public static function get_template_name($name){
-        $template = Template::where('name',$name)->first();
+
+    public static function get_template_name($name)
+    {
+        $template = Template::where('name', $name)->first();
         return $template->data;
     }
 
+    public static function get_words($string_input, $words = 50)
+    {
+        $arr = explode(' ', $string_input);
+        $size = count($arr);
+        $result = array();
+        $index = 0;
+        foreach ($arr as $a) {
+            if ($index < $words) {
+                array_push($result, $a);
+            } else {
+                break;
+            }
+            $index = $index + 1;
+        }
+        $text = join(' ', $result);
+        if ($words < $size) {
+            $text = $text . '...';
+        }
+        return $text;
+    }
+
+    public static function get_format_money($money,$num =0)
+    {
+
+        $text = '';
+        if (App::getLocale() == 'en') {
+            $text = '$' . number_format($money, $num);
+
+        } else {
+            $text = number_format($money, $num) . 'đ';
+        }
+        return $text;
+    }
 }

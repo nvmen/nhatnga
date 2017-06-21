@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App;
 use Mail;
+use App\News;
+use App\Tour;
+
 class HomeController extends Controller
 {
     public function __construct()
@@ -30,8 +33,16 @@ class HomeController extends Controller
         if (App::getLocale() == 'en')
         {
          //   echo "It's English!";
+
         }
-        return view('frontend.pages.home.index');
+        $news_list = News::take(2)->get();
+        $tour_discount = Tour::where('discount_percent','!=' , 0)->take(6)->get();
+        $tour_popular = Tour::where('is_popular','=' , 1)->take(6)->get();
+
+        return view('frontend.pages.home.index',['latest_news'=>$news_list,
+            'tour_discount'=>$tour_discount,
+            'tour_popular'=>$tour_popular
+            ]);
     }
     public function contact(Request $request)
     {

@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call('VisaCategoryTranslationTableSeeder');
         $this->call('TourTypeTableSeeder');
         $this->call('TourTypeTranslateTableSeeder');
+        $this->call('NewsCateTableSeeder');
+        $this->call('NewsCateTranslateTableSeeder');
     }
 }
