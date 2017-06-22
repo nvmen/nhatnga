@@ -21,8 +21,8 @@ class CreateTourTranslationTable extends Migration
             $table->text('itinerary')->nullable();
             $table->text('description')->nullable();
             $table->string('currency_unit')->nullable();
-            $table->decimal('children_price')->nullable();
-            $table->decimal('adult_price')->nullable();
+            $table->decimal('children_price',15, 2)->nullable();
+            $table->decimal('adult_price',15, 2)->nullable();
             $table->string('lang_code');
             $table->timestamps();
             

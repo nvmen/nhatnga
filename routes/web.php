@@ -49,6 +49,7 @@ Route::group(
             Route::get('/domestic/shorttour', ['uses' => 'TourController@shorttour', 'as' => 'frontend.tour.domestic.shorttour']);
             Route::get('/foodtour', ['uses' => 'TourController@foodtour', 'as' => 'frontend.tour.domestic.foodtour']);
             Route::get('/detail/{slug}', ['uses' => 'TourController@detail', 'as' => 'frontend.tour.detail']);
+            Route::post('/enquiry', ['uses' => 'TourController@enquiry', 'as' => 'frontend.tour.enquiry']);
 
         });
 

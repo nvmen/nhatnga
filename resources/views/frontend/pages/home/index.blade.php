@@ -43,7 +43,8 @@
             <div class="row">
                 <div class="col-sm-12 mg-btn-6x">
                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                        <h3 class="title_primary"> {{__('nhatnga.popular_services')}}</h3><span class="line_after_title"></span>
+                        <h3 class="title_primary"> {{__('nhatnga.popular_services')}}</h3><span
+                                class="line_after_title"></span>
                     </div>
                 </div>
             </div>
@@ -442,7 +443,8 @@
             <div class="row">
                 <div class="col-sm-12 mg-btn-6x">
                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                        <h3 class="title_primary">{{__('home.nhatnga_reason')}}</h3><span class="line_after_title"></span>
+                        <h3 class="title_primary">{{__('home.nhatnga_reason')}}</h3><span
+                                class="line_after_title"></span>
                     </div>
                 </div>
             </div>
@@ -450,11 +452,12 @@
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="box-icon icon-image circle">
-                            <img src="{{URL::asset('images/price.png')}}"  width="160" height="160" alt="">
+                            <img src="{{URL::asset('images/price.png')}}" width="160" height="160" alt="">
                         </div>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
-                                <h3 style="color:#000000" class="heading__primary">{{__('nhatnga.reasonable_price')}}</h3>
+                                <h3 style="color:#000000"
+                                    class="heading__primary">{{__('nhatnga.reasonable_price')}}</h3>
                             </div>
                             <div class="desc-icon-box">
                                 <div>{{__('nhatnga.reasonable_price_text')}}</div>
@@ -465,7 +468,7 @@
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="box-icon icon-image ">
-                            <img src="{{URL::asset('images/fast_delivery.jpg')}}"  width="160" height="160" alt="">
+                            <img src="{{URL::asset('images/fast_delivery.jpg')}}" width="160" height="160" alt="">
                         </div>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
@@ -480,11 +483,12 @@
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <div class="box-icon icon-image ">
-                            <img src="{{URL::asset('images/security.png')}}"  width="160" height="160 alt="">
+                            <img src="{{URL::asset('images/security.png')}}" width="160" height="160 alt="">
                         </div>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
-                                <h3 style="color:#000000" class="heading__primary">{{__('nhatnga.prestige_guatrantee')}}</h3>
+                                <h3 style="color:#000000"
+                                    class="heading__primary">{{__('nhatnga.prestige_guatrantee')}}</h3>
                             </div>
                             <div class="desc-icon-box">
                                 <div>  {{__('nhatnga.prestige_guatrantee_text')}}</div>
@@ -554,62 +558,67 @@
                 </div>
             </div>
         </div>
+        @if($tour_discount->count()>0)
+            <div class="section-white padding-top-6x padding-bottom-6x">
+                <div class="container">
+                    <div class="shortcode_title title-center title-decoration-bottom-center">
+                        <h3 class="title_primary">{{__('nhatnga.deals_and_discounts')}} </h3><span
+                                class="line_after_title"></span>
+                    </div>
+                    <div class="row wrapper-tours-slider">
+                        <div class="tours-type-slider list_content" data-dots="true" data-nav="true"
+                             data-responsive='{"0":{"items":1}, "480":{"items":2}, "768":{"items":3}, "992":{"items":3}, "1200":{"items":3}}'>
 
-        <div class="section-white padding-top-6x padding-bottom-6x">
-            <div class="container">
-                <div class="shortcode_title title-center title-decoration-bottom-center">
-                    <h3 class="title_primary">{{__('nhatnga.deals_and_discounts')}} </h3><span class="line_after_title"></span>
-                </div>
-                <div class="row wrapper-tours-slider">
-                    <div class="tours-type-slider list_content" data-dots="true" data-nav="true"
-                         data-responsive='{"0":{"items":1}, "480":{"items":2}, "768":{"items":3}, "992":{"items":3}, "1200":{"items":3}}'>
-
-                       @foreach($tour_discount as $tour)
-                        <div class="item-tour">
-                            <div class="item_border">
-                                <div class="item_content">
-                                    <div class="post_images">
-                                        <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}" class="travel_tour-LoopProduct-link">
+                            @foreach($tour_discount as $tour)
+                                <div class="item-tour">
+                                    <div class="item_border">
+                                        <div class="item_content">
+                                            <div class="post_images">
+                                                <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                                   class="travel_tour-LoopProduct-link">
 											<span class="price">
 												<span class="travel_tour-Price-amount amount">
                                                     {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
                                                 </span>
 											</span>
-                                            @php
-                                             $media_id =$tour->get_first_media_id($tour->media_ids);
-                                            @endphp
-                                            <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}" alt="" title="">
-                                        </a>
-                                    </div>
-                                    <div class="wrapper_content">
-                                        <div class="post_title"><h4>
-                                                <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}" rel="bookmark">{{$tour->translation()->first()->name}}</a>
-                                            </h4></div>
-                                        <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}} {{$tour->duration_night}} {{__('tour.nights')}}</span>
-                                        <p>
-                                            {{App\Helper::get_words($tour->translation()->first()->short_description,20)}}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="read_more">
-                                    <div class="item_rating">
-                                        @for ($i = 0; $i < $tour->rating; $i++)
-                                            <i class="fa fa-star"></i>
-                                        @endfor
+                                                    @php
+                                                    $media_id =$tour->get_first_media_id($tour->media_ids);
+                                                    @endphp
+                                                    <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
+                                                         alt="" title="">
+                                                </a>
+                                            </div>
+                                            <div class="wrapper_content">
+                                                <div class="post_title"><h4>
+                                                        <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                                           rel="bookmark">{{$tour->translation()->first()->name}}</a>
+                                                    </h4></div>
+                                                <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}} {{$tour->duration_night}} {{__('tour.nights')}}</span>
+                                                <p>
+                                                    {{App\Helper::get_words($tour->translation()->first()->short_description,20)}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="read_more">
+                                            <div class="item_rating">
+                                                @for ($i = 0; $i < $tour->rating; $i++)
+                                                    <i class="fa fa-star"></i>
+                                                @endfor
 
+                                            </div>
+                                            <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                               class="read_more_button">VIEW MORE
+                                                <i class="fa fa-long-arrow-right"></i></a>
+                                            <div class="clear"></div>
+                                        </div>
                                     </div>
-                                    <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}" class="read_more_button">VIEW MORE
-                                        <i class="fa fa-long-arrow-right"></i></a>
-                                    <div class="clear"></div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-
+        @endif
 
 
         <div class="section-white padding-top-6x padding-bottom-6x">
@@ -668,7 +677,6 @@
                                 </div>
 
 
-
                                 <div class="tour-reviews-item">
                                     <div class="reviews-item-info">
                                         <img alt="" src="images/avata/avartar4.png" class="avatar avatar-95 photo"
@@ -700,24 +708,28 @@
                         <div class="row">
                             @foreach($latest_news as $news)
                                 <div class="post_list_content_unit col-sm-6">
-                                <div class="feature-image">
-                                    <a href="{{route('frontend.news.detail',['slug'=>$news->slug_url])}}" class="entry-thumbnail">
-                                        <img width="370" height="260" src="{!! route('media.get', ['id'=>$news->media_ids,'resize'=>'370x260'])  !!}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-list-content">
-                                    <div class="post_list_inner_content_unit">
-                                        <h3 class="post_list_title">
-                                            <a href="{{route('frontend.news.detail',['slug'=>$news->slug_url])}}" rel="bookmark">{{App\Helper::get_words($news->translation()->first()->name)}}</a>
-                                        </h3>
-                                        <div class="wrapper-meta">
-                                            <div class="date-time">{{$news->updated_at->format('d/m/Y')}}</div>
-                                        </div>
-                                        <div class="post_list_item_excerpt">{{App\Helper::get_words($news->translation()->first()->short_description)}}
+                                    <div class="feature-image">
+                                        <a href="{{route('frontend.news.detail',['slug'=>$news->slug_url])}}"
+                                           class="entry-thumbnail">
+                                            <img width="370" height="260"
+                                                 src="{!! route('media.get', ['id'=>$news->media_ids,'resize'=>'370x260'])  !!}"
+                                                 alt="">
+                                        </a>
+                                    </div>
+                                    <div class="post-list-content">
+                                        <div class="post_list_inner_content_unit">
+                                            <h3 class="post_list_title">
+                                                <a href="{{route('frontend.news.detail',['slug'=>$news->slug_url])}}"
+                                                   rel="bookmark">{{App\Helper::get_words($news->translation()->first()->name)}}</a>
+                                            </h3>
+                                            <div class="wrapper-meta">
+                                                <div class="date-time">{{$news->updated_at->format('d/m/Y')}}</div>
+                                            </div>
+                                            <div class="post_list_item_excerpt">{{App\Helper::get_words($news->translation()->first()->short_description)}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
 
                         </div>
@@ -727,7 +739,7 @@
         </div>
     </div>
     <script>
-        $( document ).ready(function() {
+        $(document).ready(function () {
             jQuery(".wrapper-tours-slider").each(function () {
 
                 var $this = jQuery(this),

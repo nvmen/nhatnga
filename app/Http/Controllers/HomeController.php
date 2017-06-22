@@ -64,15 +64,7 @@ class HomeController extends Controller
             $name = $request->get('name');
             $subject = $request->get('subject');
             $message_text = $request->get('message');
-            /*
-             *  $data = array('full_name' => $full_name, 'link' => $link);
 
-            Mail::send(['html' => 'email.reset'], $data, function ($message) use($full_name,$email) {
-                $message->to($email, $full_name)->subject
-                ('Monita | Reset password');
-                $message->from('nvmen@tma.com.vn', 'Monita support');
-            });
-             **/
 
             $data = array('email' => $email_to, 'name' => $name,'subject'=>$subject,'email'=>$email,'message_text'=>$message_text);
             Mail::send(['html' => 'email.contact'], $data, function ($message) use($email_to) {

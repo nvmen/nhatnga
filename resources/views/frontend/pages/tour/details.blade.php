@@ -151,10 +151,12 @@
                             <div class="single-tour-tabs wc-tabs-wrapper">
                                 <ul class="tabs wc-tabs" role="tablist">
                                     <li class="description_tab active" role="presentation">
-                                        <a href="index.htm#tab-description" role="tab" data-toggle="tab">{{__('tour.description')}}</a>
+                                        <a href="index.htm#tab-description" role="tab"
+                                           data-toggle="tab">{{__('tour.description')}}</a>
                                     </li>
                                     <li class="itinerary_tab_tab" role="presentation">
-                                        <a href="index.htm#tab-itinerary_tab" role="tab" data-toggle="tab">{{__('tour.itinerary')}}</a>
+                                        <a href="index.htm#tab-itinerary_tab" role="tab"
+                                           data-toggle="tab">{{__('tour.itinerary')}}</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -309,7 +311,8 @@
                             <div class="affix-sidebar">
                                 <div class="entry-content-tour">
                                     <p class="price">
-                                        <span class="text">{{__('tour.price')}}:</span><span class="travel_tour-Price-amount amount">$93.00</span>
+                                        <span class="text">{{__('tour.price')}}:</span><span
+                                                class="travel_tour-Price-amount amount"> {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
                                     </p>
                                     <div class="clear"></div>
                                     <div class="booking">
@@ -317,52 +320,57 @@
                                             <div class="form-block__title">
                                                 <h4>{{__('tour.book_the_tour')}}</h4>
                                             </div>
-                                            <form id="tourBookingForm" method="POST" action="index.htm#">
+                                            <form id="tourBookingForm" method="POST" action="">
                                                 <div class="">
-                                                    <input name="first_name" value="" placeholder="{{__('tour.first_name')}}"
+                                                    <input name="first_name" value=""
+                                                           placeholder="{{__('tour.first_name')}}"
                                                            type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input name="last_name" value="" placeholder="{{__('tour.last_name')}}"
+                                                    <input name="last_name" value=""
+                                                           placeholder="{{__('tour.last_name')}}"
                                                            type="text">
                                                 </div>
                                                 <div class="">
                                                     <input name="email_tour" value="" placeholder="Email" type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input name="phone" value="" placeholder="{{__('tour.phone')}}" type="text">
+                                                    <input name="phone" value="" placeholder="{{__('tour.phone')}}"
+                                                           type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input type="text" name="date_book" value="" placeholder="{{__('tour.date_book')}}"
+                                                    <input type="text" name="date_book" value=""
+                                                           placeholder="{{__('tour.date_book')}}"
                                                            class="hasDatepicker">
                                                 </div>
                                                 <div class="from-group">
                                                     <div class="total_price_arrow">
-                                                        <div class="st_adults_children">
-                                                            <span class="label">{{__('tour.adults')}}</span>
+                                                        <div class="st_adults_children" style="margin-bottom: 5px">
+                                                            <span class="label"
+                                                                  style="min-width: 71px;">{{__('tour.adults')}}</span>
                                                             <div class="input-number-ticket">
                                                                 <input type="number" name="number_ticket" value="1"
-                                                                       min="1" max="10"
+                                                                       min="1" max="20"
                                                                        placeholder="Number ticket of Adults">
                                                             </div>
                                                             ×
-                                                            $<span class="price_adults">93</span>
-                                                            =
-                                                            <span class="total_price_adults">$93</span>
+                                                            <span class="price_adults"> {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+
                                                         </div>
                                                         <div class="st_adults_children">
-                                                            <span class="label">{{__('tour.children')}}</span>
+                                                            <span class="label"
+                                                                  style="min-width: 71px;">{{__('tour.children')}}</span>
                                                             <div class="input-number-ticket">
                                                                 <input type="number" name="number_children" value="0"
-                                                                       min="0" max="10"
+                                                                       min="0" max="20"
                                                                        placeholder="Number ticket of Children">
                                                                 <input type="hidden" name="price_child" value="65.1">
-                                                                <input type="hidden" name="price_child_set_on_tour" value="0">
+                                                                <input type="hidden" name="price_child_set_on_tour"
+                                                                       value="0">
                                                             </div>
                                                             ×
-                                                            $<span class="price_children">65.1</span>
-                                                            =
-                                                            <span class="total_price_children">0</span>
+                                                            <span class="price_children"> {{App\Helper::get_format_money($tour->translation()->first()->children_price,0)}}</span>
+
                                                         </div>
                                                         <div>
                                                             {{__('tour.total')}} =
@@ -378,7 +386,8 @@
                                                     <div class="rect4"></div>
                                                     <div class="rect5"></div>
                                                 </div>
-                                                <input class="btn-booking btn" value="{{__('tour.booking_now')}}" type="submit">
+                                                <input class="btn-booking btn" value="{{__('tour.booking_now')}}"
+                                                       type="submit">
                                             </form>
                                         </div>
                                     </div>
@@ -386,34 +395,46 @@
                                     <div class="custom_from">
                                         <div role="form" class="wpcf7" lang="en-US" dir="ltr">
                                             <div class="screen-reader-response"></div>
-                                            <form action="index.htm#" method="post" class="wpcf7-form"
+                                            <form action="" method="post" class="wpcf7-form"
                                                   novalidate="novalidate">
 
                                                 <p>{{__('tour.send_message_reason')}}</p>
                                                 <p>
 													<span class="wpcf7-form-control-wrap your-name">
-														<input type="text" name="your-name" value="" size="40"
+														<input type="text" name="your-name" id="your-name" value=""
+                                                               size="40"
                                                                class="wpcf7-form-control" aria-invalid="false"
                                                                placeholder="{{__('tour.your_name')}}">
 													</span>
                                                 </p>
                                                 <p>
 													<span class="wpcf7-form-control-wrap your-email">
-														<input type="email" name="your-email" value="" size="40"
+														<input type="email" name="your-email" id="your-email" value=""
+                                                               size="40"
                                                                class="wpcf7-form-control" aria-invalid="false"
                                                                placeholder="Email*">
 													</span>
                                                 </p>
                                                 <p>
+													<span class="wpcf7-form-control-wrap your-phone">
+														<input type="text" name="your-phone" id="your-phone" value=""
+                                                               size="40"
+                                                               class="wpcf7-form-control" aria-invalid="false"
+                                                               placeholder="Phone">
+													</span>
+                                                </p>
+                                                <p>
 													<span class="wpcf7-form-control-wrap your-message">
-														<textarea name="your-message" cols="40" rows="10"
+														<textarea name="your-message" id="your-message" cols="40"
+                                                                  rows="10"
                                                                   class="wpcf7-form-control" aria-invalid="false"
                                                                   placeholder="{{__('tour.message')}}"></textarea>
 													</span>
                                                 </p>
                                                 <p>
-                                                    <input type="submit" value="{{__('tour.send_enquiry')}}"
-                                                           class="wpcf7-form-control wpcf7-submit"><span
+                                                    <input type="button" onclick="send_enquiry()"
+                                                           value="{{__('tour.send_enquiry')}}"
+                                                           class="wpcf7-form-control wpcf7-submit" style="width: 100%;"><span
                                                             class="ajax-loader"></span>
                                                 </p>
                                             </form>
@@ -494,5 +515,75 @@
         </section>
 
     </div>
+    <script>
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+        function send_enquiry() {
+            debugger;
+            var your_name = $('#your-name').val();
+            if(your_name.trim()==''){
+                $('#your-name' ).addClass( "error" );
+                return;
+            }
+            var your_email = $('#your-email').val();
+            if(your_email.trim()==''){
+                $('#your-email' ).addClass( "error" );
+                return;
+            }
+            if(!validateEmail(your_email)){
+                $('#your-email' ).val('');
+                $('#your-email' ).addClass( "error" );
+                return;
+            }
+            var your_phone = $('#your-phone').val();
+            var your_message = $('#your-message').val();
+            var token = '{{ csrf_token() }}';
+            var obj ={
+                _token:token,
+                name:your_name,
+                email:your_email,
+                phone:your_phone,
+                message:your_message
 
+            }
+            show_spinner();
+            $.post('{{route('frontend.tour.enquiry')}}', obj)
+                    .done(function (data) {
+                        hide_spinner();
+                        if (data.success == true) {
+                            //  $.notify("Delete successful", "success");
+                            hide_spinner();
+                            $.notify(data.message, "success");
+                            setTimeout(function () {
+                                        location.reload();
+                                    }
+                                    , 500);
+                        } else {
+                             $.notify(data.message, "error")
+
+                            hide_spinner();
+                        }
+                    })
+                    .fail(function () {
+                        hide_spinner();
+                    });
+
+        }
+
+
+        $(document).ready(function() {
+            $("#tourBookingForm").submit(function() {
+                 return false;
+                var val = $("input[type=submit][clicked=true]").val();
+                // DO WORK
+                return;
+            });
+            $("form input[type=submit]").click(function() {
+                $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+                $(this).attr("clicked", "true");
+            });
+        });
+    </script>
 @stop
