@@ -175,135 +175,56 @@
                             <div class="related tours">
                                 <h2>{{__('tour.related_tours')}}</h2>
                                 <ul class="tours products wrapper-tours-slider">
-                                    <li class="item-tour col-md-4 col-sm-6 product">
-                                        <div class="item_border item-product">
-                                            <div class="post_images">
-                                                <a href="single-tour.html">
-                                                    <span class="price">$93.00</span>
-                                                    <img width="430" height="305"
-                                                         src="{{URL::asset('images/tour/430x305/tour-1.jpg')}}"
-                                                         alt="Discover Brazil" title="Discover Brazil">
-                                                </a>
-                                                <div class="group-icon">
-                                                    <a href="tours.html" data-toggle="tooltip" data-placement="top"
-                                                       title="" class="frist" data-original-title="Escorted Tour"><i
-                                                                class="flaticon-airplane-4"></i></a>
-                                                    <a href="tours.html" data-toggle="tooltip" data-placement="top"
-                                                       title="" data-original-title="Rail Tour"><i
-                                                                class="flaticon-cart-1"></i></a>
+
+                                    @foreach($related_tours as $tour)
+                                        <li class="item-tour col-md-4 col-sm-6 product">
+                                            <div class="item_border item-product">
+                                                <div class="post_images">
+                                                    <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}">
+                                                    <span class="price">
+                                                        {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
+                                                    </span>
+                                                        @php
+                                                        $media_id =$tour->get_first_media_id($tour->media_ids);
+                                                        @endphp
+                                                        <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
+                                                             alt="" title="">
+                                                    </a>
+
+                                                </div>
+                                                <div class="wrapper_content">
+                                                    <div class="post_title"><h4>
+                                                            <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                                               rel="bookmark">
+                                                                {{$tour->translation()->first()->name}}
+                                                            </a>
+                                                        </h4></div>
+                                                    <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}} {{$tour->duration_night}} {{__('tour.nights')}}</span>
+                                                    <div class="description">
+                                                        <p>
+                                                            {{App\Helper::get_words($tour->translation()->first()->short_description,20)}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="read_more">
+                                                    <div class="item_rating">
+                                                        @for ($i = 0; $i < $tour->rating; $i++)
+                                                            <i class="fa fa-star"></i>
+                                                        @endfor
+                                                        @for ($i = 0; $i < 5-$tour->rating; $i++)
+                                                            <i class="fa fa-star-o"></i>
+                                                        @endfor
+
+                                                    </div>
+                                                    <a rel="nofollow" href="single-tour.html"
+                                                       class="button product_type_tour_phys add_to_cart_button">Read
+                                                        more</a>
                                                 </div>
                                             </div>
-                                            <div class="wrapper_content">
-                                                <div class="post_title"><h4>
-                                                        <a href="single-tour.html" rel="bookmark">Discover Brazil</a>
-                                                    </h4></div>
-                                                <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                                <div class="description">
-                                                    <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus
-                                                        nunc&nbsp;luctus</p>
-                                                </div>
-                                            </div>
-                                            <div class="read_more">
-                                                <div class="item_rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <a rel="nofollow" href="single-tour.html"
-                                                   class="button product_type_tour_phys add_to_cart_button">Read
-                                                    more</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item-tour col-md-4 col-sm-6 product">
-                                        <div class="item_border item-product">
-                                            <div class="post_images">
-                                                <a href="single-tour.html">
-											<span class="price"><del>$87.00</del>
-												<ins>$82.00</ins>
-											</span>
-                                                    <span class="onsale">Sale!</span>
-                                                    <img width="430" height="305"
-                                                         src="{{URL::asset('images/tour/430x305/tour-2.jpg')}}"
-                                                         alt="Discover Brazil" title="Discover Brazil">
-                                                </a>
-                                                <div class="group-icon">
-                                                    <a href="tours.html" data-toggle="tooltip" data-placement="top"
-                                                       title="" class="frist" data-original-title="River Cruise"><i
-                                                                class="flaticon-transport-2"></i></a>
-                                                    <a href="tours.html" data-toggle="tooltip" data-placement="top"
-                                                       title="" data-original-title="Wildlife"><i
-                                                                class="flaticon-island"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="wrapper_content">
-                                                <div class="post_title"><h4>
-                                                        <a href="single-tour.html" rel="bookmark">Kiwiana Panorama</a>
-                                                    </h4></div>
-                                                <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                                <div class="description">
-                                                    <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus
-                                                        nunc&nbsp;luctus</p>
-                                                </div>
-                                            </div>
-                                            <div class="read_more">
-                                                <div class="item_rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <a rel="nofollow" href="single-tour.html"
-                                                   class="button product_type_tour_phys add_to_cart_button">Read
-                                                    more</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item-tour col-md-4 col-sm-6 product">
-                                        <div class="item_border item-product">
-                                            <div class="post_images">
-                                                <a href="single-tour.html">
-                                                    <span class="price">$64.00</span>
-                                                    <img width="430" height="305"
-                                                         src="{{URL::asset('images/tour/430x305/tour-3.jpg')}}"
-                                                         alt="Discover Brazil" title="Discover Brazil">
-                                                </a>
-                                                <div class="group-icon">
-                                                    <a href="tours.html" data-toggle="tooltip" data-placement="top"
-                                                       title="" class="frist" data-original-title="Escorted Tour"><i
-                                                                class="flaticon-airplane-4"></i></a>
-                                                    <a href="tours.html" data-toggle="tooltip" data-placement="top"
-                                                       title="" data-original-title="River Cruise"><i
-                                                                class="flaticon-transport-2"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="wrapper_content">
-                                                <div class="post_title"><h4>
-                                                        <a href="single-tour.html" rel="bookmark">Anchorage to Quito</a>
-                                                    </h4></div>
-                                                <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                                <div class="description">
-                                                    <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus
-                                                        nunc&nbsp;luctus</p>
-                                                </div>
-                                            </div>
-                                            <div class="read_more">
-                                                <div class="item_rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <a rel="nofollow" href="single-tour.html"
-                                                   class="button product_type_tour_phys add_to_cart_button">Read
-                                                    more</a>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>
@@ -444,66 +365,7 @@
                                 <div class="widget-area align-left col-sm-3">
                                     <aside class="widget widget_travel_tour">
                                         <div class="wrapper-special-tours">
-                                            <div class="inner-special-tours">
-                                                <a href="single-tour.html">
-                                                    <img width="430" height="305"
-                                                         src="{{URL::asset('images/tour/430x305/tour-1.jpg')}}"
-                                                         alt="Discover Brazil" title="Discover Brazil"></a>
-                                                <div class="item_rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="post_title"><h3>
-                                                        <a href="single-tour.html" rel="bookmark">Discover Brazil</a>
-                                                    </h3></div>
-                                                <div class="item_price">
-                                                    <span class="price">$93.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="inner-special-tours">
-                                                <a href="single-tour.html">
-                                                    <span class="onsale">Sale!</span>
-                                                    <img width="430" height="305"
-                                                         src="{{URL::asset('images/tour/430x305/tour-2.jpg')}}"
-                                                         alt="Discover Brazil" title="Discover Brazil"></a>
-                                                <div class="item_rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="post_title"><h3>
-                                                        <a href="single-tour.html" rel="bookmark">Kiwiana Panorama</a>
-                                                    </h3></div>
-                                                <div class="item_price">
-										<span class="price"><del>$87.00</del>
-										<ins>$82.00</ins></span>
-                                                </div>
-                                            </div>
-                                            <div class="inner-special-tours">
-                                                <a href="single-tour.html">
-                                                    <img width="430" height="305"
-                                                         src="{{URL::asset('images/tour/430x305/tour-3.jpg')}}"
-                                                         alt="Discover Brazil" title="Discover Brazil">
-                                                </a>
-                                                <div class="item_rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="post_title"><h3>
-                                                        <a href="single-tour.html" rel="bookmark">Anchorage to Quito</a>
-                                                    </h3></div>
-                                                <div class="item_price">
-                                                    <span class="price">$64.00</span>
-                                                </div>
-                                            </div>
+                                          @include('includes.frontend.right_random_tour')
                                         </div>
                                     </aside>
                                 </div>
@@ -523,29 +385,29 @@
         function send_enquiry() {
             debugger;
             var your_name = $('#your-name').val();
-            if(your_name.trim()==''){
-                $('#your-name' ).addClass( "error" );
+            if (your_name.trim() == '') {
+                $('#your-name').addClass("error");
                 return;
             }
             var your_email = $('#your-email').val();
-            if(your_email.trim()==''){
-                $('#your-email' ).addClass( "error" );
+            if (your_email.trim() == '') {
+                $('#your-email').addClass("error");
                 return;
             }
-            if(!validateEmail(your_email)){
-                $('#your-email' ).val('');
-                $('#your-email' ).addClass( "error" );
+            if (!validateEmail(your_email)) {
+                $('#your-email').val('');
+                $('#your-email').addClass("error");
                 return;
             }
             var your_phone = $('#your-phone').val();
             var your_message = $('#your-message').val();
             var token = '{{ csrf_token() }}';
-            var obj ={
-                _token:token,
-                name:your_name,
-                email:your_email,
-                phone:your_phone,
-                message:your_message
+            var obj = {
+                _token: token,
+                name: your_name,
+                email: your_email,
+                phone: your_phone,
+                message: your_message
 
             }
             show_spinner();
@@ -561,7 +423,7 @@
                                     }
                                     , 500);
                         } else {
-                             $.notify(data.message, "error")
+                            $.notify(data.message, "error")
 
                             hide_spinner();
                         }
@@ -573,14 +435,14 @@
         }
 
 
-        $(document).ready(function() {
-            $("#tourBookingForm").submit(function() {
-                 return false;
+        $(document).ready(function () {
+            $("#tourBookingForm").submit(function () {
+                return false;
                 var val = $("input[type=submit][clicked=true]").val();
                 // DO WORK
                 return;
             });
-            $("form input[type=submit]").click(function() {
+            $("form input[type=submit]").click(function () {
                 $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
                 $(this).attr("clicked", "true");
             });

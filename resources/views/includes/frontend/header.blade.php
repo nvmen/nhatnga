@@ -187,6 +187,7 @@
                             <li><a href="{{route('frontend.services.others')}}">{{__('nhatnga_menu.services_others')}}</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{route('frontend.news.index')}}">{{@__('nhatnga_menu.news')}}</a></li>
                     <li><a href="{{route('frontend.home.contact')}}">{{@__('nhatnga_menu.contact')}}</a></li>
                     <li class="menu-right">
                         <ul>

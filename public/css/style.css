@@ -5470,6 +5470,10 @@ input[type=radio]:checked:before {
 .item_content .wrapper_content {
 	padding:    14px;
 	background: #fff;
+	height: 180px;
+}
+.item_content .wrapper_content  p{
+	text-overflow: ellipsis;
 }
 
 .item_content .wrapper_content .post_title h4 {
@@ -5947,7 +5951,7 @@ input[type=radio]:checked:before {
 	display:       inline-block;
 	line-height:   50px;
 	width:         auto;
-	border:        10px solid rgba(0, 0, 0, 0.2);
+	/*border:        10px solid rgba(0, 0, 0, 0.2);*/
 	border-radius: 3px;
 }
 
@@ -7440,7 +7444,7 @@ input[type=radio]:checked:before {
 		float:          none;
 		margin-left:    -5px;
 		position:       relative;
-		padding:        0 20px;
+		padding:        0 10px;
 		z-index:        20;
 	}
 

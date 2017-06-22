@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use DateTime;
 use Illuminate\Support\Str;
 use App\Media;
+use App\Tour;
 use App;
 class Helper extends Model
 {
@@ -125,5 +126,9 @@ class Helper extends Model
     {
         $ids = explode(",", $media_ids);
         return $ids[0];
+    }
+    public  static function get_random_tours(){
+        $related_tours = Tour::inRandomOrder()->take(3)->get();
+        return $related_tours;
     }
 }

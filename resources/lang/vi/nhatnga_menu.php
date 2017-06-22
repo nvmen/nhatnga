@@ -38,5 +38,6 @@ return [
     'continent_visa'=>'Xin vui lòng chọn châu lục muốn làm VISA',
     'please_wait'=>'Đang gửi...',
     'news'=>'Tin tức',
+    'view_more'=>'XEM THÊM',
 
 ];

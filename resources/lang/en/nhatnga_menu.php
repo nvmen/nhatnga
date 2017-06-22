@@ -39,5 +39,6 @@ return [
     'continent_visa'=>'Select a continent for making VISA',
     'please_wait'=>'Please wait...',
     'news'=>'News',
+    'view_more'=>'VIEW MORE',
 
 ];

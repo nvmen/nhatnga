@@ -23,13 +23,14 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Carbon\Carbon;
+
 class NewsController extends Controller
 {
 
     public function index(Request $request)
     {
 
-        $list =News::orderBy('updated_at', 'desc')->get();
+        $list = News::orderBy('updated_at', 'desc')->get();
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $collection = new Collection($list);
         $perPage = 7;
@@ -37,12 +38,17 @@ class NewsController extends Controller
         $paginatedSearchResults = new LengthAwarePaginator($temp, count($collection), $perPage);
         $paginatedSearchResults->setPath(route('frontend.news.index'));
         $paginatedSearchResults->appends(['search' => $request['search']]);
-        return view('frontend.pages.news.index',['list_news' => $paginatedSearchResults]);
+        return view('frontend.pages.news.index', ['list_news' => $paginatedSearchResults]);
 
     }
 
     public function details($slug)
     {
-
+        $news = News::where('slug_url', $slug)->first();
+        if ($news == null) {
+            return view('error.frontend.404');
+        }
+        
+        return view('frontend.pages.news.detail', ['news' => $news]);
     }
 }

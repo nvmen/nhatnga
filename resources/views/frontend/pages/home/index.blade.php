@@ -204,236 +204,72 @@
                 <div class="row wrapper-tours-slider">
                     <div class="tours-type-slider list_content" data-dots="true" data-nav="true"
                          data-responsive='{"0":{"items":1}, "480":{"items":2}, "768":{"items":2}, "992":{"items":3}, "1200":{"items":3}}'>
-                        <div class="item-tour">
-                            <div class="item_border">
-                                <div class="item_content">
-                                    <div class="post_images">
-                                        <a href="single-tour.html" class="travel_tour-LoopProduct-link">
-											<span class="price"><del>
-                                                    <span class="travel_tour-Price-amount amount">$87.00</span></del>
-												<ins><span class="travel_tour-Price-amount amount">$82.00</span></ins>
-											</span>
-                                            <span class="onsale">Sale!</span>
-                                            <img src="images/tour/430x305/tour-1.jpg" alt="" title="">
-                                        </a>
-                                        <div class="group-icon">
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               class="frist" data-original-title="River Cruise"><i
-                                                        class="flaticon-transport-2"></i></a>
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               data-original-title="Wildlife"><i class="flaticon-island"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="wrapper_content">
-                                        <div class="post_title"><h4>
-                                                <a href="single-tour.html" rel="bookmark">Kiwiana Panorama</a>
-                                            </h4></div>
-                                        <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                        <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-                                    </div>
-                                </div>
-                                <div class="read_more">
-                                    <div class="item_rating">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i>
-                                    </div>
-                                    <a href="single-tour.html" class="read_more_button">VIEW MORE
-                                        <i class="fa fa-long-arrow-right"></i></a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-tour">
-                            <div class="item_border">
-                                <div class="item_content">
-                                    <div class="post_images">
-                                        <a href="single-tour.html" class="travel_tour-LoopProduct-link">
+                        @foreach($tour_popular as $tour)
+                            <div class="item-tour">
+
+
+                                <div class="item_border">
+                                    <div class="item_content">
+                                        <div class="post_images">
+                                            <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                               class="travel_tour-LoopProduct-link">
 											<span class="price">
-												<span class="travel_tour-Price-amount amount">$82.00</span>
+                                                  @if($tour->is_sale)
+                                                    <del>
+                                                        <span class="travel_tour-Price-amount amount">
+                                                            {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
+                                                        </span>
+                                                    </del>
+                                                    <ins>
+                                                        <span class="travel_tour-Price-amount amount">
+                                                            &nbsp;{{App\Helper::get_format_money($tour->translation()->first()->adult_price*(1-$tour->discount_percent/100),0)}}
+                                                        </span>
+                                                    </ins>
+                                                @else
+                                                    <span class="travel_tour-Price-amount amount">
+                                                        {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+                                                @endif
 											</span>
-                                            <img src="images/tour/430x305/tour-2.jpg" alt="" title="">
-                                        </a>
-                                        <div class="group-icon">
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               class="frist" data-original-title="River Cruise"><i
-                                                        class="flaticon-transport-2"></i></a>
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               data-original-title="Wildlife"><i class="flaticon-island"></i></a>
+                                                @if($tour->is_sale)
+                                                    <span class="onsale">Sale!</span>
+                                                @endif
+                                                @php
+                                                $media_id =$tour->get_first_media_id($tour->media_ids);
+                                                @endphp
+                                                <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
+                                                     alt="" title="">
+                                            </a>
+                                        </div>
+                                        <div class="wrapper_content">
+                                            <div class="post_title"><h4>
+                                                    <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                                       rel="bookmark">{{$tour->translation()->first()->name}}</a>
+                                                </h4></div>
+                                            <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}} {{$tour->duration_night}} {{__('tour.nights')}}</span>
+                                            <p>
+                                                {{App\Helper::get_words($tour->translation()->first()->short_description,20)}}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div class="wrapper_content">
-                                        <div class="post_title"><h4>
-                                                <a href="single-tour.html" rel="bookmark">Camping Americas West</a>
-                                            </h4></div>
-                                        <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                        <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-                                    </div>
-                                </div>
-                                <div class="read_more">
-                                    <div class="item_rating">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i>
-                                    </div>
-                                    <a href="single-tour.html" class="read_more_button">VIEW MORE
-                                        <i class="fa fa-long-arrow-right"></i></a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-tour">
-                            <div class="item_border">
-                                <div class="item_content">
-                                    <div class="post_images">
-                                        <a href="single-tour.html" class="travel_tour-LoopProduct-link">
-											<span class="price">
-												<span class="travel_tour-Price-amount amount">$89.00</span>
-											</span>
-                                            <img src="images/tour/430x305/tour-3.jpg" alt="" title="">
-                                        </a>
-                                        <div class="group-icon">
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               class="frist" data-original-title="River Cruise"><i
-                                                        class="flaticon-transport-2"></i></a>
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               data-original-title="Wildlife"><i class="flaticon-island"></i></a>
+                                    <div class="read_more">
+                                        <div class="item_rating">
+                                            @for ($i = 0; $i < $tour->rating; $i++)
+                                                <i class="fa fa-star"></i>
+                                            @endfor
+                                            @for ($i = 0; $i < 5-$tour->rating; $i++)
+                                                <i class="fa fa-star-o"></i>
+                                            @endfor
                                         </div>
+                                        <a href="single-tour.html"
+                                           class="read_more_button">{{__('nhatnga_menu.view_more')}}
+                                            <i class="fa fa-long-arrow-right"></i></a>
+                                        <div class="clear"></div>
                                     </div>
-                                    <div class="wrapper_content">
-                                        <div class="post_title"><h4>
-                                                <a href="single-tour.html" rel="bookmark">Anchorage to Santiago</a>
-                                            </h4></div>
-                                        <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                        <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-                                    </div>
-                                </div>
-                                <div class="read_more">
-                                    <div class="item_rating">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i>
-                                    </div>
-                                    <a href="single-tour.html" class="read_more_button">VIEW MORE
-                                        <i class="fa fa-long-arrow-right"></i></a>
-                                    <div class="clear"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item-tour">
-                            <div class="item_border">
-                                <div class="item_content">
-                                    <div class="post_images">
-                                        <a href="single-tour.html" class="travel_tour-LoopProduct-link">
-											<span class="price">
-												<span class="travel_tour-Price-amount amount">90.00</span>
- 											</span>
-                                            <img src="images/tour/430x305/tour-4.jpg" alt="" title="">
-                                        </a>
-                                        <div class="group-icon">
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               class="frist" data-original-title="River Cruise"><i
-                                                        class="flaticon-transport-2"></i></a>
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               data-original-title="Wildlife"><i class="flaticon-island"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="wrapper_content">
-                                        <div class="post_title"><h4>
-                                                <a href="single-tour.html" rel="bookmark">Anchorage to Ushuaia</a>
-                                            </h4></div>
-                                        <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                        <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-                                    </div>
-                                </div>
-                                <div class="read_more">
-                                    <div class="item_rating">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i>
-                                    </div>
-                                    <a href="single-tour.html" class="read_more_button">VIEW MORE
-                                        <i class="fa fa-long-arrow-right"></i></a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-tour">
-                            <div class="item_border">
-                                <div class="item_content">
-                                    <div class="post_images">
-                                        <a href="single-tour.html" class="travel_tour-LoopProduct-link">
-											<span class="price">
-												<span class="travel_tour-Price-amount amount">$94.00</span>
-											</span>
-                                            <img src="images/tour/430x305/tour-5.jpg" alt="" title="">
-                                        </a>
-                                        <div class="group-icon">
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               class="frist" data-original-title="River Cruise"><i
-                                                        class="flaticon-transport-2"></i></a>
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               data-original-title="Wildlife"><i class="flaticon-island"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="wrapper_content">
-                                        <div class="post_title"><h4>
-                                                <a href="single-tour.html" rel="bookmark">Discover Brazil</a>
-                                            </h4></div>
-                                        <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                        <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-                                    </div>
-                                </div>
-                                <div class="read_more">
-                                    <div class="item_rating">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i>
-                                    </div>
-                                    <a href="single-tour.html" class="read_more_button">VIEW MORE
-                                        <i class="fa fa-long-arrow-right"></i></a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-tour">
-                            <div class="item_border">
-                                <div class="item_content">
-                                    <div class="post_images">
-                                        <a href="single-tour.html" class="travel_tour-LoopProduct-link">
-											<span class="price">
-												<span class="travel_tour-Price-amount amount">$91.00</span>
-											</span>
-                                            <img src="images/tour/430x305/tour-6.jpg" alt="" title="">
-                                        </a>
-                                        <div class="group-icon">
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               class="frist" data-original-title="River Cruise"><i
-                                                        class="flaticon-transport-2"></i></a>
-                                            <a href="index.htm#" data-toggle="tooltip" data-placement="top" title=""
-                                               data-original-title="Wildlife"><i class="flaticon-island"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="wrapper_content">
-                                        <div class="post_title"><h4>
-                                                <a href="single-tour.html" rel="bookmark">Cuzco to Anchorage</a>
-                                            </h4></div>
-                                        <span class="post_date">5 DAYS 4 NIGHTS</span>
-                                        <p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-                                    </div>
-                                </div>
-                                <div class="read_more">
-                                    <div class="item_rating">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i>
-                                    </div>
-                                    <a href="single-tour.html" class="read_more_button">VIEW MORE
-                                        <i class="fa fa-long-arrow-right"></i></a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
@@ -577,9 +413,19 @@
                                                 <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
                                                    class="travel_tour-LoopProduct-link">
 											<span class="price">
-												<span class="travel_tour-Price-amount amount">
-                                                    {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
-                                                </span>
+												 @if($tour->is_sale)
+                                                    <del>
+                                                        <span class="travel_tour-Price-amount amount">{{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+                                                    </del>
+                                                    <ins>
+                                                        <span class="travel_tour-Price-amount amount">
+                                                            &nbsp; {{App\Helper::get_format_money($tour->translation()->first()->adult_price*(1-$tour->discount_percent/100),0)}}
+                                                        </span>
+                                                    </ins>
+                                                @else
+                                                    <span class="travel_tour-Price-amount amount">
+                                                        {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+                                                @endif
 											</span>
                                                     @php
                                                     $media_id =$tour->get_first_media_id($tour->media_ids);
@@ -604,10 +450,12 @@
                                                 @for ($i = 0; $i < $tour->rating; $i++)
                                                     <i class="fa fa-star"></i>
                                                 @endfor
-
+                                                @for ($i = 0; $i < 5-$tour->rating; $i++)
+                                                    <i class="fa fa-star-o"></i>
+                                                @endfor
                                             </div>
                                             <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
-                                               class="read_more_button">VIEW MORE
+                                               class="read_more_button">{{__('nhatnga_menu.view_more')}}
                                                 <i class="fa fa-long-arrow-right"></i></a>
                                             <div class="clear"></div>
                                         </div>
@@ -635,7 +483,8 @@
 
                                 <div class="tour-reviews-item">
                                     <div class="reviews-item-info">
-                                        <img alt="" src="images/avata/avartar2.png" class="avatar avatar-95 photo"
+                                        <img alt="" src="{{URL::asset('images/avata/avartar2.png')}}"
+                                             class="avatar avatar-95 photo"
                                              height="90" width="90">
                                         <div class="reviews-item-info-name">{{__('customer.cus_tuan_title')}}</div>
                                         <div class="reviews-item-rating">
@@ -657,7 +506,8 @@
 
                                 <div class="tour-reviews-item">
                                     <div class="reviews-item-info">
-                                        <img alt="" src="images/avata/avartar3.png" class="avatar avatar-95 photo"
+                                        <img alt="" src="{{URL::asset('images/avata/avartar3.png')}}"
+                                             class="avatar avatar-95 photo"
                                              height="90" width="90">
                                         <div class="reviews-item-info-name">{{__('customer.cus_dao_title')}}</div>
                                         <div class="reviews-item-rating">
@@ -679,7 +529,8 @@
 
                                 <div class="tour-reviews-item">
                                     <div class="reviews-item-info">
-                                        <img alt="" src="images/avata/avartar4.png" class="avatar avatar-95 photo"
+                                        <img alt="" src="{{URL::asset('images/avata/avartar4.png')}}"
+                                             class="avatar avatar-95 photo"
                                              height="90" width="90">
                                         <div class="reviews-item-info-name">{{__('customer.cus_hai_title')}}</div>
                                         <div class="reviews-item-rating">
@@ -690,7 +541,7 @@
                                     </div>
                                     <div class="reviews-item-content">
                                         <h3 class="reviews-item-title">
-                                            <a href="index.htm#">{{__('customer.cus_hai_name')}}</a>
+                                            <a href="#">{{__('customer.cus_hai_name')}}</a>
                                         </h3>
                                         <div class="reviews-item-description">
                                             {{__('customer.cus_hai_note')}}

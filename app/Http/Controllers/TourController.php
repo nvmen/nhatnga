@@ -53,10 +53,22 @@ class TourController extends Controller
         $tour =Tour::where('slug_url',$slug)->first();
         //dd($tour->translation()->first()->name);
        // dd($tour);
+
+
+
         if($tour==null)
             return redirect()->route('frontend.error.index');
+        // get  Related Tours
 
-        return view('frontend.pages.tour.details',['tour'=>$tour]);
+        //$related_tours =[];
+        if($tour->is_outbound){
+            //User::inRandomOrder()->get();
+            $related_tours = Tour::where('is_outbound',1)->inRandomOrder()->take(3)->get();
+        }else{
+                $related_tours = Tour::where('tour_type',$tour->tour_type)->inRandomOrder()->take(3)->get();
+        }       
+
+        return view('frontend.pages.tour.details',['tour'=>$tour,'related_tours'=>$related_tours]);
     }
     public function longtour(Request $request)
     {
