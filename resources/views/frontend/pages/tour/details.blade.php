@@ -6,8 +6,8 @@
             <div class="banner-wrapper container article_heading">
                 <div class="breadcrumbs-wrapper">
                     <ul class="phys-breadcrumb">
-                        <li><a href="index.html" class="home">Home</a></li>
-                        <li><a href="blog.html">Tour</a></li>
+                        <li><a href="{{route('frontend.home.index')}}" class="home">Home</a></li>
+                        <li><a href="{{route('frontend.tour.index')}}">Tour</a></li>
                         <li>{{$tour->translation()->first()->name}}</li>
                     </ul>
                 </div>
@@ -34,6 +34,7 @@
                                         @endif
                                     </span>
                                 </div>
+
                                 <!--
                                 <div class="meta_values">
 
@@ -44,21 +45,27 @@
                                     </div>
 
                                 </div>
-
-                                <div class="tour-share">
-                                    <ul class="share-social">
-                                        <li>
-                                            <a target="_blank" class="facebook" href="#"><i
-                                                        class="fa fa-facebook"></i></a>
-                                        </li>
-
-                                        <li>
-                                            <a target="_blank" class="googleplus" href="#"><i
-                                                        class="fa fa-google"></i></a>
-                                        </li>
-                                    </ul>
+-->
+                                <div class="tour-share ">
+                                   <span class="price">
+                                                  @if($tour->is_sale)
+                                           <del>
+                                                        <span class="travel_tour-Price-amount amount ">
+                                                            {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
+                                                        </span>
+                                           </del>
+                                           <ins>
+                                                        <span class="travel_tour-Price-amount amount detail-tour">
+                                                            &nbsp;{{App\Helper::get_format_money($tour->translation()->first()->adult_price*(1-$tour->discount_percent/100),0)}}
+                                                        </span>
+                                           </ins>
+                                       @else
+                                           <span class="travel_tour-Price-amount amount detail-tour">
+                                                        {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+                                       @endif
+											</span>
                                 </div>
-                                  -->
+
                             </div>
                             <div id="slider" class="flexslider">
                                 <ul class="slides">
@@ -270,32 +277,36 @@
                                                             <span class="label"
                                                                   style="min-width: 71px;">{{__('tour.adults')}}</span>
                                                             <div class="input-number-ticket">
-                                                                <input type="number" name="number_ticket" value="1"
-                                                                       min="1" max="20"
-                                                                       placeholder="Number ticket of Adults">
+                                                                <input type="number" id="number_ticket_adults"
+                                                                       name="number_ticket_adults" value="1"
+                                                                       min="1" max="20">
                                                             </div>
                                                             ×
-                                                            <span class="price_adults"> {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+                                                            <span class="price_adults">
+                                                                {{App\Helper::get_format_money(($tour->translation()->first()->adult_price)*(1-$tour->discount_percent/100),0)}}</span>
 
                                                         </div>
                                                         <div class="st_adults_children">
                                                             <span class="label"
                                                                   style="min-width: 71px;">{{__('tour.children')}}</span>
                                                             <div class="input-number-ticket">
-                                                                <input type="number" name="number_children" value="0"
-                                                                       min="0" max="20"
-                                                                       placeholder="Number ticket of Children">
-                                                                <input type="hidden" name="price_child" value="65.1">
-                                                                <input type="hidden" name="price_child_set_on_tour"
-                                                                       value="0">
+                                                                <input type="number" name="number_children"
+                                                                       id="number_children" value="0"
+                                                                       min="0" max="20">
+                                                                <input type="hidden" name="price_child"
+                                                                       value="{{($tour->translation()->first()->children_price)*(1-$tour->discount_percent/100)}}">
+                                                                <input type="hidden" name="price_adult"
+                                                                       value="{{($tour->translation()->first()->adult_price)*(1-$tour->discount_percent/100)}}">
                                                             </div>
                                                             ×
-                                                            <span class="price_children"> {{App\Helper::get_format_money($tour->translation()->first()->children_price,0)}}</span>
+                                                            <span class="price_children"> {{App\Helper::get_format_money(($tour->translation()->first()->children_price)*(1-$tour->discount_percent/100),0)}}</span>
 
                                                         </div>
                                                         <div>
                                                             {{__('tour.total')}} =
-                                                            <span class="total_price_adults_children">$93</span>
+                                                            <span class="total_price_adults_children">
+
+                                                            </span>
                                                         </div>
                                                         <input type="hidden" name="price_children_percent" value="70">
                                                     </div>
@@ -365,7 +376,7 @@
                                 <div class="widget-area align-left col-sm-3">
                                     <aside class="widget widget_travel_tour">
                                         <div class="wrapper-special-tours">
-                                          @include('includes.frontend.right_random_tour')
+                                            @include('includes.frontend.right_random_tour')
                                         </div>
                                     </aside>
                                 </div>
@@ -433,9 +444,39 @@
                     });
 
         }
+        var total_money = 0;
+        var number_adults =0;
+        var number_children =0;
+        var price_adult ={{($tour->translation()->first()->adult_price)*(1-$tour->discount_percent/100)}};
+        var price_child ={{($tour->translation()->first()->children_price)*(1-$tour->discount_percent/100)}};
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        function caculate_total() {
 
+            let currency = '{{($tour->translation()->first()->currency_unit)}}';
+            var number_ticket_adults = $('#number_ticket_adults').val();
+            var children = $('#number_children').val();
+            number_adults =number_ticket_adults;
+            number_children = children;
 
+            let total = price_adult * number_ticket_adults + price_child * children;
+            total_money = total;
+            let dis = numberWithCommas(total);
+            if ('$' == currency) {
+                $('.total_price_adults_children').html('$' + dis);
+            } else {
+                $('.total_price_adults_children').html(dis + currency);
+            }
+        }
         $(document).ready(function () {
+            caculate_total();
+            $("#number_ticket_adults").change(function () {
+                caculate_total();
+            });
+            $("#number_children").change(function () {
+                caculate_total();
+            });
             $("#tourBookingForm").submit(function () {
                 return false;
                 var val = $("input[type=submit][clicked=true]").val();

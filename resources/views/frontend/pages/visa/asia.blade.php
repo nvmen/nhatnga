@@ -8,10 +8,11 @@
                     <ul class="phys-breadcrumb">
                         <li><a href="#" class="home">Home</a></li>
                         <li>{{__('nhatnga_menu.services')}}</li>
-                        <li>{{__('nhatnga.serivce_translation')}}</li>
+                        <li><a href="{{route('frontend.services.visa')}}">VISA</a></li>
+                        <li>{{$cate->name}}</li>
                     </ul>
                 </div>
-                <h1 class="heading_primary">{{__('nhatnga.serivce_translation')}}</h1></div>
+                <h1 class="heading_primary">{{$cate->name}}</h1></div>
         </div>
         <section class="content-area">
             <div class="container">
@@ -19,7 +20,7 @@
                     <div class="site-main col-sm-9 alignleft" id ="main-content">
                             <div class="sc-gallery wrapper_gallery">
                                 <div class="gallery-tabs-wrapper">
-                                    <h1 class="post_list_title">Vui lòng chọn nước bạn muốn làm VISA</h1>
+                                    <h1 class="post_list_title">{{__('nhatnga.make_visa')}}</h1>
                                 </div>
                                 <div class="row content_gallery">
                                     @foreach($visa_list as $visa)
@@ -34,60 +35,6 @@
                                         </a>
                                     </div>
                                     @endforeach
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears">
-                                        <a href="{{ asset('images/tour/tour-1.jpg') }}" class="swipebox"
-                                           title="World’s hottest destinations for vegans">
-                                            <img src="{{ asset('images/tour/tour-1.jpg') }}" alt="World’s hottest destinations for vegans">
-                                            <div class="gallery-item">
-                                                <h4 class="title">World’s hottest destinations for vegans</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears">
-                                        <a href="{{ asset('images/tour/tour-1.jpg') }}" class="swipebox"
-                                           title="World’s hottest destinations for vegans">
-                                            <img src="{{ asset('images/tour/tour-1.jpg') }}" alt="World’s hottest destinations for vegans">
-                                            <div class="gallery-item">
-                                                <h4 class="title">World’s hottest destinations for vegans</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears">
-                                        <a href="{{ asset('images/tour/tour-1.jpg') }}" class="swipebox"
-                                           title="World’s hottest destinations for vegans">
-                                            <img src="{{ asset('images/tour/tour-1.jpg') }}" alt="World’s hottest destinations for vegans">
-                                            <div class="gallery-item">
-                                                <h4 class="title">World’s hottest destinations for vegans</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears">
-                                        <a href="{{ asset('images/tour/tour-1.jpg') }}" class="swipebox"
-                                           title="World’s hottest destinations for vegans">
-                                            <img src="{{ asset('images/tour/tour-1.jpg') }}" alt="World’s hottest destinations for vegans">
-                                            <div class="gallery-item">
-                                                <h4 class="title">World’s hottest destinations for vegans</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears">
-                                        <a href="{{ asset('images/tour/tour-1.jpg') }}" class="swipebox"
-                                           title="World’s hottest destinations for vegans">
-                                            <img src="{{ asset('images/tour/tour-1.jpg') }}" alt="World’s hottest destinations for vegans">
-                                            <div class="gallery-item">
-                                                <h4 class="title">World’s hottest destinations for vegans</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears">
-                                        <a href="{{ asset('images/tour/tour-1.jpg') }}" class="swipebox"
-                                           title="World’s hottest destinations for vegans">
-                                            <img src="{{ asset('images/tour/tour-1.jpg') }}" alt="World’s hottest destinations for vegans">
-                                            <div class="gallery-item">
-                                                <h4 class="title">World’s hottest destinations for vegans</h4>
-                                            </div>
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
 

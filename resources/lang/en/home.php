@@ -29,4 +29,6 @@ return [
     'nhatnga_achievements'=>'CENTER ACHIEVEMENTS',
     'nhatnga_reason'=>'WHY CHOOSE US?',
     'latest_posts'=>'Latest Post',
+    'tour'=>'Tours',
+    'work_permit_temporary_resident_card'=>'Work permit & Temporary Resident Card',
 ];

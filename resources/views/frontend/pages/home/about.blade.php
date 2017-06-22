@@ -9,10 +9,10 @@
                 <div class="breadcrumbs-wrapper">
                     <ul class="phys-breadcrumb">
                         <li><a href="#" class="home">Home</a></li>
-                        <li>Nhat Nga</li>
+                        <li>{{__('nhatnga.nhatnga')}}</li>
                     </ul>
                 </div>
-                <h1 class="heading_primary">Nhat Nga</h1></div>
+                <h1 class="heading_primary">{{__('nhatnga.nhatnga')}}</h1></div>
         </div>
         <section class="content-area">
 
@@ -64,21 +64,20 @@
                     </section>
                     <section class="section-80 section-md-120 center">
                         <div class="shell shell-wide">
-                            <h2 class="offset-top-20 text-ubold advantage">Thế mạnh của Nhat Nga</h2>
+                            <h2 class="offset-top-20 text-ubold advantage">{{__('nhatnga.nhatnga_strengths')}}</h2>
                             <hr class="divider divider-gray-dark divider-80 hr-line-center">
                             <div class="range offset-md-top-90 offset-top-50">
                                 <div class="cell-md-3 icon-box"><span
                                             class="icon-xl icon icon-info icon-circle fa-briefcase"><span
                                                 class="icon-inner"></span></span>
                                     <h5 class="text-bold offset-top-30">
-                                        Du lịch
+                                        {{__('home.tour')}}
                                         <br class="veil reveal-md-block">
 
                                     </h5>
                                     <hr class="divider divider-info divider-50 hr-line-center">
                                     <p class="inset-md-left-20 inset-md-right-20">
-                                        We cooperate only with the most reliable cruise who can boast of the perfect
-                                        reputation.
+                                        {{__('home.tour_description')}}
                                     </p>
                                 </div>
                                 <div class="cell-md-3 icon-box"><span
@@ -86,28 +85,30 @@
                                             <span class="icon-inner"></span>
                                         </span>
                                     <h5 class="text-bold offset-top-30">
-                                        VISA
+                                        {{__('home.visa')}}
                                         <br class="veil reveal-md-block">
                                     </h5>
                                     <hr class="divider divider-info divider-50 hr-line-center">
                                     <p class="inset-md-left-20 inset-md-right-20">
-                                        More than 7 million people use our services to find and book cruise tickets.</p>
+                                        {{__('home.visa_description')}}
+                                    </p>
                                 </div>
                                 <div class="cell-md-3 icon-box">
                                         <span class="icon-xl icon icon-info icon-circle fa-globe"><span
                                                     class="icon-inner"></span>
                                         </span>
-                                    <h5 class="text-bold offset-top-30">Dịch thuật
+                                    <h5 class="text-bold offset-top-30"> {{__('home.translation_notarization')}}
                                         <br class="veil reveal-md-block">
                                     </h5>
                                     <hr class="divider divider-info divider-50 hr-line-center">
-                                    <p class="inset-md-left-20 inset-md-right-20">Convenient and fast search for cruise
-                                        tickets, hotels and cars.</p>
+                                    <p class="inset-md-left-20 inset-md-right-20">
+                                        {{__('home.translation_notarization_description')}}
+                                    </p>
                                 </div>
                                 <div class="cell-md-3 icon-box">
                                         <span class="icon-xl icon icon-info icon-circle fa-commenting">
                                             <span class="icon-inner"></span></span>
-                                    <h5 class="text-bold offset-top-30">Giấy phép lao động & Thẻ tạm trú
+                                    <h5 class="text-bold offset-top-30">{{__('home.work_permit_temporary_resident_card')}}
                                         <br class="veil reveal-md-block"></h5>
                                     <hr class="divider divider-info divider-50 hr-line-center">
                                     <p class="inset-md-left-20 inset-md-right-20">

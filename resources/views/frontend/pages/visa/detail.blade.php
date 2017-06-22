@@ -7,12 +7,14 @@
             <div class="banner-wrapper container article_heading">
                 <div class="breadcrumbs-wrapper">
                     <ul class="phys-breadcrumb">
-                        <li><a href="#" class="home">Home</a></li>
+                        <li><a href="{{route('frontend.home.index')}}" class="home">Home</a></li>
                         <li>{{__('nhatnga_menu.services')}}</li>
-                        <li>{{__('nhatnga.serivce_translation')}}</li>
+                        <li><a href="{{route('frontend.services.visa')}}">VISA</a></li>
+                        <li>{{$cate->name}}</li>
+                        <li>{{$visa->translation()->first()->name}}</li>
                     </ul>
                 </div>
-                <h1 class="heading_primary">{{__('nhatnga.serivce_translation')}}</h1></div>
+                <h1 class="heading_primary">{{$visa->translation()->first()->name}}</h1></div>
         </div>
         <section class="content-area">
             <div class="container">

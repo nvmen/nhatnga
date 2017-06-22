@@ -6,6 +6,9 @@
  * Time: 8:08 PM
  */
 return [
+
+    'nhatnga'=>'Nhat Nga',
+    'nhatnga_strengths'=>'Nhat Nga\'s strengths',
     'company_name'=>'Nhat Nga Trading & Services Co., Ltd',
     'address' => '65 Ngo Quyen street, ward 11, District 5, Ho Chi Minh city.',
     'address_branch' => '34 Van Cong Khai, p.Phu Cuong,Thu Dau Mot, Binh Duong Province',
@@ -45,7 +48,8 @@ return [
     'air_tickets_every_year'=>'AIR TICKETS EVERY YEAR',
     'complete_ABTC_CARD'=>'COMPLETE ABTC CARD',
     'complete_WORK_PERMITS'=>'COMPLETE WORK PERMITS AND TEMPORARY RESIDENT CARDS',
-   
+    'make_visa'=>'Please select the country you would like to make VISA',
+
 
 
 

@@ -96,11 +96,17 @@ class AdminTourController extends Controller
             return response()->json(['success' => false, 'message' => 'Tour need a image and name, id']);
         } else {
             $slug = Str::slug($request['name_en']);
-            $count = DB::table('tour')->where('slug_url', $slug)->count();
-            if ($count >= 1) {
-                $count = $count;
-                $slug = $slug . '-' . $count;
+
+            $temp = DB::table('tour')->where('slug_url', $slug)->first();
+            if($temp->id!= $request['id'] ){
+                $count = DB::table('tour')->where('slug_url', $slug)->count();
+                if ($count >= 1) {
+                    $count = $count;
+                    $slug = $slug . '-' . $count;
+                }
             }
+
+
             $template_des = 'content';
             $template_itinerary = 'content';
             $template_tour_description = Template::where('name', 'tour-description')->first();

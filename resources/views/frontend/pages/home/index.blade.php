@@ -260,7 +260,7 @@
                                                 <i class="fa fa-star-o"></i>
                                             @endfor
                                         </div>
-                                        <a href="single-tour.html"
+                                        <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
                                            class="read_more_button">{{__('nhatnga_menu.view_more')}}
                                             <i class="fa fa-long-arrow-right"></i></a>
                                         <div class="clear"></div>

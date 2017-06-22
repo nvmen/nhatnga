@@ -286,13 +286,13 @@
                                 <label> Tour Description Vi</label>
                                       <textarea class="form-control" id="tour_des_vi"
                                                 name="tour_des_vi"
-                                                placeholder="short description Vi">{{$tour->translation('vi')->first()->description}}</textarea>
+                                                placeholder="short description Vi">{!!$tour->translation('vi')->first()->description  !!}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Tour Description En</label>
                                     <textarea class="form-control" id="tour_des_en"
                                               name="tour_des_en"
-                                              placeholder="short description EN">{{$tour->translation('en')->first()->description}}</textarea>
+                                              placeholder="short description EN">{!! $tour->translation('en')->first()->description !!}</textarea>
                             </div>
 
 
@@ -300,13 +300,13 @@
                                 <label> Tour Itinerary Vi</label>
                                       <textarea class="form-control" id="tour_itinerary_vi"
                                                 name="tour_itinerary_vi"
-                                                placeholder="short description Vi">{{$tour->translation('vi')->first()->itinerary}}</textarea>
+                                                placeholder="short description Vi">{!!$tour->translation('vi')->first()->itinerary !!}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Tour Itinerary En</label>
                                     <textarea class="form-control" id="tour_itinerary_en"
                                               name="tour_itinerary_en"
-                                              placeholder="short description EN">{{$tour->translation('en')->first()->itinerary}}</textarea>
+                                              placeholder="short description EN">{!! $tour->translation('en')->first()->itinerary !!}</textarea>
                             </div>
 
                         </div>

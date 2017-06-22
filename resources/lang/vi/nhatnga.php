@@ -6,6 +6,8 @@
  * Time: 8:08 PM
  */
 return [
+    'nhatnga'=>'Nhất Nga',
+    'nhatnga_strengths'=>'Thế mạnh của Nhất Nga',
     'company_name'=>'CÔNG TY TNHH TM DV & DL NHẤT NGA',
     'address' => '65 Ngô Quyền, phường 11, quận 5, Hồ Chí Minh.',
     'address_branch' => '34 Văn Công Khai, p.Phú Cường,TP. Thủ Dầu Một, Bình Dương',
@@ -43,6 +45,7 @@ return [
     'air_tickets_every_year'=>'VÉ MÁY BAY BÁN RA MỖI NĂM',
     'complete_ABTC_CARD'=>'THẺ APEC ĐÃ HOÀN THÀNH',
     'complete_WORK_PERMITS'=>'THẺ TẠM TRÚ VÀ GPLD ĐÃ HOÀN THÀNH',
+    'make_visa'=>'Vui lòng chọn nước bạn muốn làm VISA',
     
 
 
