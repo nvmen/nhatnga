@@ -85,6 +85,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="row">
+            <div class="col col-xs-12 text-center">
+                {!! $list_tours->links() !!}
+            </div>
+        </div>
     </div>
 
 

@@ -120,4 +120,10 @@ class Helper extends Model
         }
         return $text;
     }
+
+    public static function first_media_id($media_ids)
+    {
+        $ids = explode(",", $media_ids);
+        return $ids[0];
+    }
 }

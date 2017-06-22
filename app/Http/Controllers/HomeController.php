@@ -35,7 +35,7 @@ class HomeController extends Controller
          //   echo "It's English!";
 
         }
-        $news_list = News::take(2)->get();
+        $news_list = News::orderBy('updated_at', 'desc')->take(2)->get();
         $tour_discount = Tour::where('discount_percent','!=' , 0)->take(6)->get();
         $tour_popular = Tour::where('is_popular','=' , 1)->take(6)->get();
 
