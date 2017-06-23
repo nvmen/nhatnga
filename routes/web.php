@@ -42,7 +42,7 @@ Route::group(
 
         });
         Route::group(['prefix' => 'tour'], function () {
-            Route::get('/', ['uses' => 'TourController@international', 'as' => 'frontend.tour.index']);
+            Route::get('/', ['uses' => 'TourController@index', 'as' => 'frontend.tour.index']);
             Route::get('/international', ['uses' => 'TourController@international', 'as' => 'frontend.tour.international']);
             Route::get('/domestic', ['uses' => 'TourController@domestic', 'as' => 'frontend.tour.domestic']);
             Route::get('/domestic/longtour', ['uses' => 'TourController@longtour', 'as' => 'frontend.tour.domestic.longtour']);
@@ -50,6 +50,7 @@ Route::group(
             Route::get('/foodtour', ['uses' => 'TourController@foodtour', 'as' => 'frontend.tour.domestic.foodtour']);
             Route::get('/detail/{slug}', ['uses' => 'TourController@detail', 'as' => 'frontend.tour.detail']);
             Route::post('/enquiry', ['uses' => 'TourController@enquiry', 'as' => 'frontend.tour.enquiry']);
+            Route::post('/booking', ['uses' => 'TourController@booking', 'as' => 'frontend.tour.booking']);
 
         });
 

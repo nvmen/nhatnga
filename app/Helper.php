@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 use App\Media;
 use App\Tour;
 use App;
+
 class Helper extends Model
 {
 
@@ -109,7 +110,7 @@ class Helper extends Model
         return $text;
     }
 
-    public static function get_format_money($money,$num =0)
+    public static function get_format_money($money, $num = 0)
     {
 
         $text = '';
@@ -127,8 +128,16 @@ class Helper extends Model
         $ids = explode(",", $media_ids);
         return $ids[0];
     }
-    public  static function get_random_tours(){
+
+    public static function get_random_tours()
+    {
         $related_tours = Tour::inRandomOrder()->take(3)->get();
         return $related_tours;
     }
+
+    public static function get_guid()
+    {
+        return strtolower(sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535)));
+    }
+
 }

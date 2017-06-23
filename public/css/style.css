@@ -602,6 +602,9 @@ table {
 	width:           100%;
 }
 
+.datepicker-days table {
+	border: none !important;
+}
 caption, th, td {
 	font-weight: normal;
 	text-align:  left;

@@ -21,7 +21,7 @@
                <div class="row">
                   <div class="site-main col-sm-9 alignright">
                      <ul class="tours products wrapper-tours-slider">
-                        <li class="item-tour col-md-4 col-sm-6 product">
+                        <li class="item-tour col-md-4 col-sm-6 post-262 product type-product status-publish has-post-thumbnail pa_destination-canada pa_destination-cuba pa_destination-philippines pa_month-april pa_month-december pa_month-january tour_phys-escorted-tour tour_phys-rail-tour first instock shipping-taxable purchasable product-type-tour_phys">
                            <div class="item_border item-product">
                               <div class="post_images">
                                  <a href="single-tour.html">
@@ -54,7 +54,7 @@
                               </div>
                            </div>
                         </li>
-                        <li class="item-tour col-md-4 col-sm-6 product">
+                        <li class="item-tour col-md-4 col-sm-6 post-262 product type-product status-publish has-post-thumbnail pa_destination-canada pa_destination-cuba pa_destination-philippines pa_month-april pa_month-december pa_month-january tour_phys-escorted-tour tour_phys-rail-tour first instock shipping-taxable purchasable product-type-tour_phys">
                            <div class="item_border item-product">
                               <div class="post_images">
                                  <a href="single-tour.html">
@@ -90,12 +90,12 @@
                               </div>
                            </div>
                         </li>
-                        <li class="item-tour col-md-4 col-sm-6 product">
+                        <li class="item-tour col-md-4 col-sm-6 post-262 product type-product status-publish has-post-thumbnail pa_destination-canada pa_destination-cuba pa_destination-philippines pa_month-april pa_month-december pa_month-january tour_phys-escorted-tour tour_phys-rail-tour first instock shipping-taxable purchasable product-type-tour_physs">
                            <div class="item_border item-product">
                               <div class="post_images">
                                  <a href="single-tour.html">
                                     <span class="price">$64.00</span>
-                                    <img width="430" height="305" src="{{URL::asset('images/tour/430x305/tour-3.jpg')}}" alt="Discover Brazil" title="Discover Brazil">
+                                    <img width="430" height="305" src="{{URL::asset('images/tour/430x305/tour-3.jpg')}}" alt="Discover Brazil" title="Discover Brazil" class="attachment-shop_catalog size-shop_catalog wp-post-image">
                                  </a>
                                  <div class="group-icon">
                                     <a href="tours.html" data-toggle="tooltip" data-placement="top" title="" class="frist" data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></a>

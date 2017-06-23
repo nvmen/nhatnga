@@ -1,6 +1,13 @@
 @extends('layouts.frontend')
 @section('pageTitle', $tour->translation()->first()->name)
 @section('content')
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0/css/bootstrap-datepicker3.min.css"
+          type="text/css" media="all">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="{{ URL::asset('assets/sweetalert/sweetalert.css') }}" type="text/css" media="all">
+    <script type='text/javascript' src=' {{ URL::asset('assets/sweetalert/sweetalert.min.js') }}'></script>
+
     <div class="single-product travel_tour-page travel_tour">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }});">
             <div class="banner-wrapper container article_heading">
@@ -74,14 +81,15 @@
                                 @endphp
                                 <ul class="slides">
                                     @foreach($list_medias as $media)
-                                    <li>
-                                        <a href="{{  $media['link']}}" class="swipebox" title="">
-                                            <img width="950" height="700"
-                                                 src=" {{ $media['link'] }}"
+                                        <li>
+                                            <a href="{{  $media['link']}}" class="swipebox" title="">
+                                                <img width="950" height="700"
+                                                     src=" {{ $media['link'] }}"
 
-                                                 class="attachment-shop_single size-shop_single wp-post-image" alt=""
-                                                 title="" draggable="false"></a>
-                                    </li>
+                                                     class="attachment-shop_single size-shop_single wp-post-image"
+                                                     alt=""
+                                                     title="" draggable="false"></a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -96,7 +104,8 @@
                                         <li>
                                             <img width="150" height="100"
                                                  src="{{ $media['link'] }}"
-                                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
+                                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
+                                                 alt=""
                                                  title="" draggable="false">
                                         </li>
                                     @endforeach
@@ -198,24 +207,26 @@
                                             </div>
                                             <form id="tourBookingForm" method="POST" action="">
                                                 <div class="">
-                                                    <input name="first_name" value=""
+                                                    <input name="first_name" id="first_name" value=""
                                                            placeholder="{{__('tour.first_name')}}"
                                                            type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input name="last_name" value=""
+                                                    <input name="last_name" id="last_name" value=""
                                                            placeholder="{{__('tour.last_name')}}"
                                                            type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input name="email_tour" value="" placeholder="Email" type="text">
+                                                    <input name="email_tour" id="email_tour" value=""
+                                                           placeholder="Email" type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input name="phone" value="" placeholder="{{__('tour.phone')}}"
+                                                    <input name="phone" name="tour_phone" id="tour_phone" value=""
+                                                           placeholder="{{__('tour.phone')}}"
                                                            type="text">
                                                 </div>
                                                 <div class="">
-                                                    <input type="text" name="date_book" value=""
+                                                    <input type="text" name="date_book" id="date_book" value=""
                                                            placeholder="{{__('tour.date_book')}}"
                                                            class="hasDatepicker">
                                                 </div>
@@ -259,7 +270,7 @@
                                                         <input type="hidden" name="price_children_percent" value="70">
                                                     </div>
                                                 </div>
-                                                <div class="spinner">
+                                                <div class="spinner" id="spinner-book">
                                                     <div class="rect1"></div>
                                                     <div class="rect2"></div>
                                                     <div class="rect3"></div>
@@ -334,7 +345,6 @@
                 </div>
             </div>
         </section>
-
     </div>
     <script>
         function validateEmail(email) {
@@ -342,7 +352,7 @@
             return re.test(email);
         }
         function send_enquiry() {
-            debugger;
+
             var your_name = $('#your-name').val();
             if (your_name.trim() == '') {
                 $('#your-name').addClass("error");
@@ -393,31 +403,35 @@
 
         }
         var total_money = 0;
-        var number_adults =0;
-        var number_children =0;
-        var price_adult ={{($tour->translation()->first()->adult_price)*(1-$tour->discount_percent/100)}};
-        var price_child ={{($tour->translation()->first()->children_price)*(1-$tour->discount_percent/100)}};
+        var number_adults = 0;
+        var number_children = 0;
+        var price_adult = parseFloat({{($tour->translation()->first()->adult_price)*(1-$tour->discount_percent/100)}});
+        var price_child = parseFloat({{($tour->translation()->first()->children_price)*(1-$tour->discount_percent/100)}});
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
         function caculate_total() {
 
             let currency = '{{($tour->translation()->first()->currency_unit)}}';
-            var number_ticket_adults = $('#number_ticket_adults').val();
-            var children = $('#number_children').val();
-            number_adults =number_ticket_adults;
+            var number_ticket_adults = parseInt($('#number_ticket_adults').val());
+            var children = parseInt($('#number_children').val());
+            number_adults = number_ticket_adults;
             number_children = children;
 
             let total = price_adult * number_ticket_adults + price_child * children;
-            total_money = total;
-            let dis = numberWithCommas(total);
+            total_money = Math.round(total);
+            let dis = numberWithCommas(total_money);
             if ('$' == currency) {
                 $('.total_price_adults_children').html('$' + dis);
             } else {
                 $('.total_price_adults_children').html(dis + currency);
             }
         }
+        $('#date_book').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
         $(document).ready(function () {
+
             caculate_total();
             $("#number_ticket_adults").change(function () {
                 caculate_total();
@@ -426,10 +440,68 @@
                 caculate_total();
             });
             $("#tourBookingForm").submit(function () {
-                return false;
+
                 var val = $("input[type=submit][clicked=true]").val();
-                // DO WORK
-                return;
+
+                var first_name = $("#first_name").val();
+                var last_name = $("#last_name").val();
+                var email_tour = $("#email_tour").val();
+                var tour_phone = $("#tour_phone").val();
+                var date_book = $("#date_book").val();
+                $('#product_view').modal({backdrop: 'static', keyboard: false})
+                if (first_name.trim().length == 0) {
+                    $('#first_name').val('');
+                    $('#first_name').addClass("error");
+                    return false;
+                }
+                if (last_name.trim().length == 0) {
+                    $('#last_name').val('');
+                    $('#last_name').addClass("error");
+                    return false;
+                }
+                if (!validateEmail(email_tour)) {
+                    $('#email_tour').val('');
+                    $('#email_tour').addClass("error");
+                    return false;
+                }
+
+
+                $('#spinner-book').css("display", "block");
+
+                var token = '{{ csrf_token() }}';
+                var tour_code = '{{$tour->code}}';
+                var tour_id = '{{$tour->id}}';
+                var obj = {
+                    tour_code: tour_code,
+                    id:tour_id,
+                    _token: token,
+                    first_name: first_name,
+                    last_name: last_name,
+                    email_tour: email_tour,
+                    tour_phone: tour_phone,
+                    date_book: date_book,
+                    total_money: total_money,
+                    number_adults: number_adults,
+                    number_children: number_children
+                }
+                $.post('{{route('frontend.tour.booking')}}', obj)
+                        .done(function (data) {
+                            hide_spinner();
+                            if (data.success == true) {
+                                $('#spinner-book').css("display", "none");
+                                 swal("{{__('messages.thanks')}}" , "{{__('messages.thanks_message')}}", "success")
+                            } else {
+                                $('#spinner-book').css("display", "none");
+                            }
+                        })
+                        .fail(function () {
+                            $('#spinner-book').css("display", "none");
+                            swal("{{__('messages.error')}}" , "{{__('messages.error_message')}}", "error")
+                        });
+                    //frontend.tour.booking
+                return false;
+
+
             });
             $("form input[type=submit]").click(function () {
                 $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");

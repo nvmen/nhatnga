@@ -18,4 +18,4 @@
 <script type='text/javascript' src=' {{ URL::asset('assets/js/jquery-3.2.1.min.js') }}'></script>
 <script src=" {{URL::asset('js/libs/notify.min.js')}}"></script>
 <script src=" {{URL::asset('js/libs/jquery.nimble.loader.js')}}"></script>
-
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://travelwp.physcode.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
