@@ -68,90 +68,38 @@
 
                             </div>
                             <div id="slider" class="flexslider">
+
+                                @php
+                                $list_medias = App\Helper::get_list_media_info($tour->media_ids,'950x700');
+                                @endphp
                                 <ul class="slides">
+                                    @foreach($list_medias as $media)
                                     <li>
-                                        <a href="{{ URL::asset('images/tour/tour-1.jpg') }}" class="swipebox" title="">
+                                        <a href="{{  $media['link']}}" class="swipebox" title="">
                                             <img width="950" height="700"
-                                                 src=" {{ URL::asset('images/tour/tour-1.jpg') }}"
+                                                 src=" {{ $media['link'] }}"
 
                                                  class="attachment-shop_single size-shop_single wp-post-image" alt=""
                                                  title="" draggable="false"></a>
                                     </li>
-                                    <li>
-                                        <a href="#" class="swipebox" title="">
-                                            <img width="950" height="700"
-                                                 src=" {{ URL::asset('images/tour/tour-2.jpg') }}"
-                                                 class="attachment-shop_single size-shop_single wp-post-image" alt=""
-                                                 title="" draggable="false"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="swipebox" title="">
-                                            <img width="950" height="700"
-                                                 src=" {{ URL::asset('images/tour/tour-3.jpg') }}"
-                                                 class="attachment-shop_single size-shop_single wp-post-image" alt=""
-                                                 title="" draggable="false"></a>
-                                    </li>
-                                    <li>
-                                        <a href="images/tour/tour-4.jpg" class="swipebox" title="">
-                                            <img width="950" height="700"
-                                                 src=" {{ URL::asset('images/tour/tour-4.jpg') }}"
-                                                 class="attachment-shop_single size-shop_single wp-post-image" alt=""
-                                                 title="" draggable="false"></a>
-                                    </li>
-                                    <li>
-                                        <a href="images/tour/tour-5.jpg" class="swipebox" title="">
-                                            <img width="950" height="700"
-                                                 src=" {{ URL::asset('images/tour/tour-5.jpg') }}"
-                                                 class="attachment-shop_single size-shop_single wp-post-image" alt=""
-                                                 title="" draggable="false"></a>
-                                    </li>
-                                    <li>
-                                        <a href="images/tour/tour-6.jpg" class="swipebox" title="">
-                                            <img width="950" height="700"
-                                                 src=" {{ URL::asset('images/tour/tour-6.jpg') }}"
-                                                 class="attachment-shop_single size-shop_single wp-post-image" alt=""
-                                                 title="" draggable="false"></a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div id="carousel" class="flexslider thumbnail_product">
+                                @php
+                                $list_medias = App\Helper::get_list_media_info($tour->media_ids,'150x100');
+                                @endphp
                                 <ul class="slides">
-                                    <li>
-                                        <img width="150" height="100"
-                                             src=" {{ URL::asset('images/tour/tour-1.jpg') }}"
-                                             class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-                                             title="" draggable="false">
-                                    </li>
-                                    <li>
-                                        <img width="150" height="100"
-                                             src=" {{ URL::asset('images/tour/tour-2.jpg') }}"
-                                             class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-                                             title="" draggable="false">
-                                    </li>
-                                    <li>
-                                        <img width="150" height="100"
-                                             src=" {{ URL::asset('images/tour/tour-3.jpg') }}"
-                                             class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-                                             title="" draggable="false">
-                                    </li>
-                                    <li>
-                                        <img width="150" height="100"
-                                             src=" {{ URL::asset('images/tour/tour-4.jpg') }}"
-                                             class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-                                             title="" draggable="false">
-                                    </li>
-                                    <li>
-                                        <img width="150" height="100"
-                                             src=" {{ URL::asset('images/tour/tour-5.jpg') }}"
-                                             class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-                                             title="" draggable="false">
-                                    </li>
-                                    <li>
-                                        <img width="150" height="100"
-                                             src=" {{ URL::asset('images/tour/tour-6.jpg') }}"
-                                             class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-                                             title="" draggable="false">
-                                    </li>
+
+                                    @foreach($list_medias as $media)
+
+                                        <li>
+                                            <img width="150" height="100"
+                                                 src="{{ $media['link'] }}"
+                                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
+                                                 title="" draggable="false">
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="clear"></div>

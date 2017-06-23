@@ -120,7 +120,7 @@
                 <span class="icon-bar"></span>
             </div>
             <div class="width-logo sm-logo">
-                <a href="{{route('frontend.home.index')}}" title="Travel" rel="home">
+                <a href="{{route('frontend.home.index')}}" title="Nhat Nga" rel="home">
                     <img src="{{ URL::asset('images/logo-nhatnga_header.png') }}" alt="Logo"  width="474" height="94"
                          class="logo_transparent_static logo">
                     <img src="{{ URL::asset('images/logo-nhatnga_header.png') }}" alt="Sticky logo"  width="474" height="91"
@@ -134,7 +134,7 @@
                     </li>
                     <li><a href="{{route('frontend.home.about')}}">{{__('nhatnga_menu.about')}}</a></li>
                     <li class="menu-item-has-children">
-                        <a href="javascript:void(0)">Tours</a>
+                        <a href="{{route('frontend.tour.index')}}">Tours</a>
                         <ul class="sub-menu">
                             <li>
                                 <a href="{{route('frontend.tour.international')}}">{{__('nhatnga_menu.international_tour')}}</a>
