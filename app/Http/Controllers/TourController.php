@@ -22,10 +22,13 @@ use Mail;
 use App;
 use App\Helper;
 use App\Booking;
+use App\Location;
+use App\TourTranslations;
 
 class TourController extends Controller
 {
     public $email_nhatnga = 'nga.ngo@nhatnga.vn';
+    public $page_number = 9;
 
     public function __construct()
     {
@@ -37,13 +40,100 @@ class TourController extends Controller
         //return view('frontend.pages.tour.index');
         //  dd('fdsfds');
         //  dd(App\Helper::get_guid());
-       
-        return view('frontend.pages.tour.index');
+        $tour_name = $request['tour_name'];
+        $tour_type = $request['tour_type'];
+        $destination = $request['destination'];
+        $tours = Tour::all();
+
+        $tour_result = collect();
+        if ($tour_type == 'domestic-tour') {
+
+            $tours = $tours->where('is_outbound', 0);
+        } else if ($tour_type == 'international-tour') {
+
+            $tours = $tours->where('is_outbound', 1);
+        }
+
+        if ($destination != 0) {
+
+            $tours = $tours->where('destination', $destination);
+        }
+        if ($tour_name != '') {
+
+            foreach ($tours as $tour) {
+                $name = $tour->translation()->first()->name;
+                $pos = strpos($name, $tour_name);
+                if ($pos !== false) {
+                    $tour_result->push($tour);
+                } else {
+                    $pos = strpos($tour->code, $tour_name);
+                    if ($pos !== false) {
+                        $tour_result->push($tour);
+                    }
+                }
+
+            }
+            $tours = $tour_result;
+        }
+
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = $this->page_number;
+        $temp = $tours->forPage($currentPage, $perPage);
+        $paginatedSearchResults = new LengthAwarePaginator($temp, count($tours), $perPage);
+        $paginatedSearchResults->appends(['tour_name' => $request['tour_name']]);
+        $paginatedSearchResults->appends(['tour_type' => $request['tour_type']]);
+        $paginatedSearchResults->appends(['destination' => $request['destination']]);
+        $paginatedSearchResults->setPath(route('frontend.tour.index'));
+        $locations = Location::all();
+
+        return view('frontend.pages.tour.index', ['locations' => $locations, 'list_tour' => $paginatedSearchResults]);
     }
 
     public function international(Request $request)
     {
-        return view('frontend.pages.tour.index');
+        //return view('frontend.pages.tour.index');
+        //  dd('fdsfds');
+        //  dd(App\Helper::get_guid());
+        $tour_name = $request['tour_name'];
+
+        $destination = $request['destination'];
+        $tour_result = collect();
+        $tours = Tour::where('is_outbound', 1)->get();
+
+        if ($destination != 0) {
+
+            $tours = $tours->where('destination', $destination);
+        }
+        if ($tour_name != '') {
+
+            foreach ($tours as $tour) {
+                $name = $tour->translation()->first()->name;
+                $pos = strpos($name, $tour_name);
+                if ($pos !== false) {
+                    $tour_result->push($tour);
+                } else {
+                    $pos = strpos($tour->code, $tour_name);
+                    if ($pos !== false) {
+                        $tour_result->push($tour);
+                    }
+                }
+
+            }
+            $tours = $tour_result;
+        }
+
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = $this->page_number;
+        $temp = $tours->forPage($currentPage, $perPage);
+        $paginatedSearchResults = new LengthAwarePaginator($temp, count($tours), $perPage);
+        $paginatedSearchResults->appends(['tour_name' => $request['tour_name']]);
+        $paginatedSearchResults->appends(['destination' => $request['destination']]);
+        $paginatedSearchResults->setPath(route('frontend.tour.index'));
+        $locations = Location::where('is_domestic',0)->get();
+
+        return view('frontend.pages.tour.international', ['locations' => $locations, 'list_tour' => $paginatedSearchResults]);
     }
 
     public function domestic(Request $request)
@@ -193,13 +283,12 @@ class TourController extends Controller
             $book->number_adults = $number_adults;
             $book->number_children = $number_children;
             $book->children_price = $tour->translation()->first()->children_price;
-            $book->adult_price =  $tour->translation()->first()->adult_price;
+            $book->adult_price = $tour->translation()->first()->adult_price;
             $book->discount_percent = $tour->discount_percent;
             $book->total_money = $total_money;
             $book->total_money_text = $total;
             $book->date = $newformat;
             $book->save();
-
 
 
             Mail::send(['html' => 'email.booking'], $data, function ($message) use ($email_to) {
@@ -217,4 +306,117 @@ class TourController extends Controller
 
     }
 
+    public function get_locations_tour_type(Request $request)
+    {
+
+
+        $type = $request['tour_type'];
+        if ($type == 'domestic-tour') {
+            $locations = Location::where('is_domestic', '=', '1')->get();
+        } elseif ($type == 'international-tour') {
+            $locations = Location::where('is_domestic', '<>', '1')->get();
+        } else {
+            $locations = Location::all();
+
+        }
+        return view('partials.list_option', ['locations' => $locations]);
+
+    }
+
+    public function ajax_search_home(Request $request)
+    {
+
+        $tour_name = $request['tour_name'];
+        $tour_type = $request['tour_type'];
+        $destination = $request['destination'];
+        $tours = Tour::all();
+
+        $tour_result = collect();
+        if ($tour_type == 'domestic-tour') {
+
+            $tours = $tours->where('is_outbound', 0);
+        } else if ($tour_type == 'international-tour') {
+
+            $tours = $tours->where('is_outbound', 1);
+        }
+
+        if ($destination != 0) {
+
+            $tours = $tours->where('destination', $destination);
+        }
+
+        if ($tour_name != '') {
+
+            foreach ($tours as $tour) {
+                $name = $tour->translation()->first()->name;
+                $name = Helper::stripVN($name);
+                $tour_name = Helper::stripVN($tour_name);
+                $pos = strpos(strtoupper($name), strtoupper($tour_name));
+                if ($pos !== false) {
+                    $tour_result->push($tour);
+                } else {
+                    $pos = strpos(strtoupper($tour->code), strtoupper($tour_name));
+                    if ($pos !== false) {
+                        $tour_result->push($tour);
+                    }
+                }
+
+            }
+            $tours = $tour_result;
+        }
+
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = $this->page_number;
+        $temp = $tours->forPage($currentPage, $perPage);
+        $paginatedSearchResults = new LengthAwarePaginator($temp, count($tours), $perPage);
+        $paginatedSearchResults->appends(['tour_name' => $request['tour_name']]);
+        $paginatedSearchResults->appends(['tour_type' => $request['tour_type']]);
+        $paginatedSearchResults->appends(['destination' => $request['destination']]);
+        $paginatedSearchResults->setPath(route('frontend.tour.index'));
+
+        return view('partials.tour_item', ['list_tour' => $paginatedSearchResults]);
+    }
+
+    public function ajax_search_international(Request $request){
+        $tour_name = $request['tour_name'];
+        $destination = $request['destination'];
+        $tours = Tour::where('is_outbound', 1)->get();
+        $tour_result = collect();
+        if ($destination != 0) {
+
+            $tours = $tours->where('destination', $destination);
+        }
+
+        if ($tour_name != '') {
+
+            foreach ($tours as $tour) {
+                $name = $tour->translation()->first()->name;
+                $name = Helper::stripVN($name);
+                $tour_name = Helper::stripVN($tour_name);
+                $pos = strpos(strtoupper($name), strtoupper($tour_name));
+                if ($pos !== false) {
+                    $tour_result->push($tour);
+                } else {
+                    $pos = strpos(strtoupper($tour->code), strtoupper($tour_name));
+                    if ($pos !== false) {
+                        $tour_result->push($tour);
+                    }
+                }
+
+            }
+            $tours = $tour_result;
+        }
+
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = $this->page_number;
+        $temp = $tours->forPage($currentPage, $perPage);
+        $paginatedSearchResults = new LengthAwarePaginator($temp, count($tours), $perPage);
+        $paginatedSearchResults->appends(['tour_name' => $request['tour_name']]);
+        $paginatedSearchResults->appends(['destination' => $request['destination']]);
+        $paginatedSearchResults->setPath(route('frontend.tour.international'));
+
+        return view('partials.tour_item', ['list_tour' => $paginatedSearchResults]);
+    }
 }

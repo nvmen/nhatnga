@@ -3,7 +3,7 @@
 <title>@yield('pageTitle') | Nhat Nga</title>
 <link rel="stylesheet" href="{{ URL::asset('css/googleapis.css') }}">
 <link rel="stylesheet" href=" {{ URL::asset('assets/css/bootstrap.min.css') }}" type="text/css" media="all">
-
+<link href="{{ URL::asset('assets/selectize/css/selectize.css') }} " rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
       type="text/css" media="all">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/flaticon.css') }}" type="text/css" media="all">
@@ -18,4 +18,8 @@
 <script type='text/javascript' src=' {{ URL::asset('assets/js/jquery-3.2.1.min.js') }}'></script>
 <script src=" {{URL::asset('js/libs/notify.min.js')}}"></script>
 <script src=" {{URL::asset('js/libs/jquery.nimble.loader.js')}}"></script>
+
+<script src=" {{URL::asset('assets/selectize/js/standalone/selectize.min.js')}}"></script>
+
+
 <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://travelwp.physcode.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->

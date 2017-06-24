@@ -25,14 +25,13 @@
                             <div class="row content_gallery">
                                 @foreach($visa_list as $visa)
 
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears">
+                                    <div class="col-sm-4 gallery_item-wrap competitions gears  visa-title">
                                         <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class=""
                                            title="{{$visa->translation()->first()->name}}">
                                             <img src=" {!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'430x305'])  !!}" alt="{{$visa->translation()->first()->name}}">
-                                            <div class="gallery-item">
-                                                <h4 class="title">{{$visa->translation()->first()->name}}</h4>
-                                            </div>
+
                                         </a>
+                                        <h4 class="title">{{$visa->translation()->first()->name}}</h4>
                                     </div>
                                 @endforeach
                             </div>

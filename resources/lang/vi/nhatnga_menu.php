@@ -39,5 +39,7 @@ return [
     'please_wait'=>'Đang gửi...',
     'news'=>'Tin tức',
     'view_more'=>'XEM THÊM',
+    'all'=>'Tất cả',
+    'search'=>'Tìm kiếm',
 
 ];

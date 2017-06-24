@@ -12,3 +12,39 @@
 .continent .sc-gallery .gallery_item-wrap .gallery-item .title:hover{
     color: #ffb300;
 }
+.asia-visa,.europe-visa,.america-visa, .visa_australia, .visa_africa{
+    text-align: center;
+}
+.asia-visa a{
+    color:#ffb300;
+    width: 100%;
+    text-align: center;
+}
+.europe-visa a{
+    color:#08c;
+    width: 100%;
+    text-align: center;
+}
+.america-visa a{
+    color:#5a8d31;
+    width: 100%;
+    text-align: center;
+}
+.visa_australia a{
+    color: #08fa83;
+    width: 100%;
+    text-align: center;
+}
+.visa_africa a{
+    color: #40648d;
+    width: 100%;
+    text-align: center;
+}
+.visa-info span{
+ font-weight: bold;
+    padding-top: 5px;
+}
+
+.visa-title {
+    text-align: center;
+}

@@ -51,6 +51,9 @@ Route::group(
             Route::get('/detail/{slug}', ['uses' => 'TourController@detail', 'as' => 'frontend.tour.detail']);
             Route::post('/enquiry', ['uses' => 'TourController@enquiry', 'as' => 'frontend.tour.enquiry']);
             Route::post('/booking', ['uses' => 'TourController@booking', 'as' => 'frontend.tour.booking']);
+            Route::get('/location', ['uses' => 'TourController@get_locations_tour_type', 'as' => 'frontend.tour.location']);
+            Route::get('/search-home', ['uses' => 'TourController@ajax_search_home', 'as' => 'frontend.tour.ajax_search_home']);
+            Route::get('/search-international', ['uses' => 'TourController@ajax_search_international', 'as' => 'frontend.tour.ajax_search_international']);
 
         });
 

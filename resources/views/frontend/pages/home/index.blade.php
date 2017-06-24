@@ -1,8 +1,10 @@
 @extends('layouts.frontend')
 @section('pageTitle', 'Home')
 @section('content')
+
     <div class="home-content" role="main">
         <div class="top_site_main">
+
 
         </div>
         <div id="home-page-slider-image" class="carousel slide" data-ride="carousel">
@@ -237,7 +239,7 @@
                                                 $media_id =$tour->get_first_media_id($tour->media_ids);
                                                 @endphp
                                                 <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
-                                                     alt="" title="">
+                                                     alt="" title="" width="430" height="305" class ="img-responsive">
                                             </a>
                                         </div>
                                         <div class="wrapper_content">
@@ -394,6 +396,7 @@
                 </div>
             </div>
         </div>
+
         @if($tour_discount->count()>0)
             <div class="section-white padding-top-6x padding-bottom-6x">
                 <div class="container">
@@ -431,6 +434,7 @@
                                                     $media_id =$tour->get_first_media_id($tour->media_ids);
                                                     @endphp
                                                     <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
+                                                         width="430" height="305" class ="img-responsive"
                                                          alt="" title="">
                                                 </a>
                                             </div>

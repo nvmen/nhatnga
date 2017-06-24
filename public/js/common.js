@@ -9,9 +9,9 @@ function show_spinner(){
             debug                : true,
             speed                : 700,
             hasBackground        : true,
-            zIndex               : 999,
-            backgroundColor      : "#34383e",
-            backgroundOpacity    : 1
+            zIndex               : 999999,
+            backgroundColor      : "transparent",
+            backgroundOpacity    : 0.5
         });
            
 }

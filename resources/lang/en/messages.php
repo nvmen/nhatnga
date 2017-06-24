@@ -11,7 +11,7 @@ return [
     'sorry_detail' => 'You may have mistyped the address or the page may have moved.',
     'sorry_back_home' => 'back to home page',
     'thanks'=>'Thanks',
-    'thanks_message'=>'Thank you for your booking this tour. We will contact you soon.',
+    'thanks_message'=>'Thanh you for booking this tour, we will contact you in the soonest time.',
     'error'=>'Error',
     'error_message'=>'An Error was happened during booking.Please try again.'
 

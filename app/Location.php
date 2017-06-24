@@ -10,7 +10,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
+use App;
 
 class Location extends Model
 {

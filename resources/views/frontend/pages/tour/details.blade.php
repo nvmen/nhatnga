@@ -157,14 +157,14 @@
 
                                                 </div>
                                                 <div class="wrapper_content">
-                                                    <div class="post_title"><h4>
+                                                    <div class="post_title"><h4 class="title-tour">
                                                             <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
                                                                rel="bookmark">
                                                                 {{$tour->translation()->first()->name}}
                                                             </a>
                                                         </h4></div>
                                                     <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}} {{$tour->duration_night}} {{__('tour.nights')}}</span>
-                                                    <div class="description">
+                                                    <div class="description content-des-tour-item">
                                                         <p>
                                                             {{App\Helper::get_words($tour->translation()->first()->short_description,20)}}
                                                         </p>
@@ -286,7 +286,7 @@
                                     <div class="custom_from">
                                         <div role="form" class="wpcf7" lang="en-US" dir="ltr">
                                             <div class="screen-reader-response"></div>
-                                            <form action="" method="post" class="wpcf7-form"
+                                            <form action="" method="post" class="wpcf7-form" id="contact-form"
                                                   novalidate="novalidate">
 
                                                 <p>{{__('tour.send_message_reason')}}</p>
@@ -387,10 +387,7 @@
                             //  $.notify("Delete successful", "success");
                             hide_spinner();
                             $.notify(data.message, "success");
-                            setTimeout(function () {
-                                        location.reload();
-                                    }
-                                    , 500);
+                            $('#contact-form')[0].reset();
                         } else {
                             $.notify(data.message, "error")
 

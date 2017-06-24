@@ -32,6 +32,10 @@ return [
     'your_name'=>'Your name*',
     'booking_now'=>'Booking Now',
     'send_message_reason'=>'Fill up the form below to tell us what you\'re looking for',
-    'or'=>'Or'
+    'or'=>'Or',
+    'search_tour'=>'Search Tour',
+    'find_tour_today'=>'Find your dream tour today!',
+    'destination'=>'Destination',
+
 
 ];

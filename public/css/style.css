@@ -10,6 +10,34 @@ html {
 	-ms-text-size-adjust:     100%;
 }
 
+.title-tour{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 20px;
+}
+.content-des-tour-item{
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.widget-area .search_tour .form-field-select:before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 6px solid #333;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -3px;
+	z-index: 1;
+}
+.selectize-input{
+	border: none;
+    padding: 8px 8px;
+}
 body {
 	margin: 0;
 }
@@ -5418,7 +5446,7 @@ input[type=radio]:checked:before {
 }
 
 .post_images {
-	background: #d8d8d8;
+	/*background: #d8d8d8;*/
 	min-height: 125px;
 	position:   relative;
 	margin:     -1px;

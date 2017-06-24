@@ -40,5 +40,7 @@ return [
     'please_wait'=>'Please wait...',
     'news'=>'News',
     'view_more'=>'VIEW MORE',
+    'all'=>'All',
+    'search'=>'Search',
 
 ];
