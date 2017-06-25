@@ -54,6 +54,8 @@ Route::group(
             Route::get('/location', ['uses' => 'TourController@get_locations_tour_type', 'as' => 'frontend.tour.location']);
             Route::get('/search-home', ['uses' => 'TourController@ajax_search_home', 'as' => 'frontend.tour.ajax_search_home']);
             Route::get('/search-international', ['uses' => 'TourController@ajax_search_international', 'as' => 'frontend.tour.ajax_search_international']);
+            Route::get('/search-domestic', ['uses' => 'TourController@ajax_search_domestic', 'as' => 'frontend.tour.ajax_search_domestic']);
+            Route::get('/search-domestic-longtour', ['uses' => 'TourController@ajax_search_domestic_longtour', 'as' => 'frontend.tour.ajax_search_domestic_longtour']);
 
         });
 

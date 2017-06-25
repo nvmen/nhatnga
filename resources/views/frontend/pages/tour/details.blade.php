@@ -180,9 +180,10 @@
                                                         @endfor
 
                                                     </div>
-                                                    <a rel="nofollow" href="single-tour.html"
-                                                       class="button product_type_tour_phys add_to_cart_button">Read
-                                                        more</a>
+                                                    <a rel="nofollow" href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                                       class="button product_type_tour_phys add_to_cart_button">
+                                                        {{__('nhatnga_menu.view_more')}}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </li>
@@ -282,7 +283,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="form-block__title custom-form-title"><h4>Or</h4></div>
+                                    <div class="form-block__title custom-form-title"><h4>{{__('tour.or')}}</h4></div>
                                     <div class="custom_from">
                                         <div role="form" class="wpcf7" lang="en-US" dir="ltr">
                                             <div class="screen-reader-response"></div>

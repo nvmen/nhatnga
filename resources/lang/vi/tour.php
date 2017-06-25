@@ -36,7 +36,7 @@ return [
     'search_tour'=>'Tìm Kiếm Tour',
     'find_tour_today'=>'Tìm tour hôm nay!!',
     'destination'=>'Điểm đến',
-   
+    'find_tour'=>'Tìm kiếm'
 
 
 ];

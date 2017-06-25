@@ -43,7 +43,7 @@
                                             @endforeach
 
                                         </select>
-                                        <button type="submit">Find Tours</button>
+                                        <button type="submit">{{__('tour.find_tour')}}</button>
                                     </form>
                                 </div>
                             </div>

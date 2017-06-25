@@ -276,7 +276,7 @@
                 </div>
             </div>
         </div>
-
+<!--
         <div class="container two-column-respon mg-top-6x mg-bt-6x">
             <div class="row">
                 <div class="col-sm-12 mg-btn-6x">
@@ -336,7 +336,7 @@
                 </div>
             </div>
         </div>
-
+-->
         <div class="padding-top-6x padding-bottom-6x bg__shadow section-background"
              style="background-image:url(images/home/bg-pallarax.jpg)">
             <div class="container">

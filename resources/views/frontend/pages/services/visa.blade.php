@@ -25,7 +25,10 @@
 
 
                                 <a href="{{ route('frontend.visa.asia') }}" title="{{__('nhatnga_menu.visa_asia')}}">
-                                    <i class="fa fa-user-o" style="font-size: 54px; width: 100%;"></i>
+                                    <div style="width: 100%">
+                                        <img src ="{{URL::asset('images/continent/chau2.png')}}" height="60" width="60"/>
+                                    </div>
+
                                     <span class="title">{{__('nhatnga_menu.visa_asia')}}</span>
                                 </a>
                             </div>
@@ -34,7 +37,10 @@
                             <div class="europe-visa">
                                 <a href="{{ route('frontend.visa.europe') }}"
                                    title="{{__('nhatnga_menu.visa_europe')}}">
-                                    <i class="fa fa-user-o" style="font-size: 54px; width: 100%;"></i>
+                                    <div style="width: 100%">
+                                        <img src ="{{URL::asset('images/continent/chau1.png')}}" height="60" width="60"/>
+                                    </div>
+
                                     <span class="title">{{__('nhatnga_menu.visa_europe')}}</span>
                                 </a>
                             </div>
@@ -43,7 +49,9 @@
                             <div class="america-visa">
                                 <a href="{{ route('frontend.visa.america') }}"
                                    title="{{__('nhatnga_menu.visa_america')}}">
-                                    <i class="fa fa-user-o" style="font-size: 54px; width: 100%;"></i>
+                                    <div style="width: 100%">
+                                        <img src ="{{URL::asset('images/continent/chau3.png')}}" height="60" width="60"/>
+                                    </div>
                                     <span class="title">{{__('nhatnga_menu.visa_america')}}</span>
                                 </a>
                             </div>
@@ -52,7 +60,9 @@
                             <div class="visa_australia">
                                 <a href="{{ route('frontend.visa.australia') }}"
                                    title="{{__('nhatnga_menu.visa_australia')}}">
-                                    <i class="fa fa-user-o" style="font-size: 54px; width: 100%;"></i>
+                                    <div style="width: 100%">
+                                        <img src ="{{URL::asset('images/continent/chau4.png')}}" height="60" width="60"/>
+                                    </div>
                                     <span class="title">{{__('nhatnga_menu.visa_australia')}}</span>
                                 </a>
                             </div>
@@ -61,7 +71,9 @@
                             <div class="visa_africa">
                                 <a href="{{  route('frontend.visa.africa') }}"
                                    title="{{__('nhatnga_menu.visa_africa')}}">
-                                    <i class="fa fa-user-o" style="font-size: 54px; width: 100%;"></i>
+                                    <div style="width: 100%">
+                                        <img src ="{{URL::asset('images/continent/chau5.png')}}" height="60" width="60"/>
+                                    </div>
                                     <span class="title">{{__('nhatnga_menu.visa_africa')}}</span>
                                 </a>
                             </div>

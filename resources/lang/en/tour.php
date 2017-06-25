@@ -36,6 +36,7 @@ return [
     'search_tour'=>'Search Tour',
     'find_tour_today'=>'Find your dream tour today!',
     'destination'=>'Destination',
+    'find_tour'=>'Find Tour'
 
 
 ];
