@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('pageTitle', 'Services')
+@section('pageTitle',  __('nhatnga_menu.news'))
 @section('content')
     <div class="site wrapper-content">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">

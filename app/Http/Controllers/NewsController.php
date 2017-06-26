@@ -29,7 +29,7 @@ class NewsController extends Controller
 
     public function index(Request $request)
     {
-
+    
         $list = News::orderBy('updated_at', 'desc')->get();
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $collection = new Collection($list);

@@ -12,7 +12,7 @@ return [
     'services' => 'Dịch vụ',
     'news' => 'Tin tức',
     'contact' => 'Liên hệ',
-    'domestic_tour' => 'Tour nội địa',
+    'domestic_tour' => 'Tour trong nước',
     'international_tour' => 'Tour quốc tế',
     'long_travel'=>'Tour nhiều ngày',
     'short_travel'=>'Tour trong ngày',

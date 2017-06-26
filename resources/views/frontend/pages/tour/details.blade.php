@@ -136,6 +136,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--
                             <div class="related tours">
                                 <h2>{{__('tour.related_tours')}}</h2>
                                 <ul class="tours products wrapper-tours-slider">
@@ -192,6 +193,8 @@
 
                                 </ul>
                             </div>
+                            -->
+
                         </div>
                         <div class="summary entry-summary description_single">
                             <div class="affix-sidebar">

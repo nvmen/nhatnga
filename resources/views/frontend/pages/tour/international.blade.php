@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('pageTitle', 'Services')
+@section('pageTitle', __('nhatnga_menu.international_tour'))
 @section('content')
 
     <div class="archive travel_tour travel_tour-page">

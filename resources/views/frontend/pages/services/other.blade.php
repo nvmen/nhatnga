@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('pageTitle', 'Services')
+@section('pageTitle',  __('nhatnga_menu.services_others'))
 @section('content')
 
     <div class="site wrapper-content">

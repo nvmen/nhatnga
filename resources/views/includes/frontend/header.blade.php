@@ -129,10 +129,10 @@
             </div>
             <nav class="width-navigation">
                 <ul class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
-                    <li class="current-menu-ancestor current-menu-parent">
+                    <li class="{{App\Helper::activeMenu('home')}}">
                         <a href="{{route('frontend.home.index')}}">{{@__('nhatnga_menu.home')}}</a>
                     </li>
-                    <li><a href="{{route('frontend.home.about')}}">{{__('nhatnga_menu.about')}}</a></li>
+                    <li class="{{App\Helper::activeMenu('about')}}"><a href="{{route('frontend.home.about')}}">{{__('nhatnga_menu.about')}}</a></li>
                     <li class="menu-item-has-children">
                         <a href="{{route('frontend.tour.index')}}">Tours</a>
                         <ul class="sub-menu">
@@ -187,8 +187,8 @@
                             <li><a href="{{route('frontend.services.others')}}">{{__('nhatnga_menu.services_others')}}</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{route('frontend.news.index')}}">{{@__('nhatnga_menu.news')}}</a></li>
-                    <li><a href="{{route('frontend.home.contact')}}">{{@__('nhatnga_menu.contact')}}</a></li>
+                    <li class="{{App\Helper::activeMenu('news')}}"><a href="{{route('frontend.news.index')}}">{{@__('nhatnga_menu.news')}}</a></li>
+                    <li  class="{{App\Helper::activeMenu('contact')}}"><a href="{{route('frontend.home.contact')}}">{{@__('nhatnga_menu.contact')}}</a></li>
                     <li class="menu-right">
                         <ul>
                             <li id="travel_social_widget-2" class="widget travel_search">

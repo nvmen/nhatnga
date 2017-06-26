@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('pageTitle', 'Services')
+@section('pageTitle', __('nhatnga_menu.long_travel'))
 @section('content')
 
     <div class="archive travel_tour travel_tour-page">
@@ -11,11 +11,11 @@
                         <ul class="phys-breadcrumb">
                             <li><a href="{{route('frontend.home.index')}}" class="home">Home</a></li>
                             <li><a href="{{route('frontend.tour.index')}}" class="home">Tour</a></li>
-                            <li><a href="javascript:void(0)">{{__('nhatnga_menu.domestic_tour')}}</a></li>
+                            <li><a href="javascript:void(0)">{{__('nhatnga_menu.long_travel')}}</a></li>
 
                         </ul>
                     </div>
-                    <h1 class="heading_primary">{{__('nhatnga_menu.domestic_tour')}}</h1></div>
+                    <h1 class="heading_primary">{{__('nhatnga_menu.long_travel')}}</h1></div>
             </div>
             <section class="content-area">
                 <div class="container">

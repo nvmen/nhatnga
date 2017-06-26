@@ -11,6 +11,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DateTime;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use App\Media;
 use App\Tour;
@@ -158,5 +159,27 @@ class Helper extends Model
         $str = preg_replace("/(Đ)/", 'D', $str);
         return $str;
     }
+    public  static function activeMenu($menu){
+        switch ($menu){
+            case 'home':{
+                if(Request::route()->getName()=='frontend.home.index'){
+                    return (' current-menu-parent current-menu-ancestor');
+                }
+                break;
+            }
+            case 'about':{
+                if(Request::route()->getName()=='frontend.home.about'){
+                    return (' current-menu-parent current-menu-ancestor');
+                }
+                break;
+            }
+            case 'news':{
+                if(Request::route()->getPrefix()=='news'){
+                    return (' current-menu-parent current-menu-ancestor');
+                }
+                break;
+            }
+        }
 
+    }
 }
