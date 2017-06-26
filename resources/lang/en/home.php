@@ -31,4 +31,5 @@ return [
     'latest_posts'=>'Latest Post',
     'tour'=>'Tours',
     'work_permit_temporary_resident_card'=>'Work permit & Temporary Resident Card',
+    'promotion_news'=>'PROMOTION',
 ];

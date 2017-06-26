@@ -53,7 +53,7 @@
                                     </div>
                                 </article>
                             @endforeach
-                                <div class="paging-navigation" role="navigation">
+                                <div class="" role="navigation" style="text-align: center;">
                                     {!! $list_news->links() !!}
                                 </div>
                         </div>

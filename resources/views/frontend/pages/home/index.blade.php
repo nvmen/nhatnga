@@ -53,25 +53,31 @@
             <div class="row padding-menu">
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon circle"
-                             style="font-size:30px;width:80px; height:80px;line-height:80px">
+                        <a href="{{route('frontend.tour.index')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
                                 <span class="inner-icon"><i
                                             class="vc_icon_element-icon flaticon-travelling"></i></span>
-                        </div>
+                            </div>
+                        </a>
                         <div class="content-inner">
+
                             <div class="sc-heading article_heading">
                                 <h4 class="heading__primary">Tours</h4></div>
                             <div class="desc-icon-box">
                                 <div>{{__('home.tour_description')}}</div>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
-                            <span class="inner-icon"><i class="fa fa-cc-visa"></i></span>
-                        </div>
+                        <a href="{{route('frontend.services.visa')}}">
+                            <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i class="fa fa-cc-visa"></i></span>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
                                 <h4 class="heading__primary">{{__('home.visa')}}</h4></div>
@@ -83,14 +89,17 @@
                 </div>
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
-                            <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travel-2"></i></span>
-                        </div>
+                        <a href="{{route('frontend.services.visavietnam')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i class="fa fa-address-book-o"></i></span>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
-                                <h4 class="heading__primary">{{__('home.translation_notarization')}}</h4></div>
+                                <h4 class="heading__primary">{{__('home.vietnamese_visa')}} </h4></div>
                             <div class="desc-icon-box">
-                                <div>{{__('home.translation_notarization_description')}}</div>
+                                <div>{{__('home.vietnamese_visa_description')}}</div>
                             </div>
                         </div>
                     </div>
@@ -100,10 +109,12 @@
             <div class="row padding-menu">
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon circle"
-                             style="font-size:30px;width:80px; height:80px;line-height:80px">
-                            <span class="inner-icon"><i class="fa fa-id-card-o"></i></span>
-                        </div>
+                        <a href="{{route('frontend.services.workpermit')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i class="fa fa-id-card-o"></i></span>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
                                 <h4 class="heading__primary">{{__('home.work_permit')}}</h4></div>
@@ -115,11 +126,13 @@
                 </div>
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon circle"
-                             style="font-size:30px;width:80px; height:80px;line-height:80px">
+                        <a href="{{route('frontend.services.workpermit')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
                                 <span class="inner-icon"><i
                                             class="fa fa-home"></i></span>
-                        </div>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
                                 <h4 class="heading__primary">{{__('home.temporary_resident_card')}}</h4></div>
@@ -129,28 +142,32 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
-                            <span class="inner-icon"><i class="fa fa-plane"></i></span>
-                        </div>
+                        <a href="{{route('frontend.services.translation')}}">
+                            <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travel-2"></i></span>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
-                                <h4 class="heading__primary">{{__('home.air_ticket')}}</h4></div>
+                                <h4 class="heading__primary">{{__('home.translation_notarization')}}</h4></div>
                             <div class="desc-icon-box">
-                                <div>{{__('home.air_ticket_description')}}</div>
+                                <div>{{__('home.translation_notarization_description')}}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
-                            <span class="inner-icon"><i class="fa fa-address-card"></i></span>
-                        </div>
+                        <a href="{{route('frontend.services.apeccard')}}">
+                            <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i class="fa fa-address-card"></i></span>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
                                 <h4 class="heading__primary">{{__('home.APEC_card')}}</h4></div>
@@ -162,26 +179,29 @@
                 </div>
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon circle"
-                             style="font-size:30px;width:80px; height:80px;line-height:80px">
-                            <span class="inner-icon"><i class="fa fa-address-book-o"></i></span>
-                        </div>
+                        <a href="{{route('frontend.services.airlineticket')}}">
+                            <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i class="fa fa-plane"></i></span>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
-                                <h4 class="heading__primary">{{__('home.vietnamese_visa')}} </h4></div>
+                                <h4 class="heading__primary">{{__('home.air_ticket')}}</h4></div>
                             <div class="desc-icon-box">
-                                <div>{{__('home.vietnamese_visa_description')}}</div>
+                                <div>{{__('home.air_ticket_description')}}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="wpb_column col-sm-4">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                        <div class="boxes-icon circle"
-                             style="font-size:30px;width:80px; height:80px;line-height:80px">
+                        <a href="{{route('frontend.services.others')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
                                 <span class="inner-icon"><i
                                             class="fa fa-car"></i></span>
-                        </div>
+                            </div>
+                        </a>
                         <div class="content-inner">
                             <div class="sc-heading article_heading">
                                 <h4 class="heading__primary">{{__('home.other_services')}}</h4></div>
@@ -191,7 +211,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -239,7 +258,7 @@
                                                 $media_id =$tour->get_first_media_id($tour->media_ids);
                                                 @endphp
                                                 <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
-                                                     alt="" title="" width="430" height="305" class ="img-responsive">
+                                                     alt="" title="" width="430" height="305" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="wrapper_content">
@@ -276,7 +295,7 @@
                 </div>
             </div>
         </div>
-<!--
+        <!--
         <div class="container two-column-respon mg-top-6x mg-bt-6x">
             <div class="row">
                 <div class="col-sm-12 mg-btn-6x">
@@ -434,7 +453,7 @@
                                                     $media_id =$tour->get_first_media_id($tour->media_ids);
                                                     @endphp
                                                     <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
-                                                         width="430" height="305" class ="img-responsive"
+                                                         width="430" height="305" class="img-responsive"
                                                          alt="" title="">
                                                 </a>
                                             </div>
@@ -476,6 +495,7 @@
         <div class="section-white padding-top-6x padding-bottom-6x">
             <div class="container">
                 <div class="row">
+                    <!--
                     <div class="col-sm-4">
                         <div class="shortcode_title title-center title-decoration-bottom-center">
                             <h2 class="title_primary">{{__('customer.customer_reivew')}}</h2>
@@ -503,14 +523,14 @@
                                         </h3>
                                         <div class="reviews-item-description">
                                             {{__('customer.cus_tuan_note')}}
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-                                <div class="tour-reviews-item">
-                                    <div class="reviews-item-info">
-                                        <img alt="" src="{{URL::asset('images/avata/avartar3.png')}}"
+                    <div class="tour-reviews-item">
+                        <div class="reviews-item-info">
+                            <img alt="" src="{{URL::asset('images/avata/avartar3.png')}}"
                                              class="avatar avatar-95 photo"
                                              height="90" width="90">
                                         <div class="reviews-item-info-name">{{__('customer.cus_dao_title')}}</div>
@@ -526,14 +546,14 @@
                                         </h3>
                                         <div class="reviews-item-description">
                                             {{__('customer.cus_dao_note')}}
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-                                <div class="tour-reviews-item">
-                                    <div class="reviews-item-info">
-                                        <img alt="" src="{{URL::asset('images/avata/avartar4.png')}}"
+                    <div class="tour-reviews-item">
+                        <div class="reviews-item-info">
+                            <img alt="" src="{{URL::asset('images/avata/avartar4.png')}}"
                                              class="avatar avatar-95 photo"
                                              height="90" width="90">
                                         <div class="reviews-item-info-name">{{__('customer.cus_hai_title')}}</div>
@@ -549,20 +569,21 @@
                                         </h3>
                                         <div class="reviews-item-description">
                                             {{__('customer.cus_hai_note')}}
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-8">
+                </div>
+            </div>
+        </div>
+        -->
+                    <div class="col-sm-12">
                         <div class="shortcode_title title-center title-decoration-bottom-center">
-                            <h2 class="title_primary">{{__('home.latest_posts')}}</h2>
+                            <h2 class="title_primary">{{__('home.promotion_news')}}</h2>
                             <span class="line_after_title"></span>
                         </div>
                         <div class="row">
                             @foreach($latest_news as $news)
-                                <div class="post_list_content_unit col-sm-6">
+                                <div class="post_list_content_unit col-sm-4">
                                     <div class="feature-image">
                                         <a href="{{route('frontend.news.detail',['slug'=>$news->slug_url])}}"
                                            class="entry-thumbnail">

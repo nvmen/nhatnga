@@ -26,7 +26,7 @@ class AdminNewsController extends Controller
 
     public function index(Request $request)
     {
-        $list_news = News::all();
+        $list_news = News::orderBy('updated_at','DESC')->get();
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $collection = new Collection($list_news);
         $perPage = 20;
@@ -49,38 +49,39 @@ class AdminNewsController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Visa need a image and name not empty']);
         } else {
-            $slug = Str::slug($request['name_en']);
-            $count = DB::table('news')->where('slug_url', $slug)->count();
+            DB::transaction(function ()use($request) {
+                $slug = Str::slug($request['name_en']);
+                $count = DB::table('news')->where('slug_url', $slug)->count();
 
-            if ($count >= 1) {
-                $count = $count;
-                $slug = $slug . '-' . $count;
-            }
-            $obj = new News();
-            $obj->media_ids = $request['media_ids'];
-            $obj->slug_url = $slug;
-            $obj->new_cate_id = 1;// will update cate later
-            $obj->save();
+                if ($count >= 1) {
+                    $count = $count;
+                    $slug = $slug . '-' . $count;
+                }
+                $obj = new News();
+                $obj->media_ids = $request['media_ids'];
+                $obj->slug_url = $slug;
+                $obj->new_cate_id = $request['cate_news'];// will update cate later
+                $obj->save();
 
-            $obj_vi = new NewsTranslations();
-            $obj_vi->lang_code = 'vi';
-            $obj_vi->new_id = $obj->id;
+                $obj_vi = new NewsTranslations();
+                $obj_vi->lang_code = 'vi';
+                $obj_vi->new_id = $obj->id;
 
-            $obj_vi->name = $request['name_vi'];
-            $obj_vi->short_description = $request['short_des_vi'];
-            $obj_vi->content = $request['content_vi'];
-            $obj_vi->save();
+                $obj_vi->name = $request['name_vi'];
+                $obj_vi->short_description = $request['short_des_vi'];
+                $obj_vi->content = $request['content_vi'];
+                $obj_vi->save();
 
-            $obj_en = new NewsTranslations();
-            $obj_en->lang_code = 'en';
-            $obj_en->new_id = $obj->id;
+                $obj_en = new NewsTranslations();
+                $obj_en->lang_code = 'en';
+                $obj_en->new_id = $obj->id;
 
-            $obj_en->name = $request['name_en'];
-            $obj_en->short_description = $request['short_des_en'];
-            $obj_en->content = $request['content_en'];
-            $obj_en->save();
+                $obj_en->name = $request['name_en'];
+                $obj_en->short_description = $request['short_des_en'];
+                $obj_en->content = $request['content_en'];
+                $obj_en->save();
 
-
+            });
             return response()->json(['success' => true, 'message' => 'Add sucessfull']);
         }
     }
@@ -144,34 +145,36 @@ class AdminNewsController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Visa need a image and name not empty']);
         } else {
-            $slug = Str::slug($request['name_en']);
-            $count = DB::table('news')->where('slug_url', $slug)->count();
+            DB::transaction(function ()use($request) {
+                $slug = Str::slug($request['name_en']);
+                $count = DB::table('news')->where('slug_url', $slug)->count();
 
-            if ($count >= 1) {
-                $count = $count;
-                $slug = $slug . '-' . $count;
-            }
-            $id = $request['id'];
-            $obj = News::find($id);
-            $obj->media_ids = $request['media_ids'];
-            $obj->slug_url = $slug;
-            $obj->save();
+                if ($count >= 1) {
+                    $count = $count;
+                    $slug = $slug . '-' . $count;
+                }
+                $id = $request['id'];
+                $obj = News::find($id);
+                $obj->media_ids = $request['media_ids'];
+                $obj->slug_url = $slug;
+                $obj->new_cate_id = $request['cate_news'];// will update cate later
+                $obj->save();
 
-            $obj_vi = NewsTranslations::where('lang_code', 'vi')
-                ->where('new_id', $id)->first();
+                $obj_vi = NewsTranslations::where('lang_code', 'vi')
+                    ->where('new_id', $id)->first();
 
-            $obj_vi->name = $request['name_vi'];
-            $obj_vi->short_description = $request['short_des_vi'];
-            $obj_vi->content = $request['content_vi'];
-            $obj_vi->save();
+                $obj_vi->name = $request['name_vi'];
+                $obj_vi->short_description = $request['short_des_vi'];
+                $obj_vi->content = $request['content_vi'];
+                $obj_vi->save();
 
-            $obj_en = NewsTranslations::where('lang_code', 'en')
-                ->where('new_id', $id)->first();
-            $obj_en->name = $request['name_en'];
-            $obj_en->short_description = $request['short_des_en'];
-            $obj_en->content = $request['content_en'];
-            $obj_en->save();
-
+                $obj_en = NewsTranslations::where('lang_code', 'en')
+                    ->where('new_id', $id)->first();
+                $obj_en->name = $request['name_en'];
+                $obj_en->short_description = $request['short_des_en'];
+                $obj_en->content = $request['content_en'];
+                $obj_en->save();
+            });
 
             return response()->json(['success' => true, 'message' => 'Add sucessfull']);
         }

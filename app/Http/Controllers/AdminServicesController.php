@@ -37,23 +37,23 @@ class AdminServicesController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Service need id and media']);
         } else {
+            DB::transaction(function ()use($request) {
+                $service = Service::find($request['id']);
+                if ($service == null) {
+                    return response()->json(['success' => false, 'message' => 'Can not find this service']);
+                }
+                $service->media_ids = $request['media_ids'];
+                $service->save();
+                $service_vi = ServiceTranslations::where('lang_code', 'vi')->where('service_id', $service->id)->first();
+                $service_en = ServiceTranslations::where('lang_code', 'en')->where('service_id', $service->id)->first();
+                $service_vi->name = $request['name_vi'];
+                $service_vi->content = $request['content_vi'];
+                $service_vi->save();
 
-            $service = Service::find($request['id']);
-            if($service== null){
-                return response()->json(['success' => false, 'message' => 'Can not find this service']);
-            }
-            $service->media_ids = $request['media_ids'];
-            $service->save();
-            $service_vi = ServiceTranslations::where('lang_code','vi')->where('service_id',$service->id)->first();
-            $service_en = ServiceTranslations::where('lang_code','en')->where('service_id',$service->id)->first();
-            $service_vi->name = $request['name_vi'];
-            $service_vi->content = $request['content_vi'];
-            $service_vi->save();
-
-            $service_en->name = $request['name_en'];
-            $service_en->content = $request['content_en'];
-            $service_en->save();
-
+                $service_en->name = $request['name_en'];
+                $service_en->content = $request['content_en'];
+                $service_en->save();
+            });
             return response()->json(['success' => true, 'message' => 'Edit successful']);
         }
 

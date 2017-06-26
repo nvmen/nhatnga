@@ -13,7 +13,7 @@ use App\Banner;
 use App\BannerTranslations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use DB;
 class AdminBannerController extends Controller
 {
     public function __construct()
@@ -46,29 +46,32 @@ class AdminBannerController extends Controller
             return response()->json(['success' => false, 'message' => 'Banner need a image']);
         } else {
 
-            $banner = new Banner();
-            $banner->media_ids = $request['media_ids'];
-            $banner->slug_url = $request['media_ids'];
-            $banner->save();
-            $banner_vi = new BannerTranslations();
-            $banner_vi->lang_code = 'vi';
-            $banner_vi->banner_id = $banner->id;
+            DB::transaction(function ()use($request) {
+                $banner = new Banner();
+                $banner->media_ids = $request['media_ids'];
+                $banner->slug_url = $request['media_ids'];
+                $banner->save();
+                $banner_vi = new BannerTranslations();
+                $banner_vi->lang_code = 'vi';
+                $banner_vi->banner_id = $banner->id;
 
-            $banner_vi->title = $request['title_vi'];
-            $banner_vi->sub_title = $request['sub_title_vi'];
-            $banner_vi->link = $request['link_vi'];
-            $banner_vi->link_text = $request['link_text_vi'];
-            $banner_vi->save();
+                $banner_vi->title = $request['title_vi'];
+                $banner_vi->sub_title = $request['sub_title_vi'];
+                $banner_vi->link = $request['link_vi'];
+                $banner_vi->link_text = $request['link_text_vi'];
+                $banner_vi->save();
 
-            $banner_en = new BannerTranslations();
-            $banner_en->lang_code = 'en';
-            $banner_en->banner_id = $banner->id;
+                $banner_en = new BannerTranslations();
+                $banner_en->lang_code = 'en';
+                $banner_en->banner_id = $banner->id;
 
-            $banner_en->title = $request['title_en'];
-            $banner_en->sub_title = $request['sub_title_en'];
-            $banner_en->link = $request['link_en'];
-            $banner_en->link_text = $request['link_text_en'];
-            $banner_en->save();
+                $banner_en->title = $request['title_en'];
+                $banner_en->sub_title = $request['sub_title_en'];
+                $banner_en->link = $request['link_en'];
+                $banner_en->link_text = $request['link_text_en'];
+                $banner_en->save();
+
+            });
 
 
             return response()->json(['success' => true, 'message' => 'Add sucessfull']);
@@ -101,6 +104,8 @@ class AdminBannerController extends Controller
         if ($id == '') {
             return response()->json(['success' => false, 'message' => 'Banner need a image']);
         } else {
+
+
             $banner = Banner::find($id);
             if ($banner) {
                 $banner_vi = BannerTranslations::where('lang_code', 'vi')->where('banner_id', $id)->first();
@@ -147,32 +152,32 @@ class AdminBannerController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Banner need a image']);
         } else {
+            DB::transaction(function ()use($request) {
+                $banner = Banner::find($request['id']);
+                if ($banner == null) return response()->json(['success' => false, 'message' => 'Banner does not exist']);
+                $banner->media_ids = $request['media_ids'];
+                $banner->slug_url = $request['media_ids'];
+                $banner->save();
+                $banner_vi = BannerTranslations::where('lang_code', 'vi')->where('banner_id', $banner->id)->first();
+                $banner_vi->lang_code = 'vi';
+                $banner_vi->banner_id = $banner->id;
 
-            $banner = Banner::find($request['id']);
-            if ($banner == null) return response()->json(['success' => false, 'message' => 'Banner does not exist']);
-            $banner->media_ids = $request['media_ids'];
-            $banner->slug_url = $request['media_ids'];
-            $banner->save();
-            $banner_vi = BannerTranslations::where('lang_code','vi')->where('banner_id',$banner->id)->first();
-            $banner_vi->lang_code = 'vi';
-            $banner_vi->banner_id = $banner->id;
+                $banner_vi->title = $request['title_vi'];
+                $banner_vi->sub_title = $request['sub_title_vi'];
+                $banner_vi->link = $request['link_vi'];
+                $banner_vi->link_text = $request['link_text_vi'];
+                $banner_vi->save();
 
-            $banner_vi->title = $request['title_vi'];
-            $banner_vi->sub_title = $request['sub_title_vi'];
-            $banner_vi->link = $request['link_vi'];
-            $banner_vi->link_text = $request['link_text_vi'];
-            $banner_vi->save();
+                $banner_en = BannerTranslations::where('lang_code', 'en')->where('banner_id', $banner->id)->first();
+                $banner_en->lang_code = 'en';
+                $banner_en->banner_id = $banner->id;
 
-            $banner_en = BannerTranslations::where('lang_code','en')->where('banner_id',$banner->id)->first();
-            $banner_en->lang_code = 'en';
-            $banner_en->banner_id = $banner->id;
-
-            $banner_en->title = $request['title_en'];
-            $banner_en->sub_title = $request['sub_title_en'];
-            $banner_en->link = $request['link_en'];
-            $banner_en->link_text = $request['link_text_en'];
-            $banner_en->save();
-
+                $banner_en->title = $request['title_en'];
+                $banner_en->sub_title = $request['sub_title_en'];
+                $banner_en->link = $request['link_en'];
+                $banner_en->link_text = $request['link_text_en'];
+                $banner_en->save();
+            });
 
             return response()->json(['success' => true, 'message' => 'Edit sucessfull']);
         }

@@ -33,7 +33,8 @@ class NewsController extends Controller
         $list = News::orderBy('updated_at', 'desc')->get();
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $collection = new Collection($list);
-        $perPage = 7;
+        $perPage = 5;
+     //   dd($collection->count());
         $temp = $collection->forPage($currentPage, $perPage);
         $paginatedSearchResults = new LengthAwarePaginator($temp, count($collection), $perPage);
         $paginatedSearchResults->setPath(route('frontend.news.index'));

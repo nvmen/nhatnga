@@ -106,10 +106,11 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="form-group" style="display: none">
-                                    <label for="name_vi">Location</label>
-                                    <select class="form-control" id="location">
-
+                                <div class="form-group" >
+                                    <label for="name_vi">New Type</label>
+                                    <select class="form-control" id="cate_new">
+                                        <option value="1">Uncategorized</option>
+                                        <option value="2">Promotion</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -215,6 +216,7 @@
             var token = '{{ csrf_token() }}';
             var name_vi = $('#name_vi').val();
             var name_en = $('#name_en').val();
+            var cate_news = $('#cate_new').val();
 
             var short_des_vi = $('#short_des_vi').val();
             var short_des_en = $('#short_des_en').val();
@@ -235,7 +237,9 @@
                 location: location,
                 content_vi: content_vi,
                 content_en: content_en,
-                media_ids: media_id
+                media_ids: media_id,
+                cate_news: cate_news,
+
             }
             //  console.log('===========>',obj)
             show_spinner();

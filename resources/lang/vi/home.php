@@ -30,4 +30,5 @@ return [
     'latest_posts'=>'TIN MỚI NHẤT',
     'tour'=>'Tour du lịch',
     'work_permit_temporary_resident_card'=>'Giấy phép lao động & Thẻ tạm trú',
+    'promotion_news'=>'KHUYẾN MÃI',
 ];

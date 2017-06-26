@@ -91,30 +91,31 @@ class AdminLocationController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Please select media and name']);
         } else {
-            $location = Location::find($request['id']);
-            $slug = Str::slug($request['name_en']);
-            $count = DB::table('province')->where('slug_url', $slug)->count();
-            if ($count >= 1) {
-                $count = $count;
-                $slug = $slug . '-' . $count;
-            }
-            $location->media_ids = $request['media_ids'];
-            $location->country = $request['country'];
-            $location->is_domestic = $request['is_domestic'];
-            $location->save();
+            DB::transaction(function ()use($request) {
+                $location = Location::find($request['id']);
+                $slug = Str::slug($request['name_en']);
+                $count = DB::table('province')->where('slug_url', $slug)->count();
+                if ($count >= 1) {
+                    $count = $count;
+                    $slug = $slug . '-' . $count;
+                }
+                $location->media_ids = $request['media_ids'];
+                $location->country = $request['country'];
+                $location->is_domestic = $request['is_domestic'];
+                $location->save();
 
-            $vi = LocationTranslations::where('lang_code', 'vi')
-                 ->where('province_id', $location->id)->first();
-            $vi->name = $request['name_vi'];
-            $vi->short_description = $request['short_des_vi'];
-            $vi->save();
+                $vi = LocationTranslations::where('lang_code', 'vi')
+                    ->where('province_id', $location->id)->first();
+                $vi->name = $request['name_vi'];
+                $vi->short_description = $request['short_des_vi'];
+                $vi->save();
 
-            $en = LocationTranslations::where('lang_code', 'en')
-                ->where('province_id', $location->id)->first();
-            $en->name = $request['name_en'];
-            $en->short_description = $request['short_des_en'];
-            $en->save();
-
+                $en = LocationTranslations::where('lang_code', 'en')
+                    ->where('province_id', $location->id)->first();
+                $en->name = $request['name_en'];
+                $en->short_description = $request['short_des_en'];
+                $en->save();
+            });
             return response()->json(['success' => true, 'message' => 'Locations is updated']);
         }
     }
@@ -141,34 +142,35 @@ class AdminLocationController extends Controller
             return response()->json(['success' => false, 'message' => 'Please input media and name']);
         } else {
 
-            $slug = Str::slug($request['name_en']);
-            $count = DB::table('province')->where('slug_url', $slug)->count();
-            if ($count >= 1) {
-                $count = $count;
-                $slug = $slug . '-' . $count;
-            }
-            $locate = new Location();
-            $locate->media_ids = $request['media_ids'];
-            $locate->country = $request['country'];
-            $locate->is_domestic = $request['is_domestic'];
-            $locate->slug_url = $slug;
-            $locate->save();
+            DB::transaction(function ()use($request) {
+                $slug = Str::slug($request['name_en']);
+                $count = DB::table('province')->where('slug_url', $slug)->count();
+                if ($count >= 1) {
+                    $count = $count;
+                    $slug = $slug . '-' . $count;
+                }
+                $locate = new Location();
+                $locate->media_ids = $request['media_ids'];
+                $locate->country = $request['country'];
+                $locate->is_domestic = $request['is_domestic'];
+                $locate->slug_url = $slug;
+                $locate->save();
 
-            $vi = new LocationTranslations();
-            $vi->lang_code = 'vi';
-            $vi->province_id= $locate->id;
-            $vi->name = $request['name_vi'];
-            $vi->short_description = $request['short_des_vi'];
-            $vi->save();
+                $vi = new LocationTranslations();
+                $vi->lang_code = 'vi';
+                $vi->province_id = $locate->id;
+                $vi->name = $request['name_vi'];
+                $vi->short_description = $request['short_des_vi'];
+                $vi->save();
 
-            $en = new LocationTranslations();
-            $en->lang_code = 'en';
-            $en->province_id= $locate->id;
-            $en->name = $request['name_en'];
-            $en->short_description = $request['short_des_en'];
-            $en->save();
+                $en = new LocationTranslations();
+                $en->lang_code = 'en';
+                $en->province_id = $locate->id;
+                $en->name = $request['name_en'];
+                $en->short_description = $request['short_des_en'];
+                $en->save();
 
-
+            });
 
             return response()->json(['success' => true, 'message' => 'Location is added']);
         }

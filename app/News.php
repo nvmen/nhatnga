@@ -16,7 +16,7 @@ class News extends Model
 {
     protected $table = 'news';
     protected $fillable = [
-        'id', 'slug_url','media_ids','updated_at'
+        'id', 'slug_url','media_ids','updated_at','new_cate_id'
 
     ];
     public function translation($language = null)

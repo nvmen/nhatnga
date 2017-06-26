@@ -17,5 +17,9 @@ class NewsCateTableSeeder extends Seeder
             'id' => 1,
             'slug_url' => 'uncategorized',
         ]);
+        DB::table('news_category')->insert([
+            'id' => 2,
+            'slug_url' => 'promotion',
+        ]);
     }
 }

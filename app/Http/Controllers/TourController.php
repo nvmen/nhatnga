@@ -262,7 +262,51 @@ class TourController extends Controller
 
     public function shorttour(Request $request)
     {
-        return view('frontend.pages.tour.shorttour');
+
+        $tour_name = $request['tour_name'];
+        $tour_type = $request['tour_type'];
+        $destination = $request['destination'];
+        $tour_result = collect();
+        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type', 2)->get(); //long tour =1
+
+        if ($destination != 0) {
+
+            $tours = $tours->where('destination', $destination);
+        }
+        if ($tour_type != 0) {
+            $tours = $tours->where('tour_type', $tour_type);
+        }
+        if ($tour_name != '') {
+
+            foreach ($tours as $tour) {
+                $name = $tour->translation()->first()->name;
+                $pos = strpos($name, $tour_name);
+                if ($pos !== false) {
+                    $tour_result->push($tour);
+                } else {
+                    $pos = strpos($tour->code, $tour_name);
+                    if ($pos !== false) {
+                        $tour_result->push($tour);
+                    }
+                }
+
+            }
+            $tours = $tour_result;
+        }
+
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = $this->page_number;
+        $temp = $tours->forPage($currentPage, $perPage);
+        $paginatedSearchResults = new LengthAwarePaginator($temp, count($tours), $perPage);
+        $paginatedSearchResults->appends(['tour_name' => $request['tour_name']]);
+        $paginatedSearchResults->appends(['destination' => $request['destination']]);
+        $paginatedSearchResults->appends(['tour_type' => $request['tour_type']]);
+        $paginatedSearchResults->setPath(route('frontend.tour.domestic.longtour'));
+        $locations = Location::where('is_domestic', 1)->get();
+        
+        return view('frontend.pages.tour.shorttour', ['locations' => $locations, 'list_tour' => $paginatedSearchResults]);
+       
     }
 
     public function enquiry(Request $request)
@@ -596,6 +640,46 @@ class TourController extends Controller
         $paginatedSearchResults->appends(['destination' => $request['destination']]);
         $paginatedSearchResults->appends(['tour_type' => 1]);
         $paginatedSearchResults->setPath(route('frontend.tour.domestic.longtour'));
+        return view('partials.tour_item', ['list_tour' => $paginatedSearchResults]);
+    }
+    public function ajax_search_domestic_shorttour(Request $request)
+    {
+        $tour_name = $request['tour_name'];
+        $tour_type = $request['tour_type'];
+        $destination = $request['destination'];
+        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type',2)->get();
+        $tour_result = collect();
+        if ($destination != 0) {
+            $tours = $tours->where('destination', $destination);
+        }
+        if ($tour_name != '') {
+
+            foreach ($tours as $tour) {
+                $name = $tour->translation()->first()->name;
+                $name = Helper::stripVN($name);
+                $tour_name = Helper::stripVN($tour_name);
+                $pos = strpos(strtoupper($name), strtoupper($tour_name));
+                if ($pos !== false) {
+                    $tour_result->push($tour);
+                } else {
+                    $pos = strpos(strtoupper($tour->code), strtoupper($tour_name));
+                    if ($pos !== false) {
+                        $tour_result->push($tour);
+                    }
+                }
+            }
+            $tours = $tour_result;
+        }
+
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = $this->page_number;
+        $temp = $tours->forPage($currentPage, $perPage);
+        $paginatedSearchResults = new LengthAwarePaginator($temp, count($tours), $perPage);
+        $paginatedSearchResults->appends(['tour_name' => $request['tour_name']]);
+        $paginatedSearchResults->appends(['destination' => $request['destination']]);
+        $paginatedSearchResults->appends(['tour_type' => 1]);
+        $paginatedSearchResults->setPath(route('frontend.tour.domestic.shorttour'));
         return view('partials.tour_item', ['list_tour' => $paginatedSearchResults]);
     }
 }
