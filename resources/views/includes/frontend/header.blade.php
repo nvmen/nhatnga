@@ -133,7 +133,7 @@
                         <a href="{{route('frontend.home.index')}}">{{@__('nhatnga_menu.home')}}</a>
                     </li>
                     <li class="{{App\Helper::activeMenu('about')}}"><a href="{{route('frontend.home.about')}}">{{__('nhatnga_menu.about')}}</a></li>
-                    <li class="menu-item-has-children">
+                    <li class="menu-item-has-children {{App\Helper::activeMenu('tour')}}">
                         <a href="{{route('frontend.tour.index')}}">Tours</a>
                         <ul class="sub-menu">
                             <li>
@@ -157,7 +157,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item-has-children">
+                    <li class="menu-item-has-children {{App\Helper::activeMenu('service')}}">
                         <a href="javascript:void(0)">{{__('nhatnga_menu.services')}}</a>
                         <ul class="sub-menu">
                             <li><a href="{{route('frontend.services.visa')}}">VISA</a>

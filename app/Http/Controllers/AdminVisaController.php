@@ -74,9 +74,11 @@ class AdminVisaController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Visa need a image and name not empty']);
         } else {
-            $slug = Str::slug($request['name_en']);
-            $count = DB::table('visa')->where('slug_url', $slug)->count();
+
+
             DB::transaction(function ()use($request) {
+                $slug = Str::slug($request['name_en']);
+                $count = DB::table('visa')->where('slug_url', $slug)->count();
                 if ($count >= 1) {
                     $count = $count;
                     $slug = $slug . '-' . $count;

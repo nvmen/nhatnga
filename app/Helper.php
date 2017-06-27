@@ -174,7 +174,48 @@ class Helper extends Model
                 break;
             }
             case 'news':{
-                if(Request::route()->getPrefix()=='news'){
+                if(Request::route()->getName()=='frontend.news.index'||Request::route()->getName()=='frontend.news.detail'){
+                    return (' current-menu-parent current-menu-ancestor');
+                }
+                break;
+            }
+            case 'contact':{
+                if(Request::route()->getName()=='frontend.home.contact'){
+                    return (' current-menu-parent current-menu-ancestor');
+                }
+                break;
+            }
+            case 'tour':{
+                if(Request::route()->getName()=='frontend.tour.index'||
+                   Request::route()->getName()=='frontend.tour.international'||
+                   Request::route()->getName()=='frontend.tour.domestic'||
+                   Request::route()->getName()=='frontend.tour.domestic.longtour'||
+                   Request::route()->getName()=='frontend.tour.domestic.shorttour'||
+                   Request::route()->getName()=='frontend.tour.domestic.foodtour'||
+                   Request::route()->getName()=='frontend.tour.detail'
+
+                ){
+                    return (' current-menu-parent current-menu-ancestor');
+                }
+                break;
+            }
+            case 'service':{
+                if(Request::route()->getName()=='frontend.services.translation'||
+                   Request::route()->getName()=='frontend.services.apeccard'||
+                   Request::route()->getName()=='frontend.services.workpermit'||
+                   Request::route()->getName()=='frontend.services.airlineticket'||
+                   Request::route()->getName()=='frontend.services.visavietnam'||
+                   Request::route()->getName()=='frontend.services.others'||
+                   Request::route()->getName()=='frontend.services.visa'||
+                   Request::route()->getName()=='frontend.visa.europe'||
+                   Request::route()->getName()=='frontend.visa.asia'||
+                   Request::route()->getName()=='frontend.visa.america'||
+                   Request::route()->getName()=='frontend.visa.africa'||
+                   Request::route()->getName()=='frontend.visa.australia'||
+                   Request::route()->getName()=='frontend.visa.vietnam'||
+                   Request::route()->getName()=='frontend.visa.detail'
+
+                ){
                     return (' current-menu-parent current-menu-ancestor');
                 }
                 break;

@@ -20,6 +20,3 @@
 <script src=" {{URL::asset('js/libs/jquery.nimble.loader.js')}}"></script>
 
 <script src=" {{URL::asset('assets/selectize/js/standalone/selectize.min.js')}}"></script>
-
-
-<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://travelwp.physcode.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->

@@ -31,18 +31,17 @@
                                     <form method="get" action="" id ='search-tour'>
                                         <input type="hidden" name="tour_search" value="1">
                                         <input type="text" placeholder="{{__('nhatnga_menu.search')}}" value="" id="name_tour" name="name_tour">
-                                        <select name="tour_type" id="tour_type" class="form-control" style="display:none" >
-                                            <option value="0" selected>{{__('nhatnga_menu.all')}}</option>
-                                            <option value="1" >{{__('nhatnga_menu.long_travel')}}</option>
-                                            <option value="2">{{__('nhatnga_menu.short_travel')}}</option>
-                                            <option value="3">{{__('nhatnga_menu.food_travel')}}</option>
+                                        <select name="food_location" id="food_location" class="form-control">
+                                            <option value="4" selected>{{__('nhatnga_menu.all')}}</option>
+                                            <option value="1" >{{__('nhatnga_menu.north_vietnam')}}</option>
+                                            <option value="2">{{__('nhatnga_menu.middle_vietnam')}}</option>
+                                            <option value="3">{{__('nhatnga_menu.south_vietnam')}}</option>
 
                                         </select>
-                                        <select name="destination" id="destination" class="form-control">
-                                            <option value="0">{{__('tour.destination')}}</option>
-                                            @foreach($locations as $location)
-                                                <option value="{{$location->id}}">{{$location->translation()->first()->name}}</option>
-                                            @endforeach
+                                        <select name="food_type" id="food_type" class="form-control">
+                                            <option value="0">{{__('nhatnga_menu.all')}}</option>
+                                            <option value="1">{{__('nhatnga_menu.eat_meat')}}</option>
+                                            <option value="2">{{__('nhatnga_menu.vegetarian_meals')}}</option>
 
                                         </select>
                                         <button id="submit_from" type="submit">{{__('tour.find_tour')}}</button>
@@ -66,14 +65,14 @@
             $("#search-tour").submit(function () {
                 show_spinner();
                 var tour_name =$('#name_tour').val();
-                var tour_type =$('#tour_type').val();
-                var destination =$('#destination').val();
+                var food_type =$('#food_type').val();
+                var food_location =$('#food_location').val();
                 var url ='{{route('frontend.tour.ajax_search_domestic_foodtour')}}';
                 var obj ={
                     _token:'{{ csrf_token() }}',
                     tour_name:tour_name,
-                    tour_type:tour_type,
-                    destination:destination,
+                    food_type:food_type,
+                    food_location:food_location,
                 }
                 $.get(url, obj)
                         .done(function (data) {

@@ -1579,7 +1579,9 @@ input[type=radio]:checked:before {
 	margin-bottom: 30px;
 	overflow:      hidden;
 }
-
+.inner-special-tours .item_price .price {
+	background: #26bdf7 !important;
+}
 .wrapper-special-tours .inner-special-tours > a {
 	display:  block;
 	position: relative;
@@ -7870,8 +7872,11 @@ input[type=radio]:checked:before {
 		display:        inline-block;
 		vertical-align: middle;
 		padding:        9px 25px;
+		margin-top: 16px !important;
 	}
-
+	#map_canvas {
+		min-height: 240px !important;;
+	}
 	.header_v1 .wrapper-logo {
 		display: none;
 	}

@@ -42,5 +42,10 @@ return [
     'view_more'=>'VIEW MORE',
     'all'=>'All',
     'search'=>'Search',
+    'north_vietnam'=>'North Vietnam',
+    'middle_vietnam'=>'Middle Vietnam',
+    'south_vietnam'=>'South Vietnam',
+    'eat_meat'=>'Eat meat',
+    'vegetarian_meals'=>'Vegetarian meals',
 
 ];

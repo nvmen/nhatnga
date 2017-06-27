@@ -534,7 +534,8 @@ h6 {
 }
 
 .widget-area .search_tour button {
-	background: #26bdf7;
+	
+	background: #26bdf7 !important;
 }
 
 .widget-area .search_tour button:hover {

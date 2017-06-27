@@ -41,5 +41,11 @@ return [
     'view_more'=>'XEM THÊM',
     'all'=>'Tất cả',
     'search'=>'Tìm kiếm',
+    'regions'=>'Vùng miền',
+    'north_vietnam'=>'Miền Bắc',
+    'middle_vietnam'=>'Miền Trung',
+    'south_vietnam'=>'Miền Nam',
+    'eat_meat'=>'Thức ăn mặn',
+    'vegetarian_meals'=>'Thức ăn chay',
 
 ];

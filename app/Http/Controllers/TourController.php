@@ -348,9 +348,9 @@ class TourController extends Controller
         $paginatedSearchResults->appends(['tour_type' => $request['tour_type']]);
         $paginatedSearchResults->setPath(route('frontend.tour.domestic.shorttour'));
         $locations = Location::where('is_domestic', 1)->get();
-        
+
         return view('frontend.pages.tour.shorttour', ['locations' => $locations, 'list_tour' => $paginatedSearchResults]);
-       
+
     }
 
     public function enquiry(Request $request)
@@ -649,7 +649,7 @@ class TourController extends Controller
         $tour_name = $request['tour_name'];
         $tour_type = $request['tour_type'];
         $destination = $request['destination'];
-        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type',1)->get();
+        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type', 1)->get();
         $tour_result = collect();
         if ($destination != 0) {
 
@@ -686,12 +686,13 @@ class TourController extends Controller
         $paginatedSearchResults->setPath(route('frontend.tour.domestic.longtour'));
         return view('partials.tour_item', ['list_tour' => $paginatedSearchResults]);
     }
+
     public function ajax_search_domestic_shorttour(Request $request)
     {
         $tour_name = $request['tour_name'];
         $tour_type = $request['tour_type'];
         $destination = $request['destination'];
-        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type',2)->get();
+        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type', 2)->get();
         $tour_result = collect();
         if ($destination != 0) {
             $tours = $tours->where('destination', $destination);
@@ -726,12 +727,21 @@ class TourController extends Controller
         $paginatedSearchResults->setPath(route('frontend.tour.domestic.shorttour'));
         return view('partials.tour_item', ['list_tour' => $paginatedSearchResults]);
     }
+
     public function ajax_search_domestic_foodtour(Request $request)
     {
         $tour_name = $request['tour_name'];
-        $tour_type = $request['tour_type'];
+        $food_type = $request['food_type'];
+        $food_location = $request['food_location'];
         $destination = $request['destination'];
-        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type',3)->get();
+        $tours = Tour::where('is_outbound', '<>', 1)->where('tour_type', 3)->get();
+        if ($food_location != 4) {
+            $tours = $tours->where('food_location', $food_location);
+        }
+        if ($food_type != 0) {
+            $tours = $tours->where('food_type', $food_type);
+        }
+
         $tour_result = collect();
         if ($destination != 0) {
             $tours = $tours->where('destination', $destination);
