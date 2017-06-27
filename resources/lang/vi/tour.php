@@ -32,7 +32,7 @@ return [
     'your_name'=>'Họ tên*',
     'booking_now'=>'Đặt ngay',
     'send_message_reason'=>'Gửi cho chúng tôi bạn muốn tìm kiếm tour gì',
-    'or'=>'Hơặc',
+    'or'=>'Hoặc',
     'search_tour'=>'Tìm Kiếm Tour',
     'find_tour_today'=>'Tìm tour hôm nay!!',
     'destination'=>'Điểm đến',

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Nhat Nga</a>
+        <a class="navbar-brand" href="{{route('backend.home.index')}}">Nhat Nga</a>
     </div>
     <!-- Top Menu Items -->
     <
@@ -102,7 +102,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{Auth::User()->full_name}} <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    <a href="#" data-toggle="modal" data-target="#changePass"><i class="fa fa-fw fa-user"></i> Change Password</a>
                 </li>
 
                 <li class="divider"></li>
@@ -143,9 +143,10 @@
             <li>
                 <a href="{{route('backend.news.index')}}"><i class="fa fa-fw fa-table"></i> News</a>
             </li>
-            <li>
+           <!-- <li>
                 <a href="{{route('backend.booking.index')}}"><i class="fa fa-fw fa-table"></i> Booking</a>
             </li>
+            -->
 
             <li>
                 <a href="{{route('backend.location.index')}}"><i class="fa fa-fw fa-edit"></i>Locations </a>
@@ -154,3 +155,37 @@
     </div>
     <!-- /.navbar-collapse -->
 </nav>
+<!-- Modal -->
+<div id="changePass" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                    <div class="form-group">
+                        <label for="key" class="sr-only">Current Password</label>
+                        <input type="password" name="current" id="current" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="key" class="sr-only">Password</label>
+                        <input type="password" name="newpass" id="newpass" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="key" class="sr-only">Password</label>
+                        <input type="password" name="confirm_newpass" id="confirm_newpass" class="form-control" placeholder="Password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default">Save</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -249,7 +249,7 @@
                             $('#add').modal('hide');
                             $.notify("Add successful", "success");
                             setTimeout(function () {
-                                        location.reload();
+                                        window.location.reload(false);
                                     }
                                     , 500);
 
