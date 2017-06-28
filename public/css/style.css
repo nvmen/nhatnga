@@ -4584,6 +4584,10 @@ input[type=radio]:checked:before {
 	line-height: 1;
 }
 
+.site-header .navbar-nav > li.hide-lang {
+	display:none;
+	height: 30px;
+}
 .sticky_header {
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition:    all 0.4s ease-in-out;
@@ -8051,7 +8055,9 @@ input[type=radio]:checked:before {
 	}
 
 }
-
+.hide-lang span{
+	padding-left: 10px;
+}
 @media (max-width: 767px) {
 	.border-below {
 		padding: 10px 0 30px 0;
@@ -8073,7 +8079,14 @@ input[type=radio]:checked:before {
 	.header_top_bar {
 		display: none;
 	}
-
+	.site-header .navbar-nav > li.hide-lang {
+		display:block;
+	}
+	.nav>li.hide-lang>a>img {
+		display:block !important;
+		float: left;
+		margin-top: 5px;
+	}
 	.wrapper-tours-slider {
 		margin: 0 -10px;
 	}

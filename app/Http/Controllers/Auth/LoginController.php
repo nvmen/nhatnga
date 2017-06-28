@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\HistoryLogin;
-
+use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     /*
@@ -53,7 +53,6 @@ class LoginController extends Controller
     }
     public function doLogin(Request $request)
     {
-
 
         $data = $request->all();
         $remember = false;
@@ -104,5 +103,32 @@ class LoginController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
         return redirect('/');
+    }
+    public function change_password(Request $request)
+    {
+        $rules = array(
+            'current_password' => 'required',
+            'new_password' => 'required|min:7',
+            'confirm_new_password' => 'required|min:7',
+        );
+        $data = $request->all();
+        $validator = Validator::make($data, $rules);
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'New password, old password are required.']);
+        }
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        $old_password = $request['current_password'];
+        $new_password = $request['new_password'];
+        $confirm_new_password = $request['confirm_new_password'];
+        if ($new_password != $confirm_new_password) {
+            return response()->json(['success' => false, 'message' => 'New password and confirm password does not match.']);
+        }
+        if (!Hash::check($old_password, $user->password)) {
+            return response()->json(['success' => false, 'message' => 'Current password does not correct.']);
+        }
+        $password = Hash::make($new_password);
+        $user->update(['password' => $password]);
+        return response()->json(['success' => true, 'message' => 'Change password successful.']);
     }
 }

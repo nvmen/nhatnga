@@ -21,17 +21,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <img src="images/home/slider-2.jpg" alt="Home Slider 2">
-                    <div class="carousel-caption content-slider">
-                        <div class="container">
-                            <h2>WONDERFUL BLUE BEACH </h2>
-                            <p>Template based on deep research on the most popular travel booking websites such as
-                                booking, tripadvisor, yahoo travel </p>
-                            <p><a href="tours.html" class="btn btn-slider">VIEW TOURS </a></p>
+
+                @foreach($banners as $banner)
+                    <div class="item">
+                        <img src="images/home/slider-2.jpg" alt="{{$banner->translation()->first()->title}}">
+                        <div class="carousel-caption content-slider">
+                            <div class="container">
+                                <h2>{{$banner->translation()->first()->title}} </h2>
+                                <p>{{$banner->translation()->first()->sub_title}} </p>
+                                <p><a href="{{$banner->translation()->first()->link}}" class="btn btn-slider">{{$banner->translation()->first()->text_link}} </a></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
+
             </div>
             <!-- Controls -->
             <a class="carousel-control-left" href="index.htm#home-page-slider-image" data-slide="prev">

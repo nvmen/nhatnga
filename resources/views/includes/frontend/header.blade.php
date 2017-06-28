@@ -209,6 +209,25 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="hide-lang">
+
+                            <a  onclick="change_lang('vi')" class="@if(Config::get('app.locale')=='vi') active-lang  @endif">
+                                    <img src="{{ URL::asset('images/flag/vi.png') }}" alt="Logo" width="18"
+                                         height="12"
+                                         class="logo_transparent_static">
+                                <span> Tiếng việt<span>
+                            </a>
+                    </li>
+
+
+                    </li>
+                    <li class="hidden-info hide-lang">
+                        <a  onclick="change_lang('en')" class="@if(Config::get('app.locale')=='en') active-lang  @endif">
+                            <img src="{{ URL::asset('images/flag/en.png') }}" alt="Logo" width="18"
+                                 height="12"
+                                 class="logo_transparent_static"><span>English</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

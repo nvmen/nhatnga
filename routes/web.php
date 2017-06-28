@@ -18,6 +18,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('/', ['uses' => 'Auth\LoginController@getLoginView', 'as' => 'user.login']);
     Route::post('/login', ['uses' => 'Auth\LoginController@doLogin', 'as' => 'user.login.post']);
     Route::get('/logout', ['uses' => 'Auth\LoginController@logout', 'as' => 'user.logout']);
+    Route::post('/change-password', ['uses' => 'Auth\LoginController@change_password', 'as' => 'user.change.password']);
 });
 
 Route::group(
@@ -27,7 +28,7 @@ Route::group(
     ],
     function () {
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-
+        Route::get('/login', ['uses' => 'Auth\LoginController@doLogin', 'as' => 'user.login']);
         Route::get('/error', ['uses' => 'ErrorController@index', 'as' => 'frontend.error.index']);
 
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'frontend.home.index']);

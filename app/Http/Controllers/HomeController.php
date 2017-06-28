@@ -15,7 +15,7 @@ use App;
 use Mail;
 use App\News;
 use App\Tour;
-
+use App\Banner;
 class HomeController extends Controller
 {
     public function __construct()
@@ -35,13 +35,17 @@ class HomeController extends Controller
          //   echo "It's English!";
 
         }
+        // get image
+        // get 3 post of promotion
+        $banners = Banner::all();
         $news_list = News::where('new_cate_id',2)->orderBy('updated_at', 'desc')->take(3)->get();
         $tour_discount = Tour::where('discount_percent','!=' , 0)->take(6)->get();
         $tour_popular = Tour::where('is_popular','=' , 1)->take(6)->get();
 
         return view('frontend.pages.home.index',['latest_news'=>$news_list,
             'tour_discount'=>$tour_discount,
-            'tour_popular'=>$tour_popular
+            'tour_popular'=>$tour_popular,
+            'banners'=>$banners
             ]);
     }
     public function contact(Request $request)

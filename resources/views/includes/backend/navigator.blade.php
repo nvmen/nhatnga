@@ -173,19 +173,60 @@
                     </div>
                     <div class="form-group">
                         <label for="key" class="sr-only">Password</label>
-                        <input type="password" name="newpass" id="newpass" class="form-control" placeholder="Password">
+                        <input type="password" name="newpass" id="newpass" class="form-control" placeholder="New Password">
                     </div>
                     <div class="form-group">
-                        <label for="key" class="sr-only">Password</label>
-                        <input type="password" name="confirm_newpass" id="confirm_newpass" class="form-control" placeholder="Password">
+                        <label for="key" class="sr-only">Confirm Password</label>
+                        <input type="password" name="confirm_newpass" id="confirm_newpass" class="form-control" placeholder="Confirm Password">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-default">Save</button>
+                <button type="button" onclick="changePassword()" class="btn btn-success">Save</button>
             </div>
         </div>
 
     </div>
 </div>
+<script>
+    function changePassword(){
+
+        debugger;
+        var current = $('#current').val();
+        var newpass = $('#newpass').val();
+        var confirm_newpass = $('#confirm_newpass').val();
+        if (current.trim()==''){
+
+            $('#current').notify("Current password does not empty", "error");
+            return;
+        }
+        if (newpass.trim()==''|| newpass.length< 7){
+
+            $('#newpass').notify("New password does not empty min length is 7 characters", "error");
+            return;
+        }
+        if (newpass.trim()!=confirm_newpass){
+            $('#confirm_newpass').notify("Confirm password does not match", "error");
+            return;
+        }
+        var url ='{{route('user.change.password')}}';
+
+        var obj = {
+            current_password: current,
+            new_password: newpass,
+            confirm_new_password: confirm_newpass
+        };
+        $.post(url, obj)
+                .done(function (data) {
+                    hide_spinner();
+                    if (data.success == true) {
+
+                        $.notify("Change password successful", "success");
+                        $('#changePass').modal('hide');
+                    } else {
+                        $.notify(data.message, "error");
+                    }
+                });
+    }
+</script>
