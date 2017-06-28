@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
     @include('includes.frontend.head')
+
 </head>
 <body >
 <div class="wrapper-container">

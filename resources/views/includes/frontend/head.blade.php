@@ -1,6 +1,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@yield('pageTitle') | Nhat Nga</title>
+@php
+$content_seo = __('nhatnga_menu.seo_link');
+if(isset($seo_data)){
+$content_seo = $seo_data;
+}
+@endphp
+<meta name="description" content="{{$content_seo}}">
+<title>@yield('pageTitle') | {{__('nhatnga_menu.seo_link')}}</title>
 <link rel="stylesheet" href="{{ URL::asset('css/googleapis.css') }}">
 <link rel="stylesheet" href=" {{ URL::asset('assets/css/bootstrap.min.css') }}" type="text/css" media="all">
 <link href="{{ URL::asset('assets/selectize/css/selectize.css') }} " rel="stylesheet" type="text/css">
@@ -18,5 +25,8 @@
 <script type='text/javascript' src=' {{ URL::asset('assets/js/jquery-3.2.1.min.js') }}'></script>
 <script src=" {{URL::asset('js/libs/notify.min.js')}}"></script>
 <script src=" {{URL::asset('js/libs/jquery.nimble.loader.js')}}"></script>
+
+
+
 
 <script src=" {{URL::asset('assets/selectize/js/standalone/selectize.min.js')}}"></script>

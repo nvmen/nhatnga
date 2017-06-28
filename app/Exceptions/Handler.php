@@ -45,8 +45,6 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
 
-        return parent::render($request, $exception);
-/*
         if($this->isHttpException($exception))
         {
             switch ($exception->getStatusCode())
@@ -54,13 +52,13 @@ class Handler extends ExceptionHandler
                 // not found
                 case 404:
                     return response()->view('error.frontend.404', [], 404);
-                    return redirect()->guest('home');
+                   // return redirect()->guest('home');
                     break;
 
                 // internal error
                 case '500':
                     return response()->view('error.frontend.404', [], 404);
-                    return redirect()->guest('home');
+                   // return redirect()->guest('home');
                     break;
 
                 default:
@@ -71,7 +69,7 @@ class Handler extends ExceptionHandler
         else
         {
             return parent::render($request, $exception);
-        }*/
+        }
     }
 
     /**

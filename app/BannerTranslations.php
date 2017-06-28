@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App;
 use Illuminate\Database\Eloquent\Model;
 
 class BannerTranslations extends Model
@@ -14,7 +14,7 @@ class BannerTranslations extends Model
         'title',
         'sub_title',
         'link',
-        'text_link'
+        'link_text'
 
     ];
     public function banner()

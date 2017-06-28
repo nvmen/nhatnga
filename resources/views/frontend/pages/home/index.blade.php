@@ -1,7 +1,9 @@
 @extends('layouts.frontend')
 @section('pageTitle', 'Home')
 @section('content')
-
+    @php
+     $index =0;
+    @endphp
     <div class="home-content" role="main">
         <div class="top_site_main">
 
@@ -10,33 +12,25 @@
         <div id="home-page-slider-image" class="carousel slide" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="images/home/slider.jpg" alt="Home Slider 1">
-                    <div class="carousel-caption content-slider">
-                        <div class="container">
-                            <h2>WONDERFUL BLUE BEACH </h2>
-                            <p>Template based on deep research on the most popular travel booking websites such as
-                                booking, tripadvisor, yahoo travel </p>
-                            <p><a href="tours.html" class="btn btn-slider">VIEW TOURS </a></p>
-                        </div>
-                    </div>
-                </div>
-
                 @foreach($banners as $banner)
-                    <div class="item">
+                    <div class="item @if($index==0) active @endif">
                         <img src="images/home/slider-2.jpg" alt="{{$banner->translation()->first()->title}}">
                         <div class="carousel-caption content-slider">
                             <div class="container">
                                 <h2>{{$banner->translation()->first()->title}} </h2>
-                                <p>{{$banner->translation()->first()->sub_title}} </p>
-                                <p><a href="{{$banner->translation()->first()->link}}" class="btn btn-slider">{{$banner->translation()->first()->text_link}} </a></p>
+                                <p>{{$banner->translation()->first()->sub_title}}</p>
+                                <p><a href="{{$banner->translation()->first()->link}}" class="btn btn-slider">{{$banner->translation()->first()->link_text}} </a></p>
                             </div>
                         </div>
                     </div>
+                    @php
+                    $index =1;
+                    @endphp
                 @endforeach
 
 
             </div>
+
             <!-- Controls -->
             <a class="carousel-control-left" href="index.htm#home-page-slider-image" data-slide="prev">
                 <i class="lnr lnr-chevron-left"></i>

@@ -1,5 +1,11 @@
 @extends('layouts.frontend')
-@section('pageTitle', 'Services')
+@section('pageTitle',$cate->name)
+@php
+$seo_data ="VISA ". $cate->name;
+if(isset($seo_data)){
+$content_seo = $seo_data;
+}
+@endphp
 @section('content')
     <div class="site wrapper-content">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">

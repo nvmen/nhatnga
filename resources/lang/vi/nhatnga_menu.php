@@ -47,5 +47,8 @@ return [
     'south_vietnam'=>'Miền Nam',
     'eat_meat'=>'Thức ăn mặn',
     'vegetarian_meals'=>'Thức ăn chay',
+    'seo_link'=>'Nhất Nga cung cấp dịch vụ VISA, Tour du lịch, giấy phép lao động, thẻ tạm trú, Dịch thuật - Công chứng',
+    'you_have_question'=>'Bạn Có Thắc Mắc?',
+    'call_us'=>'Gọi ngay'
 
 ];

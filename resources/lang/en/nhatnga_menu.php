@@ -47,5 +47,9 @@ return [
     'south_vietnam'=>'South Vietnam',
     'eat_meat'=>'Eat meat',
     'vegetarian_meals'=>'Vegetarian meals',
+    'seo_link'=>'Nhat Nga services VISA,Tour, Work permit, Temporary Resident Card, Translation - Notarization',
+    'you_have_question'=>'Do You Have Any Questions?',
+    'call_us'=>'Call Now'
+
 
 ];
