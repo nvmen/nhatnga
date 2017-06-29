@@ -1,7 +1,12 @@
 @extends('layouts.frontend')
-@section('pageTitle', 'Services')
+@section('pageTitle', $visa->translation()->first()->name)
 @section('content')
-
+<style>
+    .wpb_wrapper ul, ol {
+        padding: 0;
+        margin: 0;
+    }
+</style>
     <div class="site wrapper-content">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">
             <div class="banner-wrapper container article_heading">
@@ -19,9 +24,8 @@
         <section class="content-area">
             <div class="container">
                 <div class="row">
-                    <div class="site-main col-sm-9 alignleft" id ="main-content">
+                    <div class="site-main col-sm-9 alignleft wpb_wrapper" id ="main-content">
                         {!! $visa->translation()->first()->content !!}
-
                     </div>
                     <div class="widget-area col-sm-3 align-left">
                         @include('frontend.common.leftbar')
@@ -38,3 +42,4 @@
         });
     </script>
 @stop
+
