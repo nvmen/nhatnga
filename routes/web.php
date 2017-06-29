@@ -77,6 +77,7 @@ Route::group(
             Route::get('/australia', ['uses' => 'VISAController@australia', 'as' => 'frontend.visa.australia']);
             Route::get('/vietnam', ['uses' => 'VISAController@vietnam', 'as' => 'frontend.visa.vietnam']);
             Route::get('/detail/{slug}', ['uses' => 'VISAController@detail', 'as' => 'frontend.visa.detail']);
+            Route::get('/test', ['uses' => 'VISAController@test', 'as' => 'frontend.visa.test']);
         });
 
         Route::group(['prefix' => 'services'], function () {

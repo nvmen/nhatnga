@@ -79,5 +79,11 @@ class VISAController extends Controller
         $cate_translation = VisaCategory::find($visa->visa_cate_id)->translation()->first();
         return view('frontend.pages.visa.detail',['visa'=>$visa,'cate'=>$cate_translation]);
     }
+    public function test()
+    {
+
+        return view('frontend.pages.visa.template');
+    }
+
 
 }

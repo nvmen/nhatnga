@@ -189,7 +189,7 @@
                     </li>
                     <li class="{{App\Helper::activeMenu('news')}}"><a href="{{route('frontend.news.index')}}">{{@__('nhatnga_menu.news')}}</a></li>
                     <li  class="{{App\Helper::activeMenu('contact')}}"><a href="{{route('frontend.home.contact')}}">{{@__('nhatnga_menu.contact')}}</a></li>
-                    <li class="menu-right">
+                    <li class="menu-right display-search">
                         <ul>
                             <li id="travel_social_widget-2" class="widget travel_search">
                                 <div class="search-toggler-unit">
