@@ -16,6 +16,7 @@ $content_seo = $seo_data;
 <link rel="stylesheet" href="{{ URL::asset('assets/css/flaticon.css') }}" type="text/css" media="all">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/font-linearicons.css') }}" type="text/css" media="all">
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" type="text/css" media="all">
+<link rel="stylesheet" href="{{ URL::asset('css/custom-style.css') }}" type="text/css" media="all">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/travel-setting.css') }}" type="text/css" media="all">
 <link rel="stylesheet" href="{{ URL::asset('assets/animate/css/animations.css') }}" type="text/css" media="all">
 

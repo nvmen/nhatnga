@@ -20,51 +20,57 @@
             <div class="container">
                 <div class="row">
                     <div class="site-main col-sm-9 alignleft" id="main-content">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6">
-                                <img src="https://image.ibb.co/bXSgv5/thailand.jpg">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="wpb_wrapper">
-                                    <ul>
-                                        <li><strong>Đại sứ quán Thái Lan&nbsp;tại Việt Nam</strong><br>
-                                            Địa chỉ: 63-65 Hoàng Diệu, Hà Nội, Việt Nam.
-                                        </li>
-                                        <li><strong>Lãnh&nbsp;sự quán Thái Lan tại&nbsp;TP.&nbsp;Hồ Chí Minh</strong>
-                                            <br>
-                                            Địa chỉ: Số&nbsp;77 Trần Quốc Thảo, Q3, TP.Hồ Chí Minh.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div id="tmhtmlcontent_topColumn">
+                            <ul class=" clearfix row">
+                                <li class="tmhtmlcontent-item-1 col-xs-4 ">
+                                    <a href="index.php?id_category=20&amp;controller=category" class="item-link" title="">
+                                        <img src="https://ld-prestashop.template-help.com/prestashop_60010/modules/tmhtmlcontent/img/0353e7c53eb9a2cf7e33233387fba5f7dfcb8f44_banner-img-1.jpg" class="item-img img-responsive" title="" alt="" width="471" height="300">
+                                        <div class="item-html">
+                                            <h3>Award-Winning</h3>
+                                            <h2>Flowers</h2>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="tmhtmlcontent-item-2 col-xs-4 ">
+                                    <a href="index.php?id_category=21&amp;controller=category" class="item-link" title="">
+                                        <img src="https://ld-prestashop.template-help.com/prestashop_60010/modules/tmhtmlcontent/img/13d3a7b1e3ab3cf3056fdfea25c3bd665b01f722_banner-img-2.jpg" class="item-img img-responsive" title="" alt="" width="471" height="300">
+                                        <div class="item-html">
+                                            <h3>Great selection of beautiful</h3>
+                                            <h2>indoor plants</h2>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="tmhtmlcontent-item-3 col-xs-4 ">
+                                    <a href="index.php?id_category=16&amp;controller=category" class="item-link" title="">
+                                        <img src="https://ld-prestashop.template-help.com/prestashop_60010/modules/tmhtmlcontent/img/fea2031622392697095b259681e64bcc755691ff_banner-img-3.jpg" class="item-img img-responsive" title="" alt="" width="471" height="300">
+                                        <div class="item-html">
+                                            <h3>gift bags make perfect presents</h3>
+                                            <h2>FLOWER GIFTS</h2>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="tmhtmlcontent-item-4 col-xs-4 ">
+                                    <a href="index.php?id_category=12&amp;controller=category" class="item-link" title="">
+                                        <img src="https://ld-prestashop.template-help.com/prestashop_60010/modules/tmhtmlcontent/img/9e98d539e1f523eb279b0eac1dd2bc0ade477f90_banner-img-4.jpg" class="item-img img-responsive" title="" alt="" width="471" height="300">
+                                        <div class="item-html">
+                                            <h3>Plants &amp; Flowers for</h3>
+                                            <h2>garden </h2>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="tmhtmlcontent-item-4 col-xs-4 ">
+                                    <a href="index.php?id_category=12&amp;controller=category" class="item-link" title="">
+                                        <img src="https://ld-prestashop.template-help.com/prestashop_60010/modules/tmhtmlcontent/img/9e98d539e1f523eb279b0eac1dd2bc0ade477f90_banner-img-4.jpg" class="item-img img-responsive" title="" alt="" width="471" height="300">
+                                        <div class="item-html">
+                                            <h3>Plants &amp; Flowers for</h3>
+                                            <h2>garden </h2>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </div>
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <h2 style="text-align: center;font-family:Roboto;font-weight:;font-style:"
-                                    class="vc_custom_heading">Hồ sơ xin VISA Thái Lan</h2>
-                            </div>
-                            <div class="row">
-                                <h4 style="text-align: left;">Các hồ sơ cơ bản&nbsp;cần chuẩn bị để làm thủ tục xin VISA
-                                    Thái Lan</h4>
-                            </div>
-                            <div class="row">
-                                <div class="wpb_wrapper">
-                                    <ol>
-                                        <li><h5>Hộ chiếu</h5></li>
-                                        <li><h5>02 hình 4×6 nền trắng</h5>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="wpb_wrapper">
-                                    <p>QUỐC TỊCH VIỆT NAM ĐƯỢC MIỄN VISA 30 NGÀY</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <h4 style="text-align: left;">Hồ sơ cần chuẩn bị riêng cho từng &nbsp;trường hợp sau:</h4>
-                            </div>
-                        </div>
+
 
                     </div>
                     <div class="widget-area col-sm-3 align-left">
