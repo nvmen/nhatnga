@@ -111,19 +111,3 @@
         </div>
     </div>
 </div>
-<style>
-    .box-skype {
-        position: fixed;
-        bottom: 0px;
-        right: 1px;
-        z-index: 199;
-    }
-</style>
-
-
-
-    <div class="box-skype">
-        <a href="skype:nhatnga_company?chat">
-            <img src="https://www.monita.vn/images/frontend/skype.png" alt="">
-        </a>
-    </div>

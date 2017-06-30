@@ -48,8 +48,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row padding-menu">
-                <div class="wpb_column col-sm-4">
+            <div class="row ">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.tour.index')}}">
                             <div class="boxes-icon circle"
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.visa')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.visavietnam')}}">
                             <div class="boxes-icon circle"
@@ -102,10 +102,7 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="row padding-menu">
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.workpermit')}}">
                             <div class="boxes-icon circle"
@@ -122,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.workpermit')}}">
                             <div class="boxes-icon circle"
@@ -140,8 +137,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.translation')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -157,9 +153,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.apeccard')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -175,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.airlineticket')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -191,7 +185,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4">
+                <div class="wpb_column col-sm-4 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.others')}}">
                             <div class="boxes-icon circle"
@@ -210,6 +204,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="padding-top-6x padding-bottom-6x section-background"

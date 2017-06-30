@@ -7,6 +7,8 @@ $content_seo = $seo_data;
 }
 @endphp
 <meta name="description" content="{{$content_seo}}">
+<meta name="robots" content="INDEX,FOLLOW" />
+
 <title>@yield('pageTitle') | {{__('nhatnga_menu.seo_link')}}</title>
 <link rel="stylesheet" href="{{ URL::asset('css/googleapis.css') }}">
 <link rel="stylesheet" href=" {{ URL::asset('assets/css/bootstrap.min.css') }}" type="text/css" media="all">

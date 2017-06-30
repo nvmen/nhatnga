@@ -19,9 +19,19 @@
     }
 </style>
 <aside class="widget widget_text">
-    <span class="title">{{__('nhatnga_menu.you_have_question')}}</span>
-    <img src="{{ URL::asset('images/contactus.jpg') }}" alt="">
-    <a href="tel:0919345788"><span class="call-phone">{{__('nhatnga_menu.call_us')}}: 0919 345 788</span></a>
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="title">{{__('nhatnga_menu.you_have_question')}}</span>
+        </div>
+        <div class="col-sm-12">
+            <img src="{{ URL::asset('images/contactus.jpg') }}" alt="">
+        </div>
+        <div class="col-sm-12">
+            <a href="tel:0919345788"><span class="call-phone">{{__('nhatnga_menu.call_us')}}: 0919 345 788</span></a>
+        </div>
+
+
+    </div>
 
 </aside>
 <aside class="widget widget_text">

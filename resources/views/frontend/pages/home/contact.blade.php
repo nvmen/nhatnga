@@ -34,7 +34,7 @@
                                     <div class="des"> {{__('nhatnga.address_branch')}}</div>
                                 </li>
                                 <li><label><i class="fa fa-phone"></i>{{__('contact.tel_no')}}</label>
-                                    <div class="des">+84 274 6544 999</div>
+                                    <div class="des">(+84) 274 6544 999</div>
                                 </li>
                                 <li><label><i class="fa fa-print"></i>{{__('contact.hot_line')}}</label>
                                     <div class="des">0919.345.788</div>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="wpb_wrapper pages_content">
-                        <h4>Have a question?</h4>
+                        <h4>{{__('nhatnga_menu.have_question')}}</h4>
                         <div role="form" class="wpcf7">
                             <div class="screen-reader-response"></div>
                             <form action="{{route('frontend.home.contact.submit_contact')}}"  id="contact-form" method="post"

@@ -28,18 +28,24 @@ $content_seo = $seo_data;
                             <div class="gallery-tabs-wrapper">
                                 <h1 class="post_list_title">{{__('nhatnga.make_visa')}}</h1>
                             </div>
-                            <div class="row content_gallery">
-                                @foreach($visa_list as $visa)
 
-                                    <div class="col-sm-4 gallery_item-wrap competitions gears  visa-title">
-                                        <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class=""
-                                           title="{{$visa->translation()->first()->name}}">
-                                            <img src=" {!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'430x305'])  !!}" alt="{{$visa->translation()->first()->name}}">
 
-                                        </a>
-                                        <h4 class="title">{{$visa->translation()->first()->name}}</h4>
-                                    </div>
-                                @endforeach
+                            <div class="row">
+                                <div id="tmhtmlcontent_topColumn">
+                                    <ul class=" clearfix row">
+                                        @foreach($visa_list as $visa)
+                                        <li class="tmhtmlcontent-item-1 col-xs-4 ">
+                                            <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class="item-link"   title="{{$visa->translation()->first()->name}}">
+                                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'275x183'])  !!}" class="item-img img-responsive" title="" alt="" width="471" height="300">
+                                                <div class="item-html">
+                                                    <h2>{{$visa->translation()->first()->name}}</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
 
