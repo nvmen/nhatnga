@@ -31,7 +31,7 @@ $content_seo = $seo_data;
 
 
                             <div class="row">
-                                <div id="tmhtmlcontent_topColumn">
+                                <div id="tmhtmlcontent_topColumn" class="col-sm-12">
                                     <ul class=" clearfix row">
                                         @foreach($visa_list as $visa)
                                         <li class="tmhtmlcontent-item-1 col-xs-4 ">
@@ -51,7 +51,10 @@ $content_seo = $seo_data;
 
                     </div>
                     <div class="widget-area col-sm-3 align-left">
-                        @include('frontend.common.left_continent')
+                        <div class="row">
+                            @include('frontend.common.left_continent')
+                        </div>
+
                     </div>
                 </div>
             </div>

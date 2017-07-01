@@ -16,7 +16,7 @@
 </style>
 
 <aside class="widget widget_text">
-    <div class="row" id ="tabbed-widget">
+    <div class="col-sm-12" id ="tabbed-widget">
         <div class="tabs-wrap">
             <ul>
                 <li>
@@ -47,7 +47,7 @@
                 <li>
                     <div class="post-thumbnail tie-appear">
                         <a href="{{route('frontend.visa.australia')}}" rel="bookmark">
-                            <img src="{{URL::asset('images/custom/chau-UC.jpg')}}" class="img-responsive"  width="278" height="173" >
+                            <img src="{{URL::asset('images/custom/chau-uc.jpg')}}" class="img-responsive"  width="278" height="173" >
                         </a>
                     </div><!-- post-thumbnail /-->
                     <h3><a href="{{route('frontend.visa.australia')}}">{{__('nhatnga_menu.visa_australia')}}</a></h3>

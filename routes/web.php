@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\App;
 |
 */
 
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
 Route::get('/login', ['uses' => 'Auth\LoginController@doLogin', 'as' => 'user.login']);
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/', ['uses' => 'Auth\LoginController@getLoginView', 'as' => 'user.login']);

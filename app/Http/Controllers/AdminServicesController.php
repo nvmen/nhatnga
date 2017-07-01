@@ -13,6 +13,7 @@ use App\Service;
 use App\ServiceTranslations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use DB;
 class AdminServicesController extends Controller
 {
     public function __construct()
@@ -32,11 +33,14 @@ class AdminServicesController extends Controller
             'id' => 'required',
 
         );
+     //   dd($request['id']);
+        $id = $request['id'];
         $data = $request->all();
         $validator = Validator::make($data, $rules);
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Service need id and media']);
         } else {
+
             DB::transaction(function ()use($request) {
                 $service = Service::find($request['id']);
                 if ($service == null) {

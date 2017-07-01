@@ -51,7 +51,7 @@ return [
     'you_have_question'=>'Do You Have Any Questions?',
     'call_us'=>'Call Now',
     'have_question'=>'Have a question?',
-    'services'=>'SERVICES',
+    'services_left'=>'SERVICES',
 
 
 ];

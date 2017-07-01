@@ -79,12 +79,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="row">
                         {!! $service->translation()->first()->content !!}
                     </div>
                 </div>
                 <div class="widget-area col-sm-3 align-left">
-                    @include('frontend.common.left_services')
+                   <div class="row">
+                       @include('frontend.common.left_services')
+                   </div>
                 </div>
 
 

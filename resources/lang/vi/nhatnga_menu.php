@@ -52,6 +52,6 @@ return [
     'you_have_question'=>'Bạn Có Thắc Mắc?',
     'call_us'=>'Gọi ngay',
     'have_question'=>'Bạn có câu hỏi cho chúng tôi?',
-    'services'=>'CÁC DỊCH VỤ',
+    'services_left'=>'CÁC DỊCH VỤ',
 
 ];

@@ -18,7 +18,9 @@
             <div class="container">
                 <div class="row">
                     <div class="site-main col-sm-9 alignleft">
-                        {!! $service->translation()->first()->content !!}
+                        <div class="row">
+                            {!! $service->translation()->first()->content !!}
+                        </div>
                     </div>
                     <div class="widget-area col-sm-3 align-left">
                         @include('frontend.common.left_services')
