@@ -17,7 +17,7 @@ return [
     'long_travel' => 'Long tour',
     'short_travel' => 'Short tour',
     'food_travel' => 'Food tour',
-    'visa_vietnam' => 'Vietnam VISA',
+    'visa_vietnam' => 'Vietnamese VISA',
     'visa_asia' => 'Asia VISA',
     'visa_europe' => 'Europe VISA',
     'visa_america' => 'America VISA',
@@ -50,7 +50,8 @@ return [
     'seo_link'=>'Nhat Nga services VISA,Tour, Work permit, Temporary Resident Card, Translation - Notarization',
     'you_have_question'=>'Do You Have Any Questions?',
     'call_us'=>'Call Now',
-    'have_question'=>'Have a question?'
+    'have_question'=>'Have a question?',
+    'services'=>'SERVICES',
 
 
 ];

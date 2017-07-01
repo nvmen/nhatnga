@@ -51,6 +51,7 @@ return [
     'seo_link'=>'Nhất Nga cung cấp dịch vụ VISA, Tour du lịch, giấy phép lao động, thẻ tạm trú, Dịch thuật - Công chứng',
     'you_have_question'=>'Bạn Có Thắc Mắc?',
     'call_us'=>'Gọi ngay',
-    'have_question'=>'Bạn có câu hỏi cho chúng tôi?'
+    'have_question'=>'Bạn có câu hỏi cho chúng tôi?',
+    'services'=>'CÁC DỊCH VỤ',
 
 ];

@@ -27,7 +27,8 @@ use App\TourTranslations;
 
 class TourController extends Controller
 {
-    public $email_nhatnga = 'nga.ngo@nhatnga.vn';
+   // public $email_nhatnga = 'nga.ngo@nhatnga.vn';
+    public $email_nhatnga = 'men.nguyen.sg@gmail.com';
     public $page_number = 9;
 
     public function __construct()

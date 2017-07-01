@@ -214,7 +214,7 @@
                             <a  onclick="change_lang('vi')" class="@if(Config::get('app.locale')=='vi') active-lang  @endif">
                                     <img src="{{ URL::asset('images/flag/vi.png') }}" alt="Logo" width="18"
                                          height="12"
-                                         class="logo_transparent_static">
+                                         class="logo_transparent_static"/>
                                 <span> Tiếng việt<span>
                             </a>
                     </li>

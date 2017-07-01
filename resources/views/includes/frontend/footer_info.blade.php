@@ -73,7 +73,7 @@
                         <ul class="social-network social-circle">
 
 
-                            <li><a href="#" title="Facebook">
+                            <li><a href="https://www.facebook.com/nhat.nga.50" title="Facebook">
                                     <span class="icoFacebook"><i class="fa fa-facebook"></i></span> Facebook
                                 </a></li>
                             <li>
@@ -82,8 +82,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="Twitter">
-                                    <span class="icoTwitter"><i class="fa fa-twitter"></i></span> Twitter
+                                <a href="#" title="Instagram">
+                                    <span class="icoInstagram"><i class="fa  fa-instagram"></i>
+                                    </span> Instagram
                                 </a>
                             </li>
 

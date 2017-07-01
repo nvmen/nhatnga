@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Template;
 use App\Visa;
 use App\VisaCategory;
 use App\VisaTranslations;
@@ -54,11 +55,13 @@ class AdminVisaController extends Controller
         $paginatedSearchResults = new LengthAwarePaginator($temp, count($collection), $perPage);
         $paginatedSearchResults->appends(['search' => $request['search']]);
         $paginatedSearchResults->setPath(route('backend.visa.index'));
-
+        $template =Template::where('name','template-visa')->first();
 
         return view('backend.pages.visa.index', ['cates' => $visa_cate, 
             'visas' => $paginatedSearchResults, 
-            'search' => $search]);
+            'search' => $search,
+            'template'=>$template
+        ]);
     }
 
     public function add(Request $request)

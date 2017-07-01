@@ -5,12 +5,15 @@
 
 </head>
 <body>
+
 <div class="wrapper-container">
     @include('includes.frontend.header')
     <div class="site wrapper-content">
         @yield('content')
+
     </div>
     @include('includes.frontend.footer')
+
 
 </div>
 
@@ -19,9 +22,7 @@
 <div class="gototop js-top active">
     <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
 </div>
-
-<div class="thesupport_hotline"
-     style="width: 320px; background-color: rgb(255, 255, 255) !important; opacity: 1 !important; right: -290px;top:35%">
+<div class="thesupport_hotline">
     <div class="bo" style="opacity: 1!important;">
         <div>
             <table cellspacing="0" style="width:290px;color:Black;opacity: 1!important; " cellpadding="5" border="0">
@@ -40,7 +41,7 @@
                             <a href="tel:+48919345788" style="color:black">
                                 0919.345.788
                             </a>
-                            </b>
+                        </b>
                     </td>
                 </tr>
 
@@ -71,7 +72,7 @@
 </div>
 
 <script>
-    jQuery(document).ready(function () {
+    $(document).ready(function () {
 
         jQuery(".thesupport_hotline").hover(function () {
             jQuery(this).stop().animate({

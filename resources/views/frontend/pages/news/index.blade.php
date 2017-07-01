@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="widget-area col-sm-3 align-left">
-                        @include('frontend.common.leftbar')
+                        @include('frontend.common.left_services')
                     </div>
                 </div>
             </div>
