@@ -167,7 +167,7 @@
 
                                     $.notify("Delete successful", "success");
                                     setTimeout(function () {
-                                                location.reload();
+                                                window.location.reload();
                                             }
                                             , 500);
                                 } else {

@@ -1,7 +1,16 @@
 @extends('layouts.frontend')
 @section('pageTitle',  __('nhatnga_menu.services_others'))
 @section('content')
-
+    <style>
+        #content-other ol {
+            list-style: decimal;
+            margin-left:20px;
+        }
+        #content-other ul {
+            list-style: disc;
+            margin-left:30px;
+        }
+    </style>
     <div class="site wrapper-content">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">
             <div class="banner-wrapper container article_heading">
@@ -19,7 +28,9 @@
                 <div class="row">
                     <div class="site-main col-sm-9 alignleft">
                         <div class="row">
-                            {!! $service->translation()->first()->content !!}
+                            <div class="col-sm-12" id ="content-other">
+                                {!! $service->translation()->first()->content !!}
+                            </div>
                         </div>
                     </div>
                     <div class="widget-area col-sm-3 align-left">

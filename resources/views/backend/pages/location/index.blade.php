@@ -98,7 +98,7 @@
                                 <div class="form-group">
                                     <label> Country</label>
                                     <input type="text" class="form-control" id="country" name="country"
-                                           placeholder="Country">
+                                           placeholder="Country" value="Viet Nam">
                                 </div>
                                 <div class="form-group">
                                     <input type="checkbox" id="is_domestic" name="is_domestic" checked >  Domestic<br>
@@ -168,7 +168,7 @@
 
                                     $.notify("Delete successful", "success");
                                     setTimeout(function () {
-                                                      location.reload();
+                                                window.location.reload();
                                             }
                                             , 500);
                                 } else {
@@ -219,7 +219,7 @@
                             $('#add').modal('hide');
                             $.notify("Add successful", "success");
                             setTimeout(function () {
-                                        //   location.reload();
+                                        window.location.reload();
                                     }
                                     , 500);
 

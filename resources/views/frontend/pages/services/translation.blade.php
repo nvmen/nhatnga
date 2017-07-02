@@ -19,7 +19,10 @@
                 <div class="row">
                     <div class="site-main col-sm-9 alignleft" id ="main-content">
                         <div class="row">
-                            {!! $service->translation()->first()->content !!}
+                            <div class="col-sm-12">
+                                {!! $service->translation()->first()->content !!}
+                            </div>
+
                         </div>
 
                     </div>

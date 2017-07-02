@@ -27,7 +27,7 @@
                                 <label for="name_vi">Location</label>
                                 <select class="form-control" id="location">
                                     @foreach($cates as  $cate)
-                                        <option value='{{$cate->id}}'>{{$cate->translation()->first()->name}}</option>
+                                        <option value='{{$cate->id}}' @if($visa->visa_cate_id ==$cate->id) selected @endif>{{$cate->translation()->first()->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

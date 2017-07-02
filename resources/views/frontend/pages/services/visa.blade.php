@@ -2,6 +2,16 @@
 @section('pageTitle', 'VISA')
 @section('content')
     <link href="{{ URL::asset('css/nhatnga.css') }}" rel="stylesheet">
+    <style>
+        #content-visa ol {
+            list-style: decimal;
+            margin-left:20px;
+        }
+        #content-visa ul {
+            list-style: disc;
+            margin-left:30px;
+        }
+    </style>
     <div class="site wrapper-content">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">
             <div class="banner-wrapper container article_heading">
@@ -79,12 +89,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="content-visa">
                         {!! $service->translation()->first()->content !!}
                     </div>
                 </div>
                 <div class="widget-area col-sm-3 align-left">
-                   <div class="row">
+                   <div class="row" >
                        @include('frontend.common.left_services')
                    </div>
                 </div>

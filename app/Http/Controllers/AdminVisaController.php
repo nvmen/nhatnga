@@ -78,44 +78,53 @@ class AdminVisaController extends Controller
             return response()->json(['success' => false, 'message' => 'Visa need a image and name not empty']);
         } else {
 
+            try{
+                DB::transaction(function ()use($request) {
+                    $slug = Str::slug($request['name_en']);
 
-            DB::transaction(function ()use($request) {
-                $slug = Str::slug($request['name_en']);
-
-                $temp = DB::table('visa')->where('slug_url', $slug)->first();
-                if($temp->id!= $request['id'] ){
-                    $count = DB::table('visa')->where('slug_url', $slug)->count();
-                    if ($count >= 1) {
-                        $count = $count;
-                        $slug = $slug . '-' . $count;
+                    $temp = DB::table('visa')->where('slug_url', $slug)->first();
+                    if($temp!=null){
+                        if($temp->id!= $request['id'] ){
+                            $count = DB::table('visa')->where('slug_url', $slug)->count();
+                            if ($count >= 1) {
+                                $count = $count;
+                                $slug = $slug . '-' . $count;
+                            }
+                        }
                     }
-                }
-                $obj = new Visa();
-                $obj->media_ids = $request['media_ids'];
-                $obj->slug_url = $slug;
-                $obj->visa_cate_id = $request['location'];
-                $obj->save();
 
-                $obj_vi = new VisaTranslations();
-                $obj_vi->lang_code = 'vi';
-                $obj_vi->visa_id = $obj->id;
+                    $obj = new Visa();
+                    $obj->media_ids = $request['media_ids'];
+                    $obj->slug_url = $slug;
+                    $obj->visa_cate_id = $request['location'];
+                    $obj->save();
 
-                $obj_vi->name = $request['name_vi'];
-                $obj_vi->short_description = $request['short_des_vi'];
-                $obj_vi->content = $request['content_vi'];
-                $obj_vi->save();
+                    $obj_vi = new VisaTranslations();
+                    $obj_vi->lang_code = 'vi';
+                    $obj_vi->visa_id = $obj->id;
 
-                $obj_en = new VisaTranslations();
-                $obj_en->lang_code = 'en';
-                $obj_en->visa_id = $obj->id;
+                    $obj_vi->name = $request['name_vi'];
+                    $obj_vi->short_description = $request['short_des_vi'];
+                    $obj_vi->content = $request['content_vi'];
+                    $obj_vi->save();
 
-                $obj_en->name = $request['name_en'];
-                $obj_en->short_description = $request['short_des_en'];
-                $obj_en->content = $request['content_en'];
-                $obj_en->save();
-            });
+                    $obj_en = new VisaTranslations();
+                    $obj_en->lang_code = 'en';
+                    $obj_en->visa_id = $obj->id;
 
-            return response()->json(['success' => true, 'message' => 'Add sucessfull']);
+                    $obj_en->name = $request['name_en'];
+                    $obj_en->short_description = $request['short_des_en'];
+                    $obj_en->content = $request['content_en'];
+                    $obj_en->save();
+                });
+                return response()->json(['success' => true, 'message' => 'Add sucessfull']);
+
+            }catch (\Exception $e){
+                dd($e);
+                return response()->json(['success' => false, 'message' => 'Add sucessfull']);
+            }
+
+
         }
 
     }
@@ -183,14 +192,17 @@ class AdminVisaController extends Controller
             return response()->json(['success' => false, 'message' => 'Visa need a image and name not empty']);
         } else {
             $slug = Str::slug($request['name_en']);
-            $temp = DB::table('visa')->where('slug_url', $slug)->first();
-            if($temp->id!= $request['id'] ){
-                $count = DB::table('visa')->where('slug_url', $slug)->count();
-                if ($count >= 1) {
-                    $count = $count;
-                    $slug = $slug . '-' . $count;
+
+                $temp = DB::table('visa')->where('slug_url', $slug)->first();
+                if($temp!=null){
+                    if($temp->id!= $request['id'] ){
+                        $count = DB::table('visa')->where('slug_url', $slug)->count();
+                        if ($count >= 1) {
+                            $count = $count;
+                            $slug = $slug . '-' . $count;
+                        }
+                    }
                 }
-            }
 
             $id = $request['id'];
             $obj = Visa::find($id);

@@ -98,14 +98,16 @@ class AdminTourController extends Controller
             $slug = Str::slug($request['name_en']);
 
             $temp = DB::table('tour')->where('slug_url', $slug)->first();
-            if($temp->id!= $request['id'] ){
-                $count = DB::table('tour')->where('slug_url', $slug)->count();
-                if ($count >= 1) {
-                    $count = $count;
-                    $slug = $slug . '-' . $count;
+            if($temp!=null){
+                if($temp->id!= $request['id'] ){
+                    $count = DB::table('tour')->where('slug_url', $slug)->count();
+                    if ($count >= 1) {
+                        $count = $count;
+                        $slug = $slug . '-' . $count;
+                    }
                 }
-            }
 
+            }
 
             $template_des = 'content';
             $template_itinerary = 'content';
@@ -217,11 +219,14 @@ class AdminTourController extends Controller
 
             DB::transaction(function ()use($request) {
                 $slug = Str::slug($request['name_en']);
-                $count = DB::table('tour')->where('slug_url', $slug)->count();
-                if ($count >= 1) {
-                    $count = $count;
-                    $slug = $slug . '-' . $count;
+                if(DB::table('tour')->where('slug_url', $slug)->get()!=null){
+                    $count = DB::table('tour')->where('slug_url', $slug)->count();
+                    if ($count >= 1) {
+                        $count = $count;
+                        $slug = $slug . '-' . $count;
+                    }
                 }
+
                 $template_des = 'content';
                 $template_itinerary = 'content';
                 $template_tour_description = Template::where('name', 'tour-description')->first();

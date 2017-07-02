@@ -51,11 +51,11 @@ class AdminNewsController extends Controller
         } else {
             DB::transaction(function ()use($request) {
                 $slug = Str::slug($request['name_en']);
-                $count = DB::table('news')->where('slug_url', $slug)->count();
+                $count = DB::table('news')->where('slug_url', $slug)->first();
 
-                if ($count >= 1) {
-                    $count = $count;
-                    $slug = $slug . '-' . $count;
+                if ($count !=null) {
+
+                    $slug = $slug . '-' . 1;
                 }
                 $obj = new News();
                 $obj->media_ids = $request['media_ids'];
@@ -147,11 +147,10 @@ class AdminNewsController extends Controller
         } else {
             DB::transaction(function ()use($request) {
                 $slug = Str::slug($request['name_en']);
-                $count = DB::table('news')->where('slug_url', $slug)->count();
+                $count = DB::table('news')->where('slug_url', $slug)->first();
 
-                if ($count >= 1) {
-                    $count = $count;
-                    $slug = $slug . '-' . $count;
+                if ($count != null) {
+                    $slug = $slug . '-' . 1;
                 }
                 $id = $request['id'];
                 $obj = News::find($id);

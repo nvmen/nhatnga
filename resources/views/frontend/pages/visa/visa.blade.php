@@ -36,7 +36,7 @@ $content_seo = $seo_data;
                                         @foreach($visa_list as $visa)
                                         <li class="tmhtmlcontent-item-1 col-xs-4 ">
                                             <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class="item-link"   title="{{$visa->translation()->first()->name}}">
-                                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'275x183'])  !!}" class="item-img img-responsive" title="" alt="" width="471" height="300">
+                                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'248x139'])  !!}" class="item-img img-responsive" title="" alt="" width="471" height="300">
                                                 <div class="item-html">
                                                     <h2>{{$visa->translation()->first()->name}}</h2>
                                                 </div>

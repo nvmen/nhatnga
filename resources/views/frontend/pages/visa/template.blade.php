@@ -20,45 +20,9 @@
             <div class="container">
                 <div class="row">
                     <div class="site-main col-sm-9 alignleft" id="main-content">
-                        <div id="tmhtmlcontent_topColumn">
-                            <ul class=" clearfix row">
-                                <li class="tmhtmlcontent-item-1 col-xs-4 ">
-                                    <a href="index.php?id_category=20&amp;controller=category" class="item-link" title="">
-                                        <img src="{{URL::asset('images/custom/abc.jpg')}}" class="item-img img-responsive" title="" alt="" width="471" height="300">
-                                        <div class="item-html">
-                                            <h2>Flowers</h2>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="tmhtmlcontent-item-2 col-xs-4 ">
-                                    <a href="index.php?id_category=21&amp;controller=category" class="item-link" title="">
-                                        <img src="{{URL::asset('images/custom/abc.jpg')}}" class="item-img img-responsive" title="" alt="" width="471" height="300">
-                                        <div class="item-html">
-                                            <h2>indoor plants</h2>
-                                        </div>
-                                    </a>
-                                </li>
+                     <div class="row">
 
-                                <li class="tmhtmlcontent-item-1 col-xs-4 ">
-                                    <a href="index.php?id_category=20&amp;controller=category" class="item-link" title="">
-                                        <img src="{{URL::asset('images/custom/abc.jpg')}}" class="item-img img-responsive" title="" alt="" width="471" height="300">
-                                        <div class="item-html">
-                                            <h2>Flowers</h2>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="tmhtmlcontent-item-2 col-xs-4 ">
-                                    <a href="index.php?id_category=21&amp;controller=category" class="item-link" title="">
-                                        <img src="{{URL::asset('images/custom/abc.jpg')}}" class="item-img img-responsive" title="" alt="" width="471" height="300">
-                                        <div class="item-html">
-                                            <h2>indoor plants</h2>
-                                        </div>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-
+                     </div>
 
                     </div>
                     <div class="widget-area col-sm-3 align-left">

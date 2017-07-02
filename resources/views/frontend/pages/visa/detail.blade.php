@@ -94,7 +94,9 @@
                 <div class="row">
                     <div class="site-main col-sm-9 alignleft wpb_wrapper" id ="main-content">
                         <div class="col-md-12">
-                            {!! $visa->translation()->first()->content !!}
+                            <div class="row">
+                                {!! $visa->translation()->first()->content !!}
+                            </div>
                         </div>
 
                         <div class="col-md-12">

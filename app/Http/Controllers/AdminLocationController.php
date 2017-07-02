@@ -94,14 +94,18 @@ class AdminLocationController extends Controller
             DB::transaction(function ()use($request) {
                 $location = Location::find($request['id']);
                 $slug = Str::slug($request['name_en']);
-                $count = DB::table('province')->where('slug_url', $slug)->count();
-                if ($count >= 1) {
-                    $count = $count;
-                    $slug = $slug . '-' . $count;
+                if(DB::table('province')->where('slug_url', $slug)->get()!=null){
+                    $count = DB::table('province')->where('slug_url', $slug)->count();
+                    if ($count >= 1) {
+                        $count = $count;
+                        $slug = $slug . '-' . $count;
+                    }
                 }
+
                 $location->media_ids = $request['media_ids'];
                 $location->country = $request['country'];
                 $location->is_domestic = $request['is_domestic'];
+                $location->slug_url = $slug;
                 $location->save();
 
                 $vi = LocationTranslations::where('lang_code', 'vi')
