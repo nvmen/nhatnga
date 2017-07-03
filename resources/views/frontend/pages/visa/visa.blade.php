@@ -23,39 +23,29 @@ $content_seo = $seo_data;
         <section class="content-area">
             <div class="container">
                 <div class="row">
-                    <div class="site-main col-sm-9 alignleft" id ="main-content">
-                        <div class="sc-gallery wrapper_gallery">
-                            <div class="gallery-tabs-wrapper">
-                                <h1 class="post_list_title">{{__('nhatnga.make_visa')}}</h1>
+
+                    @foreach($visa_list as $visa)
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="col-item">
+                            <div class="photo">
+                                <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}">
+                                    <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'248x185'])  !!}" class="img-responsive" alt="a" />
+                                </a>
                             </div>
-
-
-                            <div class="row">
-                                <div id="tmhtmlcontent_topColumn" class="col-sm-12">
-                                    <ul class=" clearfix row">
-                                        @foreach($visa_list as $visa)
-                                        <li class="tmhtmlcontent-item-1 col-xs-4 ">
-                                            <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class="item-link"   title="{{$visa->translation()->first()->name}}">
-                                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'248x139'])  !!}" class="item-img img-responsive" title="" alt="" width="471" height="300">
-                                                <div class="item-html">
-                                                    <h2>{{$visa->translation()->first()->name}}</h2>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
+                            <div class="info">
+                                <div class="row">
+                                    <div class="price col-md-12">
+                                        <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}">
+                                            <h5> {{$visa->translation()->first()->name}}</h5>
+                                        </a>
+                                    </div>
                                 </div>
-
+                                <div class="clearfix">
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="widget-area col-sm-3 align-left">
-                        <div class="row">
-                            @include('frontend.common.left_continent')
-                        </div>
-
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

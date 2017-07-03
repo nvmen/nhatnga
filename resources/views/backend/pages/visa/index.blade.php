@@ -140,12 +140,12 @@
                                 <div class="form-group">
                                     <label for="content_vi">Content (Vi)</label>
                                     <textarea class="form-control" id="content_vi" name="content_vi"
-                                              placeholder="Content Vi">{{$template->data}}</textarea>
+                                              placeholder="Content Vi">{{$template}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="content_en">Content (En)</label>
                                     <textarea class="form-control" id="content_en" name="content_en"
-                                              placeholder="Content En">{{$template->data}}</textarea>
+                                              placeholder="Content En">{{$template}}</textarea>
                                 </div>
 
 
