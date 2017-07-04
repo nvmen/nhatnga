@@ -138,14 +138,57 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content_vi">Content (Vi)</label>
+                                    <label for="content_vi">Content Title (Vi)</label>
                                     <textarea class="form-control" id="content_vi" name="content_vi"
-                                              placeholder="Content Vi">{{$template}}</textarea>
+                                              placeholder="Content Vi"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="content_en">Content (En)</label>
+                                    <label for="content_en">Content Title(En)</label>
                                     <textarea class="form-control" id="content_en" name="content_en"
-                                              placeholder="Content En">{{$template}}</textarea>
+                                              placeholder="Content En"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="content_vi">Content Work VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_work_vi" name="col_work_vi"
+                                              placeholder="Content Vi"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content_en">Content Work VISA(En)</label>
+                                    <textarea class="form-control" id="col_work_en" name="col_work_en"
+                                              placeholder="Content En"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="content_vi">Content Travel VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_travel_vi" name="col_travel_vi"
+                                              placeholder="Content Vi"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content_en">Content Travel VISA(En)</label>
+                                    <textarea class="form-control" id="col_travel_en" name="col_travel_en"
+                                              placeholder="Content En"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="content_vi">Content Study VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_study_vi" name="col_study_vi"
+                                              placeholder="Content Vi"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content_en">Content Study VISA(En)</label>
+                                    <textarea class="form-control" id="col_study_en" name="col_study_en"
+                                              placeholder="Content En"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content_vi">Content Note VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_note_vi" name="col_note_vi"
+                                              placeholder="Content Vi"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content_en">Content Note VISA(En)</label>
+                                    <textarea class="form-control" id="col_note_en" name="col_note_en"
+                                              placeholder="Content En"></textarea>
                                 </div>
 
 
@@ -173,10 +216,25 @@
             filebrowserImageBrowseUrl: url1 + '?type=Images',
             filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
             filebrowserBrowseUrl: url1 + '?type=Files',
-            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
+            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}',
+            height: 200,
+            toolbar: 'Basic',
         };
+
         CKEDITOR.replace('content_vi', options);
         CKEDITOR.replace('content_en', options);
+        CKEDITOR.replace('col_work_en', options);
+        CKEDITOR.replace('col_work_vi', options);
+
+        CKEDITOR.replace('col_travel_vi', options);
+        CKEDITOR.replace('col_travel_en', options);
+
+        CKEDITOR.replace('col_study_vi', options);
+        CKEDITOR.replace('col_study_en', options);
+
+        CKEDITOR.replace('col_note_vi', options);
+        CKEDITOR.replace('col_note_en', options);
+
 
         function delete_banner(id) {
             bootbox.confirm("Are you sure you want to delete this banner?", function (result) {
@@ -225,6 +283,18 @@
             var content_vi = CKEDITOR.instances['content_vi'].getData();
             var content_en = CKEDITOR.instances['content_en'].getData();
 
+            var col_work_vi = CKEDITOR.instances['col_work_vi'].getData();
+            var col_work_en = CKEDITOR.instances['col_work_en'].getData();
+
+            var col_travel_vi = CKEDITOR.instances['col_travel_vi'].getData();
+            var col_travel_en = CKEDITOR.instances['col_travel_en'].getData();
+
+            var col_study_vi = CKEDITOR.instances['col_study_vi'].getData();
+            var col_study_en = CKEDITOR.instances['col_study_en'].getData();
+
+            var col_note_vi = CKEDITOR.instances['col_note_vi'].getData();
+            var col_note_en = CKEDITOR.instances['col_note_en'].getData();
+
             if (global_media.length == 0) return false;
             var media_id = global_media[0].id;
 
@@ -237,7 +307,18 @@
                 location: location,
                 content_vi: content_vi,
                 content_en: content_en,
-                media_ids: media_id
+                media_ids: media_id,
+                col_work_vi: col_work_vi,
+                col_work_en: col_work_en,
+
+                col_travel_en: col_travel_en,
+                col_travel_vi: col_travel_vi,
+
+                col_study_en: col_study_en,
+                col_study_vi: col_study_vi,
+                col_note_vi: col_note_vi,
+                col_note_en: col_note_en,
+
             }
             //  console.log('===========>',obj)
             show_spinner();
@@ -266,19 +347,19 @@
 
         //backend.visa.delete
 
-        function delete_visa(id){
-            bootbox.confirm("Are you sure you want to delete this visa?", function(result){
+        function delete_visa(id) {
+            bootbox.confirm("Are you sure you want to delete this visa?", function (result) {
 
                 /* your callback code */
-                if(result){
+                if (result) {
                     show_spinner();
                     var token = '{{ csrf_token() }}';
-                    var obj ={_token:token,id:id};
+                    var obj = {_token: token, id: id};
                     $.post('{{route('backend.visa.delete')}}', obj)
                             .done(function (data) {
                                 hide_spinner();
                                 if (data.success == true) {
-                                      $.notify("Delete successful", "success");
+                                    $.notify("Delete successful", "success");
 
                                     $.notify("Delete successful", "success");
                                     setTimeout(function () {
@@ -286,15 +367,15 @@
                                             }
                                             , 500);
                                 } else {
-                                     $.notify(data.message, "error")
+                                    $.notify(data.message, "error")
 
                                     hide_spinner();
                                 }
                             })
-                            .fail(function() {
+                            .fail(function () {
                                 hide_spinner();
                             });
-                }else{
+                } else {
 
                 }
             })

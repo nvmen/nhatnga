@@ -19,6 +19,11 @@ class VisaTranslations extends Model
         'lang_code',
         'visa_id',
         'content',
+        'col_title',
+        'col_work',
+        'col_travel',
+        'col_study',
+        'col_note',
 
 
     ];

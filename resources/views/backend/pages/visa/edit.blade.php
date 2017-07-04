@@ -72,6 +72,51 @@
                                     {{$visa_en->content}}
                                 </textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label for="content_vi">Content Work VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_work_vi" name="col_work_vi"
+                                              placeholder="Content Vi">{{$visa_vi->col_work}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="content_en">Content Work VISA(En)</label>
+                                    <textarea class="form-control" id="col_work_en" name="col_work_en"
+                                              placeholder="Content En">{{$visa_en->col_work}}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="content_vi">Content Travel VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_travel_vi" name="col_travel_vi"
+                                              placeholder="Content Vi">{{$visa_vi->col_travel}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="content_en">Content Travel VISA(En)</label>
+                                    <textarea class="form-control" id="col_travel_en" name="col_travel_en"
+                                              placeholder="Content En">{{$visa_en->col_travel}}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="content_vi">Content Study VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_study_vi" name="col_study_vi"
+                                              placeholder="Content Vi">{{$visa_vi->col_study}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="content_en">Content Study VISA(En)</label>
+                                    <textarea class="form-control" id="col_study_en" name="col_study_en"
+                                              placeholder="Content En">{{$visa_en->col_study}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="content_vi">Content Note VISA (Vi)</label>
+                                    <textarea class="form-control" id="col_note_vi" name="col_note_vi"
+                                              placeholder="Content Vi">{{$visa_vi->col_note}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="content_en">Content Note VISA(En)</label>
+                                    <textarea class="form-control" id="col_note_en" name="col_note_en"
+                                              placeholder="Content En">{{$visa_en->col_note}}</textarea>
+                            </div>
+
+
                             <input type="hidden" name="id" id="id" value="{{$visa->id}}"/>
                         </div>
                     </div>
@@ -97,11 +142,23 @@
             filebrowserImageBrowseUrl: url1 + '?type=Images',
             filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
             filebrowserBrowseUrl: url1 + '?type=Files',
-            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
+            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}',
+            height: 200,
         };
         CKEDITOR.replace('content_vi', options);
         CKEDITOR.replace('content_en', options);
 
+        CKEDITOR.replace('col_work_en', options);
+        CKEDITOR.replace('col_work_vi', options);
+
+        CKEDITOR.replace('col_travel_vi', options);
+        CKEDITOR.replace('col_travel_en', options);
+
+        CKEDITOR.replace('col_study_vi', options);
+        CKEDITOR.replace('col_study_en', options);
+
+        CKEDITOR.replace('col_note_vi', options);
+        CKEDITOR.replace('col_note_en', options);
 
         function save_edit() {
 
@@ -117,6 +174,18 @@
             var location = $('#location').val();
             var content_vi = CKEDITOR.instances['content_vi'].getData();
             var content_en = CKEDITOR.instances['content_en'].getData();
+
+            var col_work_vi = CKEDITOR.instances['col_work_vi'].getData();
+            var col_work_en = CKEDITOR.instances['col_work_en'].getData();
+
+            var col_travel_vi = CKEDITOR.instances['col_travel_vi'].getData();
+            var col_travel_en = CKEDITOR.instances['col_travel_en'].getData();
+
+            var col_study_vi = CKEDITOR.instances['col_study_vi'].getData();
+            var col_study_en = CKEDITOR.instances['col_study_en'].getData();
+
+            var col_note_vi = CKEDITOR.instances['col_note_vi'].getData();
+            var col_note_en = CKEDITOR.instances['col_note_en'].getData();
 
             if (global_media.length == 0) return false;
             var media_id = global_media[0].id;
@@ -134,7 +203,18 @@
                 location: location,
                 content_vi: content_vi,
                 content_en: content_en,
-                media_ids: media_id
+                media_ids: media_id,
+
+                col_work_vi: col_work_vi,
+                col_work_en: col_work_en,
+
+                col_travel_en: col_travel_en,
+                col_travel_vi: col_travel_vi,
+
+                col_study_en: col_study_en,
+                col_study_vi: col_study_vi,
+                col_note_vi: col_note_vi,
+                col_note_en: col_note_en,
             }
             //  console.log('===========>',obj)
             show_spinner();

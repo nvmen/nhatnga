@@ -98,11 +98,25 @@ class AdminVisaController extends Controller
                         }
                     }
 
+                    /*
+                 col_work_vi: col_work_vi,
+                col_work_en: col_work_en,
+
+                col_travel_en: col_travel_en,
+                col_travel_vi: col_travel_vi,
+
+                col_study_en: col_study_en,
+                col_study_vi: col_study_vi,
+                col_note_vi: col_note_vi,
+                col_note_en: col_note_en,
+                     */
+
                     $obj = new Visa();
                     $obj->media_ids = $request['media_ids'];
                     $obj->slug_url = $slug;
                     $obj->visa_cate_id = $request['location'];
                     $obj->save();
+
 
                     $obj_vi = new VisaTranslations();
                     $obj_vi->lang_code = 'vi';
@@ -111,6 +125,10 @@ class AdminVisaController extends Controller
                     $obj_vi->name = $request['name_vi'];
                     $obj_vi->short_description = $request['short_des_vi'];
                     $obj_vi->content = $request['content_vi'];
+                    $obj_vi->col_work = $request['col_work_vi'];
+                    $obj_vi->col_travel = $request['col_travel_vi'];
+                    $obj_vi->col_study = $request['col_study_vi'];
+                    $obj_vi->col_note = $request['col_note_vi'];
                     $obj_vi->save();
 
                     $obj_en = new VisaTranslations();
@@ -120,6 +138,10 @@ class AdminVisaController extends Controller
                     $obj_en->name = $request['name_en'];
                     $obj_en->short_description = $request['short_des_en'];
                     $obj_en->content = $request['content_en'];
+                    $obj_en->col_work = $request['col_work_en'];
+                    $obj_en->col_travel = $request['col_travel_en'];
+                    $obj_en->col_study = $request['col_study_en'];
+                    $obj_en->col_note = $request['col_note_en'];
                     $obj_en->save();
                 });
                 return response()->json(['success' => true, 'message' => 'Add sucessfull']);
@@ -222,6 +244,10 @@ class AdminVisaController extends Controller
             $obj_vi->name = $request['name_vi'];
             $obj_vi->short_description = $request['short_des_vi'];
             $obj_vi->content = $request['content_vi'];
+            $obj_vi->col_work = $request['col_work_vi'];
+            $obj_vi->col_travel = $request['col_travel_vi'];
+            $obj_vi->col_study = $request['col_study_vi'];
+            $obj_vi->col_note = $request['col_note_vi'];
             $obj_vi->save();
 
 
@@ -230,6 +256,10 @@ class AdminVisaController extends Controller
             $obj_en->name = $request['name_en'];
             $obj_en->short_description = $request['short_des_en'];
             $obj_en->content = $request['content_en'];
+            $obj_en->col_work = $request['col_work_en'];
+            $obj_en->col_travel = $request['col_travel_en'];
+            $obj_en->col_study = $request['col_study_en'];
+            $obj_en->col_note = $request['col_note_en'];
             $obj_en->save();
 
 
