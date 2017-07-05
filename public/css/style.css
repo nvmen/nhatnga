@@ -7658,7 +7658,7 @@ input[type=radio]:checked:before {
 
 	.navbar-nav > li > ul.sub-menu {
 		visibility:       hidden;
-		width:            225px;
+		width:            255px;
 		position:         absolute;
 		top:              100%;
 		left:             -15px;
