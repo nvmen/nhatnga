@@ -242,7 +242,7 @@
         }
         $(function () {
             Dropzone.options.myAwesomeDropzone = {
-                maxFilesize: 5,
+                maxFilesize: 10,
                 maxFiles: 1,
                 uploadMultiple: false,
                 addRemoveLinks: true,

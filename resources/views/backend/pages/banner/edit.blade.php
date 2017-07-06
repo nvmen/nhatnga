@@ -123,7 +123,7 @@
                     .done(function (data) {
                         hide_spinner();
                         if (data.success == true) {
-                            $.notify("Add successful", "success");
+                            $.notify("Edit successful", "success");
                             setTimeout(function () {
                                         location.reload();
                                     }
@@ -143,7 +143,7 @@
         var global_media = [{{$banner->media_ids}}];
         $(function () {
             Dropzone.options.myAwesomeDropzone = {
-                maxFilesize: 5,
+                maxFilesize: 10,
                 maxFiles: 1,
                 uploadMultiple: false,
                 addRemoveLinks: true,

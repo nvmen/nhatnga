@@ -36,7 +36,7 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Short Description</th>
-                    <th>Link</th>
+                    <th>Location</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -55,8 +55,8 @@
                             {{$visa->translation('vi')->first()->short_description}}(Vi)<br/>
                             {{$visa->translation('en')->first()->short_description}}(En)
                         </td>
-                        <td>Link:
-                            {{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}
+                        <td>
+                            {{$visa->visa_cate()->first()->translation('en')->first()->name}}
                         </td>
                         <td>
                             <a href="{!! route('backend.visa.get', ['id'=>$visa->id])  !!}"><span
@@ -96,7 +96,7 @@
                         <div class="col-md-12">
                             <div class="form-area">
                                 <br style="clear:both">
-                                <h3>Select a Image(1920x1080)</h3>
+                                <h3>Select a Image</h3>
                                 <div class="form-group">
                                     <form action="{{route('backend.media.upload')}}" class="dropzone"
                                           id="my-awesome-dropzone">
@@ -140,43 +140,43 @@
                                 <div class="form-group">
                                     <label for="content_vi">Content Title (Vi)</label>
                                     <textarea class="form-control" id="content_vi" name="content_vi"
-                                              placeholder="Content Vi"></textarea>
+                                              placeholder="Content Vi">{{$template}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="content_en">Content Title(En)</label>
                                     <textarea class="form-control" id="content_en" name="content_en"
-                                              placeholder="Content En"></textarea>
+                                              placeholder="Content En">{{$template_en}}</textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content_vi">Content Work VISA (Vi)</label>
+                                    <label for="content_vi">Content Business VISA (Vi)</label>
                                     <textarea class="form-control" id="col_work_vi" name="col_work_vi"
                                               placeholder="Content Vi"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="content_en">Content Work VISA(En)</label>
+                                    <label for="content_en">Content Business VISA(En)</label>
                                     <textarea class="form-control" id="col_work_en" name="col_work_en"
                                               placeholder="Content En"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content_vi">Content Travel VISA (Vi)</label>
+                                    <label for="content_vi">Content Tourist And Visiting Family  VISA (Vi)</label>
                                     <textarea class="form-control" id="col_travel_vi" name="col_travel_vi"
                                               placeholder="Content Vi"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="content_en">Content Travel VISA(En)</label>
+                                    <label for="content_en">Content Tourist And Visiting Family VISA(En)</label>
                                     <textarea class="form-control" id="col_travel_en" name="col_travel_en"
                                               placeholder="Content En"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content_vi">Content Study VISA (Vi)</label>
+                                    <label for="content_vi">Content Study, Marriage, Immigrant VISA (Vi)</label>
                                     <textarea class="form-control" id="col_study_vi" name="col_study_vi"
                                               placeholder="Content Vi"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="content_en">Content Study VISA(En)</label>
+                                    <label for="content_en">Content Study, Marriage, Immigrant VISA(En)</label>
                                     <textarea class="form-control" id="col_study_en" name="col_study_en"
                                               placeholder="Content En"></textarea>
                                 </div>

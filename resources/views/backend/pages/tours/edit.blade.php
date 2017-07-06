@@ -343,7 +343,7 @@
         var exist_list_media_info = jQuery.parseJSON(JSON.stringify({!!json_encode($list_media_info) !!}));
         $(function () {
             Dropzone.options.myAwesomeDropzone = {
-                maxFilesize: 5,
+                maxFilesize: 15,
                 maxFiles: 10,
                 uploadMultiple: false,
                 addRemoveLinks: true,
@@ -565,7 +565,7 @@
                         if (data.success == true) {
                             //  $.notify("Delete successful", "success");
                             $('#add').modal('hide');
-                            $.notify("Add successful", "success");
+                            $.notify("Edit successful", "success");
                             setTimeout(function () {
                                         //  location.reload();
                                     }

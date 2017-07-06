@@ -53,5 +53,10 @@ return [
     'call_us'=>'Gọi ngay',
     'have_question'=>'Bạn có câu hỏi cho chúng tôi?',
     'services_left'=>'CÁC DỊCH VỤ',
+    'document'=>'HỒ SƠ',
+    'business_visa'=>'Thị thực công tác',
+    'tourist_and_visiting_family_visa'=>'Thị thực du lịch, thăm thân',
+    'study_marriage_immigrant_visa'=>'Visa du học, kết hôn, định cư',
+    'visa_note'=>'Lưu ý',
 
 ];

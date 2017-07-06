@@ -73,7 +73,7 @@
                         <ul class="social-network social-circle">
 
 
-                            <li><a href="https://www.facebook.com/nhat.nga.50" title="Facebook">
+                            <li><a href="https://www.facebook.com/nhatngacompany" title="Facebook">
                                     <span class="icoFacebook"><i class="fa fa-facebook"></i></span> Facebook
                                 </a></li>
                             <li>
@@ -99,7 +99,7 @@
     <div class="container wrapper-copyright">
         <div class="row">
             <div class="col-sm-6">
-                <div><p>Copyright © 2017 Travel. All Rights Reserved.</p></div>
+                <div><p>Copyright © 2017 NhatNga. All Rights Reserved.</p></div>
             </div>
             <div class="col-sm-6">
                 <aside id="text-5" class="widget_text">

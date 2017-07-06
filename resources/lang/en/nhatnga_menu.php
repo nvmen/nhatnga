@@ -52,6 +52,11 @@ return [
     'call_us'=>'Call Now',
     'have_question'=>'Have a question?',
     'services_left'=>'SERVICES',
+    'document'=>'DOCUMENTS',
+    'business_visa'=>'Business visa',
+    'tourist_and_visiting_family_visa'=>'Tourist and visiting family visa',
+    'study_marriage_immigrant_visa'=>'Study, marriage, immigrant visa',
+    'visa_note'=>'Note',
 
 
 ];

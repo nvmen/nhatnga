@@ -110,7 +110,7 @@
                     .done(function (data) {
                         hide_spinner();
                         if (data.success == true) {
-                            $.notify("Add successful", "success");
+                            $.notify("Edit successful", "success");
                             setTimeout(function () {
                                         location.reload();
                                     }

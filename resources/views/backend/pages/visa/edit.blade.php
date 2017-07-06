@@ -61,47 +61,47 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="content_vi">Content Vi</label>
+                                <label for="content_vi">Content Title Vi</label>
                                <textarea id="content_vi" name="content_vi" class="form-control">
                                    {{$visa_vi->content}}
                                 </textarea>
                             </div>
                             <div class="form-group">
-                                <label for="content_en">Content En</label>
+                                <label for="content_en">Content Title En</label>
                                <textarea id="content_en" name="content_en" class="form-control">
                                     {{$visa_en->content}}
                                 </textarea>
                             </div>
 
                             <div class="form-group">
-                                <label for="content_vi">Content Work VISA (Vi)</label>
+                                <label for="content_vi">Content Business VISA (Vi)</label>
                                     <textarea class="form-control" id="col_work_vi" name="col_work_vi"
                                               placeholder="Content Vi">{{$visa_vi->col_work}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="content_en">Content Work VISA(En)</label>
+                                <label for="content_en">Content Business VISA(En)</label>
                                     <textarea class="form-control" id="col_work_en" name="col_work_en"
                                               placeholder="Content En">{{$visa_en->col_work}}</textarea>
                             </div>
 
                             <div class="form-group">
-                                <label for="content_vi">Content Travel VISA (Vi)</label>
+                                <label for="content_vi">Content Tourist And Visiting Family VISA (Vi)</label>
                                     <textarea class="form-control" id="col_travel_vi" name="col_travel_vi"
                                               placeholder="Content Vi">{{$visa_vi->col_travel}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="content_en">Content Travel VISA(En)</label>
+                                <label for="content_en">Content Tourist And Visiting Family VISA VISA(En)</label>
                                     <textarea class="form-control" id="col_travel_en" name="col_travel_en"
                                               placeholder="Content En">{{$visa_en->col_travel}}</textarea>
                             </div>
 
                             <div class="form-group">
-                                <label for="content_vi">Content Study VISA (Vi)</label>
+                                <label for="content_vi">Content Study, Marriage, Immigrant VISA (Vi)</label>
                                     <textarea class="form-control" id="col_study_vi" name="col_study_vi"
                                               placeholder="Content Vi">{{$visa_vi->col_study}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="content_en">Content Study VISA(En)</label>
+                                <label for="content_en">Content Study, Marriage, Immigrant VISA(En)</label>
                                     <textarea class="form-control" id="col_study_en" name="col_study_en"
                                               placeholder="Content En">{{$visa_en->col_study}}</textarea>
                             </div>

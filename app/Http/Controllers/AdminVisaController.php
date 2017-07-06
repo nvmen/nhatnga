@@ -61,11 +61,13 @@ class AdminVisaController extends Controller
         if($template !=null){
             $template_data = $template->data;
         }
-
+       // dd($template_data);
+        $tempate_en = "<p>Discount 10% of service fee for a group of 3 customers and over</p>";
         return view('backend.pages.visa.index', ['cates' => $visa_cate, 
             'visas' => $paginatedSearchResults, 
             'search' => $search,
-            'template'=>$template_data
+            'template'=>$template_data,
+            'template_en'=>$tempate_en
         ]);
     }
 

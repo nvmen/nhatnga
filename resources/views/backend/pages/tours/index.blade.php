@@ -464,7 +464,7 @@
         var global_media = [];
         $(function () {
             Dropzone.options.myAwesomeDropzone = {
-                maxFilesize: 5,
+                maxFilesize: 15,
                 maxFiles: 10,
                 uploadMultiple: false,
                 addRemoveLinks: true,

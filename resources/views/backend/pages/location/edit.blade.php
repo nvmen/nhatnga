@@ -118,7 +118,7 @@
                             hide_spinner();
                             if (data.success == true) {
                                 //  $.notify("Delete successful", "success");
-                                $.notify("Add successful", "success");
+                                $.notify("Edit successful", "success");
                                 setTimeout(function () {
                                             //   location.reload();
                                         }

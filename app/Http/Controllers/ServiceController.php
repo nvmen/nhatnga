@@ -65,6 +65,7 @@ class ServiceController extends Controller
     public function visa(Request $request)
     {
         $service = Service::find(7);
+      
         return view('frontend.pages.services.visa', ['service' => $service]);
 
     }
