@@ -68,6 +68,10 @@
             list-style: disc;
             margin-left:30px;
         }
+		#visa-detail h3{
+		  font-weight: bold;
+          font-size: 20px;
+		}
     </style>
     <div class="site wrapper-content">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">
@@ -145,7 +149,7 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="service-box wow zoomIn data-visa" data-wow-duration="1.5s" data-wow-delay="0.1s"
                              style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.1s; animation-name: zoomIn;">
-                            <h3>{{__('nhatnga_menu.tourist_and_visiting_family_visa')}}</h3>
+                            <h3>{{__('nhatnga_menu.study_marriage_immigrant_visa')}}</h3>
                             <hr class="divider divider-lg-left divider-gray-dark divider-80">
                             <div class="text-left">
                                 {!! $visa->translation()->first()-> col_study !!}
