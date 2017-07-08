@@ -72,6 +72,9 @@
 		  font-weight: bold;
           font-size: 20px;
 		}
+        .img-border{
+            border:1px solid #eee;
+        }
     </style>
     <div class="site wrapper-content">
         <div class="top_site_main" style="background-image:url({{ URL::asset('images/banner/top-heading.jpg') }} );">
@@ -98,14 +101,14 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
                                     <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'300x185'])  !!}"
-                                         class="img-rounded img-responsive"/>
+                                         class="img-rounded img-responsive img-border"/>
                                 </div>
                                 <div class="col-sm-6 col-md-8 title-data">
                                     <h1 class="title-hotline">
                                         Hotline: <span class="phone_number">0919.345.788</span></h1>
                                     <div class="content-discount">
                                         <p>
-                                            Giảm 10% phí dịch vụ cho nhóm khách từ 3 người trở lên
+                                            {!!$visa->translation()->first()->content !!}
                                         </p>
                                     </div>
 

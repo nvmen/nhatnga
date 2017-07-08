@@ -38,7 +38,11 @@
                             {{$tour->translation()->first()->name}}
                         </a>
                     </h4></div>
-                <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}} {{$tour->duration_night}} {{__('tour.nights')}}</span>
+                <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}}
+                    @if($tour->duration_night!=0)
+                    {{$tour->duration_night}} {{__('tour.nights')}}
+                    @endif
+                </span>
                 <div class="description content-des-tour-item">
                     <p>
                         {{App\Helper::get_words($tour->translation()->first()->short_description,15)}}
