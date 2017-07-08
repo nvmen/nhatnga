@@ -26,12 +26,12 @@ $active_service = $active;
 <div class="col-sm-12">
     <aside class="services">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
                 <h3 class="title_primary title-service">{{__('nhatnga_menu.services_left')}}</h3>
             </div>
             <div >
                 <ul class="service-list">
-                    <li><a href="{{route('frontend.services.visa')}}">VISA</a></li>
+                    <li><a href="{{route('frontend.services.visa')}}">{{__('nhatnga_menu.services_visa')}}</a></li>
                     <li><a href="{{route('frontend.services.visavietnam')}}" class="@if($active_service=="visavietnam") active @endif">{{__('nhatnga_menu.visa_vietnam')}}</a></li>
                     <li>  <a href="{{route('frontend.tour.index')}}">Tours</a></li>
                     <li><a href="{{route('frontend.services.translation')}}" class="@if($active_service=="translation") active @endif">{{__('nhatnga_menu.services_translation')}}</a></li>

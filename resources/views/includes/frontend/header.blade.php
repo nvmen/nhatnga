@@ -160,7 +160,7 @@
                     <li class="menu-item-has-children {{App\Helper::activeMenu('service')}}">
                         <a href="javascript:void(0)">{{__('nhatnga_menu.services')}}</a>
                         <ul class="sub-menu">
-                            <li><a href="{{route('frontend.services.visa')}}">VISA</a>
+                            <li><a href="{{route('frontend.services.visa')}}">{{__('nhatnga_menu.services_visa')}}</a>
                                 <ul class="sub-menu">
                                     <li><a href="{{route('frontend.visa.asia')}}">{{__('nhatnga_menu.visa_asia')}}</a>
                                     </li>

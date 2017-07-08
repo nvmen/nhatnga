@@ -19,7 +19,7 @@ return [
     'food_travel' => 'Food tour',
     'visa_vietnam' => 'Vietnamese visa',
     'visa_asia' => 'Asian visa',
-    'visa_europe' => 'Europe visa',
+    'visa_europe' => 'European visa',
     'visa_america' => 'American visa',
     'visa_australia' => 'Australian visa',
     'visa_africa' => 'African visa',
