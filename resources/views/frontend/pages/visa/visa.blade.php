@@ -101,10 +101,10 @@ $content_seo = $seo_data;
                 </div>
                 <div class="row">
                     @foreach($visa_list as $visa)
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="product-item">
                             <div class="pi-img-wrapper">
-                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'248x185'])  !!}" class="img-responsive" alt="{{$visa->translation()->first()->name}}">
+                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'148x85'])  !!}" class="img-responsive" alt="{{$visa->translation()->first()->name}}">
                                 <div>
                                     <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class="btn">View</a>
                                 </div>

@@ -114,5 +114,11 @@
         goToTop();
     });
 </script>
+<style>
+    #uhchat {
+        right:60px !important;
+    }
+</style>
+<script src="https://uhchat.net/code.php?f=170c35"></script>
 </body>
 </html>
