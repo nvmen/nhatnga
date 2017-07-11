@@ -70,6 +70,7 @@ $content_seo = $seo_data;
          font-weight: 600;
          padding-bottom: 4px;
          text-transform: uppercase;
+		 height: 16px;
      }
      .product-item h3 a {
          color: #3e4d5c;
@@ -77,7 +78,9 @@ $content_seo = $seo_data;
      .product-item h3 a:hover {
          color: #E02222;
      }
-
+     .img-border{
+         border:1px solid #eee;
+     }
 
 
  </style>
@@ -104,7 +107,7 @@ $content_seo = $seo_data;
                     <div class="col-md-3">
                         <div class="product-item">
                             <div class="pi-img-wrapper">
-                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'148x85'])  !!}" class="img-responsive" alt="{{$visa->translation()->first()->name}}">
+                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'148x85'])  !!}" class="img-responsive img-border" alt="{{$visa->translation()->first()->name}}">
                                 <div>
                                     <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class="btn">View</a>
                                 </div>
