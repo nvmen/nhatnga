@@ -160,6 +160,7 @@ Route::group(
 
         Route::get('/get-media/{id}/{resize?}', ['uses' => 'MediaController@get_media', 'as' => 'media.get']);
         Route::get('/media-info/{id}', ['uses' => 'MediaController@get_media_info', 'as' => 'media.get.info']);
+        Route::get('/media-test', ['uses' => 'MediaController@test', 'as' => 'media.get.test']);
         Route::get('test', function () {
             return View::make('test');
         });

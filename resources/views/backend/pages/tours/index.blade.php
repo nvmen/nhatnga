@@ -447,14 +447,7 @@
             })
 
         }
-        var url1 = '{{route('backend.show.media')}}';
-        var url2 = '{{route('backend.upload.media')}}';
-        var options = {
-            filebrowserImageBrowseUrl: url1 + '?type=Images',
-            filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
-            filebrowserBrowseUrl: url1 + '?type=Files',
-            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
-        };
+
         CKEDITOR.replace('tour_des_vi', options);
         CKEDITOR.replace('tour_des_en', options);
         CKEDITOR.replace('tour_itinerary_vi', options);

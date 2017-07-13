@@ -136,29 +136,21 @@
     <script>
         var global_files = [];
         var global_media = [{{$visa->media_ids}}];
-        var url1 = '{{route('backend.show.media')}}';
-        var url2 = '{{route('backend.upload.media')}}';
-        var options = {
-            filebrowserImageBrowseUrl: url1 + '?type=Images',
-            filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
-            filebrowserBrowseUrl: url1 + '?type=Files',
-            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}',
-            height: 200,
-        };
-        CKEDITOR.replace('content_vi', options);
-        CKEDITOR.replace('content_en', options);
 
-        CKEDITOR.replace('col_work_en', options);
-        CKEDITOR.replace('col_work_vi', options);
+        CKEDITOR.replace('content_vi', optionsVisa);
+        CKEDITOR.replace('content_en', optionsVisa);
 
-        CKEDITOR.replace('col_travel_vi', options);
-        CKEDITOR.replace('col_travel_en', options);
+        CKEDITOR.replace('col_work_en', optionsVisa);
+        CKEDITOR.replace('col_work_vi', optionsVisa);
 
-        CKEDITOR.replace('col_study_vi', options);
-        CKEDITOR.replace('col_study_en', options);
+        CKEDITOR.replace('col_travel_vi', optionsVisa);
+        CKEDITOR.replace('col_travel_en', optionsVisa);
 
-        CKEDITOR.replace('col_note_vi', options);
-        CKEDITOR.replace('col_note_en', options);
+        CKEDITOR.replace('col_study_vi', optionsVisa);
+        CKEDITOR.replace('col_study_en', optionsVisa);
+
+        CKEDITOR.replace('col_note_vi', optionsVisa);
+        CKEDITOR.replace('col_note_en', optionsVisa);
 
         function save_edit() {
 

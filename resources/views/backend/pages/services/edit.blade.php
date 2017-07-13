@@ -67,14 +67,7 @@
     <script>
         var global_files = [];
         var global_media = [{{$service->media_ids}}];
-        var url1 = '{{route('backend.show.media')}}';
-        var url2 = '{{route('backend.upload.media')}}';
-        var options = {
-            filebrowserImageBrowseUrl: url1 + '?type=Images',
-            filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
-            filebrowserBrowseUrl: url1 + '?type=Files',
-            filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
-        };
+
         CKEDITOR.replace('content_vi', options);
         CKEDITOR.replace('content_en', options);
 

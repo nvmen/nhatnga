@@ -19,6 +19,24 @@ class MediaController extends Controller
 
     private $image_not_found = 'image-not-found.gif';
 
+    function test(Request $request){
+
+        $id = 94;
+        dd('rerere');
+        /*
+        $storagePathNotFound = public_path('uploads/default/') . $this->image_not_found;
+        $media = Media::find($id);
+        if ($media == null) {
+            $storagePath = $storagePathNotFound;
+
+        } else {
+            $storagePath = public_path('uploads/media/') . $media->uuid_name;
+        }
+        dd($storagePath);
+
+        return Image::make($storagePath)->response();
+        */
+    }
     function get_media($id, $resize = null)
     {
         $storagePathNotFound = public_path('uploads/default/') . $this->image_not_found;

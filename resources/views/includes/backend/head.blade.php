@@ -43,3 +43,23 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <link rel="shortcut icon" href="{{URL::asset('images/favicon.png')}}" type="image/x-icon">
 <![endif]-->
+
+<script>
+    var url1 = '{{route('backend.show.media')}}';
+    var url2 = '{{route('backend.upload.media')}}';
+    var optionsVisa = {
+        filebrowserImageBrowseUrl: url1 + '?type=Images',
+        filebrowserImageUploadUrl: url2 + '/upload?type=Images&_token=',
+        filebrowserBrowseUrl: url1 + '?type=Files',
+        filebrowserUploadUrl: url2 + '/upload?type=Files&_token={{ csrf_token() }}',
+        height: 200,
+        toolbar: 'Basic',
+    };
+    var options = {
+        filebrowserImageBrowseUrl: url1 + '?type=Images',
+        filebrowserImageUploadUrl: url1 + '/upload?type=Images&_token=',
+        filebrowserBrowseUrl: url1 + '?type=Files',
+        filebrowserUploadUrl: url1 + '/upload?type=Files&_token={{ csrf_token() }}'
+    };
+
+</script>
