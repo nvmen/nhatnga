@@ -22,7 +22,24 @@ class MediaController extends Controller
     function test(Request $request){
 
         $id = 94;
-        dd('rerere');
+
+        $storagePathNotFound = public_path('uploads/default/') . $this->image_not_found;
+        $media = Media::find($id);
+        if ($media == null) {
+            $storagePath = $storagePathNotFound;
+
+        } else {
+            $storagePath = public_path('uploads/media/') . $media->uuid_name;
+        }
+
+        dd($storagePath);
+        if (!file_exists($storagePath)) {
+            return null;
+        }
+        $file = File::get($storagePath);
+        $type = File::mimeType($storagePath);
+        return Response::make($file, 200)->header("Content-Type", $type);
+       // dd($storagePath);
         /*
         $storagePathNotFound = public_path('uploads/default/') . $this->image_not_found;
         $media = Media::find($id);

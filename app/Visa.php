@@ -12,7 +12,7 @@ use App;
 class Visa extends Model
 { protected $table = 'visa';
     protected $fillable = [
-        'id', 'slug_url','media_ids','visa_cate_id','updated_at'
+        'id', 'slug_url','media_ids','visa_cate_id','updated_at','is_popular'
 
     ];
 

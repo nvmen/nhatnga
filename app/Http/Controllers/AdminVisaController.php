@@ -116,6 +116,7 @@ class AdminVisaController extends Controller
                     $obj = new Visa();
                     $obj->media_ids = $request['media_ids'];
                     $obj->slug_url = $slug;
+                    $obj->is_popular = $request['is_popular'];
                     $obj->visa_cate_id = $request['location'];
                     $obj->save();
 
@@ -237,6 +238,7 @@ class AdminVisaController extends Controller
             $obj = Visa::find($id);
             $obj->media_ids = $request['media_ids'];
             $obj->slug_url = $slug;
+            $obj->is_popular = $request['is_popular'];
             $obj->visa_cate_id = $request['location'];
             $obj->save();
 

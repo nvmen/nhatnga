@@ -58,5 +58,6 @@ return [
     'tourist_and_visiting_family_visa'=>'Thị thực du lịch, thăm thân',
     'study_marriage_immigrant_visa'=>'Visa du học, kết hôn, định cư',
     'visa_note'=>'Lưu ý',
+    'popular_visas'=>'Các thị thực phổ biến',
 
 ];

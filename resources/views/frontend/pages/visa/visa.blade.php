@@ -71,6 +71,7 @@ $content_seo = $seo_data;
          padding-bottom: 4px;
          text-transform: uppercase;
 		 height: 16px;
+         text-align: center;
      }
      .product-item h3 a {
          color: #3e4d5c;

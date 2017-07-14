@@ -122,6 +122,6 @@
         right:40px !important;
     }
 </style>
-<script src="https://uhchat.net/code.php?f=170c35"></script>
+<script src="https://uhchat.net/code.php?f=b35cb3"></script>
 </body>
 </html>

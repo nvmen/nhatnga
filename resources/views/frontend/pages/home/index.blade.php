@@ -14,7 +14,7 @@
             <div class="carousel-inner" role="listbox">
                 @foreach($banners as $banner)
                     <div class="item @if($index==0) active @endif">
-                        <img src="images/home/slider-2.jpg" alt="{{$banner->translation()->first()->title}}">
+                        <img src="{!! route('media.get', ['id'=>$banner->media_ids,'resize'=>'1920x1080'])  !!}" alt="{{$banner->translation()->first()->title}}">
                         <div class="carousel-caption content-slider">
                             <div class="container">
                                 <h2>{{$banner->translation()->first()->title}} </h2>

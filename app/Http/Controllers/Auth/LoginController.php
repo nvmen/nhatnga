@@ -73,12 +73,15 @@ class LoginController extends Controller
             // doing login.
             // check user is active or not
             $user_check = User::where('email', $request->get('email'))->first();
+
             if ($user_check == null || $user_check->is_active == 0) {
                 Session::flash('error', 'Something went wrong');
                 return Redirect::to('/auth')->with('error', 'Your account is blocked. Please contact Nhat Nga support for details.');
             }
+
             if (Auth::validate($userdata)) {
                 // check user exist
+              
                 if (Auth::attempt($userdata, $remember)) {
                     if(Auth::user()->user_type =='admin'){
                         $redirect_to = url('/') . '/en/admin';

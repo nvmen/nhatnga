@@ -107,6 +107,10 @@
                                     </form>
                                 </div>
                                 <div class="form-group">
+                                    <label for="name_vi">Popular VISA</label>
+                                    <input type="checkbox" id="is_popular" name="is_popular">
+                                </div>
+                                <div class="form-group">
                                     <label for="name_vi">Location</label>
                                     <select class="form-control" id="location">
                                         @foreach($cates as  $cate)
@@ -265,7 +269,7 @@
             var token = '{{ csrf_token() }}';
             var name_vi = $('#name_vi').val();
             var name_en = $('#name_en').val();
-
+            var is_popular = $('#is_popular').is(":checked") ? 1 : 0;
             var short_des_vi = $('#short_des_vi').val();
             var short_des_en = $('#short_des_en').val();
 
@@ -300,7 +304,7 @@
                 media_ids: media_id,
                 col_work_vi: col_work_vi,
                 col_work_en: col_work_en,
-
+                is_popular: is_popular,
                 col_travel_en: col_travel_en,
                 col_travel_vi: col_travel_vi,
 

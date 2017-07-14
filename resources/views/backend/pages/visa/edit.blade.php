@@ -24,6 +24,10 @@
                                 </form>
                             </div>
                             <div class="form-group">
+                                <label for="name_vi">Popular VISA</label>
+                                <input type="checkbox" id="is_popular" name="is_popular" @if($visa->is_popular>0) checked @endif>
+                            </div>
+                            <div class="form-group">
                                 <label for="name_vi">Location</label>
                                 <select class="form-control" id="location">
                                     @foreach($cates as  $cate)
@@ -162,7 +166,7 @@
 
             var short_des_vi = $('#short_des_vi').val();
             var short_des_en = $('#short_des_en').val();
-
+            var is_popular = $('#is_popular').is(":checked") ? 1 : 0;
             var location = $('#location').val();
             var content_vi = CKEDITOR.instances['content_vi'].getData();
             var content_en = CKEDITOR.instances['content_en'].getData();
@@ -196,7 +200,7 @@
                 content_vi: content_vi,
                 content_en: content_en,
                 media_ids: media_id,
-
+                is_popular: is_popular,
                 col_work_vi: col_work_vi,
                 col_work_en: col_work_en,
 

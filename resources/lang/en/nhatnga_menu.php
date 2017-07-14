@@ -57,6 +57,8 @@ return [
     'tourist_and_visiting_family_visa'=>'Tourist and visiting family visa',
     'study_marriage_immigrant_visa'=>'Study, marriage, immigrant visa',
     'visa_note'=>'Note',
+    'popular_visas'=>'Popular Visas'
+
 
 
 ];

@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 use App\VisaCategory;
+
 class VISAController extends Controller
 {
     public function __construct()
@@ -23,61 +24,61 @@ class VISAController extends Controller
     {
         $cate_visa_id = 5;
         $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
-        $cate_translation =VisaCategory::find($cate_visa_id)->translation()->first();
+        $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
-        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia,'cate'=>$cate_translation]);
+        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
     }
 
     public function asia(Request $request)
     {
         $cate_visa_id = 3;
         $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
-        $cate_translation =VisaCategory::find($cate_visa_id)->translation()->first();
+        $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
-        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia,'cate'=>$cate_translation]);
+        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
     }
 
     public function america(Request $request)
     {
         $cate_visa_id = 2;
         $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
-        $cate_translation =VisaCategory::find($cate_visa_id)->translation()->first();
+        $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
-        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia,'cate'=>$cate_translation]);
+        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
     }
 
     public function africa(Request $request)
     {
         $cate_visa_id = 1;
         $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
-        $cate_translation =VisaCategory::find($cate_visa_id)->translation()->first();
+        $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
-        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia,'cate'=>$cate_translation]);
+        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
     }
 
     public function australia(Request $request)
     {
         $cate_visa_id = 4;
         $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
-        $cate_translation =VisaCategory::find($cate_visa_id)->translation()->first();
+        $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
-        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia,'cate'=>$cate_translation]);
+        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
     }
 
     public function vietnam(Request $request)
     {
         $cate_visa_id = 3;
         $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
-        $cate_translation =VisaCategory::find($cate_visa_id)->translation()->first();
+        $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
-        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia,'cate'=>$cate_translation]);
+        return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
     }
 
     public function detail($visa_url)
     {
-        $visa =App\Visa::where('slug_url',$visa_url)->first();
-        $cate_id =$visa->visa_cate_id;
-        $url_cate='#';
+        $visa = App\Visa::where('slug_url', $visa_url)->first();
+        $cate_id = $visa->visa_cate_id;
+        $url_cate = '#';
         /*
          *  Route::get('/europe', ['uses' => 'VISAController@europe', 'as' => 'frontend.visa.europe']);
             Route::get('/asia', ['uses' => 'VISAController@asia', 'as' => 'frontend.visa.asia']);
@@ -86,32 +87,39 @@ class VISAController extends Controller
             Route::get('/australia', ['uses' => 'VISAController@australia', 'as' => 'frontend.visa.australia']);
             Route::get('/vietnam', ['uses' => 'VISAController@vietnam', 'as' => 'frontend.visa.vietnam']);
          */
-        switch ($cate_id){
-            case 1:{
-                $url_cate =route('frontend.visa.africa');
-                break;
-            }
-            case 2:{
-                $url_cate =route('frontend.visa.america');
-                break;
-            }
-            case 3:{
-                $url_cate =route('frontend.visa.asia');
-                break;
-            }
-            case 4:{
-                $url_cate =route('frontend.visa.australia');
-                break;
-            }
-            case 5:{
 
-                $url_cate =route('frontend.visa.europe');
+        $visa_popular = App\Visa::where('visa_cate_id', $cate_id)->where('is_popular', 1)->get();
+        switch ($cate_id) {
+            case 1: {
+                $url_cate = route('frontend.visa.africa');
+                break;
+            }
+            case 2: {
+                $url_cate = route('frontend.visa.america');
+                break;
+            }
+            case 3: {
+                $url_cate = route('frontend.visa.asia');
+                break;
+            }
+            case 4: {
+                $url_cate = route('frontend.visa.australia');
+                break;
+            }
+            case 5: {
+
+                $url_cate = route('frontend.visa.europe');
                 break;
             }
         }
         $cate_translation = VisaCategory::find($visa->visa_cate_id)->translation()->first();
-        return view('frontend.pages.visa.detail',['visa'=>$visa,'cate'=>$cate_translation,'url_cate'=>$url_cate]);
+
+        $chunks = $visa_popular->chunk(4);
+        return view('frontend.pages.visa.detail', ['visa' => $visa, 'cate' => $cate_translation, 'url_cate' => $url_cate,
+            'visa_popular' => $chunks
+        ]);
     }
+
     public function test()
     {
 
