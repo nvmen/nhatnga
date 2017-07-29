@@ -31,9 +31,9 @@ $active_service = $active;
             </div>
             <div >
                 <ul class="service-list">
-                    <li><a href="{{route('frontend.services.studyincanada')}}">{{__('home.study_in_canada')}}</a></li>
-                    <li><a href="{{route('frontend.services.workandliveincanada')}}">{{__('home.work_and_live_in_canada')}}</a></li>
-                    <li><a href="{{route('frontend.services.visa')}}">{{__('nhatnga_menu.services_visa')}}</a></li>
+                    <li><a href="{{route('frontend.services.studyincanada')}}"  class="@if($active_service=="studyincanada") active @endif">{{__('home.study_in_canada')}}</a></li>
+                    <li><a href="{{route('frontend.services.workandliveincanada')}}"  class="@if($active_service=="workandliveincanada") active @endif">{{__('home.work_and_live_in_canada')}}</a></li>
+                    <li><a href="{{route('frontend.services.visa')}}"  class="@if($active_service=="visa") active @endif">{{__('nhatnga_menu.services_visa')}}</a></li>
                     <li><a href="{{route('frontend.services.visavietnam')}}" class="@if($active_service=="visavietnam") active @endif">{{__('nhatnga_menu.visa_vietnam')}}</a></li>
                     <li>  <a href="{{route('frontend.tour.index')}}">Tours</a></li>
                     <li><a href="{{route('frontend.services.translation')}}" class="@if($active_service=="translation") active @endif">{{__('nhatnga_menu.services_translation')}}</a></li>
@@ -41,7 +41,7 @@ $active_service = $active;
                     <li><a href="{{route('frontend.services.workpermit')}}" class="@if($active_service=="workpermit") active @endif">{{__('nhatnga_menu.services_workpermit')}}</a>
                     </li>
                     <li><a href="{{route('frontend.services.airlineticket')}}" class="@if($active_service=="airlineticket") active @endif">{{__('nhatnga_menu.services_airlineticket')}}</a></li>
-                    <li><a href="{{route('frontend.services.domesticandinternationaltravelinsurance')}}">{{__('home.travel_insurance')}}</a></li>
+                    <li><a href="{{route('frontend.services.domesticandinternationaltravelinsurance')}}" class="@if($active_service=="travelinsurance") active @endif">{{__('home.travel_insurance')}}</a></li>
                     <li><a href="{{route('frontend.services.others')}}" class="@if($active_service=="others") active @endif">{{__('nhatnga_menu.services_others')}}</a></li>
 
 
