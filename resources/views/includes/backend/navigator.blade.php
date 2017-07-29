@@ -131,7 +131,9 @@
                     <li> <a href="{{route('backend.services.get',['id'=>5])}}"> VISA Vietnam</a></li>
                     <li> <a href="{{route('backend.services.get',['id'=>6])}}"> Others</a></li>
                     <li> <a href="{{route('backend.services.get',['id'=>7])}}"> VISA</a></li>
-                    <li> <a href="{{route('backend.services.get',['id'=>8])}}"> Tours</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>9])}}"> Study in Canada</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>10])}}"> Work&live in Canada</a></li>
+                    <li> <a href="{{route('backend.services.get',['id'=>11])}}"> Travel insurance</a></li>
                 </ul>
             </li>
             <li>

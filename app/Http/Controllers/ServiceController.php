@@ -69,5 +69,26 @@ class ServiceController extends Controller
         return view('frontend.pages.services.visa', ['service' => $service]);
 
     }
+    public function studyincanada(Request $request)
+    {
+        $service = Service::find(9);
+
+        return view('frontend.pages.services.studyincanada', ['service' => $service]);
+
+    }
+    public function workandliveincanada(Request $request)
+    {
+        $service = Service::find(10);
+
+        return view('frontend.pages.services.worklivecanada', ['service' => $service]);
+
+    }
+    public function domesticandinternationaltravelinsurance(Request $request)
+    {
+        $service = Service::find(11);// id from database service table
+
+        return view('frontend.pages.services.travelinsurance', ['service' => $service]);
+
+    }
 
 }

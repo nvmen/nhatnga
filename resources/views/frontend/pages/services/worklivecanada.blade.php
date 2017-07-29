@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('pageTitle',  __('nhatnga_menu.services_airlineticket'))
+@section('pageTitle',  __('home.work_and_live_in_canada'))
 @section('content')
 
     <div class="site wrapper-content">
@@ -9,10 +9,10 @@
                     <ul class="phys-breadcrumb">
                         <li><a href="#" class="home">Home</a></li>
                         <li>{{__('nhatnga_menu.services')}}</li>
-                        <li>{{__('nhatnga_menu.services_airlineticket')}}</li>
+                        <li>{{__('home.work_and_live_in_canada')}}</li>
                     </ul>
                 </div>
-                <h1 class="heading_primary">{{__('nhatnga_menu.services_airlineticket')}}</h1></div>
+                <h1 class="heading_primary">{{__('home.work_and_live_in_canada')}}</h1></div>
         </div>
         <section class="content-area">
             <div class="container">

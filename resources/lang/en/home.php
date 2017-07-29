@@ -32,4 +32,13 @@ return [
     'tour'=>'Tours',
     'work_permit_temporary_resident_card'=>'Work permit & Temporary Resident Card',
     'promotion_news'=>'PROMOTION',
+
+    'study_in_canada'=>'Study in Canada',
+    'work_and_live_in_canada'=>'Work and live in Canada',
+    'domestic_and_international_travel_insurance'=>'Domestic and international travel insurance',
+    'travel_insurance'=>'Travel insurance',
+
+    'study_in_canada_description'=>'Integrate in the world',
+    'work_and_live_in_canada_description'=>'Evolutionary and dynamic life',
+    'domestic_and_international_travel_insurance_description'=>' we always accompany you on the trips',
 ];

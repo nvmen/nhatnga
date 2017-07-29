@@ -160,7 +160,10 @@
                     <li class="menu-item-has-children {{App\Helper::activeMenu('service')}}">
                         <a href="javascript:void(0)">{{__('nhatnga_menu.services')}}</a>
                         <ul class="sub-menu">
-                            <li><a href="{{route('frontend.services.visa')}}">{{__('nhatnga_menu.services_visa')}}</a>
+                            <li><a href="{{route('frontend.services.studyincanada')}}">{{__('home.study_in_canada')}}</a></li>
+                            <li><a href="{{route('frontend.services.workandliveincanada')}}">{{__('home.work_and_live_in_canada')}}</a></li>
+                            <li>
+                                <a href="{{route('frontend.services.visa')}}">{{__('nhatnga_menu.services_visa')}}</a>
                                 <ul class="sub-menu">
                                     <li><a href="{{route('frontend.visa.asia')}}">{{__('nhatnga_menu.visa_asia')}}</a>
                                     </li>
@@ -184,6 +187,7 @@
                             <li><a href="{{route('frontend.services.workpermit')}}">{{__('nhatnga_menu.services_workpermit')}}</a>
                             </li>
                             <li><a href="{{route('frontend.services.airlineticket')}}">{{__('nhatnga_menu.services_airlineticket')}}</a></li>
+                            <li><a href="{{route('frontend.services.domesticandinternationaltravelinsurance')}}">{{__('home.travel_insurance')}}</a></li>
                             <li><a href="{{route('frontend.services.others')}}">{{__('nhatnga_menu.services_others')}}</a></li>
                         </ul>
                     </li>

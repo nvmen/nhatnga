@@ -31,4 +31,14 @@ return [
     'tour'=>'Tour du lịch',
     'work_permit_temporary_resident_card'=>'Giấy phép lao động & Thẻ tạm trú',
     'promotion_news'=>'KHUYẾN MÃI',
+
+    'study_in_canada'=>'Du học Canada',
+    'work_and_live_in_canada'=>'Làm việc và định cư tại Canada',
+    'domestic_and_international_travel_insurance'=>'Bảo hiểm du lịch trong và ngoài nước',
+    'travel_insurance'=>'Bảo hiểm du lịch',
+
+    'study_in_canada_description'=>'Hòa nhập cùng thế giới',
+    'work_and_live_in_canada_description'=>'Cuộc sống năng động và phát triển',
+    'domestic_and_international_travel_insurance_description'=>'Người bạn đồng hành trong những chuyến đi',
+
 ];

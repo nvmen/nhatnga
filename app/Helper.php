@@ -213,7 +213,11 @@ class Helper extends Model
                    Request::route()->getName()=='frontend.visa.africa'||
                    Request::route()->getName()=='frontend.visa.australia'||
                    Request::route()->getName()=='frontend.visa.vietnam'||
-                   Request::route()->getName()=='frontend.visa.detail'
+                   Request::route()->getName()=='frontend.visa.detail'||
+
+                   Request::route()->getName()=='frontend.services.studyincanada'||
+                   Request::route()->getName()=='frontend.services.workandliveincanada'||
+                   Request::route()->getName()=='frontend.services.domesticandinternationaltravelinsurance'
 
                 ){
                     return (' current-menu-parent current-menu-ancestor');

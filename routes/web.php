@@ -93,6 +93,9 @@ Route::group(
             Route::get('/visa-viet-nam', ['uses' => 'ServiceController@visavietnam', 'as' => 'frontend.services.visavietnam']);
             Route::get('/others', ['uses' => 'ServiceController@other', 'as' => 'frontend.services.others']);
             Route::get('/visa', ['uses' => 'ServiceController@visa', 'as' => 'frontend.services.visa']);
+            Route::get('/study-in-canada', ['uses' => 'ServiceController@studyincanada', 'as' => 'frontend.services.studyincanada']);
+            Route::get('/work-and-live-in-canada', ['uses' => 'ServiceController@workandliveincanada', 'as' => 'frontend.services.workandliveincanada']);
+            Route::get('/domestic-and-international-travel-insurance', ['uses' => 'ServiceController@domesticandinternationaltravelinsurance', 'as' => 'frontend.services.domesticandinternationaltravelinsurance']);
 
         });
 

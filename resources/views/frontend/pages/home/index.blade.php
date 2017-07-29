@@ -49,7 +49,47 @@
                 </div>
             </div>
             <div class="row ">
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
+                    <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                        <a href="{{route('frontend.services.studyincanada')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i
+                                            class="fa fa-graduation-cap"></i></span>
+                            </div>
+                        </a>
+                        <div class="content-inner">
+
+                            <div class="sc-heading article_heading">
+                                <h4 class="heading__primary">{{__('home.study_in_canada')}}</h4></div>
+                            <div class="desc-icon-box">
+                                <div>{{__('home.study_in_canada_description')}}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column col-sm-3 padding-menu">
+                    <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                        <a href="{{route('frontend.services.workandliveincanada')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i
+                                            class="fa fa-university"></i></span>
+                            </div>
+                        </a>
+                        <div class="content-inner">
+
+                            <div class="sc-heading article_heading">
+                                <h4 class="heading__primary">{{__('home.work_and_live_in_canada')}}</h4></div>
+                            <div class="desc-icon-box">
+                                <div>{{__('home.work_and_live_in_canada_description')}}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.tour.index')}}">
                             <div class="boxes-icon circle"
@@ -69,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.visa')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -85,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.visavietnam')}}">
                             <div class="boxes-icon circle"
@@ -102,7 +142,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.workpermit')}}">
                             <div class="boxes-icon circle"
@@ -119,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.workpermit')}}">
                             <div class="boxes-icon circle"
@@ -137,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.translation')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -153,7 +193,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.apeccard')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -169,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.airlineticket')}}">
                             <div class="boxes-icon " style="font-size:30px;width:80px; height:80px;line-height:80px">
@@ -185,7 +225,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column col-sm-4 padding-menu">
+
+                <div class="wpb_column col-sm-3 padding-menu">
+                    <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                        <a href="{{route('frontend.services.domesticandinternationaltravelinsurance')}}">
+                            <div class="boxes-icon circle"
+                                 style="font-size:30px;width:80px; height:80px;line-height:80px">
+                                <span class="inner-icon"><i
+                                            class="fa fa-handshake-o"></i></span>
+                            </div>
+                        </a>
+                        <div class="content-inner">
+                            <div class="sc-heading article_heading">
+                                <h4 class="heading__primary">{{__('home.domestic_and_international_travel_insurance')}}</h4></div>
+                            <div class="desc-icon-box">
+                                <div>{{__('home.domestic_and_international_travel_insurance_description')}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wpb_column col-sm-3 padding-menu">
                     <div class="widget-icon-box widget-icon-box-base iconbox-center">
                         <a href="{{route('frontend.services.others')}}">
                             <div class="boxes-icon circle"

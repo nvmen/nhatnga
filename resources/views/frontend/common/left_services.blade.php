@@ -23,7 +23,7 @@ if(isset($active)){
 $active_service = $active;
 }
 @endphp
-<div class="col-sm-12">
+<div class="">
     <aside class="services">
         <div class="row">
             <div class="col-sm-12">
@@ -31,6 +31,8 @@ $active_service = $active;
             </div>
             <div >
                 <ul class="service-list">
+                    <li><a href="{{route('frontend.services.studyincanada')}}">{{__('home.study_in_canada')}}</a></li>
+                    <li><a href="{{route('frontend.services.workandliveincanada')}}">{{__('home.work_and_live_in_canada')}}</a></li>
                     <li><a href="{{route('frontend.services.visa')}}">{{__('nhatnga_menu.services_visa')}}</a></li>
                     <li><a href="{{route('frontend.services.visavietnam')}}" class="@if($active_service=="visavietnam") active @endif">{{__('nhatnga_menu.visa_vietnam')}}</a></li>
                     <li>  <a href="{{route('frontend.tour.index')}}">Tours</a></li>
@@ -39,6 +41,7 @@ $active_service = $active;
                     <li><a href="{{route('frontend.services.workpermit')}}" class="@if($active_service=="workpermit") active @endif">{{__('nhatnga_menu.services_workpermit')}}</a>
                     </li>
                     <li><a href="{{route('frontend.services.airlineticket')}}" class="@if($active_service=="airlineticket") active @endif">{{__('nhatnga_menu.services_airlineticket')}}</a></li>
+                    <li><a href="{{route('frontend.services.domesticandinternationaltravelinsurance')}}">{{__('home.travel_insurance')}}</a></li>
                     <li><a href="{{route('frontend.services.others')}}" class="@if($active_service=="others") active @endif">{{__('nhatnga_menu.services_others')}}</a></li>
 
 
