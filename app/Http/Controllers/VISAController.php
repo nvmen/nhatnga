@@ -23,7 +23,7 @@ class VISAController extends Controller
     public function europe(Request $request)
     {
         $cate_visa_id = 5;
-        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
+        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->orderBy('slug_url')->get();
         $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
         return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
@@ -32,7 +32,7 @@ class VISAController extends Controller
     public function asia(Request $request)
     {
         $cate_visa_id = 3;
-        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
+        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->orderBy('slug_url')->get();
         $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
         return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
@@ -41,7 +41,7 @@ class VISAController extends Controller
     public function america(Request $request)
     {
         $cate_visa_id = 2;
-        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
+        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->orderBy('slug_url')->get();
         $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
         return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
@@ -50,7 +50,7 @@ class VISAController extends Controller
     public function africa(Request $request)
     {
         $cate_visa_id = 1;
-        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
+        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->orderBy('slug_url')->get();
         $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
         return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
@@ -59,7 +59,7 @@ class VISAController extends Controller
     public function australia(Request $request)
     {
         $cate_visa_id = 4;
-        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->get();
+        $visa_asia = App\Visa::where('visa_cate_id', $cate_visa_id)->orderBy('slug_url')->get();
         $cate_translation = VisaCategory::find($cate_visa_id)->translation()->first();
 
         return view('frontend.pages.visa.visa', ['visa_list' => $visa_asia, 'cate' => $cate_translation]);
