@@ -93,9 +93,12 @@
                     </div>
                 </div>
                 <div class="widget-area col-sm-3 align-left">
-                    <div class="col-sm-12" >
-                        @include('frontend.common.left_services')
+                    <div class ="row">
+                        <div class="col-sm-12" >
+                            @include('frontend.common.left_services')
+                        </div>
                     </div>
+
                 </div>
 
 
