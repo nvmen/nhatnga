@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'days' => 'DAYS',
-    'nights' => 'NIGHTS',
+    'days' => 'DAY(S)',
+    'nights' => 'NIGHT(S)',
     'book_the_tour' => 'Book the tour',
     'first_name' => 'First name',
     'last_name' => 'Last name',
