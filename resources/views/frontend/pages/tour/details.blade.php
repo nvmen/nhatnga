@@ -30,7 +30,7 @@
                                     <h1>{{$tour->translation()->first()->name}}</h1>
                                 </div>
                                 <div class="tour_code">
-                                    <strong>Code: </strong>{{strtoupper ($tour->first()->code)}}
+                                    <strong>Code: </strong>{{strtoupper ($tour->code)}}
                                 </div>
                             </div>
                             <div class="tour_after_title">

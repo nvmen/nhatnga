@@ -199,56 +199,12 @@
                                     <div class="row"><label>Duration</label></div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <select id="duration_day" name="duration_day" class="form-control">
-                                                <option value="0">---</option>
-                                                <option value="1">1 Day</option>
-                                                <option value="2">2 Days</option>
-                                                <option value="3">3 Days</option>
-                                                <option value="4">4 Days</option>
-                                                <option value="5">5 Days</option>
-                                                <option value="6">6 Days</option>
-                                                <option value="7">7 Days</option>
-                                                <option value="8">8 Days</option>
-                                                <option value="9">9 Days</option>
-                                                <option value="10">10 Day</option>
-                                                <option value="11">11 Day</option>
-                                                <option value="12">12 Days</option>
-                                                <option value="13">13 Days</option>
-                                                <option value="14">14 Days</option>
-                                                <option value="15">15 Days</option>
-                                                <option value="16">16 Days</option>
-                                                <option value="17">17 Days</option>
-                                                <option value="18">18 Days</option>
-                                                <option value="19">19 Days</option>
-
-
-                                            </select>
+                                            <input  id="duration_day" name="duration_day"  type="number"  step="0.5"  class="form-control" value="0"/>
+                                            Day(s)
                                         </div>
                                         <div class="col-md-6">
-                                            <select id="duration_night" name="duration_night" class="form-control">
-                                                <option value="0" selected> ----</option>
-                                                <option value="1">1 Night</option>
-                                                <option value="2">2 Nights</option>
-                                                <option value="3">3 Nights</option>
-                                                <option value="4">4 Nights</option>
-                                                <option value="5">5 Nights</option>
-                                                <option value="6">6 Nights</option>
-                                                <option value="7">7 Nights</option>
-                                                <option value="8">8 Nights</option>
-                                                <option value="9">9 Nights</option>
-                                                <option value="10">10 Nights</option>
-                                                <option value="11">11 Nights</option>
-                                                <option value="12">12 Nights</option>
-                                                <option value="13">13 Nights</option>
-                                                <option value="14">14 Nights</option>
-                                                <option value="15">15 Nights</option>
-                                                <option value="16">16 Nights</option>
-                                                <option value="17">17 Nights</option>
-                                                <option value="18">18 Nights</option>
-                                                <option value="19">19 Nights</option>
-
-
-                                            </select>
+                                            <input id="duration_night" type="number"  step="0.5" name="duration_night" class="form-control" value="0"/>
+                                            Night(s)
                                         </div>
                                     </div>
 
