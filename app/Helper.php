@@ -227,4 +227,8 @@ class Helper extends Model
         }
 
     }
+    public  static function get_url_media($id,$size){
+        $url = url('/').'/uploads/media/'.$id.'-'.$size.'.jpg';
+        return $url;
+    }
 }

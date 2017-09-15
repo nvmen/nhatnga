@@ -70,7 +70,13 @@ class MediaController extends Controller
         }
         if ($resize) {
             $sizes = explode("x", $resize);
-            return Image::make($storagePath)->resize(is_numeric($sizes[0]) ? $sizes[0] : 100, is_numeric($sizes[1]) ? $sizes[1] : 100)->response();
+            $width_size = is_numeric($sizes[0]) ? $sizes[0] : 100;
+            $height_size = is_numeric($sizes[1]) ? $sizes[1] : 100;
+
+            $save_file_name =public_path('uploads/media/'). $id.'-'.$width_size.'x'.$height_size.'.jpg';
+
+            $img = Image::make($storagePath)->resize($width_size, $height_size)->save($save_file_name);
+            return $img->response();
         }
         return Image::make($storagePath)->response();
 

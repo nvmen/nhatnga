@@ -14,12 +14,17 @@
             <div class="carousel-inner" role="listbox">
                 @foreach($banners as $banner)
                     <div class="item @if($index==0) active @endif">
-                        <img src="{!! route('media.get', ['id'=>$banner->media_ids,'resize'=>'1920x1080'])  !!}" alt="{{$banner->translation()->first()->title}}">
+
+                        <img
+                                    src="{{\App\Helper::get_url_media($banner->media_ids,'1920x1080')}}" alt="{{$banner->translation()->first()->title}}"
+                                    onerror="this.src='{!! route('media.get', ['id'=>$banner->media_ids,'resize'=>'1920x1080'])  !!}';"
+                        >
                         <div class="carousel-caption content-slider">
                             <div class="container">
                                 <h2>{{$banner->translation()->first()->title}} </h2>
                                 <p>{{$banner->translation()->first()->sub_title}}</p>
                                 <p><a href="{{$banner->translation()->first()->link}}" class="btn btn-slider">{{$banner->translation()->first()->link_text}} </a></p>
+
                             </div>
                         </div>
                     </div>
@@ -310,8 +315,12 @@
                                                 @php
                                                 $media_id =$tour->get_first_media_id($tour->media_ids);
                                                 @endphp
-                                                <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
-                                                     alt="" title="" width="430" height="305" class="img-responsive">
+                                                <img
+                                                 
+                                                        src="{{\App\Helper::get_url_media($media_id,'430x305')}}"
+                                                        onerror="this.src='{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}';"
+
+                                                        alt="" title="" width="430" height="305" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="wrapper_content">
@@ -509,7 +518,10 @@
                                                     @php
                                                     $media_id =$tour->get_first_media_id($tour->media_ids);
                                                     @endphp
-                                                    <img src="{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}"
+                                                    <img
+                                                         src="{{\App\Helper::get_url_media($media_id,'430x305')}}"
+                                                         onerror="this.src='{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}';"
+
                                                          width="430" height="305" class="img-responsive"
                                                          alt="" title="">
                                                 </a>
@@ -649,7 +661,8 @@
                                         <a href="{{route('frontend.news.detail',['slug'=>$news->slug_url])}}"
                                            class="entry-thumbnail">
                                             <img width="370" height="260"
-                                                 src="{!! route('media.get', ['id'=>$news->media_ids,'resize'=>'370x260'])  !!}"
+                                                 src="{{\App\Helper::get_url_media($news->media_ids,'370x260')}}"
+                                                 onerror="this.src='{!! route('media.get', ['id'=>$banner->media_ids,'resize'=>'370x260'])  !!}';"
                                                  alt="">
                                         </a>
                                     </div>
