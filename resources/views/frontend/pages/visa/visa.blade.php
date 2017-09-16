@@ -108,7 +108,10 @@ $content_seo = $seo_data;
                     <div class="col-md-3">
                         <div class="product-item">
                             <div class="pi-img-wrapper">
-                                <img src="{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'148x85'])  !!}" class="img-responsive img-border" alt="{{$visa->translation()->first()->name}}">
+                                <img 
+                                     src="{{\App\Helper::get_url_media($visa->media_ids,'148x85')}}"
+                                     onerror="this.src='{!! route('media.get', ['id'=>$visa->media_ids,'resize'=>'148x85'])  !!}';"
+                                     class="img-responsive img-border" alt="{{$visa->translation()->first()->name}}">
                                 <div>
                                     <a href="{{route('frontend.visa.detail',['slug'=>$visa->slug_url])}}" class="btn">View</a>
                                 </div>

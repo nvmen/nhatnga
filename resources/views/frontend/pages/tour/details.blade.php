@@ -202,7 +202,10 @@
                                 <div class="entry-content-tour">
                                     <p class="price">
                                         <span class="text">{{__('tour.price')}}:</span><span
-                                                class="travel_tour-Price-amount amount"> {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+                                                class="travel_tour-Price-amount amount">
+                                            {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
+
+                                        </span>
                                     </p>
                                     <div class="clear"></div>
                                     <div class="booking">
