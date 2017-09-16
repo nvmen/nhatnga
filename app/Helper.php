@@ -70,12 +70,14 @@ class Helper extends Model
                     'name' => $media->uuid_name,
                     'link' => route('media.get', ['id' => $media->id, 'resize' => $resize]),
                     'size' => $media->size,
+                    'id'=>$id
                 ];
             } else {
                 $info = [
                     'name' => 'men nguyen',
                     'link' => 'www.google.com',
                     'size' => '0',
+                    'id'=>'0'
                 ];
             }
             array_push($arr_media, $info);

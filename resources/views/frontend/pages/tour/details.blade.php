@@ -84,8 +84,8 @@
                                         <li>
                                             <a href="{{  $media['link']}}" class="swipebox" title="">
                                                 <img width="950" height="700"
-                                                     src=" {{ $media['link'] }}"
-
+                                                     src="{{\App\Helper::get_url_media($media['id'],'950x700')}}"
+                                                     onerror="this.src='{!! $media['link'] !!}';"
                                                      class="attachment-shop_single size-shop_single wp-post-image"
                                                      alt=""
                                                      title="" draggable="false"></a>
@@ -103,7 +103,8 @@
 
                                         <li>
                                             <img width="150" height="100"
-                                                 src="{{ $media['link'] }}"
+                                                 src="{{\App\Helper::get_url_media($media['id'],'150x100')}}"
+                                                 onerror="this.src='{!! $media['link'] !!}';"
                                                  class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
                                                  alt=""
                                                  title="" draggable="false">

@@ -316,7 +316,7 @@
                                                 $media_id =$tour->get_first_media_id($tour->media_ids);
                                                 @endphp
                                                 <img
-                                                 
+
                                                         src="{{\App\Helper::get_url_media($media_id,'430x305')}}"
                                                         onerror="this.src='{!! route('media.get', ['id'=>$media_id,'resize'=>'430x305'])  !!}';"
 
