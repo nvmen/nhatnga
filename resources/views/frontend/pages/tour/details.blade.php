@@ -59,6 +59,7 @@
                                            <del>
                                                         <span class="travel_tour-Price-amount amount ">
                                                             {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
+
                                                         </span>
                                            </del>
                                            <ins>
@@ -69,6 +70,7 @@
                                        @else
                                            <span class="travel_tour-Price-amount amount detail-tour">
                                                         {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}</span>
+                                                    
                                        @endif
 											</span>
                                 </div>
@@ -142,13 +144,13 @@
                                 <h2>{{__('tour.related_tours')}}</h2>
                                 <ul class="tours products wrapper-tours-slider">
 
-                                    @foreach($related_tours as $tour)
+                                    @foreach($related_tours as $tour_re)
                                         <li class="item-tour col-md-4 col-sm-6 product">
                                             <div class="item_border item-product">
                                                 <div class="post_images">
-                                                    <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}">
+                                                    <a href="{{route('frontend.tour.detail',['slug'=>$tour_re->slug_url])}}">
                                                     <span class="price">
-                                                        {{App\Helper::get_format_money($tour->translation()->first()->adult_price,0)}}
+                                                        {{App\Helper::get_format_money($tour_re->translation()->first()->adult_price,0)}}
                                                     </span>
                                                         @php
                                                         $media_id =$tour->get_first_media_id($tour->media_ids);
@@ -160,29 +162,29 @@
                                                 </div>
                                                 <div class="wrapper_content">
                                                     <div class="post_title"><h4 class="title-tour">
-                                                            <a href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                                            <a href="{{route('frontend.tour.detail',['slug'=>$tour_re->slug_url])}}"
                                                                rel="bookmark">
-                                                                {{$tour->translation()->first()->name}}
+                                                                {{$tour_re->translation()->first()->name}}
                                                             </a>
                                                         </h4></div>
-                                                    <span class="post_date">{{$tour->duration_day}} {{__('tour.days')}} {{$tour->duration_night}} {{__('tour.nights')}}</span>
+                                                    <span class="post_date">{{$tour_re->duration_day}} {{__('tour.days')}} {{$tour_re->duration_night}} {{__('tour.nights')}}</span>
                                                     <div class="description content-des-tour-item">
                                                         <p>
-                                                            {{App\Helper::get_words($tour->translation()->first()->short_description,20)}}
+                                                            {{App\Helper::get_words($tour_re->translation()->first()->short_description,20)}}
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <div class="read_more">
                                                     <div class="item_rating">
-                                                        @for ($i = 0; $i < $tour->rating; $i++)
+                                                        @for ($i = 0; $i < $tour_re->rating; $i++)
                                                             <i class="fa fa-star"></i>
                                                         @endfor
-                                                        @for ($i = 0; $i < 5-$tour->rating; $i++)
+                                                        @for ($i = 0; $i < 5-$tour_re->rating; $i++)
                                                             <i class="fa fa-star-o"></i>
                                                         @endfor
 
                                                     </div>
-                                                    <a rel="nofollow" href="{{route('frontend.tour.detail',['slug'=>$tour->slug_url])}}"
+                                                    <a rel="nofollow" href="{{route('frontend.tour.detail',['slug'=>$tour_re->slug_url])}}"
                                                        class="button product_type_tour_phys add_to_cart_button">
                                                         {{__('nhatnga_menu.view_more')}}
                                                     </a>
