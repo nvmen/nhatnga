@@ -177,7 +177,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <label>Departure from</label>
-                                    <select id="departure_from" name="departure_from">
+                                    <select id="departure_from" name="departure_from"  value="{{$tour->departure_from}}">
                                         @foreach($locations as $location)
                                             <option value="{{$location->translation('en')->first()->id}}" @if($location->id ==$tour->departure_from) selected @endif>
                                                 {{$location->translation('en')->first()->name}}</option>
@@ -378,7 +378,9 @@
             //$('.datepicker').datepicker();
           //  $('#departure_from').val({{$tour->departure_from}});
             $('#departure_from').selectize();
+            $('#departure_from')[0].selectize.setValue('{{$tour->departure_from}}')
             $('#destination').selectize();
+            $('#destination')[0].selectize.setValue('{{$tour->destination}}')
             $('#food_type').prop('disabled', true);
             $('#food_location').prop('disabled', true);
             $('#is_outbound').change(function () {
