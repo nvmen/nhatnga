@@ -179,7 +179,7 @@
                                     <label>Departure from</label>
                                     <select id="departure_from" name="departure_from"  value="{{$tour->departure_from}}">
                                         @foreach($locations as $location)
-                                            <option value="{{$location->translation('en')->first()->id}}" @if($location->id ==$tour->departure_from) selected @endif>
+                                            <option value="{{$location->id}}" @if($location->id ==$tour->departure_from) selected @endif>
                                                 {{$location->translation('en')->first()->name}}</option>
                                         @endforeach
 
@@ -191,7 +191,8 @@
                                         @foreach($locations as $location)
                                             <option
                                                     @if($location->id ==$tour->destination) selected @endif
-                                                    value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
+                                                    value="{{$location->id}}">{{$location->translation('en')->first()->name}}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>

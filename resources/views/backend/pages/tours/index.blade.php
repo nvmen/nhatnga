@@ -269,7 +269,7 @@
                                         <label>Departure from</label>
                                         <select id="departure_from" name="departure_from">
                                             @foreach($locations as $location)
-                                                <option value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
+                                                <option value="{{$location->id}}">{{$location->translation('en')->first()->name}}</option>
                                             @endforeach
 
                                         </select>
@@ -278,7 +278,7 @@
                                         <label>Destination</label>
                                         <select id="destination" name="destination">
                                             @foreach($locations as $location)
-                                                <option value="{{$location->translation('en')->first()->id}}">{{$location->translation('en')->first()->name}}</option>
+                                                <option value="{{$location->id}}">{{$location->translation('en')->first()->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
