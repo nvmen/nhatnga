@@ -178,7 +178,7 @@ class TourController extends Controller
         $paginatedSearchResults->appends(['tour_name' => $request['tour_name']]);
         $paginatedSearchResults->appends(['destination' => $request['destination']]);
         $paginatedSearchResults->appends(['tour_type' => $request['tour_type']]);
-        $paginatedSearchResults->setPath(route('frontend.tour.international'));
+        $paginatedSearchResults->setPath(route('frontend.tour.domestic'));
         $locations = Location::where('is_domestic', 1)->get();
 
         return view('frontend.pages.tour.domestic', ['locations' => $locations, 'list_tour' => $paginatedSearchResults]);
